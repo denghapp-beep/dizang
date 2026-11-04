@@ -245,3 +245,4 @@ html:not(.lang-en) .only-en{display:none!important}
 .mountain-quote .mq-next:hover{background:#ffffff1a}
 .mountain-quote .mq-inner{display:flex;flex-direction:column;align-items:center}
 .about-copy .about-intent{font-family:var(--serif);line-height:2;border-left:2px solid currentColor;padding-left:1em;opacity:.92}
+body{caret-color:transparent}input,textarea,select{caret-color:auto}
