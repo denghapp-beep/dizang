@@ -70,6 +70,13 @@
     'AI 藝術示意：工筆設色的地藏菩薩，持錫杖與寶珠，結跏趺坐於蓮臺，背景為雲山':'AI artwork: a colored fine-brush painting of Ksitigarbha holding a staff and jewel, seated cross-legged on a lotus before misty mountains',
     '以玄金的殿堂感為主，再收入宋韻的工筆坐像與青山的湖畔立像，一頁看見三種莊嚴。':'The golden hall of Black & Gold, joined by the seated fine-brush image of Song Scroll and the lakeside statue of Green Mountains — three kinds of reverence on one page.',
     '主題分類 ／ 全文搜尋 ／ 原文與既有白話 ／ 字級調整 ／ 本機收藏 ／ 手機版面':'Topics / Full-text search / Original and plain rendering / Text size / Saved articles / Mobile layout',
+    '法義與人分享，本來就是希望勸人向善、喚醒人心。':'The Dharma is shared to encourage goodness and awaken the heart.',
+    '無需讓天下人都承認這是菩薩說的話。':'There is no need for the whole world to accept these as the Bodhisattva\'s words.',
+    '如果一句話能讓一個人少一分惡、多一分善；':'If a single line helps someone do a little less harm and a little more good,',
+    '少一分怨，多一分慈悲，':'hold a little less resentment and a little more compassion,',
+    '這句話就已經有它的利益了。':'then that line has already done its good.',
+    '若其中有善的義理，希望大家取其善；':'Where there is wholesome meaning here, may you take what is good;',
+    '若有不符合正法之處，也請依照經典來辨別。':'where anything departs from the true Dharma, please discern it by the sutras.',
     '本文集以個人信仰與經驗紀錄的身分呈現，並非佛典原文或經過認證的菩薩言說。閱讀時，亦請尊重每個人因緣與處境的不同。':'This collection is presented as a record of personal faith and experience. It is not canonical scripture, nor verified words of the Bodhisattva. Please also respect that each person\'s conditions and circumstances differ.',
     '這裡收錄作者提供的夢中感應、請示對話、白話翻譯與道友經歷。從修行的提問，到親情、失落與人間日常，留下一段段觀照自心的文字。':'Here are the author\'s dream teachings, dialogues of inquiry, plain renderings and the experiences of fellow practitioners. From questions of practice to family, loss and everyday life, they leave passages for looking into one\'s own heart.',
     '整理方式：保留來稿文字及既有白話，僅調整排版、增加分類與導讀。未附白話的篇章不另造譯文。三幅主視覺為 AI 生成的宗教藝術示意，非實際感應現場照片。':'How this was arranged: the submitted texts and existing plain renderings are kept; only layout, topics and introductions were added. The English translation was prepared separately and the Chinese original remains authoritative. The three main images are AI-generated religious artwork, not photographs of actual events.'
