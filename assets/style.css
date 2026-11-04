@@ -241,3 +241,6 @@ html:not(.lang-en) .only-en{display:none!important}
 .lang-en .enter-title,.lang-en .enter-sub{letter-spacing:.06em}
 @media(prefers-reduced-motion:reduce){.enter-gate{transition:none}}
 @media print{.enter-gate{display:none!important}}
+.mountain-quote .mq-next{margin-top:10px;background:none;border:1px solid #ffffff55;color:#f4f2e2;font:13px var(--sans);letter-spacing:.12em;padding:8px 16px;border-radius:999px;cursor:pointer;min-height:40px}
+.mountain-quote .mq-next:hover{background:#ffffff1a}
+.mountain-quote .mq-inner{display:flex;flex-direction:column;align-items:center}

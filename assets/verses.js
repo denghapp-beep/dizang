@@ -285,9 +285,31 @@
 "title_en": "What Does It Mean to Learn \"With Heart\"?"
 }
 ];
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  // 玄金合璧：青山圖帶，隨機替換引句（所有螢幕寬度都顯示）
+  const mq = document.querySelector('.mountain-quote .mq-inner');
+  if (mq && VERSES.length) {
+    const bq = mq.querySelector('blockquote'), src = mq.querySelector('a');
+    let prev = null;
+    try { prev = sessionStorage.getItem('ksitigarbha-verse'); } catch {}
+    const btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'mq-next';
+    src.after(btn);
+    const pick = () => {
+      const pool = VERSES.filter(v => v.text !== prev);
+      const v = pool[Math.floor(Math.random() * pool.length)];
+      prev = v.text;
+      try { sessionStorage.setItem('ksitigarbha-verse', v.text); } catch {}
+      bq.textContent = isEN ? v.en : v.text;
+      src.href = 'reader.html?id=' + v.id;
+      src.textContent = isEN ? 'From “' + v.title_en + '” →' : '摘自〈' + v.title + '〉 →';
+      btn.textContent = isEN ? 'Another line ↻' : '換一句 ↻';
+    };
+    btn.addEventListener('click', pick);
+    pick();
+  }
   const host = document.querySelector('.mountain-hero');
   if (!host || !VERSES.length) return;
-  const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const box = document.createElement('figure');
   box.className = 'hero-verse';
   host.appendChild(box);

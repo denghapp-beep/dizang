@@ -24,5 +24,5 @@
   fetch(base + '/counter/TOTAL.json')
     .then(r => r.ok ? r.json() : Promise.reject(r.status))
     .then(d => { if (d && d.count) el.textContent = (window.I18N && window.I18N.lang === 'en') ? d.count + ' visits' : '來訪 ' + d.count + ' 人次'; })
-    .catch(() => el.remove());
+    .catch(() => { el.textContent = ""; });
 })();
