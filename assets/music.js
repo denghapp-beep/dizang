@@ -68,6 +68,7 @@
         onReady: () => {
           ready = true; player.setVolume(pref.volume);
           if (!wantPlay) return;
+          if (entered || document.querySelector('.enter-gate.leaving')) { player.unMute(); }
           player.unMute(); player.playVideo();
           // 瀏覽器若擋下有聲自動播放，改為靜音先播，訪客一互動就恢復聲音。
           setTimeout(() => {
@@ -124,12 +125,34 @@
     else play();
   });
 
-  // 預設開啟：網頁一開啟就載入並嘗試播放；
-  // 瀏覽器若不允許有聲自動播放，先靜音播放，訪客第一次點擊、觸碰或按鍵時恢復聲音。
+  // 預設開啟：瀏覽器禁止未經點擊就出聲，所以每次開啟網站先顯示入口畫面，
+  // 訪客點「進入」的同一下就開始播放聖號（只出現一次，同一分頁內換頁不再出現）。
+  const ENTER = 'ksitigarbha-entered';
+  let entered = false;
+  try { entered = sessionStorage.getItem(ENTER) === '1'; } catch {}
+  function markEntered() { try { sessionStorage.setItem(ENTER, '1'); } catch {} }
   if (pref.on) {
     play();
+    if (!entered) {
+      const gate = document.createElement('div');
+      gate.className = 'enter-gate';
+      gate.setAttribute('role', 'dialog');
+      gate.setAttribute('aria-label', T('進入網站', 'Enter the site'));
+      gate.innerHTML = `<div class="enter-inner">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 37C11 36 5 29 5 19c10 0 16 6 19 18Zm0 0c13-1 19-8 19-18-10 0-16 6-19 18Zm0-1C14 27 14 16 24 6c10 10 10 21 0 30Z"/><path d="M10 40h28"/></svg>
+        <p class="enter-title">${T('南無地藏王菩薩', 'Namo Ksitigarbha Bodhisattva')}</p>
+        <p class="enter-sub">${T('地藏菩薩感應文集', 'Collected Teachings')}</p>
+        <button type="button" class="enter-go">${T('點擊進入 · 聆聽聖號', 'Enter · with the chant')}</button>
+        <button type="button" class="enter-quiet">${T('靜音進入', 'Enter without sound')}</button></div>`;
+      document.body.appendChild(gate);
+      document.documentElement.classList.add('gate-open');
+      const close = () => { gate.classList.add('leaving'); document.documentElement.classList.remove('gate-open'); markEntered(); setTimeout(() => gate.remove(), 600); };
+      gate.querySelector('.enter-go').addEventListener('click', () => { play(); unmuteNow(); if (ready) player.playVideo(); close(); });
+      gate.querySelector('.enter-quiet').addEventListener('click', () => { pause(); close(); });
+      gate.querySelector('.enter-go').focus();
+    }
     const first = e => {
-      if (root.contains(e.target)) return;
+      if (root.contains(e.target) || e.target.closest('.enter-gate')) return;
       ['pointerup', 'keydown'].forEach(t => document.removeEventListener(t, first, true));
       if (wantPlay) { unmuteNow(); if (ready && player.getPlayerState() !== YT.PlayerState.PLAYING) player.playVideo(); }
     };
