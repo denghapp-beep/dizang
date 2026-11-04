@@ -6,7 +6,7 @@
    未填代號時不計數、不顯示。GoatCounter 預設不計算 localhost 的本機預覽。 */
 (() => {
   'use strict';
-  const CODE = '';
+  const CODE = 'denghapp';
   if (!/^[a-z0-9-]{2,50}$/.test(CODE)) return;
   const base = `https://${CODE}.goatcounter.com`;
 
