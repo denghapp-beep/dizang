@@ -308,6 +308,28 @@
     btn.addEventListener('click', pick);
     pick();
   }
+  // 文章頁結尾青山圖：隨機一句（排除本篇）
+  const endP = document.querySelector('.fusion-end p');
+  if (endP && VERSES.length) {
+    const cur = new URLSearchParams(location.search).get('id');
+    const wrap = endP.parentNode;
+    const src = document.createElement('a'); src.className = 'end-src';
+    const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'mq-next';
+    endP.after(src, btn);
+    let prevEnd = null;
+    const pickEnd = () => {
+      const pool = VERSES.filter(v => v.id !== cur && v.text !== prevEnd);
+      const v = pool[Math.floor(Math.random() * pool.length)];
+      prevEnd = v.text;
+      endP.textContent = isEN ? v.en : v.text;
+      src.href = 'reader.html?id=' + v.id;
+      src.textContent = isEN ? 'From “' + v.title_en + '” →' : '摘自〈' + v.title + '〉 →';
+      btn.textContent = isEN ? 'Another line ↻' : '換一句 ↻';
+    };
+    btn.addEventListener('click', pickEnd);
+    pickEnd();
+    wrap.classList.add('has-verse');
+  }
   const host = document.querySelector('.mountain-hero');
   if (!host || !VERSES.length) return;
   const box = document.createElement('figure');
