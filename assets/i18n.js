@@ -5,7 +5,8 @@
   'use strict';
   const KEY = 'ksitigarbha-lang';
   let lang = 'zh';
-  try { const q = new URLSearchParams(location.search).get('lang'); if (q === 'en' || q === 'zh') { lang = q; localStorage.setItem(KEY, q); } else if (localStorage.getItem(KEY) === 'en') lang = 'en'; } catch {}
+  const LANGS = ['zh', 'en', 'vi'];
+  try { const q = new URLSearchParams(location.search).get('lang'); if (LANGS.includes(q)) { lang = q; localStorage.setItem(KEY, q); } else if (LANGS.includes(localStorage.getItem(KEY))) lang = localStorage.getItem(KEY); } catch {}
 
   const UI = {
     '一':'I','二':'II','三':'III','ABOUT · 閱讀與製作說明':'ABOUT','閱讀與製作說明 · 地藏菩薩感應文集':'About This Site · Ksitigarbha: Collected Teachings',
@@ -83,14 +84,22 @@
   };
   const CAT = {'全部':'All','修心與日常':'Mind & Daily Life','因果與願行':'Karma & Vows','情感與關係':'Love & Relationships','生命與照護':'Life & Care','經典與修持':'Sutras & Practice','人間與世事':'Society & the World','親身經歷':'Personal Accounts'};
 
-  const t = (zh, en) => lang === 'en' ? en : zh;
-  // 英文模式才載入英文文章資料，中文訪客不多下載。
+  // 越南文：對照表放在 i18n_vi.js（VI_I18N），文章在 data_vi.js（同樣掛在 ARCHIVE_EN，供 app.js 共用外文路徑）。
+  const VI = () => window.VI_I18N || {ui: {}, cat: {}, t: {}};
+  const foreign = lang !== 'zh';
+  const t = (zh, en, vi) => lang === 'zh' ? zh : lang === 'en' ? en : (vi != null ? vi : (VI().t[en] || en));
+  const dict = () => lang === 'vi' ? VI().ui : UI;
+  // 外文模式才載入外文資料，中文訪客不多下載。
   const me = document.currentScript;
-  if (lang === 'en' && me && me.dataset.en) document.write('<script src="' + me.dataset.en + '"><\/script>');
-  window.I18N = { lang, t, cat: c => lang === 'en' ? (CAT[c] || c) : c };
+  if (me && lang !== 'zh') {
+    const src = lang === 'en' ? [me.dataset.en] : [me.dataset.viUi, me.dataset.vi];
+    src.filter(Boolean).forEach(s => document.write('<script src="' + s + '"><\/script>'));
+  }
+  window.I18N = { lang, foreign, t, cat: c => lang === 'zh' ? c : ((lang === 'vi' ? VI().cat : CAT)[c] || c) };
 
   function translateDom(root) {
-    if (lang !== 'en') return;
+    if (lang === 'zh') return;
+    const UI = dict();
     const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     const nodes = [];
     while (w.nextNode()) nodes.push(w.currentNode);
@@ -104,26 +113,30 @@
     });
   }
   function applyStatic() {
-    document.documentElement.lang = lang === 'en' ? 'en' : 'zh-Hant';
-    document.documentElement.classList.toggle('lang-en', lang === 'en');
-    if (lang === 'en') {
+    document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang;
+    // 越南文沿用英文的拉丁字排版（lang-en），另加 lang-vi 供個別微調。
+    document.documentElement.classList.toggle('lang-en', foreign);
+    document.documentElement.classList.toggle('lang-vi', lang === 'vi');
+    if (foreign) {
+      const UI = dict();
       const m = document.querySelector('meta[name=description]'); if (m && UI[m.content]) m.content = UI[m.content];
       if (UI[document.title]) document.title = UI[document.title];
       translateDom(document.body);
     }
     const header = document.querySelector('.site-header, .showcase-header');
     if (header && !header.querySelector('.lang-switch')) {
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'lang-switch';
-      b.setAttribute('aria-label', lang === 'en' ? '切換為中文' : 'Switch to English');
-      b.innerHTML = lang === 'en' ? '<span lang="zh-Hant">中文</span>' : '<span lang="en">EN</span>';
-      b.addEventListener('click', () => {
-        try { localStorage.setItem(KEY, lang === 'en' ? 'zh' : 'en'); } catch {}
+      const sel = document.createElement('select');
+      sel.className = 'lang-switch';
+      sel.setAttribute('aria-label', '語言 · Language · Ngôn ngữ');
+      sel.innerHTML = [['zh', '中文', 'zh-Hant'], ['en', 'EN', 'en'], ['vi', 'VI', 'vi']]
+        .map(([v, l, h]) => `<option value="${v}" lang="${h}"${v === lang ? ' selected' : ''}>${l}</option>`).join('');
+      sel.addEventListener('change', () => {
+        try { localStorage.setItem(KEY, sel.value); } catch {}
         if (window.__PV && window.__PV.reload) { window.__PV.reload(); return; }
         const u = new URL(location.href); u.searchParams.delete('lang'); location.href = u.href;
       });
       const edition = header.querySelector('.edition');
-      edition ? header.insertBefore(b, edition) : header.appendChild(b);
+      edition ? header.insertBefore(sel, edition) : header.appendChild(sel);
     }
   }
   window.I18N.translateDom = translateDom;

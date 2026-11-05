@@ -2,7 +2,8 @@
    每句皆逐字取自該篇「菩薩開示」原文，並經人工挑選；新增時請同樣核對原文。 */
 (() => {
   'use strict';
-  const isEN = !!(window.I18N && window.I18N.lang === 'en');
+  const isEN = !!(window.I18N && window.I18N.foreign);
+  const L = (z, e, v) => window.I18N ? window.I18N.t(z, e, v) : z;
   const VERSES = [
 {
 "id": "001",
@@ -285,6 +286,10 @@
 "title_en": "What Does It Mean to Learn \"With Heart\"?"
 }
 ];
+  if (window.I18N && window.I18N.lang === 'vi') {
+    const VV = window.VI_VERSES || {}, AR = (window.ARCHIVE_EN && window.ARCHIVE_EN.articles) || {};
+    VERSES.forEach((v, i) => { if (VV[i]) v.en = VV[i]; if (AR[v.id]) v.title_en = AR[v.id].title; });
+  }
   const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   // 玄金合璧：青山圖帶，隨機替換引句（所有螢幕寬度都顯示）
   const mq = document.querySelector('.mountain-quote .mq-inner');
@@ -302,8 +307,8 @@
       try { sessionStorage.setItem('ksitigarbha-verse', v.text); } catch {}
       bq.textContent = isEN ? v.en : v.text;
       src.href = 'reader.html?id=' + v.id;
-      src.textContent = isEN ? 'From “' + v.title_en + '” →' : '摘自〈' + v.title + '〉 →';
-      btn.textContent = isEN ? 'Another line ↻' : '換一句 ↻';
+      src.textContent = L('摘自〈' + v.title + '〉 →', 'From “' + v.title_en + '” →', 'Trích từ “' + v.title_en + '” →');
+      btn.textContent = L('換一句 ↻', 'Another line ↻', 'Câu khác ↻');
     };
     btn.addEventListener('click', pick);
     pick();
@@ -323,8 +328,8 @@
       prevEnd = v.text;
       endP.textContent = isEN ? v.en : v.text;
       src.href = 'reader.html?id=' + v.id;
-      src.textContent = isEN ? 'From “' + v.title_en + '” →' : '摘自〈' + v.title + '〉 →';
-      btn.textContent = isEN ? 'Another line ↻' : '換一句 ↻';
+      src.textContent = L('摘自〈' + v.title + '〉 →', 'From “' + v.title_en + '” →', 'Trích từ “' + v.title_en + '” →');
+      btn.textContent = L('換一句 ↻', 'Another line ↻', 'Câu khác ↻');
     };
     btn.addEventListener('click', pickEnd);
     pickEnd();

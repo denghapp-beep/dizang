@@ -251,3 +251,4 @@ body{caret-color:transparent}input,textarea,select{caret-color:auto}
 .fusion-end .end-src{font:12px var(--sans);letter-spacing:.08em;color:#d5ddcb;margin-top:8px;text-shadow:0 1px 6px #000a}
 .fusion-end .mq-next{margin-top:10px;background:none;border:1px solid #ffffff55;color:#f4f2e2;font:12px var(--sans);letter-spacing:.12em;padding:6px 14px;border-radius:999px;cursor:pointer;min-height:36px}
 .fusion-end .mq-next:hover{background:#ffffff1a}
+select.lang-switch{cursor:pointer;-webkit-appearance:none;appearance:none;text-align:center;text-align-last:center}select.lang-switch option{color:#1a1a1a;background:#f4efe4}

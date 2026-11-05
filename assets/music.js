@@ -2,7 +2,7 @@
    新增曲目：在 TRACKS 加一筆 {id:'YouTube 影片 ID', title:'顯示名稱', start:起始秒數}。 */
 (() => {
   'use strict';
-  const T = (z, e) => (window.I18N && window.I18N.lang === 'en') ? e : z;
+  const T = (z, e, v) => window.I18N ? window.I18N.t(z, e, v) : z;
   const TRACKS = [
     {id:'180E05O2xWk', title:T('南無地藏王菩薩聖號','Namo Ksitigarbha Bodhisattva (chant)'), credit:'TheCYH99', start:73},
     {id:'8E6H7neQt8I', title:T('佛光山梵唄《普門品》','Fo Guang Shan chant: Universal Gate Chapter'), credit:T('佛光山梵唄讚頌團－如是我聞','Fo Guang Shan Buddhist Hymn Choir'), start:0}
