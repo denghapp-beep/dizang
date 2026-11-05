@@ -66,9 +66,13 @@
     if(notices[article.id])$('#reading-notice').innerHTML='<div class="notice">'+notices[article.id]+'</div>';
     const hq=(params.get('q')||'').trim();
     let mode='all',fontSize=window.innerWidth<760?18:19;
-    try{const v=Number(localStorage.getItem('ksitigarbha-font-size'));if(v>=16&&v<=26)fontSize=v;}catch{}
-    function setFont(delta){fontSize=Math.min(26,Math.max(16,fontSize+delta));$('#article-body').style.setProperty('--reading-size',fontSize+'px');$('#font-down').disabled=fontSize<=16;$('#font-up').disabled=fontSize>=26;try{localStorage.setItem('ksitigarbha-font-size',fontSize);}catch{}}
-    setFont(0);$('#font-down').onclick=()=>setFont(-1);$('#font-up').onclick=()=>setFont(1);
+    try{const v=Number(localStorage.getItem('ksitigarbha-font-size'));if(v>=16&&v<=30)fontSize=v;}catch{}
+    function setFont(delta){fontSize=Math.min(30,Math.max(16,fontSize+delta));$('#article-body').style.setProperty('--reading-size',fontSize+'px');$('#font-down').disabled=fontSize<=16;$('#font-up').disabled=fontSize>=30;try{localStorage.setItem('ksitigarbha-font-size',fontSize);}catch{}}
+    setFont(0);$('#font-down').onclick=()=>setFont(-2);$('#font-up').onclick=()=>setFont(2);
+    const shareBtn=$('#share');if(shareBtn)shareBtn.addEventListener('click',async()=>{const url=new URL('../s/'+article.id+'.html',location.href).href;const title=article.title;
+      if(navigator.share){try{await navigator.share({title,url});}catch{}return;}
+      try{await navigator.clipboard.writeText(title+'\n'+url);toast(T('已複製本篇連結，可貼到 LINE 分享','Link copied — paste it anywhere to share','Đã sao chép liên kết, có thể dán để chia sẻ'));}
+      catch{window.prompt(T('複製這個連結分享：','Copy this link to share:','Sao chép liên kết này để chia sẻ:'),url);}});
     const modeLabels=EN?(VI?{context:'Thỉnh hỏi Bồ Tát Địa Tạng',original:'Lời khai thị của Bồ Tát',translation:'Bản diễn nghĩa',note:'Ghi chú của tác giả',account:'Trải nghiệm bản thân'}:{context:'Inquiry to Ksitigarbha Bodhisattva',original:'The Bodhisattva\'s Teaching',translation:'Plain Rendering',note:'Author\'s Note',account:'Personal Account'}):{context:'請示地藏王菩薩',original:'菩薩開示',translation:'白話翻譯',note:'原稿附註',account:'親身經歷 · 原稿'};
     const navLabels=EN?(VI?{context:'Thỉnh hỏi',original:'Khai thị',translation:'Diễn nghĩa',note:'Ghi chú',account:'Trải nghiệm'}:{context:'Inquiry',original:'Teaching',translation:'Plain rendering',note:'Note',account:'Account'}):{context:'請示',original:'菩薩開示',translation:'白話翻譯',note:'原稿附註',account:'親身經歷'};
     const diamond={context:true,original:true,translation:true};

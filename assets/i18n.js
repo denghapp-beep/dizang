@@ -78,6 +78,24 @@
     '這句話就已經有它的利益了。':'then that line has already done its good.',
     '若其中有善的義理，希望大家取其善；':'Where there is wholesome meaning here, may you take what is good;',
     '若有不符合正法之處，也請依照經典來辨別。':'where anything departs from the true Dharma, please discern it by the sutras.',
+    '十 齋 日 · TEN FASTING DAYS':'TEN FASTING DAYS',
+    '十齋日行事曆':'Calendar of the Ten Fasting Days',
+    '每月農曆十個日子，自動換算成國曆。':'Ten days of each lunar month, converted to the Western calendar.',
+    '上個月':'Previous month',
+    '下個月':'Next month',
+    '回到本月':'This month',
+    '本月齋日與紀念日':'Fasting days and observances this month',
+    '什麼是十齋日':'What are the Ten Fasting Days?',
+    '十齋日是農曆每月的初一、初八、十四、十五、十八、廿三、廿四、廿八、廿九、三十，共十天。遇到小月沒有三十日，習慣上以廿七日補足。':'The Ten Fasting Days fall on the 1st, 8th, 14th, 15th, 18th, 23rd, 24th, 28th, 29th and 30th of each lunar month. In a short month without a 30th, the 27th is customarily observed instead.',
+    '《地藏菩薩本願經》〈如來讚歎品〉說，這些日子是眾生罪業結集、定其輕重的時候；若能在十齋日於佛菩薩像前讀誦此經，能得種種利益。許多佛弟子會在這些日子持齋茹素、誦經念佛，以此日日提醒自己少造惡、多行善。':'The Sutra of the Fundamental Vows of Kṣitigarbha Bodhisattva (chapter “The Tathāgata’s Praise”) says these are the days when beings’ offenses are gathered and weighed; reciting the sutra before images of Buddhas and Bodhisattvas on these days brings many benefits. Many Buddhists keep a vegetarian fast and recite sutras and the Buddha’s name on these days, as a regular reminder to do less harm and more good.',
+    '經文':'The sutra text',
+    '——《地藏菩薩本願經》卷中〈如來讚歎品第六〉':'— Sutra of the Fundamental Vows of Kṣitigarbha Bodhisattva, fascicle 2, chapter 6 “The Tathāgata’s Praise” (Chinese original)',
+    '說明':'Notes',
+    '農曆換算以天文曆法計算，涵蓋國曆 2025 至 2035 年。':'Lunar dates are computed astronomically and cover 2025 to 2035.',
+    '佛菩薩紀念日依台灣佛教常見的日期標示；遇小月沒有三十日，三十日的紀念日（如地藏菩薩聖誕）提前一天，與各道場習慣可能略有不同。':'Observances follow dates common in Taiwanese Buddhism. When a month has no 30th, an observance on the 30th (such as Kṣitigarbha’s birthday) moves one day earlier; local temples may differ slightly.',
+    '十齋日':'Fasting Days',
+    '十齋日行事曆 · 地藏菩薩感應文集':'Ten Fasting Days · Ksitigarbha: Collected Teachings',
+    '字－':'A−','字＋':'A+','分享本篇':'Share','大字':'Large text','標準字':'Normal text','放大全站文字':'Enlarge all text',
     '本文集以個人信仰與經驗紀錄的身分呈現，並非佛典原文或經過認證的菩薩言說。閱讀時，亦請尊重每個人因緣與處境的不同。':'This collection is presented as a record of personal faith and experience. It is not canonical scripture, nor verified words of the Bodhisattva. Please also respect that each person\'s conditions and circumstances differ.',
     '這裡收錄作者提供的夢中感應、請示對話、白話翻譯與道友經歷。從修行的提問，到親情、失落與人間日常，留下一段段觀照自心的文字。':'Here are the author\'s dream teachings, dialogues of inquiry, plain renderings and the experiences of fellow practitioners. From questions of practice to family, loss and everyday life, they leave passages for looking into one\'s own heart.',
     '整理方式：保留來稿文字及既有白話，僅調整排版、增加分類與導讀。未附白話的篇章不另造譯文。三幅主視覺為 AI 生成的宗教藝術示意，非實際感應現場照片。':'How this was arranged: the submitted texts and existing plain renderings are kept; only layout, topics and introductions were added. The English translation was prepared separately and the Chinese original remains authoritative. The three main images are AI-generated religious artwork, not photographs of actual events.'
@@ -137,6 +155,16 @@
       });
       const edition = header.querySelector('.edition');
       edition ? header.insertBefore(sel, edition) : header.appendChild(sel);
+      // 全站大字（長輩友善）：記在本機
+      const BIG = 'ksitigarbha-big-text';
+      let big = false; try { big = localStorage.getItem(BIG) === '1'; } catch {}
+      const bt = document.createElement('button');
+      bt.type = 'button'; bt.className = 'text-size';
+      const paint = () => { document.documentElement.classList.toggle('big-text', big); bt.textContent = big ? t('標準字', 'A', 'Chữ thường') : t('大字', 'A+', 'Chữ lớn'); bt.setAttribute('aria-pressed', String(big)); };
+      bt.setAttribute('aria-label', t('放大全站文字', 'Enlarge all text', 'Phóng to chữ toàn trang'));
+      bt.addEventListener('click', () => { big = !big; try { localStorage.setItem(BIG, big ? '1' : '0'); } catch {} paint(); });
+      paint();
+      header.insertBefore(bt, sel);
     }
   }
   window.I18N.translateDom = translateDom;
