@@ -6,7 +6,7 @@
   const KEY = 'ksitigarbha-lang';
   let lang = 'zh';
   const LANGS = ['zh', 'en', 'vi'];
-  try { const q = new URLSearchParams(location.search).get('lang'); if (LANGS.includes(q)) { lang = q; localStorage.setItem(KEY, q); } else if (LANGS.includes(localStorage.getItem(KEY))) lang = localStorage.getItem(KEY); } catch {}
+  try { const q = new URLSearchParams(location.search).get('lang'); if (LANGS.includes(q)) { lang = q; localStorage.setItem(KEY, q); const u = new URL(location.href); u.searchParams.delete('lang'); history.replaceState(history.state, '', u.href); } else if (LANGS.includes(localStorage.getItem(KEY))) lang = localStorage.getItem(KEY); } catch {}
 
   const UI = {
     '一':'I','二':'II','三':'III','ABOUT · 閱讀與製作說明':'ABOUT','閱讀與製作說明 · 地藏菩薩感應文集':'About This Site · Ksitigarbha: Collected Teachings',
@@ -151,7 +151,8 @@
       sel.addEventListener('change', () => {
         try { localStorage.setItem(KEY, sel.value); } catch {}
         if (window.__PV && window.__PV.reload) { window.__PV.reload(); return; }
-        const u = new URL(location.href); u.searchParams.delete('lang'); location.href = u.href;
+        // 網址帶 lang 參數，確保一定觸發重新載入（只改 # 時瀏覽器不會重載，平板上常見「切了沒反應」）
+        const u = new URL(location.href); u.searchParams.set('lang', sel.value); location.replace(u.href);
       });
       const edition = header.querySelector('.edition');
       edition ? header.insertBefore(sel, edition) : header.appendChild(sel);
@@ -168,5 +169,7 @@
     }
   }
   window.I18N.translateDom = translateDom;
+  // 從上一頁返回時（瀏覽器快取頁面），若語言已在別頁改過，就重新載入
+  window.addEventListener('pageshow', e => { try { const v = localStorage.getItem(KEY) || 'zh'; if (e.persisted && v !== lang) location.reload(); } catch {} });
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', applyStatic) : applyStatic();
 })();

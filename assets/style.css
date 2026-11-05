@@ -295,3 +295,6 @@ html.big-text main,html.big-text footer{zoom:1.2}
 .zhai-intro blockquote{font:17px/2.1 var(--serif);border-left:2px solid var(--accent);padding-left:1.2em;margin:14px 0}
 .lang-en .zc span[lang]{font-size:10px}
 @media(max-width:760px){.zhai-page{padding-block:40px 20px}#zhai-app{grid-template-columns:1fr;gap:26px}.zhai-today{position:static;padding:20px}.zc{min-height:58px;padding:4px 3px;font-size:9px}.zc b{font-size:14px}.zc i{display:none}.zc.fest b:after{content:'•';color:var(--accent);margin-left:2px}.zm-head h3{font-size:18px}}
+.zhai-bar{display:block;text-align:center;padding:10px 20px;font-size:13px;letter-spacing:.06em;color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent);border-bottom:1px solid var(--line)}
+.zhai-bar span{margin-left:12px;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:760px){.zhai-bar{font-size:12px;padding:9px 14px;line-height:1.7}.zhai-bar span{display:inline-block;margin-left:6px}}
