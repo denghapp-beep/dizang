@@ -5,7 +5,8 @@
   const T = (z, e, v) => window.I18N ? window.I18N.t(z, e, v) : z;
   const TRACKS = [
     {id:'180E05O2xWk', title:T('南無地藏王菩薩聖號','Namo Ksitigarbha Bodhisattva (chant)'), credit:'TheCYH99', start:73},
-    {id:'8E6H7neQt8I', title:T('佛光山梵唄《普門品》','Fo Guang Shan chant: Universal Gate Chapter'), credit:T('佛光山梵唄讚頌團－如是我聞','Fo Guang Shan Buddhist Hymn Choir'), start:0}
+    {id:'8E6H7neQt8I', title:T('佛光山梵唄《普門品》','Fo Guang Shan chant: Universal Gate Chapter'), credit:T('佛光山梵唄讚頌團－如是我聞','Fo Guang Shan Buddhist Hymn Choir'), start:0},
+    {id:'OHE3cQ1rW7Y', title:T('《地藏王菩薩》路勇演唱','“Ksitigarbha Bodhisattva” sung by Lu Yong','“Địa Tạng Vương Bồ Tát” – Lộ Dũng trình bày'), credit:'佛弟子', start:0}
   ];
   const DEFAULT_VOLUME = 5;            // 0–100；預設最低、有聲音即可
   const KEY = 'ksitigarbha-music-v1';  // 偏好（開關、曲目、音量）存於本機
