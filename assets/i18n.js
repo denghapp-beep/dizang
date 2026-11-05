@@ -5,7 +5,7 @@
   'use strict';
   const KEY = 'ksitigarbha-lang';
   let lang = 'zh';
-  const LANGS = ['zh', 'sc', 'en', 'vi', 'ja'];
+  const LANGS = ['zh', 'sc', 'en', 'vi', 'ja', 'ko'];
   try { const q = new URLSearchParams(location.search).get('lang'); if (LANGS.includes(q)) { lang = q; localStorage.setItem(KEY, q); const u = new URL(location.href); u.searchParams.delete('lang'); history.replaceState(history.state, '', u.href); } else if (LANGS.includes(localStorage.getItem(KEY))) lang = localStorage.getItem(KEY); } catch {}
 
   const UI = {
@@ -104,17 +104,17 @@
 
   // 越南文：對照表放在 i18n_vi.js（VI_I18N），文章在 data_vi.js（同樣掛在 ARCHIVE_EN，供 app.js 共用外文路徑）。
   const EMPTY = {ui: {}, cat: {}, t: {}};
-  const VI = () => (lang === 'ja' ? window.JA_I18N : window.VI_I18N) || EMPTY;  // 越南文／日文共用同一套結構
+  const VI = () => (lang === 'ja' ? window.JA_I18N : lang === 'ko' ? window.KO_I18N : window.VI_I18N) || EMPTY;  // 越南文／日文共用同一套結構
   const SC = lang === 'sc';  // 簡體：沿用中文邏輯，文字即時以字表轉換
   const sc = str => { const M = window.SC_MAP; return (M && typeof str === 'string') ? str.replace(/[\u4e00-\u9fff]/g, c => M[c] || c) : str; };
   const foreign = lang !== 'zh' && !SC;
-  const t = (zh, en, vi, ja) => SC ? sc(zh) : lang === 'zh' ? zh : lang === 'en' ? en : lang === 'ja' ? (ja != null ? ja : (VI().t[en] || en)) : (vi != null ? vi : (VI().t[en] || en));
-  const dict = () => (lang === 'vi' || lang === 'ja') ? VI().ui : UI;
+  const t = (zh, en, vi, ja, ko) => SC ? sc(zh) : lang === 'zh' ? zh : lang === 'en' ? en : lang === 'ko' ? (ko != null ? ko : (VI().t[en] || en)) : lang === 'ja' ? (ja != null ? ja : (VI().t[en] || en)) : (vi != null ? vi : (VI().t[en] || en));
+  const dict = () => (lang === 'vi' || lang === 'ja' || lang === 'ko') ? VI().ui : UI;
   // 外文模式才載入外文資料，中文訪客不多下載。
   const me = document.currentScript;
   if (me && SC) { [me.dataset.scMap, me.dataset.sc].filter(Boolean).forEach(x => document.write('<script src="' + x + '"><\/script>')); }
   else if (me && lang !== 'zh') {
-    const src = lang === 'en' ? [me.dataset.en] : lang === 'ja' ? [me.dataset.jaUi, me.dataset.ja] : [me.dataset.viUi, me.dataset.vi];
+    const src = lang === 'en' ? [me.dataset.en] : lang === 'ja' ? [me.dataset.jaUi, me.dataset.ja] : lang === 'ko' ? [me.dataset.koUi, me.dataset.ko] : [me.dataset.viUi, me.dataset.vi];
     src.filter(Boolean).forEach(s => document.write('<script src="' + s + '"><\/script>'));
   }
   window.I18N = { lang, foreign, t, cat: c => (lang === 'zh' || SC) ? sc(c) : ((lang === 'en' ? CAT : VI().cat)[c] || c) };
@@ -151,8 +151,9 @@
       new MutationObserver(ms => { for (const r of ms) { if (r.type === 'characterData') { const v = sc(r.target.nodeValue); if (v !== r.target.nodeValue) r.target.nodeValue = v; } else r.addedNodes.forEach(n => n.nodeType === 3 ? (n.nodeValue = sc(n.nodeValue)) : n.nodeType === 1 && scDom(n)); } }).observe(document.body, {childList: true, subtree: true, characterData: true});
     }
     // 越南文沿用英文的拉丁字排版（lang-en），另加 lang-vi 供個別微調。
-    document.documentElement.classList.toggle('lang-en', foreign && lang !== 'ja');  // 日文沿用中日文排版
+    document.documentElement.classList.toggle('lang-en', foreign && lang !== 'ja' && lang !== 'ko');  // 日文沿用中日文排版
     document.documentElement.classList.toggle('lang-ja', lang === 'ja');
+    document.documentElement.classList.toggle('lang-ko', lang === 'ko');
     document.documentElement.classList.toggle('lang-vi', lang === 'vi');
     if (foreign) {
       const UI = dict();
@@ -164,8 +165,8 @@
     if (header && !header.querySelector('.lang-switch')) {
       const sel = document.createElement('select');
       sel.className = 'lang-switch';
-      sel.setAttribute('aria-label', '語言 · Language · Ngôn ngữ · 言語');
-      sel.innerHTML = [['zh', '繁中', 'zh-Hant'], ['sc', '简中', 'zh-Hans'], ['en', 'EN', 'en'], ['vi', 'VI', 'vi'], ['ja', '日本語', 'ja']]
+      sel.setAttribute('aria-label', '語言 · Language · Ngôn ngữ · 言語 · 언어');
+      sel.innerHTML = [['zh', '繁中', 'zh-Hant'], ['sc', '简中', 'zh-Hans'], ['en', 'EN', 'en'], ['vi', 'VI', 'vi'], ['ja', '日本語', 'ja'], ['ko', '한국어', 'ko']]
         .map(([v, l, h]) => `<option value="${v}" lang="${h}"${v === lang ? ' selected' : ''}>${l}</option>`).join('');
       sel.addEventListener('change', () => {
         try { localStorage.setItem(KEY, sel.value); } catch {}
@@ -180,8 +181,8 @@
       let big = false; try { big = localStorage.getItem(BIG) === '1'; } catch {}
       const bt = document.createElement('button');
       bt.type = 'button'; bt.className = 'text-size';
-      const paint = () => { document.documentElement.classList.toggle('big-text', big); bt.textContent = big ? t('標準字', 'A', 'Chữ thường', '標準の文字') : t('大字', 'A+', 'Chữ lớn', '大きな文字'); bt.setAttribute('aria-pressed', String(big)); };
-      bt.setAttribute('aria-label', t('放大全站文字', 'Enlarge all text', 'Phóng to chữ toàn trang', 'サイト全体の文字を大きくする'));
+      const paint = () => { document.documentElement.classList.toggle('big-text', big); bt.textContent = big ? t('標準字', 'A', 'Chữ thường', '標準の文字', '보통 글자') : t('大字', 'A+', 'Chữ lớn', '大きな文字', '큰 글자'); bt.setAttribute('aria-pressed', String(big)); };
+      bt.setAttribute('aria-label', t('放大全站文字', 'Enlarge all text', 'Phóng to chữ toàn trang', 'サイト全体の文字を大きくする', '사이트 전체 글자 크게'));
       bt.addEventListener('click', () => { big = !big; try { localStorage.setItem(BIG, big ? '1' : '0'); } catch {} paint(); });
       paint();
       header.insertBefore(bt, sel);

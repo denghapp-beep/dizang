@@ -310,3 +310,8 @@ html.big-text main,html.big-text footer{zoom:1.2}
 .lang-ja,.lang-ja body{--serif:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif CJK JP",serif}
 .lang-ja body{font-feature-settings:"palt" 0}
 .lang-ja .hero-copy h1{letter-spacing:.04em}@media(max-width:760px){.lang-ja .hero-copy h1{font-size:36px;line-height:1.5}}
+/* 韓文：子集字型不含韓文字母 */
+.lang-ko,.lang-ko body{--serif:"Nanum Myeongjo","Noto Serif KR","AppleMyungjo","Batang",serif}
+.lang-ko .hero-copy h1{letter-spacing:.04em}@media(max-width:760px){.lang-ko .hero-copy h1{font-size:36px;line-height:1.5}}
+.lang-ko .article-body{word-break:keep-all}
+.lang-ko h1,.lang-ko h2,.lang-ko h3,.lang-ko p,.lang-ko blockquote{word-break:keep-all}
