@@ -298,3 +298,11 @@ html.big-text main,html.big-text footer{zoom:1.2}
 .zhai-bar{display:block;text-align:center;padding:10px 20px;font-size:13px;letter-spacing:.06em;color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent);border-bottom:1px solid var(--line)}
 .zhai-bar span{margin-left:12px;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:760px){.zhai-bar{font-size:12px;padding:9px 14px;line-height:1.7}.zhai-bar span{display:inline-block;margin-left:6px}}
+.zhai-wrap{background:color-mix(in srgb,var(--accent) 10%,transparent);border-bottom:1px solid var(--line);text-align:center;padding-bottom:9px}
+.zhai-wrap .zhai-bar{background:none;border:0;padding-bottom:4px}
+.zhai-read{font-size:13px;color:inherit;text-decoration:underline;text-underline-offset:3px;padding:4px 12px;display:inline-block}
+.mq-share{margin-left:8px}
+.article-card{position:relative}
+.article-card.is-read h3 a{opacity:.72}
+.read-seal{position:absolute;right:52px;top:22px;font:11px var(--serif);color:#b8443a;border:1px solid #b8443a;border-radius:3px;padding:1px 5px;letter-spacing:.1em;transform:rotate(-6deg);opacity:.85}
+@media(max-width:760px){.read-seal{right:46px;top:20px}}

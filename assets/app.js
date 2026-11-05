@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const I=window.I18N||{lang:'zh',t:(z)=>z,cat:c=>c};const T=I.t;const EN=(I.foreign||I.lang==='en')&&window.ARCHIVE_EN;const VI=I.lang==='vi';
+  const I=window.I18N||{lang:'zh',t:(z)=>z,cat:c=>c};const T=I.t;const EN=(I.foreign||I.lang==='en')&&window.ARCHIVE_EN;const VI=I.lang==='vi';const READ_KEY='ksitigarbha-read';const readSet=()=>{try{return new Set(JSON.parse(localStorage.getItem(READ_KEY)||'[]'))}catch{return new Set()}};
   const {categories} = window.ARCHIVE;
   const articles = EN ? window.ARCHIVE.articles.map(a=>{const e=EN.articles[a.id];if(!e)return a;return Object.assign({},a,{title:e.title,summary:e.summary,blocks:a.blocks.map((b,i)=>Object.assign({},b,{text:e.blocks[i]??b.text})),body:e.blocks.join('\n'),minutes:Math.max(1,Math.round(e.blocks.join(' ').split(/\s+/).length/200))});}) : window.ARCHIVE.articles;
   const $ = (s,root=document) => root.querySelector(s);
@@ -29,9 +29,9 @@
       $('#categories').innerHTML=['全部',...categories].map(c=>{const n=c==='全部'?base.length:base.filter(a=>a.category===c).length;return `<button data-category="${esc(c)}" aria-pressed="${c===category}">${esc(I.cat(c))}<span class="count">${n}</span></button>`;}).join('');
       let found=base.filter(a=>category==='全部'||a.category===category);
       if(sort==='short')found.sort((a,b)=>a.minutes-b.minutes||a.number-b.number);
-      $('#result-count').textContent=T(`共 ${found.length} 篇${raw?' · 搜尋「'+raw+'」':''}`,`${found.length} ${found.length===1?'article':'articles'}${raw?' · search "'+raw+'"':''}`,`${found.length} bài${raw?' · tìm “'+raw+'”':''}`);
+      $('#result-count').textContent=T(`共 ${found.length} 篇${raw?' · 搜尋「'+raw+'」':''}`,`${found.length} ${found.length===1?'article':'articles'}${raw?' · search "'+raw+'"':''}`,`${found.length} bài${raw?' · tìm “'+raw+'”':''}`);{const n=readSet().size;if(n)$('#result-count').textContent+=T(` · 已靜心閱讀 ${n} / 56 篇`,` · ${n} of 56 read`,` · đã đọc ${n} / 56 bài`);};
       const qs=raw?'&q='+encodeURIComponent(raw):'';
-      $('#article-list').innerHTML=found.slice(0,limit).map(a=>{const hit=q?snippet(a,q):null;return `<article class="article-card" id="card-${a.id}"><span class="article-num">${a.id}</span><div class="article-main"><div class="card-meta"><span>${esc(I.cat(a.category))}</span><span class="dot">●</span><span>${T('約 '+a.minutes+' 分鐘','about '+a.minutes+' min','khoảng '+a.minutes+' phút')}</span></div><h3><a class="card-link" href="reader.html?id=${a.id}${qs}">${highlight(a.title,raw)}</a></h3><p${hit?' class="hit"':''}>${hit||esc(a.summary)}</p><div class="card-bottom"><span>${a.hasTranslation?T('原文 · 既有白話','Teaching · Plain rendering'):T('原稿全文','Full original text')}</span><span class="arrow" aria-hidden="true">↗</span></div></div><button class="save" data-save="${a.id}" aria-pressed="false" aria-label="${T('收藏：','Save: ')}${esc(a.title)}">◇</button></article>`;}).join('');
+      const RS=readSet();$('#article-list').innerHTML=found.slice(0,limit).map(a=>{const hit=q?snippet(a,q):null;return `<article class="article-card${RS.has(a.id)?' is-read':''}" id="card-${a.id}">${RS.has(a.id)?`<span class="read-seal" title="${T('已讀','Read','Đã đọc')}">${T('已讀','Read','Đã đọc')}</span>`:''}<span class="article-num">${a.id}</span><div class="article-main"><div class="card-meta"><span>${esc(I.cat(a.category))}</span><span class="dot">●</span><span>${T('約 '+a.minutes+' 分鐘','about '+a.minutes+' min','khoảng '+a.minutes+' phút')}</span></div><h3><a class="card-link" href="reader.html?id=${a.id}${qs}">${highlight(a.title,raw)}</a></h3><p${hit?' class="hit"':''}>${hit||esc(a.summary)}</p><div class="card-bottom"><span>${a.hasTranslation?T('原文 · 既有白話','Teaching · Plain rendering'):T('原稿全文','Full original text')}</span><span class="arrow" aria-hidden="true">↗</span></div></div><button class="save" data-save="${a.id}" aria-pressed="false" aria-label="${T('收藏：','Save: ')}${esc(a.title)}">◇</button></article>`;}).join('');
       $('#load-more').hidden=limit>=found.length;$('#empty').hidden=found.length!==0;updateSaves();saveState(false);
     }
     $('#categories').addEventListener('click',e=>{const b=e.target.closest('[data-category]');if(!b)return;category=b.dataset.category;limit=12;render();});
@@ -48,7 +48,7 @@
   }
   if(document.body.dataset.page==='reader'){
     const params=new URLSearchParams(location.search);
-    const article=articles.find(a=>a.id===params.get('id'));
+    const article=articles.find(a=>a.id===params.get('id'));if(article){try{const r=readSet();r.add(article.id);localStorage.setItem(READ_KEY,JSON.stringify([...r]));}catch{}}
     if(!article){$('.reader-article').innerHTML=T('<h1>找不到這篇文章</h1><p>請回到文集選擇篇章。</p><a class="primary" href="index.html#collection">返回文集 →</a>','<h1>Article not found</h1><p>Please return to the collection and choose an article.</p><a class="primary" href="index.html#collection">Back to the collection →</a>');return;}
     document.title=article.title+T(' · 地藏菩薩感應文集',' · Ksitigarbha: Collected Teachings');
     $('#article-title').textContent=article.title;if(article.sourceUrl&&/^https:\/\//.test(article.sourceUrl)){const cap=$('.source-caption');if(cap){const a=document.createElement('a');a.href=article.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';a.className='source-link';a.textContent=T('原文出處 ↗','Original source ↗');cap.append(' · ',a);}}$('#article-summary').textContent=article.summary;

@@ -291,6 +291,14 @@
     VERSES.forEach((v, i) => { if (VV[i]) v.en = VV[i]; if (AR[v.id]) v.title_en = AR[v.id].title; });
   }
   const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const shareVerse = async (text, title, id) => {
+    const url = new URL('../s/' + id + '.html', location.href).href;
+    const msg = '「' + text + '」\n' + L('——摘自〈' + title + '〉', '— from “' + title + '”', '— trích từ “' + title + '”') + '\n' + url;
+    if (navigator.share) { try { await navigator.share({text: msg}); } catch {} return; }
+    try { await navigator.clipboard.writeText(msg); const t = document.querySelector('.toast'); if (t) { t.textContent = L('已複製這句法語，可貼到 LINE', 'Line copied — paste it anywhere', 'Đã sao chép câu này'); t.classList.add('visible'); setTimeout(() => t.classList.remove('visible'), 2400); } }
+    catch { window.prompt(L('複製這段分享：', 'Copy to share:', 'Sao chép để chia sẻ:'), msg); }
+  };
+  let curMq = null, curEnd = null;
   // 玄金合璧：青山圖帶，隨機替換引句（所有螢幕寬度都顯示）
   const mq = document.querySelector('.mountain-quote .mq-inner');
   if (mq && VERSES.length) {
@@ -303,13 +311,15 @@
     const pick = () => {
       const pool = VERSES.filter(v => v.text !== prev);
       const v = pool[Math.floor(Math.random() * pool.length)];
-      prev = v.text;
+      prev = v.text; curMq = v;
       try { sessionStorage.setItem('ksitigarbha-verse', v.text); } catch {}
       bq.textContent = isEN ? v.en : v.text;
       src.href = 'reader.html?id=' + v.id;
       src.textContent = L('摘自〈' + v.title + '〉 →', 'From “' + v.title_en + '” →', 'Trích từ “' + v.title_en + '” →');
       btn.textContent = L('換一句 ↻', 'Another line ↻', 'Câu khác ↻');
     };
+    const sh = document.createElement('button'); sh.type = 'button'; sh.className = 'mq-next mq-share'; sh.textContent = L('分享此句', 'Share this line', 'Chia sẻ câu này'); btn.after(sh);
+    sh.addEventListener('click', () => curMq && shareVerse(isEN ? curMq.en : curMq.text, isEN ? curMq.title_en : curMq.title, curMq.id));
     btn.addEventListener('click', pick);
     pick();
   }
@@ -325,12 +335,14 @@
     const pickEnd = () => {
       const pool = VERSES.filter(v => v.id !== cur && v.text !== prevEnd);
       const v = pool[Math.floor(Math.random() * pool.length)];
-      prevEnd = v.text;
+      prevEnd = v.text; curEnd = v;
       endP.textContent = isEN ? v.en : v.text;
       src.href = 'reader.html?id=' + v.id;
       src.textContent = L('摘自〈' + v.title + '〉 →', 'From “' + v.title_en + '” →', 'Trích từ “' + v.title_en + '” →');
       btn.textContent = L('換一句 ↻', 'Another line ↻', 'Câu khác ↻');
     };
+    const sh2 = document.createElement('button'); sh2.type = 'button'; sh2.className = 'mq-next mq-share'; sh2.textContent = L('分享此句', 'Share this line', 'Chia sẻ câu này'); btn.after(sh2);
+    sh2.addEventListener('click', () => curEnd && shareVerse(isEN ? curEnd.en : curEnd.text, isEN ? curEnd.title_en : curEnd.title, curEnd.id));
     btn.addEventListener('click', pickEnd);
     pickEnd();
     wrap.classList.add('has-verse');
