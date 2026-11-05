@@ -16,14 +16,15 @@
     bar.innerHTML = I.t(
       `今日農曆${z[0]}${z[1] ? '，為十齋日' : ''}${fest ? '・' + fest : ''}，宜靜心讀誦 <span>十齋日行事曆 →</span>`,
       `Today is lunar <b lang="zh-Hant">${z[0]}</b>${z[1] ? ', one of the Ten Fasting Days' : ''} — a good day for quiet recitation <span>Calendar →</span>`,
-      `Hôm nay là ngày âm lịch <b lang="zh-Hant">${z[0]}</b>${z[1] ? ', một trong Mười ngày trai' : ''} — nên tĩnh tâm tụng đọc <span>Xem lịch →</span>`);
+      `Hôm nay là ngày âm lịch <b lang="zh-Hant">${z[0]}</b>${z[1] ? ', một trong Mười ngày trai' : ''} — nên tĩnh tâm tụng đọc <span>Xem lịch →</span>`,
+      `今日は旧暦${z[0]}${z[1] ? '、十斎日です' : ''}。心静かに読誦するによい日です <span>十斎日カレンダー →</span>`);
     // 今日宜讀：依日期固定對應一篇
     const A = (window.ARCHIVE && window.ARCHIVE.articles) || [];
     if (A.length) {
       const doy = Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 864e5), a = A[(d.getFullYear() * 7 + doy) % A.length];
       const tt = (window.ARCHIVE_EN && window.ARCHIVE_EN.articles && I.lang !== 'zh' && window.ARCHIVE_EN.articles[a.id]) ? window.ARCHIVE_EN.articles[a.id].title : a.title;
       const rd = document.createElement('a'); rd.className = 'zhai-read'; rd.href = 'reader.html?id=' + a.id;
-      rd.textContent = I.t('今日宜讀〈' + tt + '〉→', 'Suggested today: “' + tt + '” →', 'Nên đọc hôm nay: “' + tt + '” →');
+      rd.textContent = I.t('今日宜讀〈' + tt + '〉→', 'Suggested today: “' + tt + '” →', 'Nên đọc hôm nay: “' + tt + '” →', '今日の一篇〈' + tt + '〉→');
       const wrap = document.createElement('div'); wrap.className = 'zhai-wrap'; wrap.append(bar, rd); head.after(wrap); return;
     }
     head.after(bar);

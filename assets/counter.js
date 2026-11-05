@@ -19,10 +19,10 @@
   const host = document.querySelector('.footer-bottom') || document.body;
   const el = document.createElement('span');
   el.className = 'visit-counter';
-  el.setAttribute('aria-label', (window.I18N ? window.I18N.t('網站來訪人次', 'Site visits', 'Lượt truy cập') : '網站來訪人次'));
+  el.setAttribute('aria-label', (window.I18N ? window.I18N.t('網站來訪人次', 'Site visits', 'Lượt truy cập', 'サイト訪問数') : '網站來訪人次'));
   host.appendChild(el);
   fetch(base + '/counter/TOTAL.json')
     .then(r => r.ok ? r.json() : Promise.reject(r.status))
-    .then(d => { if (d && d.count) el.textContent = (window.I18N ? window.I18N.t('來訪 ' + d.count + ' 人次', d.count + ' visits', d.count + ' lượt truy cập') : '來訪 ' + d.count + ' 人次'); })
+    .then(d => { if (d && d.count) el.textContent = (window.I18N ? window.I18N.t('來訪 ' + d.count + ' 人次', d.count + ' visits', d.count + ' lượt truy cập', '訪問 ' + d.count + ' 回') : '來訪 ' + d.count + ' 人次'); })
     .catch(() => { el.textContent = ""; });
 })();

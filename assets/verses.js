@@ -3,7 +3,7 @@
 (() => {
   'use strict';
   const isEN = !!(window.I18N && window.I18N.foreign);
-  const L = (z, e, v) => window.I18N ? window.I18N.t(z, e, v) : z;
+  const L = (z, e, v, j) => window.I18N ? window.I18N.t(z, e, v, j) : z;
   const VERSES = [
 {
 "id": "001",
@@ -286,17 +286,17 @@
 "title_en": "What Does It Mean to Learn \"With Heart\"?"
 }
 ];
-  if (window.I18N && window.I18N.lang === 'vi') {
-    const VV = window.VI_VERSES || {}, AR = (window.ARCHIVE_EN && window.ARCHIVE_EN.articles) || {};
+  if (window.I18N && (window.I18N.lang === 'vi' || window.I18N.lang === 'ja')) {
+    const VV = (window.I18N.lang === 'ja' ? window.JA_VERSES : window.VI_VERSES) || {}, AR = (window.ARCHIVE_EN && window.ARCHIVE_EN.articles) || {};
     VERSES.forEach((v, i) => { if (VV[i]) v.en = VV[i]; if (AR[v.id]) v.title_en = AR[v.id].title; });
   }
   const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const shareVerse = async (text, title, id) => {
     const url = new URL('../s/' + id + '.html', location.href).href;
-    const msg = '「' + text + '」\n' + L('——摘自〈' + title + '〉', '— from “' + title + '”', '— trích từ “' + title + '”') + '\n' + url;
+    const msg = '「' + text + '」\n' + L('——摘自〈' + title + '〉', '— from “' + title + '”', '— trích từ “' + title + '”', '——〈' + title + '〉より') + '\n' + url;
     if (navigator.share) { try { await navigator.share({text: msg}); } catch {} return; }
-    try { await navigator.clipboard.writeText(msg); const t = document.querySelector('.toast'); if (t) { t.textContent = L('已複製這句法語，可貼到 LINE', 'Line copied — paste it anywhere', 'Đã sao chép câu này'); t.classList.add('visible'); setTimeout(() => t.classList.remove('visible'), 2400); } }
-    catch { window.prompt(L('複製這段分享：', 'Copy to share:', 'Sao chép để chia sẻ:'), msg); }
+    try { await navigator.clipboard.writeText(msg); const t = document.querySelector('.toast'); if (t) { t.textContent = L('已複製這句法語，可貼到 LINE', 'Line copied — paste it anywhere', 'Đã sao chép câu này', 'この一句をコピーしました'); t.classList.add('visible'); setTimeout(() => t.classList.remove('visible'), 2400); } }
+    catch { window.prompt(L('複製這段分享：', 'Copy to share:', 'Sao chép để chia sẻ:', 'コピーして共有してください：'), msg); }
   };
   let curMq = null, curEnd = null;
   // 玄金合璧：青山圖帶，隨機替換引句（所有螢幕寬度都顯示）
@@ -315,10 +315,10 @@
       try { sessionStorage.setItem('ksitigarbha-verse', v.text); } catch {}
       bq.textContent = isEN ? v.en : v.text;
       src.href = 'reader.html?id=' + v.id;
-      src.textContent = L('摘自〈' + v.title + '〉 →', 'From “' + v.title_en + '” →', 'Trích từ “' + v.title_en + '” →');
-      btn.textContent = L('換一句 ↻', 'Another line ↻', 'Câu khác ↻');
+      src.textContent = L('摘自〈' + v.title + '〉 →', 'From “' + v.title_en + '” →', 'Trích từ “' + v.title_en + '” →', '〈' + v.title_en + '〉より →');
+      btn.textContent = L('換一句 ↻', 'Another line ↻', 'Câu khác ↻', '別の一句 ↻');
     };
-    const sh = document.createElement('button'); sh.type = 'button'; sh.className = 'mq-next mq-share'; sh.textContent = L('分享此句', 'Share this line', 'Chia sẻ câu này'); btn.after(sh);
+    const sh = document.createElement('button'); sh.type = 'button'; sh.className = 'mq-next mq-share'; sh.textContent = L('分享此句', 'Share this line', 'Chia sẻ câu này', 'この一句を共有'); btn.after(sh);
     sh.addEventListener('click', () => curMq && shareVerse(isEN ? curMq.en : curMq.text, isEN ? curMq.title_en : curMq.title, curMq.id));
     btn.addEventListener('click', pick);
     pick();
@@ -338,10 +338,10 @@
       prevEnd = v.text; curEnd = v;
       endP.textContent = isEN ? v.en : v.text;
       src.href = 'reader.html?id=' + v.id;
-      src.textContent = L('摘自〈' + v.title + '〉 →', 'From “' + v.title_en + '” →', 'Trích từ “' + v.title_en + '” →');
-      btn.textContent = L('換一句 ↻', 'Another line ↻', 'Câu khác ↻');
+      src.textContent = L('摘自〈' + v.title + '〉 →', 'From “' + v.title_en + '” →', 'Trích từ “' + v.title_en + '” →', '〈' + v.title_en + '〉より →');
+      btn.textContent = L('換一句 ↻', 'Another line ↻', 'Câu khác ↻', '別の一句 ↻');
     };
-    const sh2 = document.createElement('button'); sh2.type = 'button'; sh2.className = 'mq-next mq-share'; sh2.textContent = L('分享此句', 'Share this line', 'Chia sẻ câu này'); btn.after(sh2);
+    const sh2 = document.createElement('button'); sh2.type = 'button'; sh2.className = 'mq-next mq-share'; sh2.textContent = L('分享此句', 'Share this line', 'Chia sẻ câu này', 'この一句を共有'); btn.after(sh2);
     sh2.addEventListener('click', () => curEnd && shareVerse(isEN ? curEnd.en : curEnd.text, isEN ? curEnd.title_en : curEnd.title, curEnd.id));
     btn.addEventListener('click', pickEnd);
     pickEnd();

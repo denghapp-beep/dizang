@@ -5,7 +5,7 @@
   'use strict';
   const KEY = 'ksitigarbha-lang';
   let lang = 'zh';
-  const LANGS = ['zh', 'en', 'vi'];
+  const LANGS = ['zh', 'en', 'vi', 'ja'];
   try { const q = new URLSearchParams(location.search).get('lang'); if (LANGS.includes(q)) { lang = q; localStorage.setItem(KEY, q); const u = new URL(location.href); u.searchParams.delete('lang'); history.replaceState(history.state, '', u.href); } else if (LANGS.includes(localStorage.getItem(KEY))) lang = localStorage.getItem(KEY); } catch {}
 
   const UI = {
@@ -103,17 +103,18 @@
   const CAT = {'全部':'All','修心與日常':'Mind & Daily Life','因果與願行':'Karma & Vows','情感與關係':'Love & Relationships','生命與照護':'Life & Care','經典與修持':'Sutras & Practice','人間與世事':'Society & the World','親身經歷':'Personal Accounts'};
 
   // 越南文：對照表放在 i18n_vi.js（VI_I18N），文章在 data_vi.js（同樣掛在 ARCHIVE_EN，供 app.js 共用外文路徑）。
-  const VI = () => window.VI_I18N || {ui: {}, cat: {}, t: {}};
+  const EMPTY = {ui: {}, cat: {}, t: {}};
+  const VI = () => (lang === 'ja' ? window.JA_I18N : window.VI_I18N) || EMPTY;  // 越南文／日文共用同一套結構
   const foreign = lang !== 'zh';
-  const t = (zh, en, vi) => lang === 'zh' ? zh : lang === 'en' ? en : (vi != null ? vi : (VI().t[en] || en));
-  const dict = () => lang === 'vi' ? VI().ui : UI;
+  const t = (zh, en, vi, ja) => lang === 'zh' ? zh : lang === 'en' ? en : lang === 'ja' ? (ja != null ? ja : (VI().t[en] || en)) : (vi != null ? vi : (VI().t[en] || en));
+  const dict = () => (lang === 'vi' || lang === 'ja') ? VI().ui : UI;
   // 外文模式才載入外文資料，中文訪客不多下載。
   const me = document.currentScript;
   if (me && lang !== 'zh') {
-    const src = lang === 'en' ? [me.dataset.en] : [me.dataset.viUi, me.dataset.vi];
+    const src = lang === 'en' ? [me.dataset.en] : lang === 'ja' ? [me.dataset.jaUi, me.dataset.ja] : [me.dataset.viUi, me.dataset.vi];
     src.filter(Boolean).forEach(s => document.write('<script src="' + s + '"><\/script>'));
   }
-  window.I18N = { lang, foreign, t, cat: c => lang === 'zh' ? c : ((lang === 'vi' ? VI().cat : CAT)[c] || c) };
+  window.I18N = { lang, foreign, t, cat: c => lang === 'zh' ? c : ((lang === 'en' ? CAT : VI().cat)[c] || c) };
 
   function translateDom(root) {
     if (lang === 'zh') return;
@@ -133,7 +134,8 @@
   function applyStatic() {
     document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang;
     // 越南文沿用英文的拉丁字排版（lang-en），另加 lang-vi 供個別微調。
-    document.documentElement.classList.toggle('lang-en', foreign);
+    document.documentElement.classList.toggle('lang-en', foreign && lang !== 'ja');  // 日文沿用中日文排版
+    document.documentElement.classList.toggle('lang-ja', lang === 'ja');
     document.documentElement.classList.toggle('lang-vi', lang === 'vi');
     if (foreign) {
       const UI = dict();
@@ -145,8 +147,8 @@
     if (header && !header.querySelector('.lang-switch')) {
       const sel = document.createElement('select');
       sel.className = 'lang-switch';
-      sel.setAttribute('aria-label', '語言 · Language · Ngôn ngữ');
-      sel.innerHTML = [['zh', '中文', 'zh-Hant'], ['en', 'EN', 'en'], ['vi', 'VI', 'vi']]
+      sel.setAttribute('aria-label', '語言 · Language · Ngôn ngữ · 言語');
+      sel.innerHTML = [['zh', '中文', 'zh-Hant'], ['en', 'EN', 'en'], ['vi', 'VI', 'vi'], ['ja', '日本語', 'ja']]
         .map(([v, l, h]) => `<option value="${v}" lang="${h}"${v === lang ? ' selected' : ''}>${l}</option>`).join('');
       sel.addEventListener('change', () => {
         try { localStorage.setItem(KEY, sel.value); } catch {}
@@ -161,8 +163,8 @@
       let big = false; try { big = localStorage.getItem(BIG) === '1'; } catch {}
       const bt = document.createElement('button');
       bt.type = 'button'; bt.className = 'text-size';
-      const paint = () => { document.documentElement.classList.toggle('big-text', big); bt.textContent = big ? t('標準字', 'A', 'Chữ thường') : t('大字', 'A+', 'Chữ lớn'); bt.setAttribute('aria-pressed', String(big)); };
-      bt.setAttribute('aria-label', t('放大全站文字', 'Enlarge all text', 'Phóng to chữ toàn trang'));
+      const paint = () => { document.documentElement.classList.toggle('big-text', big); bt.textContent = big ? t('標準字', 'A', 'Chữ thường', '標準の文字') : t('大字', 'A+', 'Chữ lớn', '大きな文字'); bt.setAttribute('aria-pressed', String(big)); };
+      bt.setAttribute('aria-label', t('放大全站文字', 'Enlarge all text', 'Phóng to chữ toàn trang', 'サイト全体の文字を大きくする'));
       bt.addEventListener('click', () => { big = !big; try { localStorage.setItem(BIG, big ? '1' : '0'); } catch {} paint(); });
       paint();
       header.insertBefore(bt, sel);

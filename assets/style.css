@@ -306,3 +306,7 @@ html.big-text main,html.big-text footer{zoom:1.2}
 .article-card.is-read h3 a{opacity:.72}
 .read-seal{position:absolute;right:52px;top:22px;font:11px var(--serif);color:#b8443a;border:1px solid #b8443a;border-radius:3px;padding:1px 5px;letter-spacing:.1em;transform:rotate(-6deg);opacity:.85}
 @media(max-width:760px){.read-seal{right:46px;top:20px}}
+/* 日文：子集字型不含假名，改用系統明朝體 */
+.lang-ja,.lang-ja body{--serif:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif CJK JP",serif}
+.lang-ja body{font-feature-settings:"palt" 0}
+.lang-ja .hero-copy h1{letter-spacing:.04em}@media(max-width:760px){.lang-ja .hero-copy h1{font-size:36px;line-height:1.5}}
