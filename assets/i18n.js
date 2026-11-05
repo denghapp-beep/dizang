@@ -122,7 +122,7 @@
   function scDom(root) {
     const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT); const ns = [];
     while (w.nextNode()) ns.push(w.currentNode);
-    for (const n of ns) { if (n.parentElement && n.parentElement.closest('script,style')) continue; const v = sc(n.nodeValue); if (v !== n.nodeValue) n.nodeValue = v; }
+    for (const n of ns) { if (n.parentElement && n.parentElement.closest('script,style,.lang-switch')) continue; const v = sc(n.nodeValue); if (v !== n.nodeValue) n.nodeValue = v; }
     if (root.querySelectorAll) root.querySelectorAll('[alt],[aria-label],[placeholder],[title]').forEach(el => { for (const a of ['alt', 'aria-label', 'placeholder', 'title']) { const v = el.getAttribute(a); if (v) { const x = sc(v); if (x !== v) el.setAttribute(a, x); } } });
   }
   function translateDom(root) {
