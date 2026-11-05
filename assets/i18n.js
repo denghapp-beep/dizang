@@ -5,7 +5,7 @@
   'use strict';
   const KEY = 'ksitigarbha-lang';
   let lang = 'zh';
-  const LANGS = ['zh', 'en', 'vi', 'ja'];
+  const LANGS = ['zh', 'sc', 'en', 'vi', 'ja'];
   try { const q = new URLSearchParams(location.search).get('lang'); if (LANGS.includes(q)) { lang = q; localStorage.setItem(KEY, q); const u = new URL(location.href); u.searchParams.delete('lang'); history.replaceState(history.state, '', u.href); } else if (LANGS.includes(localStorage.getItem(KEY))) lang = localStorage.getItem(KEY); } catch {}
 
   const UI = {
@@ -105,18 +105,28 @@
   // 越南文：對照表放在 i18n_vi.js（VI_I18N），文章在 data_vi.js（同樣掛在 ARCHIVE_EN，供 app.js 共用外文路徑）。
   const EMPTY = {ui: {}, cat: {}, t: {}};
   const VI = () => (lang === 'ja' ? window.JA_I18N : window.VI_I18N) || EMPTY;  // 越南文／日文共用同一套結構
-  const foreign = lang !== 'zh';
-  const t = (zh, en, vi, ja) => lang === 'zh' ? zh : lang === 'en' ? en : lang === 'ja' ? (ja != null ? ja : (VI().t[en] || en)) : (vi != null ? vi : (VI().t[en] || en));
+  const SC = lang === 'sc';  // 簡體：沿用中文邏輯，文字即時以字表轉換
+  const sc = str => { const M = window.SC_MAP; return (M && typeof str === 'string') ? str.replace(/[\u4e00-\u9fff]/g, c => M[c] || c) : str; };
+  const foreign = lang !== 'zh' && !SC;
+  const t = (zh, en, vi, ja) => SC ? sc(zh) : lang === 'zh' ? zh : lang === 'en' ? en : lang === 'ja' ? (ja != null ? ja : (VI().t[en] || en)) : (vi != null ? vi : (VI().t[en] || en));
   const dict = () => (lang === 'vi' || lang === 'ja') ? VI().ui : UI;
   // 外文模式才載入外文資料，中文訪客不多下載。
   const me = document.currentScript;
-  if (me && lang !== 'zh') {
+  if (me && SC) { [me.dataset.scMap, me.dataset.sc].filter(Boolean).forEach(x => document.write('<script src="' + x + '"><\/script>')); }
+  else if (me && lang !== 'zh') {
     const src = lang === 'en' ? [me.dataset.en] : lang === 'ja' ? [me.dataset.jaUi, me.dataset.ja] : [me.dataset.viUi, me.dataset.vi];
     src.filter(Boolean).forEach(s => document.write('<script src="' + s + '"><\/script>'));
   }
-  window.I18N = { lang, foreign, t, cat: c => lang === 'zh' ? c : ((lang === 'en' ? CAT : VI().cat)[c] || c) };
+  window.I18N = { lang, foreign, t, cat: c => (lang === 'zh' || SC) ? sc(c) : ((lang === 'en' ? CAT : VI().cat)[c] || c) };
 
+  function scDom(root) {
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT); const ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    for (const n of ns) { if (n.parentElement && n.parentElement.closest('script,style')) continue; const v = sc(n.nodeValue); if (v !== n.nodeValue) n.nodeValue = v; }
+    if (root.querySelectorAll) root.querySelectorAll('[alt],[aria-label],[placeholder],[title]').forEach(el => { for (const a of ['alt', 'aria-label', 'placeholder', 'title']) { const v = el.getAttribute(a); if (v) { const x = sc(v); if (x !== v) el.setAttribute(a, x); } } });
+  }
   function translateDom(root) {
+    if (SC) { scDom(root); return; }
     if (lang === 'zh') return;
     const UI = dict();
     const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
@@ -132,7 +142,14 @@
     });
   }
   function applyStatic() {
-    document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang;
+    document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : SC ? 'zh-Hans' : lang;
+    if (SC) {
+      document.title = sc(document.title);
+      const m0 = document.querySelector('meta[name=description]'); if (m0) m0.content = sc(m0.content);
+      scDom(document.body);
+      // 之後由程式加入的文字（文章列表、語錄、提示）也即時轉換
+      new MutationObserver(ms => { for (const r of ms) { if (r.type === 'characterData') { const v = sc(r.target.nodeValue); if (v !== r.target.nodeValue) r.target.nodeValue = v; } else r.addedNodes.forEach(n => n.nodeType === 3 ? (n.nodeValue = sc(n.nodeValue)) : n.nodeType === 1 && scDom(n)); } }).observe(document.body, {childList: true, subtree: true, characterData: true});
+    }
     // 越南文沿用英文的拉丁字排版（lang-en），另加 lang-vi 供個別微調。
     document.documentElement.classList.toggle('lang-en', foreign && lang !== 'ja');  // 日文沿用中日文排版
     document.documentElement.classList.toggle('lang-ja', lang === 'ja');
@@ -148,7 +165,7 @@
       const sel = document.createElement('select');
       sel.className = 'lang-switch';
       sel.setAttribute('aria-label', '語言 · Language · Ngôn ngữ · 言語');
-      sel.innerHTML = [['zh', '中文', 'zh-Hant'], ['en', 'EN', 'en'], ['vi', 'VI', 'vi'], ['ja', '日本語', 'ja']]
+      sel.innerHTML = [['zh', '繁中', 'zh-Hant'], ['sc', '简中', 'zh-Hans'], ['en', 'EN', 'en'], ['vi', 'VI', 'vi'], ['ja', '日本語', 'ja']]
         .map(([v, l, h]) => `<option value="${v}" lang="${h}"${v === lang ? ' selected' : ''}>${l}</option>`).join('');
       sel.addEventListener('change', () => {
         try { localStorage.setItem(KEY, sel.value); } catch {}

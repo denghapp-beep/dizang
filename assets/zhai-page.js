@@ -25,7 +25,7 @@
     '阿彌陀佛聖誕': ['Amitābha Buddha\'s birthday', 'Vía Đức Phật A Di Đà', '阿弥陀仏聖誕'],
     '釋迦牟尼佛成道日': ['Śākyamuni Buddha\'s enlightenment', 'Ngày Đức Phật Thích Ca thành đạo', '釈迦牟尼仏成道日（成道会）']
   };
-  const fest = f => I.lang === 'zh' ? f : (FEST[f] ? FEST[f][I.lang === 'en' ? 0 : I.lang === 'ja' ? 2 : 1] : f);
+  const fest = f => (I.lang === 'zh' || I.lang === 'sc') ? f : (FEST[f] ? FEST[f][I.lang === 'en' ? 0 : I.lang === 'ja' ? 2 : 1] : f);
   const WEEK = L('日一二三四五六', 'SMTWTFS', 'CN,T2,T3,T4,T5,T6,T7', '日月火水木金土');
   const week = I.lang === 'vi' ? WEEK.split(',') : [...WEEK];
   const today = new Date(); today.setHours(0, 0, 0, 0);
@@ -37,9 +37,9 @@
     for (let i = 0; i < 400 && out.length < n; i++, d.setDate(d.getDate() + 1)) { const z = dayInfo(d); if (z && (z[1] || z.length > 2)) out.push([new Date(d), z]); }
     return out;
   }
-  const fmt = d => (I.lang === 'zh' || I.lang === 'ja') ? `${d.getMonth() + 1} 月 ${d.getDate()} 日（${(I.lang === 'ja' ? '日月火水木金土' : '日一二三四五六')[d.getDay()]}）`
+  const fmt = d => ((I.lang === 'zh' || I.lang === 'sc') || I.lang === 'ja') ? `${d.getMonth() + 1} 月 ${d.getDate()} 日（${(I.lang === 'ja' ? '日月火水木金土' : '日一二三四五六')[d.getDay()]}）`
     : d.toLocaleDateString(I.lang === 'vi' ? 'vi-VN' : 'en-US', {weekday: 'short', month: 'short', day: 'numeric'});
-  const lunar = z => I.lang === 'zh' ? '農曆' + z[0] : I.lang === 'ja' ? '旧暦' + z[0] : z[0];
+  const lunar = z => (I.lang === 'zh' || I.lang === 'sc') ? '農曆' + z[0] : I.lang === 'ja' ? '旧暦' + z[0] : z[0];
 
   function renderToday() {
     const z = dayInfo(today), box = root.querySelector('.zhai-today');
