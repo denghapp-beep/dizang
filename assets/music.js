@@ -67,7 +67,7 @@
       playerVars: {start: startAt(), playsinline: 1, rel: 0, modestbranding: 1, controls: 1},
       events: {
         onReady: () => {
-          ready = true; player.setVolume(pref.volume);
+          ready = true; player.setVolume(0);
           if (!wantPlay) return;
           if (entered || document.querySelector('.enter-gate.leaving')) { player.unMute(); }
           player.unMute(); player.playVideo();
@@ -80,13 +80,21 @@
         },
         onStateChange: e => {
           playing = e.data === YT.PlayerState.PLAYING;
-          if (playing && !mutedAuto) setState(T('聖號播放中','Chant playing'), true);
+          if (playing && !mutedAuto) { setState(T('聖號播放中','Chant playing'), true); fadeTo(pref.volume, 2000); }
           else if (e.data === YT.PlayerState.PAUSED) setState(T('背景音樂','Background music'), false);
           else if (e.data === YT.PlayerState.ENDED) { player.seekTo(0); player.playVideo(); }
         },
         onError: () => setState(T('此曲目無法嵌入播放','This track cannot be embedded'), false)
       }
     });
+  }
+  // 淡入淡出：誦經音樂不突然出聲、不突然中斷
+  let fadeTimer = null;
+  function fadeTo(target, ms, done) {
+    clearInterval(fadeTimer);
+    if (!ready) { done && done(); return; }
+    let v = player.getVolume ? player.getVolume() : 0; const steps = Math.max(1, Math.round(ms / 50)), step = (target - v) / steps; let i = 0;
+    fadeTimer = setInterval(() => { i++; v += step; player.setVolume(Math.max(0, Math.round(i >= steps ? target : v))); if (i >= steps) { clearInterval(fadeTimer); done && done(); } }, 50);
   }
   function play() {
     wantPlay = true; pref.on = true; savePref();
@@ -95,12 +103,12 @@
   }
   function unmuteNow() {
     if (!ready) return;
-    player.unMute(); player.setVolume(pref.volume);
+    player.unMute(); if (player.getPlayerState() === YT.PlayerState.PLAYING) { player.setVolume(0); fadeTo(pref.volume, 2000); }
     if (mutedAuto) { mutedAuto = false; if (player.getPlayerState() === YT.PlayerState.PLAYING) setState(T('聖號播放中','Chant playing'), true); }
   }
   function pause() {
     wantPlay = false; pref.on = false; savePref();
-    if (ready) player.pauseVideo();
+    if (ready) fadeTo(0, 1200, () => { if (!wantPlay) player.pauseVideo(); });
     setState(T('背景音樂','Background music'), false);
   }
   function savePos() {
@@ -118,11 +126,11 @@
   $('.music-play').addEventListener('click', e => { e.preventDefault(); playing || wantPlay && !ready ? pause() : play(); });
   $('.music-volume').addEventListener('input', e => {
     pref.volume = Number(e.target.value); $('.music-vol-out').textContent = pref.volume; savePref();
-    if (ready) player.setVolume(pref.volume);
+    if (ready) { clearInterval(fadeTimer); player.setVolume(pref.volume); }
   });
   $('.music-track').addEventListener('change', e => {
     pref.track = e.target.value; savePref(); $('.music-credit').textContent = track().credit || '';
-    if (ready) { player.loadVideoById({videoId: pref.track, startSeconds: track().start || 0}); player.setVolume(pref.volume); }
+    if (ready) { player.loadVideoById({videoId: pref.track, startSeconds: track().start || 0}); player.setVolume(0); }
     else play();
   });
 
