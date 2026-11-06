@@ -384,21 +384,39 @@ html.big-text .zj-text p{font-size:21px}
 .zj-reader.is-zy .zr-page p.lit{text-align:center}
 .zr-page h4.lit{text-align:center;margin:28px 0 14px}
 
-/* 直排全螢幕閱讀：由右至左，一次翻一屏 */
+/* 經書模式：全螢幕直排，由右至左，一次翻一屏；可選背景色 */
 html.zr-lock,html.zr-lock body{overflow:hidden}
-.zr-exit{display:none}
-.zj-reader.is-v{position:fixed;inset:0;z-index:2000;background:var(--bg,#171917);display:flex;flex-direction:column;padding:env(safe-area-inset-top) 12px env(safe-area-inset-bottom);margin:0}
-.zj-reader.is-v .zr-exit{display:inline-block;border-color:var(--accent);color:var(--accent)}
-.zj-reader.is-v .zr-dir,.zj-reader.is-v .zr-mode,.zj-reader.is-v .zr-resume,.zj-reader.is-v .zr-range,.zj-reader.is-v .zr-list,.zj-reader.is-v .zr-mark{display:none}
-.zj-reader.is-v .zr-bar{position:static;flex:none;gap:6px;padding:6px 0}
-.zj-reader.is-v .zr-ch{flex:1 1 100%;min-height:36px}
-.zj-reader.is-v .zr-tools button{min-height:38px}
-.zj-reader.is-v .zr-page{flex:1;min-height:0;height:auto;writing-mode:vertical-rl;overflow:hidden;touch-action:none;margin:0 auto;padding:14px 0;user-select:none;-webkit-user-select:none}
-.zj-reader.is-v .zr-page p,.zj-reader.is-v .zr-page p.lit{line-height:var(--pitch);margin:0;text-align:start;letter-spacing:.04em}
-.zj-reader.is-v .zr-page h4,.zj-reader.is-v .zr-page h4.lit{font-size:calc(var(--zr-size) + 4px);line-height:var(--pitch);margin:0 0 0 var(--pitch);text-align:start}
-.zj-reader.is-v .zr-page .zj-juan,.zj-reader.is-v .zr-page .zr-runhead{line-height:var(--pitch);margin:0}
-.zj-reader.is-v.is-zy .zr-page p{letter-spacing:0}
+.zr-exit,.zr-bg,.zb-head,.zb-orn,.zb-hint,.zr-mode{display:none}
+.zr-dir{border-color:var(--accent)!important;color:var(--accent)}
+.zj-reader.is-v{--pb:#edca8b;--pi:#22190f;--pm:#8d8494;--po:#9c8456;position:fixed;inset:0;z-index:2000;background:var(--pb);color:var(--pi);margin:0;padding:0;overflow:hidden}
+.zj-reader.is-v[data-bg=rice]{--pb:#f6edd6;--pi:#2a2219;--pm:#9a9080;--po:#b49c6c}
+.zj-reader.is-v[data-bg=white]{--pb:#fbfaf6;--pi:#1e1e1e;--pm:#9a9a9a;--po:#bdb39a}
+.zj-reader.is-v[data-bg=night]{--pb:#1a1915;--pi:#ddd2b9;--pm:#7d776a;--po:#6f6047}
+.zj-reader.is-v .zr-page{position:absolute;top:calc(env(safe-area-inset-top) + 46px);bottom:calc(env(safe-area-inset-bottom) + 50px);right:66px;left:auto;margin:0;padding:0;height:auto;min-height:0;border:0;background:none;writing-mode:vertical-rl;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none;color:var(--pi);font-family:'Noto Serif TC','Songti TC','PMingLiU',serif}
+.zj-reader.is-v .zr-page p,.zj-reader.is-v .zr-page p.lit{font-family:inherit;font-weight:600;line-height:var(--pitch);margin:0;text-align:start;letter-spacing:.02em}
+.zj-reader.is-v .zr-page h4,.zj-reader.is-v .zr-page h4.lit{font:600 calc(var(--zr-size) + 2px)/var(--pitch) 'Noto Serif TC','Songti TC',serif;color:var(--pi);margin:0;padding-top:1em;text-align:start}
+.zj-reader.is-v .zr-page .zj-juan{font:700 calc(var(--zr-size) + 4px)/var(--pitch) 'Noto Serif TC','Songti TC',serif;color:var(--pi);margin:0}
+.zj-reader.is-v .zr-page .zj-juan::before{content:'地藏菩薩本願經'}
+.zj-reader.is-v .zr-page .zr-runhead{display:none}
 .zj-reader.is-v .zr-page .zw-c{flex-direction:column-reverse;line-height:1.15;margin:0 0 .12em 0}
-.zj-reader.is-v .zr-page .zw-z{margin:0 0 0 .06em}
-.zj-reader.is-v .zr-nav{flex:none;padding:6px 0}
-.zj-reader.is-v .zr-nav button{min-height:40px}
+.zj-reader.is-v .zr-page .zw-z{margin:0 0 0 .06em;color:var(--pi);opacity:.75}
+.zj-reader.is-v .zb-head{display:flex;flex-direction:row;justify-content:space-between;position:absolute;top:calc(env(safe-area-inset-top) + 46px);bottom:calc(env(safe-area-inset-bottom) + 50px);right:12px;width:44px;border-left:1px solid var(--pm);writing-mode:vertical-rl;color:var(--pm);font:500 20px/44px 'Noto Serif TC','Songti TC',serif;padding-right:0}
+.zj-reader.is-v .zb-no{font-size:18px}
+.zj-reader.is-v .zb-orn{display:block;position:absolute;left:0;right:0;height:34px;opacity:.75;pointer-events:none;
+  background:linear-gradient(var(--po),var(--po)) 0 9px/100% 2px no-repeat,linear-gradient(var(--po),var(--po)) 0 14px/100% 1px no-repeat,
+  radial-gradient(circle at 50% 50%,var(--po) 0 2.5px,transparent 3px) 0 22px/18px 10px repeat-x}
+.zj-reader.is-v .zb-t{top:env(safe-area-inset-top)}
+.zj-reader.is-v .zb-b{bottom:env(safe-area-inset-bottom);transform:scaleY(-1)}
+.zj-reader.is-v .zb-b svg{position:absolute;left:50%;top:-2px;width:30px;height:30px;margin-left:-15px;transform:scaleY(-1);fill:var(--pb);stroke:var(--po);stroke-width:2}
+.zj-reader.is-v .zr-bar,.zj-reader.is-v .zr-nav{position:absolute;left:0;right:0;z-index:3;background:rgba(30,26,20,.94);color:#efe6d2;padding:10px 12px;margin:0;border:0;transition:transform .25s,opacity .25s;opacity:0;pointer-events:none}
+.zj-reader.is-v .zr-bar{top:0;padding-top:calc(env(safe-area-inset-top) + 10px);transform:translateY(-100%)}
+.zj-reader.is-v .zr-nav{bottom:0;padding-bottom:calc(env(safe-area-inset-bottom) + 10px);transform:translateY(100%)}
+.zj-reader.is-v.show-ui .zr-bar,.zj-reader.is-v.show-ui .zr-nav{transform:none;opacity:1;pointer-events:auto}
+.zj-reader.is-v .zr-tools button,.zj-reader.is-v .zr-nav button,.zj-reader.is-v .zr-bg,.zj-reader.is-v .zr-ch{color:#efe6d2;border-color:#6d624f;background:transparent;min-height:40px}
+.zj-reader.is-v .zr-bg{display:inline-block;padding:0 8px;font:13px var(--sans)}
+.zj-reader.is-v .zr-bg option,.zj-reader.is-v .zr-ch option{color:#222}
+.zj-reader.is-v .zr-exit{display:inline-block;border-color:#d8b77a!important;color:#f0d79c!important}
+.zj-reader.is-v .zr-dir,.zj-reader.is-v .zr-resume,.zj-reader.is-v .zr-range,.zj-reader.is-v .zr-list,.zj-reader.is-v .zr-mark,.zj-reader.is-v .zr-marks{display:none!important}
+.zj-reader.is-v .zr-ch{flex:1 1 100%}
+.zj-reader.is-v .zb-hint{display:block;position:absolute;left:50%;bottom:calc(env(safe-area-inset-bottom) + 56px);transform:translateX(-50%);margin:0;padding:6px 12px;border-radius:14px;background:rgba(30,26,20,.8);color:#efe6d2;font:12px var(--sans);white-space:nowrap;animation:zbhint 4s 1.5s forwards;pointer-events:none}
+@keyframes zbhint{to{opacity:0}}

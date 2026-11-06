@@ -38,7 +38,7 @@
   /* 經文閱讀器：分頁或捲動、記住讀到哪頁、書籤、字級。全部存在讀者自己的瀏覽器。 */
   function reader(id, s, box) {
     const KEY = 'ksitigarbha-sutra-' + id;
-    let st = {page: 0, mode: 'page', size: 24, marks: [], zy: false};
+    let st = {page: 0, mode: 'page', size: 24, bg: 'parch', marks: [], zy: false};
     try { st = Object.assign(st, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch {}
     const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch {} };
     // 前後儀軌（依法鼓山課誦本）＋經文合成一份目錄；經文每品從新頁開始，儀軌短段落可併頁
@@ -59,6 +59,7 @@
     if (st.v !== 2) { const add = pages.findIndex(pg => pg.ci === OFF); if (st.page > 0) st.page += add; st.marks = st.marks.map(m => m + add); st.v = 2; }
     if (st.v === 2) { st.v = 3; }
     if (st.v === 3) { if (st.size < 24) st.size = 24; st.v = 4; }
+    st.mode = 'scroll'; if (!st.bg) st.bg = 'parch';
     const N = pages.length;
     st.page = Math.min(Math.max(0, st.page | 0), N - 1);
     const T = (z, e, v, j, k) => L(z, e, v, j, k);
@@ -68,8 +69,9 @@
         <div class="zr-tools">
           <button type="button" class="zr-mode"></button>
           <button type="button" class="zr-zy" aria-pressed="false">注音</button>
-          <button type="button" class="zr-dir" aria-pressed="false">直排</button>
+          <button type="button" class="zr-dir" aria-pressed="false">📖 經書模式（直排全螢幕）</button>
           <button type="button" class="zr-exit">✕ 返回網頁</button>
+          <select class="zr-bg" aria-label="背景顏色"><option value="parch">羊皮紙</option><option value="rice">米白</option><option value="white">白紙</option><option value="night">夜間</option></select>
           <button type="button" class="zr-sm" aria-label="${T('縮小字級', 'Smaller text', 'Chữ nhỏ hơn', '文字を小さく', '글자 작게')}">字－</button>
           <button type="button" class="zr-lg" aria-label="${T('放大字級', 'Larger text', 'Chữ lớn hơn', '文字を大きく', '글자 크게')}">字＋</button>
           <button type="button" class="zr-mark" aria-pressed="false"></button>
@@ -79,6 +81,9 @@
       <div class="zr-resume" hidden></div>
       <div class="zr-marks" hidden></div>
       <div class="zr-page" lang="zh-Hant" tabindex="0"></div>
+      <div class="zb-head" aria-hidden="true"><span class="zb-title"></span><span class="zb-no"></span></div>
+      <div class="zb-orn zb-t" aria-hidden="true"></div><div class="zb-orn zb-b" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 37C11 36 5 29 5 19c10 0 16 6 19 18Zm0 0c13-1 19-8 19-18-10 0-16 6-19 18Zm0-1C14 27 14 16 24 6c10 10 10 21 0 30Z"/></svg></div>
+      <p class="zb-hint">輕點畫面中央：顯示／隱藏工具列　·　左右滑動或點兩側翻頁</p>
       <div class="zr-nav">
         <button type="button" class="zr-prev">← ${T('上一頁', 'Previous', 'Trang trước', '前へ', '이전')}</button>
         <span class="zr-num"></span>
@@ -99,15 +104,18 @@
     function ruby(text, z) { const cs = Array.from(text); if (!z) return esc(text).replace(/\n/g, '<br>');
       return cs.map((c, i) => c === '\n' ? '<br>' : (z[i] && z[i] !== '_') ? zc(c, z[i]) : esc(c)).join(''); }
     let toEnd = false;
+    const cnum = n => { const d = '〇一二三四五六七八九'; return String(n).split('').map(x => d[x]).join(''); };
+    const fs = on => { try { const el = document.documentElement; if (on) { (el.requestFullscreen || el.webkitRequestFullscreen || (() => {})).call(el); }
+      else if (document.fullscreenElement || document.webkitFullscreenElement) (document.exitFullscreen || document.webkitExitFullscreen).call(document); } catch {} };
     // 直排全螢幕：寬度取整數行距，每次翻一屏剛好不切字
     function fitV() { const pitch = Math.round(st.size * (st.zy ? 2.5 : 2.05)); page.style.setProperty('--pitch', pitch + 'px');
-      page.style.width = ''; const avail = box.clientWidth - 24; page.style.width = Math.max(pitch, Math.floor(avail / pitch) * pitch) + 'px'; }
+      page.style.width = ''; const avail = box.clientWidth - 92; page.style.width = Math.max(pitch, Math.floor(avail / pitch) * pitch) + 'px'; }
     function screenV(dir) { // dir 1＝往後讀（往左），-1＝往前
       const W = page.clientWidth, max = page.scrollWidth - W, x = Math.abs(page.scrollLeft);
       if (dir > 0) { if (x < max - 4) page.scrollTo({left: -Math.min(max, x + W), behavior: 'smooth'}); else if (st.page < N - 1) { toEnd = false; go(st.page + 1, false); } }
       else { if (x > 4) page.scrollTo({left: -Math.max(0, x - W), behavior: 'smooth'}); else if (st.page > 0) { toEnd = true; go(st.page - 1, false); toEnd = false; } } }
     function render(scrollTop) {
-      const V = st.dir === 'v'; box.classList.toggle('is-v', V); document.documentElement.classList.toggle('zr-lock', V); $('.zr-dir').setAttribute('aria-pressed', String(V)); $('.zr-mode').hidden = V;
+      const V = st.dir === 'v'; box.classList.toggle('is-v', V); document.documentElement.classList.toggle('zr-lock', V); box.dataset.bg = st.bg; $('.zr-bg').value = st.bg; $('.zr-dir').setAttribute('aria-pressed', String(V)); $('.zr-mode').hidden = V;
       box.classList.toggle('is-scroll', st.mode === 'scroll' && !V);
       box.classList.toggle('is-zy', !!st.zy); $('.zr-zy').setAttribute('aria-pressed', String(!!st.zy));
       page.style.setProperty('--zr-size', st.size + 'px');
@@ -117,7 +125,8 @@
         const el = page.querySelector(`[data-p="${st.page}"]`); if (el && scrollTop !== false) el.scrollIntoView();
       } else {
         page.innerHTML = pageHTML(pages[st.page], st.page);
-        if (V) fitV(); else page.style.width = '';
+        if (V) { fitV(); const c = C[pages[st.page].ci], up = c.lit ? !LT.post.includes(c) : c.oi < s.juan[1][0];
+          $('.zb-title').textContent = `《${s.title}卷${up ? '上' : '下'}》`; $('.zb-no').textContent = cnum(st.page + 1); } else page.style.width = '';
         if (scrollTop !== false && !V) box.scrollIntoView({block: 'start'});
         if (V) page.scrollLeft = toEnd ? -(page.scrollWidth - page.clientWidth) : 0;
       }
@@ -151,8 +160,9 @@
     $('.zr-lg').onclick = () => { st.size = Math.min(40, st.size + 2); render(false); };
     $('.zr-mark').onclick = () => { const i = st.marks.indexOf(st.page); i >= 0 ? st.marks.splice(i, 1) : st.marks.push(st.page); sync(); if (!$('.zr-marks').hidden) { $('.zr-marks').hidden = true; marks(); } };
     $('.zr-list').onclick = marks;
-    $('.zr-dir').onclick = () => { st.dir = 'v'; render(); };
-    $('.zr-exit').onclick = () => { st.dir = 'h'; render(); };
+    $('.zr-dir').onclick = () => { st.dir = 'v'; fs(true); box.classList.remove('show-ui'); render(); };
+    $('.zr-exit').onclick = () => { box.classList.remove('show-ui'); st.dir = 'h'; fs(false); render(); };
+    $('.zr-bg').onchange = e => { st.bg = e.target.value; box.dataset.bg = st.bg; save(); };
     const zyLoad = cb => { if (window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]) return cb(); const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=3'; sc.onload = cb; sc.onerror = () => { st.zy = false; render(false); }; document.body.appendChild(sc); };
     $('.zr-zy').onclick = () => { st.zy = !st.zy; st.zy ? zyLoad(() => render(false)) : render(false); };
     $('.zr-marks').onclick = e => { const g = e.target.closest('[data-go]'), d = e.target.closest('[data-del]');
@@ -170,11 +180,11 @@
     page.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
       if (st.dir === 'v') {
         if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) return screenV(dx > 0 ? 1 : -1);
-        if (Math.abs(dx) < 10 && Math.abs(dy) < 10) { const r = page.getBoundingClientRect(), t = e.changedTouches[0].clientX - r.left; if (t < r.width / 3) screenV(1); else if (t > r.width * 2 / 3) screenV(-1); }
+        if (Math.abs(dx) < 10 && Math.abs(dy) < 10) { const r = page.getBoundingClientRect(), t = e.changedTouches[0].clientX - r.left; if (t < r.width / 3) screenV(1); else if (t > r.width * 2 / 3) screenV(-1); else box.classList.toggle('show-ui'); }
         return; }
       if (st.mode !== 'page') return;
       if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) go(st.page + (dx < 0 ? 1 : -1)); }, {passive: true});
-    page.addEventListener('click', e => { if (st.dir !== 'v' || e.pointerType === 'touch' || matchMedia('(pointer:coarse)').matches) return; const r = page.getBoundingClientRect(), t = e.clientX - r.left; if (t < r.width / 3) screenV(1); else if (t > r.width * 2 / 3) screenV(-1); });
+    page.addEventListener('click', e => { if (st.dir !== 'v' || e.pointerType === 'touch' || matchMedia('(pointer:coarse)').matches) return; const r = page.getBoundingClientRect(), t = e.clientX - r.left; if (t < r.width / 3) screenV(1); else if (t > r.width * 2 / 3) screenV(-1); else box.classList.toggle('show-ui'); });
     window.addEventListener('resize', () => { if (st.dir === 'v') { fitV(); page.scrollLeft = 0; } });
     document.addEventListener('keydown', e => { if ((st.mode !== 'page' && st.dir !== 'v') || /input|select|textarea/i.test(e.target.tagName)) return;
       if (st.dir === 'v') { if (e.key === 'ArrowLeft') screenV(1); else if (e.key === 'ArrowRight') screenV(-1); else if (e.key === 'Escape') { st.dir = 'h'; render(); } return; }
