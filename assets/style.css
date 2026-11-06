@@ -364,7 +364,7 @@ html.big-text .zj-text p{font-size:21px}
 .zr-marks ul{list-style:none;margin:0;padding:0}.zr-marks li{display:flex;gap:8px;border-bottom:1px solid var(--line)}
 .zr-marks li button{background:none;border:0;color:inherit;text-align:left;padding:12px 4px;flex:1;cursor:pointer;font:15px var(--serif)}
 .zr-marks .zr-del{flex:0 0 44px;text-align:center;color:var(--muted)}
-.zr-page{--zr-size:19px;min-height:60vh;padding:20px 0 10px;outline:none}
+.zr-page{--zr-size:22px;min-height:60vh;padding:20px 0 10px;outline:none}
 .zr-page p{font:var(--zr-size)/2.15 var(--serif);margin:0 0 1.1em;text-align:justify}
 .zr-page h4{font:calc(var(--zr-size) + 6px) var(--serif);color:var(--accent);margin:10px 0 24px}
 .zr-runhead{font-size:13px!important;color:var(--muted);letter-spacing:.1em;margin-bottom:18px!important}

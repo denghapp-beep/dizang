@@ -38,7 +38,7 @@
   /* 經文閱讀器：分頁或捲動、記住讀到哪頁、書籤、字級。全部存在讀者自己的瀏覽器。 */
   function reader(id, s, box) {
     const KEY = 'ksitigarbha-sutra-' + id;
-    let st = {page: 0, mode: 'page', size: 19, marks: [], zy: false};
+    let st = {page: 0, mode: 'page', size: 22, marks: [], zy: false};
     try { st = Object.assign(st, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch {}
     const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch {} };
     // 前後儀軌（依法鼓山課誦本）＋經文合成一份目錄；經文每品從新頁開始，儀軌短段落可併頁
@@ -57,6 +57,7 @@
     pages.forEach(pg => { pg.ci = pg.items[0].ci; });
     // 舊版沒有前置儀軌，頁碼往後移
     if (st.v !== 2) { const add = pages.findIndex(pg => pg.ci === OFF); if (st.page > 0) st.page += add; st.marks = st.marks.map(m => m + add); st.v = 2; }
+    if (st.v === 2) { if (st.size < 22) st.size = 22; st.v = 3; }
     const N = pages.length;
     st.page = Math.min(Math.max(0, st.page | 0), N - 1);
     const T = (z, e, v, j, k) => L(z, e, v, j, k);
@@ -135,7 +136,7 @@
     $('.zr-ch').onchange = e => go(pages.findIndex(pg => pg.items.some(x => x.ci === +e.target.value)));
     $('.zr-mode').onclick = () => { st.mode = st.mode === 'page' ? 'scroll' : 'page'; render(); };
     $('.zr-sm').onclick = () => { st.size = Math.max(15, st.size - 2); render(false); };
-    $('.zr-lg').onclick = () => { st.size = Math.min(30, st.size + 2); render(false); };
+    $('.zr-lg').onclick = () => { st.size = Math.min(36, st.size + 2); render(false); };
     $('.zr-mark').onclick = () => { const i = st.marks.indexOf(st.page); i >= 0 ? st.marks.splice(i, 1) : st.marks.push(st.page); sync(); if (!$('.zr-marks').hidden) { $('.zr-marks').hidden = true; marks(); } };
     $('.zr-list').onclick = marks;
     $('.zr-dir').onclick = () => { st.dir = st.dir === 'v' ? 'h' : 'v'; render(); };
@@ -152,9 +153,15 @@
       if (cur !== st.page) { st.page = cur; sync(); } }); }, {passive: true});
     // 翻頁模式：左右滑動、鍵盤方向鍵
     let x0 = null, y0 = null;
-    page.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, {passive: true});
-    page.addEventListener('touchend', e => { if (x0 === null || st.mode !== 'page' || st.dir === 'v') return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
-      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) go(st.page + (dx < 0 ? 1 : -1)); }, {passive: true});
+    let sx = 0;
+    page.addEventListener('touchstart', e => { sx = Math.abs(page.scrollLeft); x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, {passive: true});
+    page.addEventListener('touchend', e => { const V = st.dir === 'v'; if (x0 === null || (st.mode !== 'page' && !V)) return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+      if (!(Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5)) return;
+      if (!V) return go(st.page + (dx < 0 ? 1 : -1));
+      // 直排：往右滑＝往下讀（下一頁），往左滑＝上一頁；本頁還沒捲到底時先捲動，捲到盡頭再滑一次就翻頁
+      const max = page.scrollWidth - page.clientWidth;
+      if (dx > 0 && (max < 4 || sx >= max - 4)) go(st.page + 1);
+      else if (dx < 0 && (max < 4 || sx <= 4)) go(st.page - 1); }, {passive: true});
     document.addEventListener('keydown', e => { if ((st.mode !== 'page' && st.dir !== 'v') || /input|select|textarea/i.test(e.target.tagName)) return;
       const f = st.dir === 'v' ? -1 : 1; if (e.key === 'ArrowRight') go(st.page + f); else if (e.key === 'ArrowLeft') go(st.page - f); });
     // 上次讀到哪
