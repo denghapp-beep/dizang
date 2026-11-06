@@ -38,7 +38,7 @@
   /* 經文閱讀器：分頁或捲動、記住讀到哪頁、書籤、字級。全部存在讀者自己的瀏覽器。 */
   function reader(id, s, box) {
     const KEY = 'ksitigarbha-sutra-' + id;
-    let st = {page: 0, mode: 'page', size: 24, bg: 'parch', marks: [], zy: false};
+    let st = {page: 0, mode: 'page', size: (innerWidth >= 700 ? 30 : 26), bg: 'parch', marks: [], zy: false};
     try { st = Object.assign(st, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch {}
     const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch {} };
     // 前後儀軌（依法鼓山課誦本）＋經文合成一份目錄；經文每品從新頁開始，儀軌短段落可併頁
@@ -59,6 +59,7 @@
     if (st.v !== 2) { const add = pages.findIndex(pg => pg.ci === OFF); if (st.page > 0) st.page += add; st.marks = st.marks.map(m => m + add); st.v = 2; }
     if (st.v === 2) { st.v = 3; }
     if (st.v === 3) { if (st.size < 24) st.size = 24; st.v = 4; }
+    if (st.v === 4) { st.size = Math.max(st.size, (innerWidth >= 700 ? 30 : 26)); st.v = 5; }
     st.mode = 'scroll'; if (!st.bg) st.bg = 'parch';
     const N = pages.length;
     st.page = Math.min(Math.max(0, st.page | 0), N - 1);
@@ -83,7 +84,7 @@
       <div class="zr-page" lang="zh-Hant" tabindex="0"></div>
       <div class="zb-head" aria-hidden="true"><span class="zb-title"></span><span class="zb-no"></span></div>
       <div class="zb-orn zb-t" aria-hidden="true"></div><div class="zb-orn zb-b" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 37C11 36 5 29 5 19c10 0 16 6 19 18Zm0 0c13-1 19-8 19-18-10 0-16 6-19 18Zm0-1C14 27 14 16 24 6c10 10 10 21 0 30Z"/></svg></div>
-      <p class="zb-hint">輕點畫面中央：顯示／隱藏工具列　·　左右滑動或點兩側翻頁</p>
+      <p class="zb-hint">輕點畫面：顯示／隱藏工具列　·　左右滑動翻頁</p>
       <div class="zr-nav">
         <button type="button" class="zr-prev">← ${T('上一頁', 'Previous', 'Trang trước', '前へ', '이전')}</button>
         <span class="zr-num"></span>
@@ -110,10 +111,21 @@
     // 直排全螢幕：寬度取整數行距，每次翻一屏剛好不切字
     function fitV() { const pitch = Math.round(st.size * (st.zy ? 2.5 : 2.05)); page.style.setProperty('--pitch', pitch + 'px');
       page.style.width = ''; const avail = box.clientWidth - 92; page.style.width = Math.max(pitch, Math.floor(avail / pitch) * pitch) + 'px'; }
+    let offs = [0], ends = [], scr = 0;
+    // 量出每一行的實際位置，算出每一屏從哪一行開始；畫面左邊放不完整的行用裁切藏起來，不會出現被切掉的字
+    function measure() { page.style.clipPath = ''; page.scrollLeft = 0; const R = page.getBoundingClientRect(), W = page.clientWidth, raw = [];
+      page.querySelectorAll('p,h4').forEach(el => { const r = document.createRange(); r.selectNodeContents(el); for (const q of r.getClientRects()) if (q.width > 1) raw.push([R.right - q.right, R.right - q.left]); });
+      raw.sort((a, b) => a[0] - b[0]); const ln = [];
+      for (const r of raw) { const l = ln[ln.length - 1]; if (l && r[0] < l[1] - 2) l[1] = Math.max(l[1], r[1]); else ln.push([r[0], r[1]]); }
+      offs = [0]; ends = []; let st0 = 0, e = 0;
+      for (const l of ln) { if (l[1] - st0 > W - 1) { ends.push(e); st0 = l[0]; offs.push(st0); } e = l[1]; }
+      ends.push(e); }
+    function showScr() { const W = page.clientWidth, o = offs[scr] || 0, e = ends[scr] || W;
+      page.scrollLeft = -o; const real = Math.abs(page.scrollLeft); page.style.clipPath = `inset(0 0 0 ${Math.max(0, W - (e - real))}px)`;
+      $('.zr-num').textContent = `${st.page + 1} / ${N}`; }
     function screenV(dir) { // dir 1＝往後讀（往左），-1＝往前
-      const W = page.clientWidth, max = page.scrollWidth - W, x = Math.abs(page.scrollLeft);
-      if (dir > 0) { if (x < max - 4) page.scrollTo({left: -Math.min(max, x + W), behavior: 'smooth'}); else if (st.page < N - 1) { toEnd = false; go(st.page + 1, false); } }
-      else { if (x > 4) page.scrollTo({left: -Math.max(0, x - W), behavior: 'smooth'}); else if (st.page > 0) { toEnd = true; go(st.page - 1, false); toEnd = false; } } }
+      if (dir > 0) { if (scr < offs.length - 1) { scr++; showScr(); } else if (st.page < N - 1) { toEnd = false; go(st.page + 1, false); } }
+      else { if (scr > 0) { scr--; showScr(); } else if (st.page > 0) { toEnd = true; go(st.page - 1, false); toEnd = false; } } }
     function render(scrollTop) {
       const V = st.dir === 'v'; box.classList.toggle('is-v', V); document.documentElement.classList.toggle('zr-lock', V); box.dataset.bg = st.bg; $('.zr-bg').value = st.bg; $('.zr-dir').setAttribute('aria-pressed', String(V)); $('.zr-mode').hidden = V;
       box.classList.toggle('is-scroll', st.mode === 'scroll' && !V);
@@ -128,7 +140,7 @@
         if (V) { fitV(); const c = C[pages[st.page].ci], up = c.lit ? !LT.post.includes(c) : c.oi < s.juan[1][0];
           $('.zb-title').textContent = `《${s.title}卷${up ? '上' : '下'}》`; $('.zb-no').textContent = cnum(st.page + 1); } else page.style.width = '';
         if (scrollTop !== false && !V) box.scrollIntoView({block: 'start'});
-        if (V) page.scrollLeft = toEnd ? -(page.scrollWidth - page.clientWidth) : 0;
+        if (V) { measure(); scr = toEnd ? offs.length - 1 : 0; showScr(); } else page.style.clipPath = '';
       }
       sync();
     }
@@ -157,7 +169,7 @@
     $('.zr-ch').onchange = e => go(pages.findIndex(pg => pg.items.some(x => x.ci === +e.target.value)));
     $('.zr-mode').onclick = () => { st.mode = st.mode === 'page' ? 'scroll' : 'page'; render(); };
     $('.zr-sm').onclick = () => { st.size = Math.max(15, st.size - 2); render(false); };
-    $('.zr-lg').onclick = () => { st.size = Math.min(40, st.size + 2); render(false); };
+    $('.zr-lg').onclick = () => { st.size = Math.min(44, st.size + 2); render(false); };
     $('.zr-mark').onclick = () => { const i = st.marks.indexOf(st.page); i >= 0 ? st.marks.splice(i, 1) : st.marks.push(st.page); sync(); if (!$('.zr-marks').hidden) { $('.zr-marks').hidden = true; marks(); } };
     $('.zr-list').onclick = marks;
     $('.zr-dir').onclick = () => { st.dir = 'v'; fs(true); box.classList.remove('show-ui'); render(); };
@@ -176,16 +188,20 @@
       if (cur !== st.page) { st.page = cur; sync(); } }); }, {passive: true});
     // 翻頁模式：左右滑動、鍵盤方向鍵
     let x0 = null, y0 = null;
-    page.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, {passive: true});
-    page.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+    const inUI = t => t.closest('.zr-bar,.zr-nav,.zr-marks');
+    box.addEventListener('touchstart', e => { if (st.dir !== 'v' && !e.target.closest('.zr-page')) return; x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, {passive: true});
+    box.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
       if (st.dir === 'v') {
+        if (inUI(e.target)) return;
+        // 經書模式：左右滑動翻頁；輕點畫面任何地方（工具列以外）叫出／收起工具列
         if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) return screenV(dx > 0 ? 1 : -1);
-        if (Math.abs(dx) < 10 && Math.abs(dy) < 10) { const r = page.getBoundingClientRect(), t = e.changedTouches[0].clientX - r.left; if (t < r.width / 3) screenV(1); else if (t > r.width * 2 / 3) screenV(-1); else box.classList.toggle('show-ui'); }
+        if (Math.abs(dx) < 15 && Math.abs(dy) < 15) box.classList.toggle('show-ui');
         return; }
       if (st.mode !== 'page') return;
       if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) go(st.page + (dx < 0 ? 1 : -1)); }, {passive: true});
-    page.addEventListener('click', e => { if (st.dir !== 'v' || e.pointerType === 'touch' || matchMedia('(pointer:coarse)').matches) return; const r = page.getBoundingClientRect(), t = e.clientX - r.left; if (t < r.width / 3) screenV(1); else if (t > r.width * 2 / 3) screenV(-1); else box.classList.toggle('show-ui'); });
-    window.addEventListener('resize', () => { if (st.dir === 'v') { fitV(); page.scrollLeft = 0; } });
+    box.addEventListener('click', e => { if (st.dir !== 'v' || inUI(e.target) || matchMedia('(pointer:coarse)').matches) return; const t = e.clientX / innerWidth; if (t < .25) screenV(1); else if (t > .75) screenV(-1); else box.classList.toggle('show-ui'); });
+    let rz = 0; window.addEventListener('resize', () => { if (st.dir !== 'v') return; clearTimeout(rz); rz = setTimeout(() => { fitV(); measure(); scr = Math.min(scr, offs.length - 1); showScr(); }, 150); });
+    if (document.fonts) document.fonts.ready.then(() => { if (st.dir === 'v') { measure(); scr = Math.min(scr, offs.length - 1); showScr(); } });
     document.addEventListener('keydown', e => { if ((st.mode !== 'page' && st.dir !== 'v') || /input|select|textarea/i.test(e.target.tagName)) return;
       if (st.dir === 'v') { if (e.key === 'ArrowLeft') screenV(1); else if (e.key === 'ArrowRight') screenV(-1); else if (e.key === 'Escape') { st.dir = 'h'; render(); } return; }
       if (e.key === 'ArrowRight') go(st.page + 1); else if (e.key === 'ArrowLeft') go(st.page - 1); });
