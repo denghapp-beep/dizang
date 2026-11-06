@@ -31,16 +31,119 @@
       <section class="zj-trans"><h4>${L('海外譯本', 'Translations', 'Bản dịch', '各国語の訳', '번역본')}</h4>
         <p class="small">${L('經文不自行翻譯，以下為海外道場與譯經團體已出版的譯本，點選前往原網站閱讀。', 'We do not translate the sutra ourselves. These are translations published by monasteries and translation groups; each link opens the original site.', 'Chúng tôi không tự dịch kinh. Dưới đây là các bản dịch đã được các đạo tràng và nhóm dịch kinh công bố; bấm để đọc tại trang gốc.', '経典は当サイトで翻訳していません。各地の寺院や翻訳団体が公開している訳を、元のサイトでお読みください。', '경전은 자체 번역하지 않습니다. 사찰과 역경 단체가 펴낸 번역본이며, 원래 사이트에서 읽으실 수 있습니다.')}</p>
         <ul>${order.map(t => `<li><span class="zj-lang">${LN[t.lang] || t.lang}</span><a href="${t.url}" target="_blank" rel="noopener">${esc(t.name)} ↗</a><span class="zj-tby">${esc(t.by)}</span></li>`).join('')}</ul></section>
-      <nav class="zj-toc"><h4>${L('目錄', 'Contents', 'Mục lục', '目次', '목차')}</h4><ol>${s.chapters.map((c, i) => `<li><a href="#ch${i + 1}">${esc(c.title)}</a></li>`).join('')}</ol></nav>
-      <div class="zj-text" lang="zh-Hant">${s.chapters.map((c, i) => `${s.juan.findIndex(j => j[0] === i) >= 0 ? `<p class="zj-juan">${['卷上', '卷下'][s.juan.findIndex(j => j[0] === i)] || ''}</p>` : ''}<h4 id="ch${i + 1}">${esc(c.title)}</h4>${c.paras.map(p => `<p>${esc(p).replace(/\n/g, '<br>')}</p>`).join('')}`).join('')}</div>
+      <div class="zj-reader"></div>
       <p class="small zj-src">${L('經文來源：', 'Source: ', 'Nguồn: ', '出典：', '출처: ')}<a href="${s.sourceUrl}" target="_blank" rel="noopener">${esc(s.source)}</a></p></article>`;
+  }
+
+  /* 經文閱讀器：分頁或捲動、記住讀到哪頁、書籤、字級。全部存在讀者自己的瀏覽器。 */
+  function reader(id, s, box) {
+    const KEY = 'ksitigarbha-sutra-' + id;
+    let st = {page: 0, mode: 'page', size: 19, marks: []};
+    try { st = Object.assign(st, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch {}
+    const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch {} };
+    // 依段落切頁：每頁約 700 字，不切斷段落；每品從新頁開始
+    const pages = [];
+    s.chapters.forEach((c, ci) => {
+      let cur = [], len = 0;
+      const juan = s.juan.findIndex(j => j[0] === ci);
+      c.paras.forEach(p => { if (cur.length && len + p.length > 700) { pages.push({ci, paras: cur}); cur = []; len = 0; } cur.push(p); len += p.length; });
+      if (cur.length) pages.push({ci, paras: cur});
+      const first = pages.findIndex(pg => pg.ci === ci); pages[first].head = true; if (juan >= 0) pages[first].juan = ['卷上', '卷下'][juan];
+    });
+    const N = pages.length;
+    st.page = Math.min(Math.max(0, st.page | 0), N - 1);
+    const T = (z, e, v, j, k) => L(z, e, v, j, k);
+    box.innerHTML = `
+      <div class="zr-bar">
+        <select class="zr-ch" aria-label="${T('跳到品', 'Go to chapter', 'Đến phẩm', '品へ移動', '품으로 이동')}">${s.chapters.map((c, i) => `<option value="${i}">${esc(c.title)}</option>`).join('')}</select>
+        <div class="zr-tools">
+          <button type="button" class="zr-mode"></button>
+          <button type="button" class="zr-sm" aria-label="${T('縮小字級', 'Smaller text', 'Chữ nhỏ hơn', '文字を小さく', '글자 작게')}">字－</button>
+          <button type="button" class="zr-lg" aria-label="${T('放大字級', 'Larger text', 'Chữ lớn hơn', '文字を大きく', '글자 크게')}">字＋</button>
+          <button type="button" class="zr-mark" aria-pressed="false"></button>
+          <button type="button" class="zr-list">${T('書籤', 'Bookmarks', 'Dấu trang', 'しおり', '책갈피')}</button>
+        </div>
+      </div>
+      <div class="zr-resume" hidden></div>
+      <div class="zr-marks" hidden></div>
+      <div class="zr-page" lang="zh-Hant" tabindex="0"></div>
+      <div class="zr-nav">
+        <button type="button" class="zr-prev">← ${T('上一頁', 'Previous', 'Trang trước', '前へ', '이전')}</button>
+        <span class="zr-num"></span>
+        <button type="button" class="zr-next">${T('下一頁', 'Next', 'Trang sau', '次へ', '다음')} →</button>
+      </div>
+      <input class="zr-range" type="range" min="1" max="${N}" aria-label="${T('頁碼', 'Page', 'Trang', 'ページ', '쪽')}">`;
+    const $ = q => box.querySelector(q), page = $('.zr-page');
+    const pageHTML = (pg, i) => `${pg.juan ? `<p class="zj-juan">${pg.juan}</p>` : ''}${pg.head ? `<h4>${esc(s.chapters[pg.ci].title)}</h4>` : `<p class="zr-runhead">${esc(s.chapters[pg.ci].title)}</p>`}${pg.paras.map(p => `<p>${esc(p).replace(/\n/g, '<br>')}</p>`).join('')}`;
+    function render(scrollTop) {
+      box.classList.toggle('is-scroll', st.mode === 'scroll');
+      page.style.setProperty('--zr-size', st.size + 'px');
+      $('.zr-mode').textContent = st.mode === 'page' ? T('改為捲動閱讀', 'Scroll mode', 'Chế độ cuộn', 'スクロール表示', '스크롤 보기') : T('改為翻頁閱讀', 'Page mode', 'Chế độ lật trang', 'ページ表示', '쪽 넘김 보기');
+      if (st.mode === 'scroll') {
+        page.innerHTML = pages.map((pg, i) => `<section data-p="${i}">${pageHTML(pg, i)}</section>`).join('');
+        const el = page.querySelector(`[data-p="${st.page}"]`); if (el && scrollTop !== false) el.scrollIntoView();
+      } else {
+        page.innerHTML = pageHTML(pages[st.page], st.page);
+        if (scrollTop !== false) box.scrollIntoView({block: 'start'});
+      }
+      sync();
+    }
+    function sync() {
+      const pg = pages[st.page];
+      $('.zr-ch').value = pg.ci;
+      $('.zr-num').textContent = `${st.page + 1} / ${N}`;
+      $('.zr-range').value = st.page + 1;
+      $('.zr-prev').disabled = st.page === 0; $('.zr-next').disabled = st.page === N - 1;
+      const on = st.marks.includes(st.page);
+      $('.zr-mark').setAttribute('aria-pressed', String(on));
+      $('.zr-mark').textContent = on ? T('已加書籤', 'Bookmarked', 'Đã đánh dấu', 'しおり済み', '책갈피 됨') : T('加書籤', 'Bookmark', 'Đánh dấu', 'しおりを挟む', '책갈피');
+      save();
+    }
+    function go(i, scrollTop) { st.page = Math.min(Math.max(0, i), N - 1); $('.zr-resume').hidden = true; render(scrollTop); }
+    function marks() {
+      const m = $('.zr-marks');
+      if (!m.hidden) { m.hidden = true; return; }
+      st.marks.sort((a, b) => a - b);
+      m.innerHTML = st.marks.length ? `<ul>${st.marks.map(i => `<li><button type="button" data-go="${i}">${esc(s.chapters[pages[i].ci].title)} · ${T('第', 'p. ', 'tr. ', '', '')}${i + 1}${T(' 頁', '', '', ' ページ', '쪽')}</button><button type="button" class="zr-del" data-del="${i}" aria-label="${T('刪除書籤', 'Remove bookmark', 'Xóa dấu trang', 'しおりを外す', '책갈피 삭제')}">×</button></li>`).join('')}</ul>`
+        : `<p>${T('還沒有書籤。讀到想記住的地方，按「加書籤」。', 'No bookmarks yet. Tap “Bookmark” on any page you want to keep.', 'Chưa có dấu trang. Bấm “Đánh dấu” ở trang muốn ghi nhớ.', 'しおりはまだありません。残したいページで「しおりを挟む」を押してください。', '아직 책갈피가 없습니다. 기억하고 싶은 쪽에서 「책갈피」를 누르세요.')}</p>`;
+      m.hidden = false;
+    }
+    $('.zr-prev').onclick = () => go(st.page - 1); $('.zr-next').onclick = () => go(st.page + 1);
+    $('.zr-range').oninput = e => go(e.target.value - 1);
+    $('.zr-ch').onchange = e => go(pages.findIndex(pg => pg.ci === +e.target.value));
+    $('.zr-mode').onclick = () => { st.mode = st.mode === 'page' ? 'scroll' : 'page'; render(); };
+    $('.zr-sm').onclick = () => { st.size = Math.max(15, st.size - 2); render(false); };
+    $('.zr-lg').onclick = () => { st.size = Math.min(30, st.size + 2); render(false); };
+    $('.zr-mark').onclick = () => { const i = st.marks.indexOf(st.page); i >= 0 ? st.marks.splice(i, 1) : st.marks.push(st.page); sync(); if (!$('.zr-marks').hidden) { $('.zr-marks').hidden = true; marks(); } };
+    $('.zr-list').onclick = marks;
+    $('.zr-marks').onclick = e => { const g = e.target.closest('[data-go]'), d = e.target.closest('[data-del]');
+      if (d) { st.marks = st.marks.filter(x => x !== +d.dataset.del); save(); $('.zr-marks').hidden = true; marks(); sync(); }
+      else if (g) { $('.zr-marks').hidden = true; go(+g.dataset.go); } };
+    // 捲動模式：記住目前捲到的頁
+    let tick = 0;
+    window.addEventListener('scroll', () => { if (st.mode !== 'scroll' || tick) return; tick = requestAnimationFrame(() => { tick = 0;
+      const secs = page.querySelectorAll('section'); let cur = st.page;
+      for (const el of secs) { if (el.getBoundingClientRect().top < innerHeight * 0.35) cur = +el.dataset.p; else break; }
+      if (cur !== st.page) { st.page = cur; sync(); } }); }, {passive: true});
+    // 翻頁模式：左右滑動、鍵盤方向鍵
+    let x0 = null, y0 = null;
+    page.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, {passive: true});
+    page.addEventListener('touchend', e => { if (x0 === null || st.mode !== 'page') return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) go(st.page + (dx < 0 ? 1 : -1)); }, {passive: true});
+    document.addEventListener('keydown', e => { if (st.mode !== 'page' || /input|select|textarea/i.test(e.target.tagName)) return;
+      if (e.key === 'ArrowRight') go(st.page + 1); else if (e.key === 'ArrowLeft') go(st.page - 1); });
+    // 上次讀到哪
+    if (st.page > 0) { const r = $('.zr-resume'); r.hidden = false;
+      r.innerHTML = `${T('上次讀到', 'Last read: ', 'Lần trước đọc đến ', '前回の続き：', '지난번 읽은 곳: ')}${esc(s.chapters[pages[st.page].ci].title)} · ${st.page + 1} / ${N} <button type="button">${T('從頭開始', 'Start over', 'Đọc từ đầu', '最初から', '처음부터')}</button>`;
+      r.querySelector('button').onclick = () => go(0); }
+    render(false);
   }
   function show(id) {
     const t = TABS.find(x => x.id === id) || TABS[0];
     root.querySelectorAll('[data-tab]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === t.id)));
     panel.innerHTML = t.sutra ? sutra(t.sutra) : comics();
+    if (t.sutra) reader(t.id, t.sutra, panel.querySelector('.zj-reader'));
   }
   root.querySelectorAll('[data-tab]').forEach(b => b.addEventListener('click', () => { history.replaceState(null, '', '#' + b.dataset.tab); show(b.dataset.tab); }));
-  const h = location.hash.slice(1); show(TABS.some(t => t.id === h) ? h : (h.startsWith('ch') ? 'dizang' : 'comics'));
-  if (h.startsWith('ch')) setTimeout(() => { const el = document.getElementById(h); if (el) el.scrollIntoView(); }, 50);
+  const h = location.hash.slice(1); show(TABS.some(t => t.id === h) ? h : 'comics');
 })();

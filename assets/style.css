@@ -351,3 +351,27 @@ html.big-text main,html.big-text footer{zoom:1.2}
 .zj-src{margin-top:40px}.zj-src a{color:var(--accent)}
 html.big-text .zj-text p{font-size:21px}
 @media(max-width:760px){.zj-toc ol{columns:1}.zj-tby{padding-left:0}.zj-text p{font-size:17px}.zj-head h3{font-size:28px}}
+/* 經文閱讀器 */
+.zj-reader{margin-top:30px;border-top:1px solid var(--line);padding-top:18px}
+.zr-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;position:sticky;top:0;z-index:5;background:var(--bg,#141813);padding:10px 0;border-bottom:1px solid var(--line)}
+.zr-ch{flex:1 1 220px;min-height:44px;background:transparent;color:inherit;border:1px solid var(--line);padding:0 10px;font:15px var(--serif)}
+.zr-ch option{color:#1a1a1a}
+.zr-tools{display:flex;flex-wrap:wrap;gap:6px}
+.zr-tools button,.zr-nav button,.zr-resume button{min-height:44px;padding:0 12px;border:1px solid var(--line);background:transparent;color:inherit;font:13px var(--sans);cursor:pointer}
+.zr-tools button:hover,.zr-mark[aria-pressed=true]{border-color:var(--accent);color:var(--accent)}
+.zr-resume{margin:14px 0;padding:12px 14px;border:1px solid color-mix(in srgb,var(--accent) 50%,transparent);color:var(--accent);font-size:14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.zr-marks{margin:12px 0;border:1px solid var(--line);padding:12px 14px}
+.zr-marks ul{list-style:none;margin:0;padding:0}.zr-marks li{display:flex;gap:8px;border-bottom:1px solid var(--line)}
+.zr-marks li button{background:none;border:0;color:inherit;text-align:left;padding:12px 4px;flex:1;cursor:pointer;font:15px var(--serif)}
+.zr-marks .zr-del{flex:0 0 44px;text-align:center;color:var(--muted)}
+.zr-page{--zr-size:19px;min-height:60vh;padding:20px 0 10px;outline:none}
+.zr-page p{font:var(--zr-size)/2.15 var(--serif);margin:0 0 1.1em;text-align:justify}
+.zr-page h4{font:calc(var(--zr-size) + 6px) var(--serif);color:var(--accent);margin:10px 0 24px}
+.zr-runhead{font-size:13px!important;color:var(--muted);letter-spacing:.1em;margin-bottom:18px!important}
+.zr-page section+section{margin-top:30px}
+.zr-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 0 8px;border-top:1px solid var(--line)}
+.zr-nav button{min-width:110px}.zr-nav button:disabled{opacity:.3}
+.zr-num{color:var(--muted);font-size:14px;letter-spacing:.08em}
+.zr-range{width:100%;accent-color:var(--accent);margin:8px 0 0}
+.zj-reader.is-scroll .zr-nav,.zj-reader.is-scroll .zr-range{display:none}
+@media(max-width:760px){.zr-tools button{padding:0 9px;font-size:12px}.zr-nav button{min-width:90px}}
