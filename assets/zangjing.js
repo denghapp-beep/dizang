@@ -72,7 +72,8 @@
           <button type="button" class="zr-zy" aria-pressed="false">注音</button>
           <button type="button" class="zr-dir" aria-pressed="false">📖 經書模式<span>（直排全螢幕）</span></button>
           <button type="button" class="zr-exit">✕ 返回網頁</button>
-          <select class="zr-bg" aria-label="背景顏色"><option value="parch">羊皮紙</option><option value="rice">米白</option><option value="white">白紙</option><option value="night">夜間</option></select>
+          <select class="zr-bg" aria-label="背景顏色"><option value="site">背景：網站原色</option><option value="parch">背景：羊皮紙</option><option value="rice">背景：米白</option><option value="white">背景：白紙</option><option value="night">背景：夜間</option></select>
+          <select class="zr-fg" aria-label="字的亮度"><option value="0">字：標準</option><option value="1">字：加亮</option><option value="2">字：最亮</option></select>
           <button type="button" class="zr-sm" aria-label="${T('縮小字級', 'Smaller text', 'Chữ nhỏ hơn', '文字を小さく', '글자 작게')}">字－</button>
           <button type="button" class="zr-lg" aria-label="${T('放大字級', 'Larger text', 'Chữ lớn hơn', '文字を大きく', '글자 크게')}">字＋</button>
           <button type="button" class="zr-mark" aria-pressed="false"></button>
@@ -127,7 +128,7 @@
       if (dir > 0) { if (scr < offs.length - 1) { scr++; showScr(); } else if (st.page < N - 1) { toEnd = false; go(st.page + 1, false); } }
       else { if (scr > 0) { scr--; showScr(); } else if (st.page > 0) { toEnd = true; go(st.page - 1, false); toEnd = false; } } }
     function render(scrollTop) {
-      const V = st.dir === 'v'; box.classList.toggle('is-v', V); document.documentElement.classList.toggle('zr-lock', V); box.dataset.bg = st.bg; $('.zr-bg').value = st.bg; $('.zr-dir').setAttribute('aria-pressed', String(V)); $('.zr-mode').hidden = V;
+      const V = st.dir === 'v'; box.classList.toggle('is-v', V); document.documentElement.classList.toggle('zr-lock', V); box.dataset.bg = st.bg; $('.zr-bg').value = st.bg; box.dataset.fg = st.fg || 0; $('.zr-fg').value = st.fg || 0; $('.zr-dir').setAttribute('aria-pressed', String(V)); $('.zr-mode').hidden = V;
       box.classList.toggle('is-scroll', st.mode === 'scroll' && !V);
       box.classList.toggle('is-zy', !!st.zy); $('.zr-zy').setAttribute('aria-pressed', String(!!st.zy));
       page.style.setProperty('--zr-size', st.size + 'px');
@@ -175,6 +176,7 @@
     $('.zr-dir').onclick = () => { st.dir = 'v'; fs(true); box.classList.remove('show-ui'); render(); };
     $('.zr-exit').onclick = () => { box.classList.remove('show-ui'); st.dir = 'h'; fs(false); render(); };
     $('.zr-bg').onchange = e => { st.bg = e.target.value; box.dataset.bg = st.bg; save(); };
+    $('.zr-fg').onchange = e => { st.fg = +e.target.value; box.dataset.fg = st.fg; save(); };
     const zyLoad = cb => { if (window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]) return cb(); const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=3'; sc.onload = cb; sc.onerror = () => { st.zy = false; render(false); }; document.body.appendChild(sc); };
     $('.zr-zy').onclick = () => { st.zy = !st.zy; st.zy ? zyLoad(() => render(false)) : render(false); };
     $('.zr-marks').onclick = e => { const g = e.target.closest('[data-go]'), d = e.target.closest('[data-del]');
