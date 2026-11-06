@@ -97,6 +97,7 @@
     '十齋日行事曆 · 地藏菩薩感應文集':'Ten Fasting Days · Ksitigarbha: Collected Teachings',
     '字－':'A−','字＋':'A+','分享本篇':'Share','大字':'Large text','標準字':'Normal text','放大全站文字':'Enlarge all text',
     '聯絡':'Contact','聯絡與建議 · 地藏菩薩感應文集':'Contact · Ksitigarbha: Collected Teachings',
+    '藏經閣':'Sutra Library','藏經閣 · 地藏菩薩感應文集':'Sutra Library · Ksitigarbha: Collected Teachings',
     '本文集以個人信仰與經驗紀錄的身分呈現，並非佛典原文或經過認證的菩薩言說。閱讀時，亦請尊重每個人因緣與處境的不同。':'This collection is presented as a record of personal faith and experience. It is not canonical scripture, nor verified words of the Bodhisattva. Please also respect that each person\'s conditions and circumstances differ.',
     '這裡收錄作者提供的夢中感應、請示對話、白話翻譯與道友經歷。從修行的提問，到親情、失落與人間日常，留下一段段觀照自心的文字。':'Here are the author\'s dream teachings, dialogues of inquiry, plain renderings and the experiences of fellow practitioners. From questions of practice to family, loss and everyday life, they leave passages for looking into one\'s own heart.',
     '整理方式：保留來稿原文與提問，不作更動；既有白話僅在少數偏離原文之處依原文微調用詞，並調整排版、增加分類與導讀。未附白話的篇章不另造譯文。三幅主視覺為 AI 生成的宗教藝術示意，非實際感應現場照片。':'How this was arranged: the original teachings and questions are kept unchanged; the existing plain renderings were adjusted only in a few places where they departed from the original, and layout, topics and introductions were added. The English translation was prepared separately and the Chinese original remains authoritative. The three main images are AI-generated religious artwork, not photographs of actual events.'
