@@ -168,8 +168,8 @@
     $('.zr-range').oninput = e => go(e.target.value - 1);
     $('.zr-ch').onchange = e => go(pages.findIndex(pg => pg.items.some(x => x.ci === +e.target.value)));
     $('.zr-mode').onclick = () => { st.mode = st.mode === 'page' ? 'scroll' : 'page'; render(); };
-    $('.zr-sm').onclick = () => { st.size = Math.max(15, st.size - 2); render(false); };
-    $('.zr-lg').onclick = () => { st.size = Math.min(44, st.size + 2); render(false); };
+    $('.zr-sm').onclick = () => { st.size = Math.max(15, st.size - 2); render(st.dir !== 'v' ? undefined : false); };
+    $('.zr-lg').onclick = () => { st.size = Math.min(44, st.size + 2); render(st.dir !== 'v' ? undefined : false); };
     $('.zr-mark').onclick = () => { const i = st.marks.indexOf(st.page); i >= 0 ? st.marks.splice(i, 1) : st.marks.push(st.page); sync(); if (!$('.zr-marks').hidden) { $('.zr-marks').hidden = true; marks(); } };
     $('.zr-list').onclick = marks;
     $('.zr-dir').onclick = () => { st.dir = 'v'; fs(true); box.classList.remove('show-ui'); render(); };
@@ -191,7 +191,7 @@
     // 橫排：閱讀區在畫面內時，工具列固定在底部
     const bar = $('.zr-bar'), barHome = document.createElement('div'); bar.before(barHome);
     if ('IntersectionObserver' in window) new IntersectionObserver(es => { const on = es[0].isIntersecting && st.dir !== 'v';
-      bar.classList.toggle('is-float', on); box.classList.toggle('has-float', on); }, {rootMargin: '-120px 0px -40% 0px'}).observe(page);
+      bar.classList.toggle('is-float', on); box.classList.toggle('has-float', on); document.documentElement.classList.toggle('zr-floating', on); }, {rootMargin: '-80px 0px -30% 0px'}).observe(page);
     const inUI = t => t.closest('.zr-bar,.zr-nav,.zr-marks');
     box.addEventListener('touchstart', e => { if (st.dir !== 'v' && !e.target.closest('.zr-page')) return; x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, {passive: true});
     box.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;

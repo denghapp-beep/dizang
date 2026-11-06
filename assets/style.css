@@ -421,10 +421,12 @@ html.zr-lock,html.zr-lock body{overflow:hidden}
 .zj-reader.is-v .zb-hint{display:block;position:absolute;left:50%;bottom:calc(env(safe-area-inset-bottom) + 56px);transform:translateX(-50%);margin:0;padding:6px 12px;border-radius:14px;background:rgba(30,26,20,.8);color:#efe6d2;font:12px var(--sans);white-space:nowrap;animation:zbhint 4s 1.5s forwards;pointer-events:none}
 @keyframes zbhint{to{opacity:0}}
 
-/* 橫排：工具列浮在畫面底部，捲到哪都按得到 */
-.zj-reader:not(.is-v) .zr-bar.is-float{position:fixed;left:0;right:0;bottom:0;top:auto;z-index:1500;flex-wrap:nowrap;overflow-x:auto;gap:6px;padding:8px 10px calc(env(safe-area-inset-bottom) + 8px);border-top:1px solid var(--line);border-bottom:0;box-shadow:0 -6px 18px rgba(0,0,0,.25);-webkit-overflow-scrolling:touch}
-.zj-reader:not(.is-v) .zr-bar.is-float .zr-ch{flex:0 0 auto;max-width:9.5em;min-height:40px}
+/* 橫排：讀經文時工具列固定在畫面頂端（避開底部手勢區與瀏覽器工具列），捲到哪都按得到 */
+html.zr-floating .site-header{position:relative}
+.zj-reader:not(.is-v) .zr-bar.is-float{position:fixed;left:0;right:0;top:0;bottom:auto;z-index:1500;flex-wrap:nowrap;overflow-x:auto;gap:6px;padding:calc(env(safe-area-inset-top) + 8px) 10px 8px;border-bottom:1px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.zj-reader:not(.is-v) .zr-bar.is-float .zr-ch{flex:0 0 auto;max-width:9.5em;min-height:44px}
 .zj-reader:not(.is-v) .zr-bar.is-float .zr-tools{flex-wrap:nowrap}
-.zj-reader:not(.is-v) .zr-bar.is-float button{white-space:nowrap;min-height:40px}
+.zj-reader:not(.is-v) .zr-bar.is-float button{white-space:nowrap;min-height:44px}
 .zj-reader:not(.is-v) .zr-bar.is-float .zr-dir span{display:none}
-.zj-reader.has-float{padding-bottom:70px}
+.zr-bar button,.zr-bar select,.zr-nav button{touch-action:manipulation}
+.zj-reader.has-float{padding-top:70px}
