@@ -483,3 +483,6 @@ html.zr-floating .site-header{position:relative}
 .zr-page .zw-z b,.zr-page .zw-z em{height:1.04em;display:flex;align-items:center;justify-content:center}
 .zr-page .zw-h{display:inline-flex;align-items:center;justify-content:center}
 .zr-page .zw-z i{top:50%;transform:translateY(-50%)}
+/* 經文一律用網路字型 Noto Serif TC：各電腦（Windows/Mac/手機）字形高低基準一致，注音才不會歪 */
+.zr-page,.zr-page p,.zr-page h4,.zr-page .zj-juan,.zr-page .zw-z,.zj-reader.is-v .zr-page,.zj-reader.is-v .zr-page p,.zj-reader.is-v .zr-page h4{font-family:'Noto Serif TC','Noto Serif CJK TC','Songti TC',serif}
+.zr-page .zw-h{line-height:1}
