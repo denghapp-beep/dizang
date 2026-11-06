@@ -70,7 +70,7 @@
         <div class="zr-tools">
           <button type="button" class="zr-mode"></button>
           <button type="button" class="zr-zy" aria-pressed="false">注音</button>
-          <button type="button" class="zr-dir" aria-pressed="false">📖 經書模式（直排全螢幕）</button>
+          <button type="button" class="zr-dir" aria-pressed="false">📖 經書模式<span>（直排全螢幕）</span></button>
           <button type="button" class="zr-exit">✕ 返回網頁</button>
           <select class="zr-bg" aria-label="背景顏色"><option value="parch">羊皮紙</option><option value="rice">米白</option><option value="white">白紙</option><option value="night">夜間</option></select>
           <button type="button" class="zr-sm" aria-label="${T('縮小字級', 'Smaller text', 'Chữ nhỏ hơn', '文字を小さく', '글자 작게')}">字－</button>
@@ -188,6 +188,10 @@
       if (cur !== st.page) { st.page = cur; sync(); } }); }, {passive: true});
     // 翻頁模式：左右滑動、鍵盤方向鍵
     let x0 = null, y0 = null;
+    // 橫排：閱讀區在畫面內時，工具列固定在底部
+    const bar = $('.zr-bar'), barHome = document.createElement('div'); bar.before(barHome);
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => { const on = es[0].isIntersecting && st.dir !== 'v';
+      bar.classList.toggle('is-float', on); box.classList.toggle('has-float', on); }, {rootMargin: '-120px 0px -40% 0px'}).observe(page);
     const inUI = t => t.closest('.zr-bar,.zr-nav,.zr-marks');
     box.addEventListener('touchstart', e => { if (st.dir !== 'v' && !e.target.closest('.zr-page')) return; x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, {passive: true});
     box.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;

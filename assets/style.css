@@ -365,8 +365,8 @@ html.big-text .zj-text p{font-size:21px}
 .zr-marks li button{background:none;border:0;color:inherit;text-align:left;padding:12px 4px;flex:1;cursor:pointer;font:15px var(--serif)}
 .zr-marks .zr-del{flex:0 0 44px;text-align:center;color:var(--muted)}
 .zr-page{--zr-size:24px;min-height:60vh;padding:20px 0 10px;outline:none}
-.zr-page p{font:var(--zr-size)/2.15 var(--serif);margin:0 0 1.1em;text-align:justify}
-.zr-page h4{font:calc(var(--zr-size) + 6px) var(--serif);color:var(--accent);margin:10px 0 24px}
+.zr-page p{font:var(--zr-size)/2.15 var(--serif);margin:0 0 1.1em;text-align:justify;overflow-wrap:anywhere;line-break:anywhere}
+.zr-page h4{font:calc(var(--zr-size) + 6px) var(--serif);overflow-wrap:anywhere;color:var(--accent);margin:10px 0 24px}
 .zr-runhead{font-size:13px!important;color:var(--muted);letter-spacing:.1em;margin-bottom:18px!important}
 .zr-page section+section{margin-top:30px}
 .zr-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 0 8px;border-top:1px solid var(--line)}
@@ -377,7 +377,7 @@ html.big-text .zj-text p{font-size:21px}
 @media(max-width:760px){.zr-tools button{padding:0 9px;font-size:12px}.zr-nav button{min-width:90px}}
 /* 注音 */
 .zj-reader.is-zy .zr-page p{line-height:2.2;text-align:left}
-.zr-page .zw-c{display:inline-flex;align-items:center;vertical-align:middle;margin:0 .1em .12em 0}
+.zr-page .zw-c{display:inline-flex;align-items:center;vertical-align:middle;margin:0 .42em .12em 0}
 .zr-page .zw-z{position:relative;writing-mode:vertical-rl;text-orientation:upright;font:calc(var(--zr-size) * .36)/1 'Microsoft JhengHei','PingFang TC','Noto Sans TC',sans-serif;letter-spacing:-.02em;color:var(--muted);margin-left:.08em;padding-right:.15em}
 .zr-page .zw-z i{position:absolute;right:-.62em;bottom:.15em;writing-mode:horizontal-tb;font-style:normal;line-height:1}
 .zr-page p.lit{text-align:center}
@@ -420,3 +420,11 @@ html.zr-lock,html.zr-lock body{overflow:hidden}
 .zj-reader.is-v .zr-ch{flex:1 1 100%}
 .zj-reader.is-v .zb-hint{display:block;position:absolute;left:50%;bottom:calc(env(safe-area-inset-bottom) + 56px);transform:translateX(-50%);margin:0;padding:6px 12px;border-radius:14px;background:rgba(30,26,20,.8);color:#efe6d2;font:12px var(--sans);white-space:nowrap;animation:zbhint 4s 1.5s forwards;pointer-events:none}
 @keyframes zbhint{to{opacity:0}}
+
+/* 橫排：工具列浮在畫面底部，捲到哪都按得到 */
+.zj-reader:not(.is-v) .zr-bar.is-float{position:fixed;left:0;right:0;bottom:0;top:auto;z-index:1500;flex-wrap:nowrap;overflow-x:auto;gap:6px;padding:8px 10px calc(env(safe-area-inset-bottom) + 8px);border-top:1px solid var(--line);border-bottom:0;box-shadow:0 -6px 18px rgba(0,0,0,.25);-webkit-overflow-scrolling:touch}
+.zj-reader:not(.is-v) .zr-bar.is-float .zr-ch{flex:0 0 auto;max-width:9.5em;min-height:40px}
+.zj-reader:not(.is-v) .zr-bar.is-float .zr-tools{flex-wrap:nowrap}
+.zj-reader:not(.is-v) .zr-bar.is-float button{white-space:nowrap;min-height:40px}
+.zj-reader:not(.is-v) .zr-bar.is-float .zr-dir span{display:none}
+.zj-reader.has-float{padding-bottom:70px}
