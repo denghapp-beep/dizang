@@ -375,3 +375,8 @@ html.big-text .zj-text p{font-size:21px}
 .zr-range{width:100%;accent-color:var(--accent);margin:8px 0 0}
 .zj-reader.is-scroll .zr-nav,.zj-reader.is-scroll .zr-range{display:none}
 @media(max-width:760px){.zr-tools button{padding:0 9px;font-size:12px}.zr-nav button{min-width:90px}}
+/* 注音 */
+.zj-reader.is-zy .zr-page p{line-height:2.9;text-align:left}
+.zr-page ruby{ruby-position:inter-character;-webkit-ruby-position:inter-character}
+.zr-page rt{font:calc(var(--zr-size) * .42)/1 'Microsoft JhengHei','PingFang TC',sans-serif;color:var(--muted);letter-spacing:0}
+@supports not (ruby-position:inter-character){.zr-page ruby{ruby-position:over}.zr-page rt{font-size:calc(var(--zr-size) * .5)}.zj-reader.is-zy .zr-page p{line-height:3.2;letter-spacing:.12em}}

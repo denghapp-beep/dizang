@@ -38,7 +38,7 @@
   /* 經文閱讀器：分頁或捲動、記住讀到哪頁、書籤、字級。全部存在讀者自己的瀏覽器。 */
   function reader(id, s, box) {
     const KEY = 'ksitigarbha-sutra-' + id;
-    let st = {page: 0, mode: 'page', size: 19, marks: []};
+    let st = {page: 0, mode: 'page', size: 19, marks: [], zy: false};
     try { st = Object.assign(st, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch {}
     const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch {} };
     // 依段落切頁：每頁約 700 字，不切斷段落；每品從新頁開始
@@ -46,7 +46,7 @@
     s.chapters.forEach((c, ci) => {
       let cur = [], len = 0;
       const juan = s.juan.findIndex(j => j[0] === ci);
-      c.paras.forEach(p => { if (cur.length && len + p.length > 700) { pages.push({ci, paras: cur}); cur = []; len = 0; } cur.push(p); len += p.length; });
+      c.paras.forEach((p, pi) => { if (cur.length && len + p.length > 700) { pages.push({ci, paras: cur}); cur = []; len = 0; } cur.push({p, pi}); len += p.length; });
       if (cur.length) pages.push({ci, paras: cur});
       const first = pages.findIndex(pg => pg.ci === ci); pages[first].head = true; if (juan >= 0) pages[first].juan = ['卷上', '卷下'][juan];
     });
@@ -58,6 +58,7 @@
         <select class="zr-ch" aria-label="${T('跳到品', 'Go to chapter', 'Đến phẩm', '品へ移動', '품으로 이동')}">${s.chapters.map((c, i) => `<option value="${i}">${esc(c.title)}</option>`).join('')}</select>
         <div class="zr-tools">
           <button type="button" class="zr-mode"></button>
+          <button type="button" class="zr-zy" aria-pressed="false">注音</button>
           <button type="button" class="zr-sm" aria-label="${T('縮小字級', 'Smaller text', 'Chữ nhỏ hơn', '文字を小さく', '글자 작게')}">字－</button>
           <button type="button" class="zr-lg" aria-label="${T('放大字級', 'Larger text', 'Chữ lớn hơn', '文字を大きく', '글자 크게')}">字＋</button>
           <button type="button" class="zr-mark" aria-pressed="false"></button>
@@ -74,9 +75,13 @@
       </div>
       <input class="zr-range" type="range" min="1" max="${N}" aria-label="${T('頁碼', 'Page', 'Trang', 'ページ', '쪽')}">`;
     const $ = q => box.querySelector(q), page = $('.zr-page');
-    const pageHTML = (pg, i) => `${pg.juan ? `<p class="zj-juan">${pg.juan}</p>` : ''}${pg.head ? `<h4>${esc(s.chapters[pg.ci].title)}</h4>` : `<p class="zr-runhead">${esc(s.chapters[pg.ci].title)}</p>`}${pg.paras.map(p => `<p>${esc(p).replace(/\n/g, '<br>')}</p>`).join('')}`;
+    const pageHTML = (pg, i) => `${pg.juan ? `<p class="zj-juan">${pg.juan}</p>` : ''}${pg.head ? `<h4>${ruby(s.chapters[pg.ci].title, zyOf(pg.ci, -1))}</h4>` : `<p class="zr-runhead">${esc(s.chapters[pg.ci].title)}</p>`}${pg.paras.map(x => `<p>${ruby(x.p, zyOf(pg.ci, x.pi))}</p>`).join('')}`;
+    function zyOf(ci, pi) { const Z = st.zy && window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]; if (!Z) return null; return (pi < 0 ? Z[ci].t : Z[ci].p[pi]).split(' '); }
+    function ruby(text, z) { const cs = Array.from(text); if (!z) return esc(text).replace(/\n/g, '<br>');
+      return cs.map((c, i) => c === '\n' ? '<br>' : (z[i] && z[i] !== '_') ? `<ruby>${esc(c)}<rt>${z[i]}</rt></ruby>` : esc(c)).join(''); }
     function render(scrollTop) {
       box.classList.toggle('is-scroll', st.mode === 'scroll');
+      box.classList.toggle('is-zy', !!st.zy); $('.zr-zy').setAttribute('aria-pressed', String(!!st.zy));
       page.style.setProperty('--zr-size', st.size + 'px');
       $('.zr-mode').textContent = st.mode === 'page' ? T('改為捲動閱讀', 'Scroll mode', 'Chế độ cuộn', 'スクロール表示', '스크롤 보기') : T('改為翻頁閱讀', 'Page mode', 'Chế độ lật trang', 'ページ表示', '쪽 넘김 보기');
       if (st.mode === 'scroll') {
@@ -116,6 +121,8 @@
     $('.zr-lg').onclick = () => { st.size = Math.min(30, st.size + 2); render(false); };
     $('.zr-mark').onclick = () => { const i = st.marks.indexOf(st.page); i >= 0 ? st.marks.splice(i, 1) : st.marks.push(st.page); sync(); if (!$('.zr-marks').hidden) { $('.zr-marks').hidden = true; marks(); } };
     $('.zr-list').onclick = marks;
+    const zyLoad = cb => { if (window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]) return cb(); const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=1'; sc.onload = cb; sc.onerror = () => { st.zy = false; render(false); }; document.body.appendChild(sc); };
+    $('.zr-zy').onclick = () => { st.zy = !st.zy; st.zy ? zyLoad(() => render(false)) : render(false); };
     $('.zr-marks').onclick = e => { const g = e.target.closest('[data-go]'), d = e.target.closest('[data-del]');
       if (d) { st.marks = st.marks.filter(x => x !== +d.dataset.del); save(); $('.zr-marks').hidden = true; marks(); sync(); }
       else if (g) { $('.zr-marks').hidden = true; go(+g.dataset.go); } };
@@ -136,7 +143,7 @@
     if (st.page > 0) { const r = $('.zr-resume'); r.hidden = false;
       r.innerHTML = `${T('上次讀到', 'Last read: ', 'Lần trước đọc đến ', '前回の続き：', '지난번 읽은 곳: ')}${esc(s.chapters[pages[st.page].ci].title)} · ${st.page + 1} / ${N} <button type="button">${T('從頭開始', 'Start over', 'Đọc từ đầu', '最初から', '처음부터')}</button>`;
       r.querySelector('button').onclick = () => go(0); }
-    render(false);
+    st.zy ? zyLoad(() => render(false)) : render(false);
   }
   function show(id) {
     const t = TABS.find(x => x.id === id) || TABS[0];
