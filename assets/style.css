@@ -478,3 +478,8 @@ html.zr-floating .site-header{position:relative}
 /* 直排標點置中在字欄內 */
 .zj-reader.is-v .zr-page .pc .zw-h,.zj-reader.is-v .zr-page .k.pc{display:inline-block;transform:translateX(-.28em)}
 .zj-reader.is-v .zr-page .zw-p .zw-h{height:1em}
+/* 注音改用與經文同一字型家族，避免不同電腦字型高低基準不同造成歪斜 */
+.zr-page .zw-z{font-family:inherit;justify-content:center}
+.zr-page .zw-z b,.zr-page .zw-z em{height:1.04em;display:flex;align-items:center;justify-content:center}
+.zr-page .zw-h{display:inline-flex;align-items:center;justify-content:center}
+.zr-page .zw-z i{top:50%;transform:translateY(-50%)}
