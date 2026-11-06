@@ -107,8 +107,8 @@
     function zc(c, z) { const t = (z.match(/[ˊˇˋ˙]/) || [''])[0], b = z.replace(/[ˊˇˋ˙]/g, '');
       return `<span class="zw-c"><span class="zw-h">${esc(c)}</span><span class="zw-z n${b.length}">${t === '˙' ? '<em>˙</em>' : ''}${[...b].map(x => `<b>${x}</b>`).join('')}${t && t !== '˙' ? `<i>${t}</i>` : ''}</span></span>`; }
     const PUNC = /[，。、；：？！「」『』（）《》〈〉—…·．　]/;
-    function ruby(text, z) { const cs = Array.from(text); if (!z) return esc(text).replace(/\n/g, '<br>');
-      const cell = (c, i) => (z[i] && z[i] !== '_') ? zc(c, z[i]) : `<span class="zw-c zw-p"><span class="zw-h">${esc(c)}</span></span>`;
+    function ruby(text, z) { const cs = Array.from(text); if (!z) return st.dir === 'v' ? cs.map(c => c === '\n' ? '<br>' : `<span class="k${/[，。、；：？！]/.test(c) ? ' pc' : ''}">${esc(c)}</span>`).join('') : esc(text).replace(/\n/g, '<br>');
+      const cell = (c, i) => (z[i] && z[i] !== '_') ? zc(c, z[i]) : `<span class="zw-c zw-p${/[，。、；：？！]/.test(c) ? ' pc' : ''}"><span class="zw-h">${esc(c)}</span></span>`;
       // 偈頌、真言以全形空格分句：每句不拆行
       let out = '', seg = '', n = 0;
       const flush = () => { out += n && n <= 14 ? `<span class="zw-g">${seg}</span>` : seg; seg = ''; n = 0; };
@@ -124,16 +124,20 @@
     let offs = [0], ends = [], scr = 0;
     // 量出每一行的實際位置，算出每一屏從哪一行開始；畫面左邊放不完整的行用裁切藏起來，不會出現被切掉的字
     function measure() { page.style.clipPath = ''; page.scrollLeft = 0; const R = page.getBoundingClientRect(), W = page.clientWidth, raw = [];
-      page.querySelectorAll('p,h4').forEach(el => { const r = document.createRange(); r.selectNodeContents(el); for (const q of r.getClientRects()) if (q.width > 1) raw.push([R.right - q.right, R.right - q.left]); });
-      raw.sort((a, b) => a[0] - b[0]); const ln = [];
-      const tol = (parseFloat(page.style.getPropertyValue('--pitch')) || 50) * 0.1;
-      for (const r of raw) { const l = ln[ln.length - 1]; if (l && r[0] < l[1] + tol) l[1] = Math.max(l[1], r[1]); else ln.push([r[0], r[1]]); }
+      // 以每個字的格子位置分行（同一行的字右緣對齊），不受注音、聲調小框影響
+      const tol = 3, cols = [];
+      page.querySelectorAll('.zw-c,.k:not(.pc)').forEach(el => { const q = el.getBoundingClientRect(); if (q.width < 1) return;
+        const a = R.right - q.right, b = R.right - q.left; let c = cols.find(x => Math.abs(x[0] - a) < tol);
+        if (c) c[1] = Math.max(c[1], b); else cols.push([a, b]); });
+      cols.sort((x, y) => x[0] - y[0]); const ln = [];
+      for (const c of cols) { const l = ln[ln.length - 1]; if (l && c[0] < l[1] - 1) l[1] = Math.max(l[1], c[1]); else ln.push(c); }
       offs = [0]; ends = []; let st0 = 0, e = 0;
       for (const l of ln) { if (l[1] - st0 > W - 1) { ends.push(e); st0 = l[0]; offs.push(st0); } e = l[1]; }
       ends.push(e); }
     function showScr() { const W = page.clientWidth, o = offs[scr] || 0, e = ends[scr] || W;
-      page.scrollLeft = -o; const real = Math.abs(page.scrollLeft); const nx = offs[scr + 1]; page.style.clipPath = `inset(0 0 0 ${Math.max(0, W - ((nx !== undefined ? Math.min(nx, e + 6) : e) - real))}px)`;
-      $('.zr-num').textContent = `${st.page + 1} / ${N}`; }
+      page.scrollLeft = -o; const real = Math.abs(page.scrollLeft); const nx = offs[scr + 1]; page.style.clipPath = `inset(0 0 0 ${Math.max(0, W - ((nx !== undefined ? nx - 1 : e + 2) - real))}px)`;
+      const k = offs.length; $('.zr-num').textContent = `${st.page + 1} / ${N}` + (k > 1 ? `（本頁 ${scr + 1}/${k}）` : '');
+      $('.zr-prev').disabled = st.page === 0 && scr === 0; $('.zr-next').disabled = st.page === N - 1 && scr >= k - 1; }
     function screenV(dir) { // dir 1＝往後讀（往左），-1＝往前
       if (dir > 0) { if (scr < offs.length - 1) { scr++; showScr(); } else if (st.page < N - 1) { toEnd = false; go(st.page + 1, false); } }
       else { if (scr > 0) { scr--; showScr(); } else if (st.page > 0) { toEnd = true; go(st.page - 1, false); toEnd = false; } } }

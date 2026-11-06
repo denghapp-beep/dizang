@@ -475,3 +475,6 @@ html.zr-floating .site-header{position:relative}
 .zj-reader.is-v .zr-page h4 .zw-z{margin-left:calc(var(--zr-size) * .18)}
 .zj-reader.is-v .zr-page h4 .zw-h{font-weight:700}
 .zr-page .zw-z i{left:auto;right:0}
+/* 直排標點置中在字欄內 */
+.zj-reader.is-v .zr-page .pc .zw-h,.zj-reader.is-v .zr-page .k.pc{display:inline-block;transform:translateX(-.28em)}
+.zj-reader.is-v .zr-page .zw-p .zw-h{height:1em}
