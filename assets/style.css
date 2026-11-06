@@ -378,8 +378,9 @@ html.big-text .zj-text p{font-size:21px}
 /* 注音 */
 .zj-reader.is-zy .zr-page p{line-height:2.2;text-align:left}
 .zr-page .zw-c{display:inline-flex;align-items:center;vertical-align:middle;margin:0 .42em .12em 0}
-.zr-page .zw-z{position:relative;writing-mode:vertical-rl;text-orientation:upright;font:calc(var(--zr-size) * .36)/1 'Microsoft JhengHei','PingFang TC','Noto Sans TC',sans-serif;letter-spacing:-.02em;color:var(--muted);margin-left:.08em;padding-right:.15em}
-.zr-page .zw-z i{position:absolute;right:-.62em;bottom:.15em;writing-mode:horizontal-tb;font-style:normal;line-height:1}
+.zr-page .zw-z{position:relative;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;writing-mode:horizontal-tb;font:calc(var(--zr-size) * .36)/1 'Microsoft JhengHei','PingFang TC','Noto Sans TC',sans-serif;letter-spacing:-.02em;color:var(--muted);margin-left:.08em;padding-right:.15em}
+.zr-page .zw-z b{display:block;font-weight:400;line-height:1.02}
+.zr-page .zw-z i{position:absolute;right:-.62em;bottom:.15em;font-style:normal;line-height:1}
 .zr-page p.lit{text-align:center}
 .zj-reader.is-zy .zr-page p.lit{text-align:center}
 .zr-page h4.lit{text-align:center;margin:28px 0 14px}

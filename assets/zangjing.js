@@ -60,7 +60,7 @@
     if (st.v === 2) { st.v = 3; }
     if (st.v === 3) { if (st.size < 24) st.size = 24; st.v = 4; }
     if (st.v === 4) { st.size = Math.max(st.size, (innerWidth >= 700 ? 30 : 26)); st.v = 5; }
-    st.mode = 'scroll'; if (!st.bg) st.bg = 'parch';
+    st.mode = 'page'; if (!st.bg) st.bg = 'parch';
     const N = pages.length;
     st.page = Math.min(Math.max(0, st.page | 0), N - 1);
     const T = (z, e, v, j, k) => L(z, e, v, j, k);
@@ -101,7 +101,7 @@
       const Z = window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]; if (!Z) return null; return (pi < 0 ? Z[c.oi].t : Z[c.oi].p[pi]).split(' '); }
     // 注音直排在字的右側（同法鼓山課誦本）；聲調標在注音右側，輕聲點在最上方
     function zc(c, z) { const t = (z.match(/[ˊˇˋ˙]/) || [''])[0], b = z.replace(/[ˊˇˋ˙]/g, '');
-      return `<span class="zw-c">${esc(c)}<span class="zw-z">${t === '˙' ? '˙' : ''}${b}${t && t !== '˙' ? `<i>${t}</i>` : ''}</span></span>`; }
+      return `<span class="zw-c">${esc(c)}<span class="zw-z">${t === '˙' ? '<b>˙</b>' : ''}${[...b].map(x => `<b>${x}</b>`).join('')}${t && t !== '˙' ? `<i>${t}</i>` : ''}</span></span>`; }
     function ruby(text, z) { const cs = Array.from(text); if (!z) return esc(text).replace(/\n/g, '<br>');
       return cs.map((c, i) => c === '\n' ? '<br>' : (z[i] && z[i] !== '_') ? zc(c, z[i]) : esc(c)).join(''); }
     let toEnd = false;
