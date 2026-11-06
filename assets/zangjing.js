@@ -103,10 +103,17 @@
       if (c.lit) return (pi < 0 ? c.zt : c.zp[pi]).split(' ');
       const Z = window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]; if (!Z) return null; return (pi < 0 ? Z[c.oi].t : Z[c.oi].p[pi]).split(' '); }
     // 注音直排在字的右側（同法鼓山課誦本）；聲調標在注音右側，輕聲點在最上方
+    // 注音模式：每個字（含標點）都放進同尺寸的格子，字與注音位置一致，不會歪斜
     function zc(c, z) { const t = (z.match(/[ˊˇˋ˙]/) || [''])[0], b = z.replace(/[ˊˇˋ˙]/g, '');
-      return `<span class="zw-c">${esc(c)}<span class="zw-z">${t === '˙' ? '<b>˙</b>' : ''}${[...b].map(x => `<b>${x}</b>`).join('')}${t && t !== '˙' ? `<i>${t}</i>` : ''}</span></span>`; }
+      return `<span class="zw-c"><span class="zw-h">${esc(c)}</span><span class="zw-z n${b.length}">${t === '˙' ? '<em>˙</em>' : ''}${[...b].map(x => `<b>${x}</b>`).join('')}${t && t !== '˙' ? `<i>${t}</i>` : ''}</span></span>`; }
+    const PUNC = /[，。、；：？！「」『』（）《》〈〉—…·．　]/;
     function ruby(text, z) { const cs = Array.from(text); if (!z) return esc(text).replace(/\n/g, '<br>');
-      return cs.map((c, i) => c === '\n' ? '<br>' : (z[i] && z[i] !== '_') ? zc(c, z[i]) : esc(c)).join(''); }
+      const cell = (c, i) => (z[i] && z[i] !== '_') ? zc(c, z[i]) : `<span class="zw-c zw-p"><span class="zw-h">${esc(c)}</span></span>`;
+      // 偈頌、真言以全形空格分句：每句不拆行
+      let out = '', seg = '', n = 0;
+      const flush = () => { out += n && n <= 14 ? `<span class="zw-g">${seg}</span>` : seg; seg = ''; n = 0; };
+      cs.forEach((c, i) => { if (c === '\n') { flush(); out += '<br>'; } else if (c === '　') { flush(); out += '<span class="zw-sp"></span>'; } else { seg += cell(c, i); n++; } });
+      flush(); return out; }
     let toEnd = false;
     const cnum = n => { const d = '〇一二三四五六七八九'; return String(n).split('').map(x => d[x]).join(''); };
     const fs = on => { try { const el = document.documentElement; if (on) { (el.requestFullscreen || el.webkitRequestFullscreen || (() => {})).call(el); }
@@ -119,12 +126,13 @@
     function measure() { page.style.clipPath = ''; page.scrollLeft = 0; const R = page.getBoundingClientRect(), W = page.clientWidth, raw = [];
       page.querySelectorAll('p,h4').forEach(el => { const r = document.createRange(); r.selectNodeContents(el); for (const q of r.getClientRects()) if (q.width > 1) raw.push([R.right - q.right, R.right - q.left]); });
       raw.sort((a, b) => a[0] - b[0]); const ln = [];
-      for (const r of raw) { const l = ln[ln.length - 1]; if (l && r[0] < l[1] - 2) l[1] = Math.max(l[1], r[1]); else ln.push([r[0], r[1]]); }
+      const tol = (parseFloat(page.style.getPropertyValue('--pitch')) || 50) * 0.1;
+      for (const r of raw) { const l = ln[ln.length - 1]; if (l && r[0] < l[1] + tol) l[1] = Math.max(l[1], r[1]); else ln.push([r[0], r[1]]); }
       offs = [0]; ends = []; let st0 = 0, e = 0;
       for (const l of ln) { if (l[1] - st0 > W - 1) { ends.push(e); st0 = l[0]; offs.push(st0); } e = l[1]; }
       ends.push(e); }
     function showScr() { const W = page.clientWidth, o = offs[scr] || 0, e = ends[scr] || W;
-      page.scrollLeft = -o; const real = Math.abs(page.scrollLeft); page.style.clipPath = `inset(0 0 0 ${Math.max(0, W - (e - real))}px)`;
+      page.scrollLeft = -o; const real = Math.abs(page.scrollLeft); const nx = offs[scr + 1]; page.style.clipPath = `inset(0 0 0 ${Math.max(0, W - ((nx !== undefined ? Math.min(nx, e + 6) : e) - real))}px)`;
       $('.zr-num').textContent = `${st.page + 1} / ${N}`; }
     function screenV(dir) { // dir 1＝往後讀（往左），-1＝往前
       if (dir > 0) { if (scr < offs.length - 1) { scr++; showScr(); } else if (st.page < N - 1) { toEnd = false; go(st.page + 1, false); } }
