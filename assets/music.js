@@ -138,10 +138,15 @@
   // 訪客點「進入」的同一下就開始播放聖號（只出現一次，同一分頁內換頁不再出現）。
   const ENTER = 'ksitigarbha-entered';
   let entered = false;
-  try { entered = sessionStorage.getItem(ENTER) === '1'; } catch {}
-  function markEntered() { try { sessionStorage.setItem(ENTER, '1'); } catch {} }
-  if (pref.on) {
-    play();
+  // 手機瀏覽器會把分頁保留很久，sessionStorage 不會清空；改成離開超過 30 分鐘就視為重新進站。
+  // 入口畫面不再受「上次選靜音」影響，每次進站都會出現。
+  const TTL = 30 * 60 * 1000;
+  try { entered = Date.now() - (+sessionStorage.getItem(ENTER) || 0) < TTL; } catch {}
+  function markEntered() { try { sessionStorage.setItem(ENTER, String(Date.now())); } catch {} }
+  const touch = () => { if (entered) markEntered(); };
+  addEventListener('pagehide', touch); document.addEventListener('visibilitychange', () => { if (document.hidden) touch(); });
+  {
+    if (pref.on) play();
     if (!entered) {
       const gate = document.createElement('div');
       gate.className = 'enter-gate';
@@ -155,7 +160,7 @@
         <button type="button" class="enter-quiet">${T('靜音進入', 'Enter without sound')}</button></div>`;
       document.body.appendChild(gate);
       document.documentElement.classList.add('gate-open');
-      const close = () => { gate.classList.add('leaving'); document.documentElement.classList.remove('gate-open'); markEntered(); setTimeout(() => gate.remove(), 600); };
+      const close = () => { entered = true; gate.classList.add('leaving'); document.documentElement.classList.remove('gate-open'); markEntered(); setTimeout(() => gate.remove(), 600); };
       gate.querySelector('.enter-go').addEventListener('click', () => { play(); unmuteNow(); if (ready) player.playVideo(); close(); });
       gate.querySelector('.enter-quiet').addEventListener('click', () => { pause(); close(); });
       gate.querySelector('.enter-go').focus();
