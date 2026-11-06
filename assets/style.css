@@ -383,3 +383,13 @@ html.big-text .zj-text p{font-size:21px}
 .zr-page p.lit{text-align:center}
 .zj-reader.is-zy .zr-page p.lit{text-align:center}
 .zr-page h4.lit{text-align:center;margin:28px 0 14px}
+
+/* 直排閱讀：仿經書，由右至左；內容超過一屏時左右捲動 */
+.zj-reader.is-v .zr-page{writing-mode:vertical-rl;width:100%;max-width:100%;box-sizing:border-box;height:min(72vh,640px);min-height:0;overflow-x:auto;overflow-y:hidden;padding:16px 4px;border:1px solid var(--line,rgba(200,170,110,.25));border-radius:6px;background:rgba(255,248,230,.03)}
+.zj-reader.is-v .zr-page p{line-height:2.1;margin:0 0 0 1.2em;text-align:start;letter-spacing:.06em}
+.zj-reader.is-v .zr-page p.lit,.zj-reader.is-v .zr-page h4.lit{text-align:start}
+.zj-reader.is-v .zr-page h4{margin:0 0 0 1em}
+.zj-reader.is-v .zr-page .zj-juan,.zj-reader.is-v .zr-page .zr-runhead{margin:0 0 0 1em}
+.zj-reader.is-v.is-zy .zr-page p{line-height:2.4;letter-spacing:0}
+.zj-reader.is-v .zr-page .zw-c{flex-direction:column-reverse;line-height:1.15;margin:0 0 .12em 0}
+.zj-reader.is-v .zr-page .zw-z{margin:0 0 0 .06em}

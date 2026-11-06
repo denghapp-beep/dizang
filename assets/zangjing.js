@@ -66,6 +66,7 @@
         <div class="zr-tools">
           <button type="button" class="zr-mode"></button>
           <button type="button" class="zr-zy" aria-pressed="false">注音</button>
+          <button type="button" class="zr-dir" aria-pressed="false">直排</button>
           <button type="button" class="zr-sm" aria-label="${T('縮小字級', 'Smaller text', 'Chữ nhỏ hơn', '文字を小さく', '글자 작게')}">字－</button>
           <button type="button" class="zr-lg" aria-label="${T('放大字級', 'Larger text', 'Chữ lớn hơn', '文字を大きく', '글자 크게')}">字＋</button>
           <button type="button" class="zr-mark" aria-pressed="false"></button>
@@ -95,15 +96,16 @@
     function ruby(text, z) { const cs = Array.from(text); if (!z) return esc(text).replace(/\n/g, '<br>');
       return cs.map((c, i) => c === '\n' ? '<br>' : (z[i] && z[i] !== '_') ? zc(c, z[i]) : esc(c)).join(''); }
     function render(scrollTop) {
-      box.classList.toggle('is-scroll', st.mode === 'scroll');
+      const V = st.dir === 'v'; box.classList.toggle('is-v', V); $('.zr-dir').setAttribute('aria-pressed', String(V)); $('.zr-mode').hidden = V;
+      box.classList.toggle('is-scroll', st.mode === 'scroll' && !V);
       box.classList.toggle('is-zy', !!st.zy); $('.zr-zy').setAttribute('aria-pressed', String(!!st.zy));
       page.style.setProperty('--zr-size', st.size + 'px');
       $('.zr-mode').textContent = st.mode === 'page' ? T('改為捲動閱讀', 'Scroll mode', 'Chế độ cuộn', 'スクロール表示', '스크롤 보기') : T('改為翻頁閱讀', 'Page mode', 'Chế độ lật trang', 'ページ表示', '쪽 넘김 보기');
-      if (st.mode === 'scroll') {
+      if (st.mode === 'scroll' && !V) {
         page.innerHTML = pages.map((pg, i) => `<section data-p="${i}">${pageHTML(pg, i)}</section>`).join('');
         const el = page.querySelector(`[data-p="${st.page}"]`); if (el && scrollTop !== false) el.scrollIntoView();
       } else {
-        page.innerHTML = pageHTML(pages[st.page], st.page);
+        page.innerHTML = pageHTML(pages[st.page], st.page); page.scrollLeft = 0;
         if (scrollTop !== false) box.scrollIntoView({block: 'start'});
       }
       sync();
@@ -136,6 +138,7 @@
     $('.zr-lg').onclick = () => { st.size = Math.min(30, st.size + 2); render(false); };
     $('.zr-mark').onclick = () => { const i = st.marks.indexOf(st.page); i >= 0 ? st.marks.splice(i, 1) : st.marks.push(st.page); sync(); if (!$('.zr-marks').hidden) { $('.zr-marks').hidden = true; marks(); } };
     $('.zr-list').onclick = marks;
+    $('.zr-dir').onclick = () => { st.dir = st.dir === 'v' ? 'h' : 'v'; render(); };
     const zyLoad = cb => { if (window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]) return cb(); const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=3'; sc.onload = cb; sc.onerror = () => { st.zy = false; render(false); }; document.body.appendChild(sc); };
     $('.zr-zy').onclick = () => { st.zy = !st.zy; st.zy ? zyLoad(() => render(false)) : render(false); };
     $('.zr-marks').onclick = e => { const g = e.target.closest('[data-go]'), d = e.target.closest('[data-del]');
@@ -143,17 +146,17 @@
       else if (g) { $('.zr-marks').hidden = true; go(+g.dataset.go); } };
     // 捲動模式：記住目前捲到的頁
     let tick = 0;
-    window.addEventListener('scroll', () => { if (st.mode !== 'scroll' || tick) return; tick = requestAnimationFrame(() => { tick = 0;
+    window.addEventListener('scroll', () => { if (st.mode !== 'scroll' || st.dir === 'v' || tick) return; tick = requestAnimationFrame(() => { tick = 0;
       const secs = page.querySelectorAll('section'); let cur = st.page;
       for (const el of secs) { if (el.getBoundingClientRect().top < innerHeight * 0.35) cur = +el.dataset.p; else break; }
       if (cur !== st.page) { st.page = cur; sync(); } }); }, {passive: true});
     // 翻頁模式：左右滑動、鍵盤方向鍵
     let x0 = null, y0 = null;
     page.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, {passive: true});
-    page.addEventListener('touchend', e => { if (x0 === null || st.mode !== 'page') return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+    page.addEventListener('touchend', e => { if (x0 === null || st.mode !== 'page' || st.dir === 'v') return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
       if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) go(st.page + (dx < 0 ? 1 : -1)); }, {passive: true});
-    document.addEventListener('keydown', e => { if (st.mode !== 'page' || /input|select|textarea/i.test(e.target.tagName)) return;
-      if (e.key === 'ArrowRight') go(st.page + 1); else if (e.key === 'ArrowLeft') go(st.page - 1); });
+    document.addEventListener('keydown', e => { if ((st.mode !== 'page' && st.dir !== 'v') || /input|select|textarea/i.test(e.target.tagName)) return;
+      const f = st.dir === 'v' ? -1 : 1; if (e.key === 'ArrowRight') go(st.page + f); else if (e.key === 'ArrowLeft') go(st.page - f); });
     // 上次讀到哪
     if (st.page > 0) { const r = $('.zr-resume'); r.hidden = false;
       r.innerHTML = `${T('上次讀到', 'Last read: ', 'Lần trước đọc đến ', '前回の続き：', '지난번 읽은 곳: ')}${esc(C[pages[st.page].ci].title)} · ${st.page + 1} / ${N} <button type="button">${T('從頭開始', 'Start over', 'Đọc từ đầu', '最初から', '처음부터')}</button>`;
