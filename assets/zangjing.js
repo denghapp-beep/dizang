@@ -41,21 +41,28 @@
     let st = {page: 0, mode: 'page', size: 19, marks: [], zy: false};
     try { st = Object.assign(st, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch {}
     const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch {} };
-    // 依段落切頁：每頁約 700 字，不切斷段落；每品從新頁開始
-    const pages = [];
-    s.chapters.forEach((c, ci) => {
-      let cur = [], len = 0;
-      const juan = s.juan.findIndex(j => j[0] === ci);
-      c.paras.forEach((p, pi) => { if (cur.length && len + p.length > 700) { pages.push({ci, paras: cur}); cur = []; len = 0; } cur.push({p, pi}); len += p.length; });
-      if (cur.length) pages.push({ci, paras: cur});
-      const first = pages.findIndex(pg => pg.ci === ci); pages[first].head = true; if (juan >= 0) pages[first].juan = ['卷上', '卷下'][juan];
+    // 前後儀軌（依法鼓山課誦本）＋經文合成一份目錄；經文每品從新頁開始，儀軌短段落可併頁
+    const LT = (window.SUTRA_LITURGY || {})[id] || {pre: [], post: []};
+    const C = [...LT.pre, ...s.chapters.map((c, oi) => Object.assign({oi}, c)), ...LT.post];
+    const OFF = LT.pre.length;
+    const pages = []; let cur = null;
+    const newPage = () => { cur = {items: [], len: 0}; pages.push(cur); };
+    C.forEach((c, ci) => {
+      if (!cur || !(c.lit && C[ci - 1] && C[ci - 1].lit && cur.len < 450)) newPage();
+      const juan = c.lit ? -1 : s.juan.findIndex(j => j[0] === c.oi);
+      cur.items.push({ci, head: true, juan: juan >= 0 ? ['卷上', '卷下'][juan] : ''});
+      c.paras.forEach((p, pi) => { if (cur.len && cur.items[cur.items.length - 1].pi !== undefined && cur.len + p.length > 700) newPage();
+        cur.items.push({ci, pi, p}); cur.len += p.length; });
     });
+    pages.forEach(pg => { pg.ci = pg.items[0].ci; });
+    // 舊版沒有前置儀軌，頁碼往後移
+    if (st.v !== 2) { const add = pages.findIndex(pg => pg.ci === OFF); if (st.page > 0) st.page += add; st.marks = st.marks.map(m => m + add); st.v = 2; }
     const N = pages.length;
     st.page = Math.min(Math.max(0, st.page | 0), N - 1);
     const T = (z, e, v, j, k) => L(z, e, v, j, k);
     box.innerHTML = `
       <div class="zr-bar">
-        <select class="zr-ch" aria-label="${T('跳到品', 'Go to chapter', 'Đến phẩm', '品へ移動', '품으로 이동')}">${s.chapters.map((c, i) => `<option value="${i}">${esc(c.title)}</option>`).join('')}</select>
+        <select class="zr-ch" aria-label="${T('跳到品', 'Go to chapter', 'Đến phẩm', '品へ移動', '품으로 이동')}">${C.map((c, i) => `<option value="${i}">${c.lit ? '· ' : ''}${esc(c.title)}</option>`).join('')}</select>
         <div class="zr-tools">
           <button type="button" class="zr-mode"></button>
           <button type="button" class="zr-zy" aria-pressed="false">注音</button>
@@ -75,10 +82,18 @@
       </div>
       <input class="zr-range" type="range" min="1" max="${N}" aria-label="${T('頁碼', 'Page', 'Trang', 'ページ', '쪽')}">`;
     const $ = q => box.querySelector(q), page = $('.zr-page');
-    const pageHTML = (pg, i) => `${pg.juan ? `<p class="zj-juan">${pg.juan}</p>` : ''}${pg.head ? `<h4>${ruby(s.chapters[pg.ci].title, zyOf(pg.ci, -1))}</h4>` : `<p class="zr-runhead">${esc(s.chapters[pg.ci].title)}</p>`}${pg.paras.map(x => `<p>${ruby(x.p, zyOf(pg.ci, x.pi))}</p>`).join('')}`;
-    function zyOf(ci, pi) { const Z = st.zy && window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]; if (!Z) return null; return (pi < 0 ? Z[ci].t : Z[ci].p[pi]).split(' '); }
+    const pageHTML = pg => (pg.items[0].head ? '' : `<p class="zr-runhead">${esc(C[pg.ci].title)}</p>`) + pg.items.map(x => {
+      const c = C[x.ci], cls = c.lit ? ' class="lit"' : '';
+      if (x.head) return `${x.juan ? `<p class="zj-juan">${x.juan}</p>` : ''}<h4${cls}>${ruby(c.title, zyOf(x.ci, -1))}</h4>`;
+      return `<p${cls}>${ruby(x.p, zyOf(x.ci, x.pi))}</p>`; }).join('');
+    function zyOf(ci, pi) { if (!st.zy) return null; const c = C[ci];
+      if (c.lit) return (pi < 0 ? c.zt : c.zp[pi]).split(' ');
+      const Z = window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]; if (!Z) return null; return (pi < 0 ? Z[c.oi].t : Z[c.oi].p[pi]).split(' '); }
+    // 注音直排在字的右側（同法鼓山課誦本）；聲調標在注音右側，輕聲點在最上方
+    function zc(c, z) { const t = (z.match(/[ˊˇˋ˙]/) || [''])[0], b = z.replace(/[ˊˇˋ˙]/g, '');
+      return `<span class="zw-c">${esc(c)}<span class="zw-z">${t === '˙' ? '˙' : ''}${b}${t && t !== '˙' ? `<i>${t}</i>` : ''}</span></span>`; }
     function ruby(text, z) { const cs = Array.from(text); if (!z) return esc(text).replace(/\n/g, '<br>');
-      return cs.map((c, i) => c === '\n' ? '<br>' : (z[i] && z[i] !== '_') ? `<ruby>${esc(c)}<rt>${z[i]}</rt></ruby>` : esc(c)).join(''); }
+      return cs.map((c, i) => c === '\n' ? '<br>' : (z[i] && z[i] !== '_') ? zc(c, z[i]) : esc(c)).join(''); }
     function render(scrollTop) {
       box.classList.toggle('is-scroll', st.mode === 'scroll');
       box.classList.toggle('is-zy', !!st.zy); $('.zr-zy').setAttribute('aria-pressed', String(!!st.zy));
@@ -109,19 +124,19 @@
       const m = $('.zr-marks');
       if (!m.hidden) { m.hidden = true; return; }
       st.marks.sort((a, b) => a - b);
-      m.innerHTML = st.marks.length ? `<ul>${st.marks.map(i => `<li><button type="button" data-go="${i}">${esc(s.chapters[pages[i].ci].title)} · ${T('第', 'p. ', 'tr. ', '', '')}${i + 1}${T(' 頁', '', '', ' ページ', '쪽')}</button><button type="button" class="zr-del" data-del="${i}" aria-label="${T('刪除書籤', 'Remove bookmark', 'Xóa dấu trang', 'しおりを外す', '책갈피 삭제')}">×</button></li>`).join('')}</ul>`
+      m.innerHTML = st.marks.length ? `<ul>${st.marks.map(i => `<li><button type="button" data-go="${i}">${esc(C[pages[i].ci].title)} · ${T('第', 'p. ', 'tr. ', '', '')}${i + 1}${T(' 頁', '', '', ' ページ', '쪽')}</button><button type="button" class="zr-del" data-del="${i}" aria-label="${T('刪除書籤', 'Remove bookmark', 'Xóa dấu trang', 'しおりを外す', '책갈피 삭제')}">×</button></li>`).join('')}</ul>`
         : `<p>${T('還沒有書籤。讀到想記住的地方，按「加書籤」。', 'No bookmarks yet. Tap “Bookmark” on any page you want to keep.', 'Chưa có dấu trang. Bấm “Đánh dấu” ở trang muốn ghi nhớ.', 'しおりはまだありません。残したいページで「しおりを挟む」を押してください。', '아직 책갈피가 없습니다. 기억하고 싶은 쪽에서 「책갈피」를 누르세요.')}</p>`;
       m.hidden = false;
     }
     $('.zr-prev').onclick = () => go(st.page - 1); $('.zr-next').onclick = () => go(st.page + 1);
     $('.zr-range').oninput = e => go(e.target.value - 1);
-    $('.zr-ch').onchange = e => go(pages.findIndex(pg => pg.ci === +e.target.value));
+    $('.zr-ch').onchange = e => go(pages.findIndex(pg => pg.items.some(x => x.ci === +e.target.value)));
     $('.zr-mode').onclick = () => { st.mode = st.mode === 'page' ? 'scroll' : 'page'; render(); };
     $('.zr-sm').onclick = () => { st.size = Math.max(15, st.size - 2); render(false); };
     $('.zr-lg').onclick = () => { st.size = Math.min(30, st.size + 2); render(false); };
     $('.zr-mark').onclick = () => { const i = st.marks.indexOf(st.page); i >= 0 ? st.marks.splice(i, 1) : st.marks.push(st.page); sync(); if (!$('.zr-marks').hidden) { $('.zr-marks').hidden = true; marks(); } };
     $('.zr-list').onclick = marks;
-    const zyLoad = cb => { if (window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]) return cb(); const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=2'; sc.onload = cb; sc.onerror = () => { st.zy = false; render(false); }; document.body.appendChild(sc); };
+    const zyLoad = cb => { if (window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]) return cb(); const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=3'; sc.onload = cb; sc.onerror = () => { st.zy = false; render(false); }; document.body.appendChild(sc); };
     $('.zr-zy').onclick = () => { st.zy = !st.zy; st.zy ? zyLoad(() => render(false)) : render(false); };
     $('.zr-marks').onclick = e => { const g = e.target.closest('[data-go]'), d = e.target.closest('[data-del]');
       if (d) { st.marks = st.marks.filter(x => x !== +d.dataset.del); save(); $('.zr-marks').hidden = true; marks(); sync(); }
@@ -141,7 +156,7 @@
       if (e.key === 'ArrowRight') go(st.page + 1); else if (e.key === 'ArrowLeft') go(st.page - 1); });
     // 上次讀到哪
     if (st.page > 0) { const r = $('.zr-resume'); r.hidden = false;
-      r.innerHTML = `${T('上次讀到', 'Last read: ', 'Lần trước đọc đến ', '前回の続き：', '지난번 읽은 곳: ')}${esc(s.chapters[pages[st.page].ci].title)} · ${st.page + 1} / ${N} <button type="button">${T('從頭開始', 'Start over', 'Đọc từ đầu', '最初から', '처음부터')}</button>`;
+      r.innerHTML = `${T('上次讀到', 'Last read: ', 'Lần trước đọc đến ', '前回の続き：', '지난번 읽은 곳: ')}${esc(C[pages[st.page].ci].title)} · ${st.page + 1} / ${N} <button type="button">${T('從頭開始', 'Start over', 'Đọc từ đầu', '最初から', '처음부터')}</button>`;
       r.querySelector('button').onclick = () => go(0); }
     st.zy ? zyLoad(() => render(false)) : render(false);
   }
