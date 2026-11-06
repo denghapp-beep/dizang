@@ -6,8 +6,10 @@
   const root = document.getElementById('zangjing-app'); if (!root) return;
   const S = window.SUTRAS || {};
   const esc = s => String(s).replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
-  const TABS = [{id: 'comics', name: L('佛教漫畫', 'Buddhist Comics', 'Truyện tranh Phật giáo', '仏教マンガ', '불교 만화')},
-    ...Object.entries(S).map(([id, s]) => ({id, name: s.title, sutra: s}))];
+  const SHORT = {dizang: '地藏經', pumen: '普門品', jingang: '金剛經', amituo: '阿彌陀經', wuliangshou: '無量壽經'};
+  const ORDER = ['dizang', 'pumen', 'jingang', 'amituo', 'wuliangshou'];
+  const TABS = [...Object.entries(S).sort((a, b) => (ORDER.indexOf(a[0]) + 99) % 99 - (ORDER.indexOf(b[0]) + 99) % 99).map(([id, s]) => ({id, name: SHORT[id] || s.title, sutra: s})),
+    {id: 'comics', name: L('佛教漫畫', 'Buddhist Comics', 'Truyện tranh Phật giáo', '仏教マンガ', '불교 만화')}];
   const LN = {en: 'English', vi: 'Tiếng Việt', ja: '日本語', ko: '한국어'};
   root.innerHTML = `
     <div class="section-top"><div><span class="eyebrow">${L('藏 經 閣 · LIBRARY', 'SUTRA LIBRARY', 'TÀNG KINH CÁC', '蔵 経 閣', '장 경 각')}</span>
@@ -50,7 +52,7 @@
     C.forEach((c, ci) => {
       if (!cur || !(c.lit && C[ci - 1] && C[ci - 1].lit && cur.len < 450)) newPage();
       const juan = c.lit ? -1 : s.juan.findIndex(j => j[0] === c.oi);
-      cur.items.push({ci, head: true, juan: juan >= 0 ? ['卷上', '卷下'][juan] : ''});
+      cur.items.push({ci, head: true, juan: juan >= 0 ? ((s.juanLabel || ['卷上', '卷下'])[juan] || '') : ''});
       c.paras.forEach((p, pi) => { if (cur.len && cur.items[cur.items.length - 1].pi !== undefined && cur.len + p.length > 700) newPage();
         cur.items.push({ci, pi, p}); cur.len += p.length; });
     });
@@ -95,7 +97,7 @@
     const $ = q => box.querySelector(q), page = $('.zr-page');
     const pageHTML = pg => (pg.items[0].head ? '' : `<p class="zr-runhead">${esc(C[pg.ci].title)}</p>`) + pg.items.map(x => {
       const c = C[x.ci], cls = c.lit ? ' class="lit"' : '';
-      if (x.head) return `${x.juan ? `<p class="zj-juan">${x.juan}</p>` : ''}<h4${cls}>${ruby(c.title, zyOf(x.ci, -1))}</h4>`;
+      if (x.head) return `${x.juan ? `<p class="zj-juan" data-t="${esc(s.title)}">${x.juan}</p>` : ''}<h4${cls}>${ruby(c.title, zyOf(x.ci, -1))}</h4>`;
       return `<p${cls}>${ruby(x.p, zyOf(x.ci, x.pi))}</p>`; }).join('');
     function zyOf(ci, pi) { if (!st.zy) return null; const c = C[ci];
       if (c.lit) return (pi < 0 ? c.zt : c.zp[pi]).split(' ');
@@ -138,8 +140,8 @@
         const el = page.querySelector(`[data-p="${st.page}"]`); if (el && scrollTop !== false) el.scrollIntoView();
       } else {
         page.innerHTML = pageHTML(pages[st.page], st.page);
-        if (V) { fitV(); const c = C[pages[st.page].ci], up = c.lit ? !LT.post.includes(c) : c.oi < s.juan[1][0];
-          $('.zb-title').textContent = `《${s.title}卷${up ? '上' : '下'}》`; $('.zb-no').textContent = cnum(st.page + 1); } else page.style.width = '';
+        if (V) { fitV(); const c = C[pages[st.page].ci], up = s.juan.length < 2 ? null : c.lit ? !LT.post.includes(c) : c.oi < s.juan[1][0];
+          $('.zb-title').textContent = `《${s.title}${up === null ? '' : up ? '卷上' : '卷下'}》`; $('.zb-no').textContent = cnum(st.page + 1); } else page.style.width = '';
         if (scrollTop !== false && !V) box.scrollIntoView({block: 'start'});
         if (V) { measure(); scr = toEnd ? offs.length - 1 : 0; showScr(); } else page.style.clipPath = '';
       }
@@ -224,5 +226,5 @@
     if (t.sutra) reader(t.id, t.sutra, panel.querySelector('.zj-reader'));
   }
   root.querySelectorAll('[data-tab]').forEach(b => b.addEventListener('click', () => { history.replaceState(null, '', '#' + b.dataset.tab); show(b.dataset.tab); }));
-  const h = location.hash.slice(1); show(TABS.some(t => t.id === h) ? h : 'comics');
+  const h = location.hash.slice(1); show(TABS.some(t => t.id === h) ? h : TABS[0].id);
 })();

@@ -397,7 +397,7 @@ html.zr-lock,html.zr-lock body{overflow:hidden}
 .zj-reader.is-v .zr-page p,.zj-reader.is-v .zr-page p.lit{font-family:inherit;font-weight:600;line-height:var(--pitch);margin:0;text-align:start;letter-spacing:.02em}
 .zj-reader.is-v .zr-page h4,.zj-reader.is-v .zr-page h4.lit{font:600 calc(var(--zr-size) + 2px)/var(--pitch) 'Noto Serif TC','Songti TC',serif;color:var(--pi);margin:0;padding-top:1em;text-align:start}
 .zj-reader.is-v .zr-page .zj-juan{font:700 calc(var(--zr-size) + 4px)/var(--pitch) 'Noto Serif TC','Songti TC',serif;color:var(--pi);margin:0}
-.zj-reader.is-v .zr-page .zj-juan::before{content:'地藏菩薩本願經'}
+.zj-reader.is-v .zr-page .zj-juan::before{content:attr(data-t)}
 .zj-reader.is-v .zr-page .zr-runhead{display:none}
 .zj-reader.is-v .zr-page .zw-c{flex-direction:column-reverse;line-height:1.15;margin:0 0 .12em 0}
 .zj-reader.is-v .zr-page .zw-z{margin:0 0 0 .06em;color:var(--pi);opacity:.75}
