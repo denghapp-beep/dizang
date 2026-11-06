@@ -114,6 +114,18 @@
       const flush = () => { out += n && n <= 14 ? `<span class="zw-g">${seg}</span>` : seg; seg = ''; n = 0; };
       cs.forEach((c, i) => { if (c === '\n') { flush(); out += '<br>'; } else if (c === '　') { flush(); out += '<span class="zw-sp"></span>'; } else { seg += cell(c, i); n++; } });
       flush(); return out; }
+    // 量測實際字形位置：不同電腦／字型的漢字與注音在字框內高低不同，用 canvas 算出偏移後補正，讓字與注音中心對齊
+    function calib() { try {
+      const cv = calib.cv || (calib.cv = document.createElement('canvas').getContext('2d'));
+      const off = (el, ch) => { if (!el) return 0; const cs = getComputedStyle(el), fs = parseFloat(cs.fontSize);
+        cv.font = `${cs.fontWeight} ${fs}px ${cs.fontFamily}`; const m = cv.measureText(ch);
+        const fa = m.fontBoundingBoxAscent, fd = m.fontBoundingBoxDescent; if (!(fa + fd)) return 0;
+        const lh = parseFloat(cs.lineHeight) || fs, base = (lh - (fa + fd)) / 2 + fa;
+        const mid = base - (m.actualBoundingBoxAscent - m.actualBoundingBoxDescent) / 2; return (lh / 2 - mid) / fs; };
+      const h = page.querySelector('.zw-c:not(.zw-p) .zw-h'), z = page.querySelector('.zw-z b');
+      box.style.setProperty('--zh-dy', off(h, '國').toFixed(3) + 'em'); box.style.setProperty('--zz-dy', off(z, 'ㄨ').toFixed(3) + 'em');
+    } catch {} }
+    if (document.fonts) document.fonts.addEventListener('loadingdone', () => calib());
     let toEnd = false;
     const cnum = n => { const d = '〇一二三四五六七八九'; return String(n).split('').map(x => d[x]).join(''); };
     const fs = on => { try { const el = document.documentElement; if (on) { (el.requestFullscreen || el.webkitRequestFullscreen || (() => {})).call(el); }
@@ -152,6 +164,7 @@
         const el = page.querySelector(`[data-p="${st.page}"]`); if (el && scrollTop !== false) el.scrollIntoView();
       } else {
         page.innerHTML = pageHTML(pages[st.page], st.page);
+        calib();
         if (V) { fitV(); const c = C[pages[st.page].ci], up = s.juan.length < 2 ? null : c.lit ? !LT.post.includes(c) : c.oi < s.juan[1][0];
           $('.zb-title').textContent = `《${s.title}${up === null ? '' : up ? '卷上' : '卷下'}》`; $('.zb-no').textContent = cnum(st.page + 1); } else page.style.width = '';
         if (scrollTop !== false && !V) box.scrollIntoView({block: 'start'});
