@@ -364,7 +364,7 @@ html.big-text .zj-text p{font-size:21px}
 .zr-marks ul{list-style:none;margin:0;padding:0}.zr-marks li{display:flex;gap:8px;border-bottom:1px solid var(--line)}
 .zr-marks li button{background:none;border:0;color:inherit;text-align:left;padding:12px 4px;flex:1;cursor:pointer;font:15px var(--serif)}
 .zr-marks .zr-del{flex:0 0 44px;text-align:center;color:var(--muted)}
-.zr-page{--zr-size:22px;min-height:60vh;padding:20px 0 10px;outline:none}
+.zr-page{--zr-size:24px;min-height:60vh;padding:20px 0 10px;outline:none}
 .zr-page p{font:var(--zr-size)/2.15 var(--serif);margin:0 0 1.1em;text-align:justify}
 .zr-page h4{font:calc(var(--zr-size) + 6px) var(--serif);color:var(--accent);margin:10px 0 24px}
 .zr-runhead{font-size:13px!important;color:var(--muted);letter-spacing:.1em;margin-bottom:18px!important}
@@ -384,12 +384,21 @@ html.big-text .zj-text p{font-size:21px}
 .zj-reader.is-zy .zr-page p.lit{text-align:center}
 .zr-page h4.lit{text-align:center;margin:28px 0 14px}
 
-/* 直排閱讀：仿經書，由右至左；內容超過一屏時左右捲動 */
-.zj-reader.is-v .zr-page{writing-mode:vertical-rl;width:100%;max-width:100%;box-sizing:border-box;height:min(72vh,640px);min-height:0;overflow-x:auto;overflow-y:hidden;padding:16px 4px;border:1px solid var(--line,rgba(200,170,110,.25));border-radius:6px;background:rgba(255,248,230,.03)}
-.zj-reader.is-v .zr-page p{line-height:2.1;margin:0 0 0 1.2em;text-align:start;letter-spacing:.06em}
-.zj-reader.is-v .zr-page p.lit,.zj-reader.is-v .zr-page h4.lit{text-align:start}
-.zj-reader.is-v .zr-page h4{margin:0 0 0 1em}
-.zj-reader.is-v .zr-page .zj-juan,.zj-reader.is-v .zr-page .zr-runhead{margin:0 0 0 1em}
-.zj-reader.is-v.is-zy .zr-page p{line-height:2.4;letter-spacing:0}
+/* 直排全螢幕閱讀：由右至左，一次翻一屏 */
+html.zr-lock,html.zr-lock body{overflow:hidden}
+.zr-exit{display:none}
+.zj-reader.is-v{position:fixed;inset:0;z-index:2000;background:var(--bg,#171917);display:flex;flex-direction:column;padding:env(safe-area-inset-top) 12px env(safe-area-inset-bottom);margin:0}
+.zj-reader.is-v .zr-exit{display:inline-block;border-color:var(--accent);color:var(--accent)}
+.zj-reader.is-v .zr-dir,.zj-reader.is-v .zr-mode,.zj-reader.is-v .zr-resume,.zj-reader.is-v .zr-range,.zj-reader.is-v .zr-list,.zj-reader.is-v .zr-mark{display:none}
+.zj-reader.is-v .zr-bar{position:static;flex:none;gap:6px;padding:6px 0}
+.zj-reader.is-v .zr-ch{flex:1 1 100%;min-height:36px}
+.zj-reader.is-v .zr-tools button{min-height:38px}
+.zj-reader.is-v .zr-page{flex:1;min-height:0;height:auto;writing-mode:vertical-rl;overflow:hidden;touch-action:none;margin:0 auto;padding:14px 0;user-select:none;-webkit-user-select:none}
+.zj-reader.is-v .zr-page p,.zj-reader.is-v .zr-page p.lit{line-height:var(--pitch);margin:0;text-align:start;letter-spacing:.04em}
+.zj-reader.is-v .zr-page h4,.zj-reader.is-v .zr-page h4.lit{font-size:calc(var(--zr-size) + 4px);line-height:var(--pitch);margin:0 0 0 var(--pitch);text-align:start}
+.zj-reader.is-v .zr-page .zj-juan,.zj-reader.is-v .zr-page .zr-runhead{line-height:var(--pitch);margin:0}
+.zj-reader.is-v.is-zy .zr-page p{letter-spacing:0}
 .zj-reader.is-v .zr-page .zw-c{flex-direction:column-reverse;line-height:1.15;margin:0 0 .12em 0}
 .zj-reader.is-v .zr-page .zw-z{margin:0 0 0 .06em}
+.zj-reader.is-v .zr-nav{flex:none;padding:6px 0}
+.zj-reader.is-v .zr-nav button{min-height:40px}

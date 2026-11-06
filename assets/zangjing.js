@@ -38,7 +38,7 @@
   /* 經文閱讀器：分頁或捲動、記住讀到哪頁、書籤、字級。全部存在讀者自己的瀏覽器。 */
   function reader(id, s, box) {
     const KEY = 'ksitigarbha-sutra-' + id;
-    let st = {page: 0, mode: 'page', size: 22, marks: [], zy: false};
+    let st = {page: 0, mode: 'page', size: 24, marks: [], zy: false};
     try { st = Object.assign(st, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch {}
     const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch {} };
     // 前後儀軌（依法鼓山課誦本）＋經文合成一份目錄；經文每品從新頁開始，儀軌短段落可併頁
@@ -57,7 +57,8 @@
     pages.forEach(pg => { pg.ci = pg.items[0].ci; });
     // 舊版沒有前置儀軌，頁碼往後移
     if (st.v !== 2) { const add = pages.findIndex(pg => pg.ci === OFF); if (st.page > 0) st.page += add; st.marks = st.marks.map(m => m + add); st.v = 2; }
-    if (st.v === 2) { if (st.size < 22) st.size = 22; st.v = 3; }
+    if (st.v === 2) { st.v = 3; }
+    if (st.v === 3) { if (st.size < 24) st.size = 24; st.v = 4; }
     const N = pages.length;
     st.page = Math.min(Math.max(0, st.page | 0), N - 1);
     const T = (z, e, v, j, k) => L(z, e, v, j, k);
@@ -68,6 +69,7 @@
           <button type="button" class="zr-mode"></button>
           <button type="button" class="zr-zy" aria-pressed="false">注音</button>
           <button type="button" class="zr-dir" aria-pressed="false">直排</button>
+          <button type="button" class="zr-exit">✕ 返回網頁</button>
           <button type="button" class="zr-sm" aria-label="${T('縮小字級', 'Smaller text', 'Chữ nhỏ hơn', '文字を小さく', '글자 작게')}">字－</button>
           <button type="button" class="zr-lg" aria-label="${T('放大字級', 'Larger text', 'Chữ lớn hơn', '文字を大きく', '글자 크게')}">字＋</button>
           <button type="button" class="zr-mark" aria-pressed="false"></button>
@@ -96,8 +98,16 @@
       return `<span class="zw-c">${esc(c)}<span class="zw-z">${t === '˙' ? '˙' : ''}${b}${t && t !== '˙' ? `<i>${t}</i>` : ''}</span></span>`; }
     function ruby(text, z) { const cs = Array.from(text); if (!z) return esc(text).replace(/\n/g, '<br>');
       return cs.map((c, i) => c === '\n' ? '<br>' : (z[i] && z[i] !== '_') ? zc(c, z[i]) : esc(c)).join(''); }
+    let toEnd = false;
+    // 直排全螢幕：寬度取整數行距，每次翻一屏剛好不切字
+    function fitV() { const pitch = Math.round(st.size * (st.zy ? 2.5 : 2.05)); page.style.setProperty('--pitch', pitch + 'px');
+      page.style.width = ''; const avail = box.clientWidth - 24; page.style.width = Math.max(pitch, Math.floor(avail / pitch) * pitch) + 'px'; }
+    function screenV(dir) { // dir 1＝往後讀（往左），-1＝往前
+      const W = page.clientWidth, max = page.scrollWidth - W, x = Math.abs(page.scrollLeft);
+      if (dir > 0) { if (x < max - 4) page.scrollTo({left: -Math.min(max, x + W), behavior: 'smooth'}); else if (st.page < N - 1) { toEnd = false; go(st.page + 1, false); } }
+      else { if (x > 4) page.scrollTo({left: -Math.max(0, x - W), behavior: 'smooth'}); else if (st.page > 0) { toEnd = true; go(st.page - 1, false); toEnd = false; } } }
     function render(scrollTop) {
-      const V = st.dir === 'v'; box.classList.toggle('is-v', V); $('.zr-dir').setAttribute('aria-pressed', String(V)); $('.zr-mode').hidden = V;
+      const V = st.dir === 'v'; box.classList.toggle('is-v', V); document.documentElement.classList.toggle('zr-lock', V); $('.zr-dir').setAttribute('aria-pressed', String(V)); $('.zr-mode').hidden = V;
       box.classList.toggle('is-scroll', st.mode === 'scroll' && !V);
       box.classList.toggle('is-zy', !!st.zy); $('.zr-zy').setAttribute('aria-pressed', String(!!st.zy));
       page.style.setProperty('--zr-size', st.size + 'px');
@@ -106,8 +116,10 @@
         page.innerHTML = pages.map((pg, i) => `<section data-p="${i}">${pageHTML(pg, i)}</section>`).join('');
         const el = page.querySelector(`[data-p="${st.page}"]`); if (el && scrollTop !== false) el.scrollIntoView();
       } else {
-        page.innerHTML = pageHTML(pages[st.page], st.page); page.scrollLeft = 0;
-        if (scrollTop !== false) box.scrollIntoView({block: 'start'});
+        page.innerHTML = pageHTML(pages[st.page], st.page);
+        if (V) fitV(); else page.style.width = '';
+        if (scrollTop !== false && !V) box.scrollIntoView({block: 'start'});
+        if (V) page.scrollLeft = toEnd ? -(page.scrollWidth - page.clientWidth) : 0;
       }
       sync();
     }
@@ -131,15 +143,16 @@
         : `<p>${T('還沒有書籤。讀到想記住的地方，按「加書籤」。', 'No bookmarks yet. Tap “Bookmark” on any page you want to keep.', 'Chưa có dấu trang. Bấm “Đánh dấu” ở trang muốn ghi nhớ.', 'しおりはまだありません。残したいページで「しおりを挟む」を押してください。', '아직 책갈피가 없습니다. 기억하고 싶은 쪽에서 「책갈피」를 누르세요.')}</p>`;
       m.hidden = false;
     }
-    $('.zr-prev').onclick = () => go(st.page - 1); $('.zr-next').onclick = () => go(st.page + 1);
+    $('.zr-prev').onclick = () => st.dir === 'v' ? screenV(-1) : go(st.page - 1); $('.zr-next').onclick = () => st.dir === 'v' ? screenV(1) : go(st.page + 1);
     $('.zr-range').oninput = e => go(e.target.value - 1);
     $('.zr-ch').onchange = e => go(pages.findIndex(pg => pg.items.some(x => x.ci === +e.target.value)));
     $('.zr-mode').onclick = () => { st.mode = st.mode === 'page' ? 'scroll' : 'page'; render(); };
     $('.zr-sm').onclick = () => { st.size = Math.max(15, st.size - 2); render(false); };
-    $('.zr-lg').onclick = () => { st.size = Math.min(36, st.size + 2); render(false); };
+    $('.zr-lg').onclick = () => { st.size = Math.min(40, st.size + 2); render(false); };
     $('.zr-mark').onclick = () => { const i = st.marks.indexOf(st.page); i >= 0 ? st.marks.splice(i, 1) : st.marks.push(st.page); sync(); if (!$('.zr-marks').hidden) { $('.zr-marks').hidden = true; marks(); } };
     $('.zr-list').onclick = marks;
-    $('.zr-dir').onclick = () => { st.dir = st.dir === 'v' ? 'h' : 'v'; render(); };
+    $('.zr-dir').onclick = () => { st.dir = 'v'; render(); };
+    $('.zr-exit').onclick = () => { st.dir = 'h'; render(); };
     const zyLoad = cb => { if (window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]) return cb(); const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=3'; sc.onload = cb; sc.onerror = () => { st.zy = false; render(false); }; document.body.appendChild(sc); };
     $('.zr-zy').onclick = () => { st.zy = !st.zy; st.zy ? zyLoad(() => render(false)) : render(false); };
     $('.zr-marks').onclick = e => { const g = e.target.closest('[data-go]'), d = e.target.closest('[data-del]');
@@ -153,17 +166,19 @@
       if (cur !== st.page) { st.page = cur; sync(); } }); }, {passive: true});
     // 翻頁模式：左右滑動、鍵盤方向鍵
     let x0 = null, y0 = null;
-    let sx = 0;
-    page.addEventListener('touchstart', e => { sx = Math.abs(page.scrollLeft); x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, {passive: true});
-    page.addEventListener('touchend', e => { const V = st.dir === 'v'; if (x0 === null || (st.mode !== 'page' && !V)) return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
-      if (!(Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5)) return;
-      if (!V) return go(st.page + (dx < 0 ? 1 : -1));
-      // 直排：往右滑＝往下讀（下一頁），往左滑＝上一頁；本頁還沒捲到底時先捲動，捲到盡頭再滑一次就翻頁
-      const max = page.scrollWidth - page.clientWidth;
-      if (dx > 0 && (max < 4 || sx >= max - 4)) go(st.page + 1);
-      else if (dx < 0 && (max < 4 || sx <= 4)) go(st.page - 1); }, {passive: true});
+    page.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, {passive: true});
+    page.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+      if (st.dir === 'v') {
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) return screenV(dx > 0 ? 1 : -1);
+        if (Math.abs(dx) < 10 && Math.abs(dy) < 10) { const r = page.getBoundingClientRect(), t = e.changedTouches[0].clientX - r.left; if (t < r.width / 3) screenV(1); else if (t > r.width * 2 / 3) screenV(-1); }
+        return; }
+      if (st.mode !== 'page') return;
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) go(st.page + (dx < 0 ? 1 : -1)); }, {passive: true});
+    page.addEventListener('click', e => { if (st.dir !== 'v' || e.pointerType === 'touch' || matchMedia('(pointer:coarse)').matches) return; const r = page.getBoundingClientRect(), t = e.clientX - r.left; if (t < r.width / 3) screenV(1); else if (t > r.width * 2 / 3) screenV(-1); });
+    window.addEventListener('resize', () => { if (st.dir === 'v') { fitV(); page.scrollLeft = 0; } });
     document.addEventListener('keydown', e => { if ((st.mode !== 'page' && st.dir !== 'v') || /input|select|textarea/i.test(e.target.tagName)) return;
-      const f = st.dir === 'v' ? -1 : 1; if (e.key === 'ArrowRight') go(st.page + f); else if (e.key === 'ArrowLeft') go(st.page - f); });
+      if (st.dir === 'v') { if (e.key === 'ArrowLeft') screenV(1); else if (e.key === 'ArrowRight') screenV(-1); else if (e.key === 'Escape') { st.dir = 'h'; render(); } return; }
+      if (e.key === 'ArrowRight') go(st.page + 1); else if (e.key === 'ArrowLeft') go(st.page - 1); });
     // 上次讀到哪
     if (st.page > 0) { const r = $('.zr-resume'); r.hidden = false;
       r.innerHTML = `${T('上次讀到', 'Last read: ', 'Lần trước đọc đến ', '前回の続き：', '지난번 읽은 곳: ')}${esc(C[pages[st.page].ci].title)} · ${st.page + 1} / ${N} <button type="button">${T('從頭開始', 'Start over', 'Đọc từ đầu', '最初から', '처음부터')}</button>`;
