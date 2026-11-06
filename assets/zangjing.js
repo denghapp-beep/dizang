@@ -50,7 +50,8 @@
     const pages = []; let cur = null;
     const newPage = () => { cur = {items: [], len: 0}; pages.push(cur); };
     C.forEach((c, ci) => {
-      if (!cur || !(c.lit && C[ci - 1] && C[ci - 1].lit && cur.len < 450)) newPage();
+      const prevLit = C[ci - 1] && C[ci - 1].lit;
+      if (!cur || (c.lit && prevLit ? cur.len >= 450 : (c.lit !== !!prevLit) || cur.len >= 380)) newPage();
       const juan = c.lit ? -1 : s.juan.findIndex(j => j[0] === c.oi);
       cur.items.push({ci, head: true, juan: juan >= 0 ? ((s.juanLabel || ['卷上', '卷下'])[juan] || '') : ''});
       c.paras.forEach((p, pi) => { if (cur.len && cur.items[cur.items.length - 1].pi !== undefined && cur.len + p.length > 700) newPage();

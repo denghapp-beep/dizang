@@ -365,7 +365,7 @@ html.big-text .zj-text p{font-size:21px}
 .zr-marks li button{background:none;border:0;color:inherit;text-align:left;padding:12px 4px;flex:1;cursor:pointer;font:15px var(--serif)}
 .zr-marks .zr-del{flex:0 0 44px;text-align:center;color:var(--muted)}
 .zr-page{--zr-size:24px;min-height:60vh;padding:20px 0 10px;outline:none}
-.zr-page p{font:var(--zr-size)/2.15 var(--serif);margin:0 0 1.1em;text-align:justify;overflow-wrap:anywhere;line-break:anywhere}
+.zr-page p{font:var(--zr-size)/2.15 var(--serif);margin:0 0 1.1em;text-align:justify;line-break:strict}
 .zr-page h4{font:calc(var(--zr-size) + 6px) var(--serif);overflow-wrap:anywhere;color:var(--accent);margin:10px 0 24px}
 .zr-runhead{font-size:13px!important;color:var(--muted);letter-spacing:.1em;margin-bottom:18px!important}
 .zr-page section+section{margin-top:30px}
@@ -491,3 +491,15 @@ html.zr-floating .site-header{position:relative}
 .zj-reader:not(.is-v) .zr-page .zw-z b,.zj-reader:not(.is-v) .zr-page .zw-z em{transform:translateY(var(--zz-dy,0))}
 /* 標點格子與一般字同高（之前標點格較矮、靠上對齊，所以逗號、括號看起來偏高） */
 .zj-reader:not(.is-v) .zr-page .zw-c{height:calc(var(--zr-size) * 1.5);vertical-align:middle}
+
+/* 橫排經文版面：限制行寬、行首不出現標點、段距收斂、品名置中加飾線 */
+.zj-reader:not(.is-v) .zr-page{max-width:none}
+.zj-reader:not(.is-v) .zr-page > *{max-width:34em;margin-left:auto;margin-right:auto}
+.zj-reader:not(.is-v) .zr-page p{line-height:2.05;margin-top:0;margin-bottom:.55em;letter-spacing:.04em;line-break:strict;word-break:normal;hanging-punctuation:allow-end}
+.zj-reader:not(.is-v) .zr-page h4{text-align:center;font-weight:600;letter-spacing:.18em;margin:1.6em auto 1.1em;color:#7a4f12;display:flex;align-items:center;gap:.8em;justify-content:center}
+.zj-reader:not(.is-v)[data-bg=site] .zr-page h4,.zj-reader:not(.is-v)[data-bg=night] .zr-page h4{color:#d8b77a}
+.zj-reader:not(.is-v) .zr-page h4::before,.zj-reader:not(.is-v) .zr-page h4::after{content:'';flex:0 1 3.5em;height:1px;background:currentColor;opacity:.45}
+.zj-reader:not(.is-v) .zr-page .zj-juan{text-align:center;letter-spacing:.3em;opacity:.8}
+.zj-reader:not(.is-v) .zr-page p.lit{text-align:center}
+.zj-reader.is-zy:not(.is-v) .zr-page p{margin-bottom:.35em}
+@media (max-width:640px){.zj-reader:not(.is-v) .zr-page p{text-align:left;letter-spacing:.02em}}
