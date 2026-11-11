@@ -47,24 +47,26 @@
     const LT = (window.SUTRA_LITURGY || {})[id] || {pre: [], post: []};
     const C = [...LT.pre, ...s.chapters.map((c, oi) => Object.assign({oi}, c)), ...LT.post];
     const OFF = LT.pre.length;
-    const pages = []; let cur = null;
-    const newPage = () => { cur = {items: [], len: 0}; pages.push(cur); };
-    C.forEach((c, ci) => {
-      const prevLit = C[ci - 1] && C[ci - 1].lit;
-      if (!cur || (c.lit && prevLit ? cur.len >= 450 : (c.lit !== !!prevLit) || cur.len >= 380)) newPage();
-      const juan = c.lit ? -1 : s.juan.findIndex(j => j[0] === c.oi);
-      cur.items.push({ci, head: true, juan: juan >= 0 ? ((s.juanLabel || ['卷上', '卷下'])[juan] || '') : ''});
-      c.paras.forEach((p, pi) => { if (cur.len && cur.items[cur.items.length - 1].pi !== undefined && cur.len + p.length > 700) newPage();
-        cur.items.push({ci, pi, p}); cur.len += p.length; });
-    });
-    pages.forEach(pg => { pg.ci = pg.items[0].ci; });
+    // 分頁：橫排每頁約 700 字；經書模式（直排）每品一頁、儀軌合為一頁，頁內再依螢幕分屏，畫面才不會留白
+    let pages = [], N = 0;
+    function buildPages(V) { const out = []; let cur = null;
+      const newPage = () => { cur = {items: [], len: 0}; out.push(cur); };
+      C.forEach((c, ci) => {
+        const prevLit = C[ci - 1] && C[ci - 1].lit;
+        if (!cur || (V ? !(c.lit && prevLit) : (c.lit && prevLit ? cur.len >= 450 : (c.lit !== !!prevLit) || cur.len >= 380))) newPage();
+        const juan = c.lit ? -1 : s.juan.findIndex(j => j[0] === c.oi);
+        cur.items.push({ci, head: true, juan: juan >= 0 ? ((s.juanLabel || ['卷上', '卷下'])[juan] || '') : ''});
+        c.paras.forEach((p, pi) => { if (!V && cur.len && cur.items[cur.items.length - 1].pi !== undefined && cur.len + p.length > 700) newPage();
+          cur.items.push({ci, pi, p}); cur.len += p.length; });
+      });
+      out.forEach(pg => { pg.ci = pg.items[0].ci; }); return out; }
+    pages = buildPages(st.dir === 'v'); N = pages.length;
     // 舊版沒有前置儀軌，頁碼往後移
     if (st.v !== 2) { const add = pages.findIndex(pg => pg.ci === OFF); if (st.page > 0) st.page += add; st.marks = st.marks.map(m => m + add); st.v = 2; }
     if (st.v === 2) { st.v = 3; }
     if (st.v === 3) { if (st.size < 24) st.size = 24; st.v = 4; }
     if (st.v === 4) { st.size = Math.max(st.size, (innerWidth >= 700 ? 30 : 26)); st.v = 5; }
     st.mode = 'page'; if (!st.bg) st.bg = 'parch';
-    const N = pages.length;
     st.page = Math.min(Math.max(0, st.page | 0), N - 1);
     const T = (z, e, v, j, k) => L(z, e, v, j, k);
     box.innerHTML = `
@@ -108,8 +110,8 @@
     function zc(c, z) { const t = (z.match(/[ˊˇˋ˙]/) || [''])[0], b = z.replace(/[ˊˇˋ˙]/g, '');
       return `<span class="zw-c"><span class="zw-h">${esc(c)}</span><span class="zw-z n${b.length}">${t === '˙' ? '<em>˙</em>' : ''}${[...b].map(x => `<b>${x}</b>`).join('')}${t && t !== '˙' ? `<i>${t}</i>` : ''}</span></span>`; }
     const PUNC = /[，。、；：？！「」『』（）《》〈〉—…·．　]/;
-    function ruby(text, z) { const cs = Array.from(text); if (!z) return st.dir === 'v' ? cs.map(c => c === '\n' ? '<br>' : `<span class="k${/[，。、；：？！]/.test(c) ? ' pc' : ''}">${esc(c)}</span>`).join('') : esc(text).replace(/\n/g, '<br>');
-      const cell = (c, i) => (z[i] && z[i] !== '_') ? zc(c, z[i]) : `<span class="zw-c zw-p${/[，。、；：？！]/.test(c) ? ' pc' : ''}"><span class="zw-h">${esc(c)}</span></span>`;
+    function ruby(text, z) { const cs = Array.from(text); if (!z) return st.dir === 'v' ? cs.map(c => c === '\n' ? '<br>' : `<span class="k${/[，。、；：？！]/.test(c) ? ' pc' : /[（）「」『』《》〈〉—…〔〕【】]/.test(c) ? ' br' : ''}">${esc(c)}</span>`).join('') : esc(text).replace(/\n/g, '<br>');
+      const cell = (c, i) => (z[i] && z[i] !== '_') ? zc(c, z[i]) : `<span class="zw-c zw-p${/[，。、；：？！]/.test(c) ? ' pc' : /[（）「」『』《》〈〉—…〔〕【】]/.test(c) ? ' br' : ''}"><span class="zw-h">${esc(c)}</span></span>`;
       // 偈頌、真言以全形空格分句：每句不拆行
       let out = '', seg = '', n = 0;
       const flush = () => { out += n && n <= 14 ? `<span class="zw-g">${seg}</span>` : seg; seg = ''; n = 0; };
@@ -139,16 +141,20 @@
     function measure() { page.style.clipPath = ''; page.scrollLeft = 0; const R = page.getBoundingClientRect(), W = page.clientWidth, raw = [];
       // 以每個字的格子位置分行（同一行的字右緣對齊），不受注音、聲調小框影響
       const tol = 3, cols = [];
-      page.querySelectorAll('.zw-c,.k:not(.pc)').forEach(el => { const q = el.getBoundingClientRect(); if (q.width < 1) return;
-        const a = R.right - q.right, b = R.right - q.left; let c = cols.find(x => Math.abs(x[0] - a) < tol);
-        if (c) c[1] = Math.max(c[1], b); else cols.push([a, b]); });
+      page.querySelectorAll('.zw-c,.k').forEach(el => { const q = el.getBoundingClientRect(); if (q.width < 1) return;
+        const a = R.right - q.right, b = R.right - q.left, h = !!el.closest('h4,.zj-juan'); let c = cols.find(x => Math.abs(x[0] - a) < tol);
+        if (c) { c[1] = Math.max(c[1], b); c[2] = c[2] && h; } else cols.push([a, b, h]); });
       cols.sort((x, y) => x[0] - y[0]); const ln = [];
-      for (const c of cols) { const l = ln[ln.length - 1]; if (l && c[0] < l[1] - 1) l[1] = Math.max(l[1], c[1]); else ln.push(c); }
-      offs = [0]; ends = []; let st0 = 0, e = 0;
-      for (const l of ln) { if (l[1] - st0 > W - 1) { ends.push(e); st0 = l[0]; offs.push(st0); } e = l[1]; }
+      for (const c of cols) { const l = ln[ln.length - 1]; if (l && c[0] < l[1] - 1) { l[1] = Math.max(l[1], c[1]); l[2] = l[2] && c[2]; } else ln.push(c); }
+      // 分屏；品名（標題行）不留在一屏最後，跟著下一屏的內文
+      offs = [0]; ends = []; let st0 = 0, e = 0, k0 = 0;
+      for (let k = 0; k < ln.length; k++) { const l = ln[k]; if (l[1] - st0 > W - 1) {
+          let j = k; while (j - 1 > k0 && ln[j - 1][2]) j--;
+          ends.push(j > k0 ? ln[j - 1][1] : e); st0 = ln[j][0]; offs.push(st0); k0 = j; k = j; e = ln[j][1]; continue; }
+        e = l[1]; }
       ends.push(e); }
     function showScr() { const W = page.clientWidth, o = offs[scr] || 0, e = ends[scr] || W;
-      page.scrollLeft = -o; const real = Math.abs(page.scrollLeft); const nx = offs[scr + 1]; page.style.clipPath = `inset(0 0 0 ${Math.max(0, W - ((nx !== undefined ? nx - 1 : e + 2) - real))}px)`;
+      page.scrollLeft = -o; const real = Math.abs(page.scrollLeft); const nx = offs[scr + 1]; page.style.clipPath = `inset(0 0 0 ${Math.max(0, W - ((nx !== undefined ? (e + nx) / 2 : e + 2) - real))}px)`;
       const k = offs.length; $('.zr-num').textContent = `${st.page + 1} / ${N}` + (k > 1 ? `（本頁 ${scr + 1}/${k}）` : '');
       $('.zr-prev').disabled = st.page === 0 && scr === 0; $('.zr-next').disabled = st.page === N - 1 && scr >= k - 1; }
     function screenV(dir) { // dir 1＝往後讀（往左），-1＝往前
@@ -201,8 +207,9 @@
     $('.zr-lg').onclick = () => { st.size = Math.min(44, st.size + 2); render(st.dir !== 'v' ? undefined : false); };
     $('.zr-mark').onclick = () => { const i = st.marks.indexOf(st.page); i >= 0 ? st.marks.splice(i, 1) : st.marks.push(st.page); sync(); if (!$('.zr-marks').hidden) { $('.zr-marks').hidden = true; marks(); } };
     $('.zr-list').onclick = marks;
-    $('.zr-dir').onclick = () => { st.dir = 'v'; fs(true); box.classList.remove('show-ui'); render(); };
-    $('.zr-exit').onclick = () => { box.classList.remove('show-ui'); st.dir = 'h'; fs(false); render(); };
+    const remap = V => { const ci = pages[st.page].ci; pages = buildPages(V); N = pages.length; st.page = Math.max(0, pages.findIndex(pg => pg.items.some(x => x.ci === ci))); st.marks = []; $('.zr-range').max = N; };
+    $('.zr-dir').onclick = () => { if (st.dir !== 'v') remap(true); st.dir = 'v'; fs(true); box.classList.remove('show-ui'); render(); };
+    $('.zr-exit').onclick = () => { box.classList.remove('show-ui'); if (st.dir === 'v') remap(false); st.dir = 'h'; fs(false); render(); };
     $('.zr-bg').onchange = e => { st.bg = e.target.value; box.dataset.bg = st.bg; save(); };
     $('.zr-fg').onchange = e => { st.fg = +e.target.value; box.dataset.fg = st.fg; save(); };
     const zyLoad = cb => { if (window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]) return cb(); const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=4'; sc.onload = cb; sc.onerror = () => { st.zy = false; render(false); }; document.body.appendChild(sc); };

@@ -503,3 +503,6 @@ html.zr-floating .site-header{position:relative}
 .zj-reader:not(.is-v) .zr-page p.lit{text-align:center}
 .zj-reader.is-zy:not(.is-v) .zr-page p{margin-bottom:.35em}
 @media (max-width:640px){.zj-reader:not(.is-v) .zr-page p{text-align:left;letter-spacing:.02em}}
+/* 直排標點：用橫排字形放在 1em 方格正中（自架字型，各平台一致）；括號、引號、破折號轉 90 度 */
+.zj-reader.is-v .zr-page .pc .zw-h,.zj-reader.is-v .zr-page .k.pc,.zj-reader.is-v .zr-page .br .zw-h,.zj-reader.is-v .zr-page .k.br{display:inline-block;writing-mode:horizontal-tb;width:1em;height:1em;line-height:1;text-align:center;transform:none}
+.zj-reader.is-v .zr-page .br .zw-h,.zj-reader.is-v .zr-page .k.br{transform:rotate(90deg)}
