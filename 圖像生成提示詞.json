@@ -1,0 +1,17 @@
+{
+  "mode": "內建 ImageGen",
+  "assets": [
+    {
+      "file": "assets/gold.png",
+      "prompt": "Use case: stylized-concept. Asset type: wide hero artwork for a solemn Traditional Chinese Ksitigarbha devotional reading website. Create a stunning museum-quality sacred Buddhist art portrait of Ksitigarbha Bodhisattva 地藏菩薩, compassionate shaved-head monk with a simple golden aureole, vermilion and muted gold kasaya robe, standing on a lotus pedestal, a correct single khakkhara staff with circular rings in his right hand and a luminous wish-fulfilling jewel resting gently in his left palm. Full statue visible, dignified face, natural coherent anatomy, exactly two arms. Subject at right third, large calm near-black brown atmospheric negative space across left half for website text. Antique gilded bronze sculpture, subtle patina, fine realistic details, dim temple setting and faint incense haze, dramatic but soft warm museum lighting, restrained gold highlights. Landscape 16:9. Reverent, serene, sophisticated, no fantasy spectacle. No words, no lettering, no watermark, no border, no montage."
+    },
+    {
+      "file": "assets/paper.png",
+      "prompt": "Use case: illustration-story. Asset type: portrait editorial artwork for a refined Traditional Chinese spiritual literary website. A solemn fine Chinese gongbi ink and mineral pigment painting on warm ivory rice paper of Ksitigarbha Bodhisattva 地藏菩薩 depicted as a compassionate shaven-head monk in flowing muted vermilion and warm ochre kasaya robes, seated gracefully on a lotus pedestal with a simple fine gold circular aureole, holding one slender khakkhara staff with rings in his right hand and a small wish-fulfilling jewel in his left. Anatomically coherent two hands, detailed kind face. Lotus leaves and very faint mountain mist at the base. Delicate brushwork with elegant restraint, antique scroll aesthetics, lots of warm paper negative space. Portrait 3:4, full figure within frame and away from edges, noble sacred atmosphere, meticulous museum quality. No text, no seals, no letters, no watermark."
+    },
+    {
+      "file": "assets/mountain.png",
+      "prompt": "Use case: stylized-concept. Asset type: widescreen atmospheric artwork for a serene jade green Traditional Chinese Ksitigarbha meditation and reading website. Cinematic painterly Chinese landscape with layered misty jade and deep forest green mountains, still dark emerald lake in foreground reflecting pale morning light, soft clouds. On a stone platform at the right third a dignified full stone statue of Ksitigarbha Bodhisattva 地藏菩薩 as a compassionate shaven-head monk in kasaya robes, a simple round halo, holding a tall ringed khakkhara staff in his right hand and a small jewel in his left. Exactly two arms, beautifully proportioned, unmistakably Buddhist monk iconography. A small unobtrusive warm lantern near base, distant ancient roofline lost in mist. Large open darker tranquil negative space left half reserved for HTML title. Landscape 16:9. Rich painterly detail, restrained sacred elegance, calm natural light, no dramatic fantasy beams. No text, no letters, no watermark, no collage."
+    }
+  ]
+}

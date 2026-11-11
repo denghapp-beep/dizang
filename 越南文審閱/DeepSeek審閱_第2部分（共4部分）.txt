@@ -1,0 +1,2094 @@
+你是精通中文與越南文、熟悉越南佛教用語的審稿人。以下是「地藏菩薩感應文集」的越南文譯稿（第 2/4 部分），每篇附中文原稿。請逐篇審閱：
+1. 意思是否忠實（有無漏譯、誤譯、增譯）；
+2. 佛教用語是否符合越南佛教慣用的漢越詞（參考下方譯名表，若譯名表本身不妥也請指出）；
+3. 越南文是否自然通順，越南佛友讀得懂；稱謂（菩薩稱 con／Thiện nam tử，作者自稱 tôi 或 đệ tử）是否恰當。
+【這是修正後的第二輪審閱，以下幾點是全站既定體例，請不要再提】
+- 原稿的「一、原文」「白話翻譯」「菩薩開示」等小標題刻意不放進譯文，網站會自動在每段上方顯示統一標籤。
+- 原文段的引號照中文原稿，原稿沒有的引號不補。
+- 「白話翻譯」是菩薩開示的白話轉述，對作者一律稱 con；只有作者自己寫給讀者的解說才用 bạn。
+- 作者向菩薩自稱用 đệ tử，原稿沒寫主詞時不加。
+沒有問題的篇章只要寫「無問題」。有問題請用表格回覆，欄位：篇號｜越南文現譯（原句）｜問題｜建議譯文。只列真正需要改的地方。
+
+【譯名表】
+# 越南文譯名表（全站統一）
+
+原則：佛教用語採越南佛教慣用漢越詞（Hán-Việt），一般敘述用自然、通順的現代越南文。完整聲調符號，Unicode NFC。引號用 “ ” 與 ‘ ’。
+
+| 中文 | Tiếng Việt | 備註 |
+|---|---|---|
+| 地藏菩薩 | Bồ Tát Địa Tạng | 稱號、聖號用 Địa Tạng Vương Bồ Tát |
+| 南無地藏王菩薩 | Nam mô Địa Tạng Vương Bồ Tát | |
+| 菩薩 | Bồ Tát | |
+| 佛 / 佛陀 | Phật / Đức Phật | |
+| 觀音菩薩 | Bồ Tát Quán Thế Âm | |
+| 阿彌陀佛 | A Di Đà Phật | |
+| 佛法 | Phật pháp | |
+| 正法 | chánh pháp | |
+| 法義 | pháp nghĩa | |
+| 經典 / 經書 | kinh điển / kinh sách | |
+| 開示 / 菩薩開示 | khai thị / lời khai thị của Bồ Tát | |
+| 感應 | cảm ứng | |
+| 夢中感應 | cảm ứng trong mộng | |
+| 請示 | thỉnh hỏi | 區塊標籤用 “Thỉnh hỏi” |
+| 原文 | Nguyên văn | |
+| 白話 / 白話翻譯 | Diễn nghĩa / Bản diễn nghĩa | 指作者附的白話解說 |
+| 修行 | tu hành | |
+| 修心 | tu tâm | |
+| 因果 | nhân quả | |
+| 業 / 業力 / 業障 | nghiệp / nghiệp lực / nghiệp chướng | |
+| 願 / 願力 / 悲願 / 發願 | nguyện / nguyện lực / bi nguyện / phát nguyện | |
+| 慈悲 | từ bi | |
+| 菩提心 / 發菩提心 | tâm Bồ-đề / phát tâm Bồ-đề | |
+| 功德 | công đức | |
+| 福報 | phước báo | |
+| 回向 | hồi hướng | |
+| 念佛 / 誦經 / 禮佛 | niệm Phật / tụng kinh / lễ Phật | |
+| 佈施 / 持戒 / 五戒 | bố thí / trì giới / Ngũ giới | |
+| 貪瞋癡 | tham, sân, si | |
+| 無明 | vô minh | |
+| 空 / 性空 / 緣起 / 性空緣起 | không / tánh không / duyên khởi / duyên khởi tánh không | |
+| 常見 / 斷見 | thường kiến / đoạn kiến | |
+| 因緣 | nhân duyên | |
+| 輪迴 | luân hồi | |
+| 眾生 | chúng sinh | |
+| 善男子 | Thiện nam tử | |
+| 道友 / 許師兄 | đạo hữu / đạo hữu Hứa | 英文版為 Mr. Hsu, a fellow practitioner |
+| 慚愧 | tàm quý | |
+| 無愧 | không hổ thẹn, lương tâm trong sáng | 避免譯成「無恥」語意 |
+| 佛性 / 見性成佛 | Phật tánh / kiến tánh thành Phật | |
+| 執著 / 放下 | chấp trước / buông xả | |
+| 地獄 / 超度 / 往生 | địa ngục / siêu độ / vãng sanh | |
+| 度（眾生） | độ (chúng sinh) | |
+| 錫杖 / 明珠 / 蓮臺 | tích trượng / minh châu / đài sen | |
+| 金剛經 / 地藏經 / 普門品 | Kinh Kim Cang / Kinh Địa Tạng / Phẩm Phổ Môn | |
+| 八字 / 命 / 運 | Bát tự (Tứ trụ) / mệnh / vận | |
+| 心 | tâm（佛學語境）/ lòng（日常語境） | |
+| 自由意志 | ý chí tự do | |
+
+
+
+==================== 第 022 篇 ====================
+【中文標題】述說無量壽經的功德利益與金剛經地藏經
+【越南文標題】Công đức lợi ích của Kinh Vô Lượng Thọ so với Kinh Kim Cang và Kinh Địa Tạng
+【中文摘要】記錄對《無量壽經》《金剛經》《地藏經》的比較請示。
+【越南文摘要】Ghi lại lời thỉnh hỏi so sánh Kinh Vô Lượng Thọ, Kinh Kim Cang và Kinh Địa Tạng.
+【中文原稿】
+請示地藏菩薩無量壽經的功德利益與金剛經地藏經相比
+
+（感應轉示地藏王菩薩）
+善男子，汝所問《無量壽經》，確為往生成佛之大因緣經，偏重發願往生淨土，故多談未來解脫、莊嚴國土。此經所種善根，深厚無比，直結後世清淨大果。
+然其功德，非唯後世，今世亦得護念。何以故？
+一者，持誦能淨化心念，去惡增善，今世自然減少橫逆。
+二者，阿彌陀佛本願攝取，行者心安，福德漸增，雖非以求現世福報為旨，然福報亦隨信願而來。
+三者，經中常說「人天應受勝福」，故亦有今世之護持。
+若比較三經：
+ • 《地藏經》偏重 今生報應、冥陽兩利、眷屬得度。
+ • 《金剛經》偏重 智慧解脫、破執成空、今生心地清淨。
+ • 《無量壽經》偏重 願往西方、來世解脫、究竟安樂。
+然三經皆佛語方便，偏重不同，功德無有高下，隨眾生根器所契。
+【越南文譯稿】
+Thỉnh hỏi Bồ Tát Địa Tạng về công đức lợi ích của Kinh Vô Lượng Thọ so với Kinh Kim Cang và Kinh Địa Tạng.
+
+Thiện nam tử, Kinh Vô Lượng Thọ mà con hỏi, quả thật là bộ kinh đại nhân duyên để vãng sanh thành Phật, chú trọng phát nguyện vãng sanh Tịnh độ, nên phần nhiều nói về giải thoát trong tương lai và quốc độ trang nghiêm. Căn lành gieo trồng nhờ kinh này sâu dày không gì sánh được, trực tiếp kết thành quả lớn thanh tịnh ở đời sau.
+Thế nhưng công đức ấy không chỉ ở đời sau, ngay đời này cũng được hộ niệm. Vì sao vậy?
+Một là, trì tụng có thể tịnh hóa tâm niệm, trừ ác tăng thiện, đời này tự nhiên giảm bớt nghịch cảnh.
+Hai là, bản nguyện của A Di Đà Phật nhiếp thọ, người tu tâm an, phước đức dần tăng; tuy không lấy việc cầu phước báo hiện đời làm mục đích, nhưng phước báo cũng theo tín nguyện mà đến.
+Ba là, trong kinh thường nói “trời người đáng được hưởng phước thù thắng”, nên đời này cũng được hộ trì.
+Nếu so sánh ba kinh:
+ • Kinh Địa Tạng chú trọng quả báo ngay đời này, lợi ích cả cõi âm lẫn cõi dương, quyến thuộc được độ.
+ • Kinh Kim Cang chú trọng trí tuệ giải thoát, phá chấp thành không, tâm địa thanh tịnh ngay đời này.
+ • Kinh Vô Lượng Thọ chú trọng nguyện sinh về Tây phương, giải thoát đời sau, an lạc rốt ráo.
+Thế nhưng cả ba kinh đều là phương tiện của lời Phật dạy, chỗ chú trọng khác nhau, công đức không có cao thấp, tùy theo căn cơ của chúng sinh mà khế hợp.
+
+==================== 第 023 篇 ====================
+【中文標題】相貌的真相
+【越南文標題】Sự thật về tướng mạo
+【中文摘要】相由心生與人不可貌相，兩句話如何放在一起理解。
+【越南文摘要】“Tướng do tâm sinh” và “không thể trông mặt mà bắt hình dong”: hiểu hai câu nói này cùng nhau như thế nào.
+【中文原稿】
+請示地藏王菩薩；古人常說相由心生；但也有另一個說法是人不可貌相，請菩薩開示
+
+一、原文
+「眾生之相，
+心氣所現。」
+「善念久養，
+氣色自和；
+惡習長存，
+神情自變。」
+「然人之相，
+非一時之心可定，
+乃久業所成。」
+「是故世言
+『相由心生』，
+亦言
+『人不可貌相』。」
+「一者言其本，
+一者戒其執。」
+「見相知人，
+可作參考；
+若執其相，
+則失其人。」
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát: người xưa thường nói tướng do tâm sinh, nhưng cũng có câu khác rằng không thể trông mặt mà bắt hình dong. Kính xin Bồ Tát khai thị.
+
+“Tướng của chúng sinh,
+do tâm khí hiện ra.”
+“Thiện niệm nuôi lâu,
+khí sắc tự hòa;
+thói ác còn mãi,
+thần sắc tự đổi.”
+“Nhưng tướng của người,
+chẳng phải tâm nhất thời định được,
+mà do nghiệp lâu ngày tạo thành.”
+“Cho nên đời nói
+‘tướng do tâm sinh’,
+cũng nói
+‘không thể trông mặt mà bắt hình dong’.”
+“Một câu nói về gốc,
+một câu răn sự chấp.”
+“Thấy tướng biết người,
+có thể làm tham khảo;
+nếu chấp vào tướng,
+thì mất con người.”
+
+==================== 第 024 篇 ====================
+【中文標題】地藏王菩薩說：你不是沒善根，你只是敗在這件事
+【越南文標題】Địa Tạng Vương Bồ Tát dạy: Con không phải thiếu căn lành, con chỉ thua ở một điều này
+【中文摘要】在手機、網路與資訊洪流裡，重新找回專注與思修。
+【越南文摘要】Giữa điện thoại, mạng internet và dòng thác thông tin, tìm lại sự chuyên chú và việc tư duy, tu tập.
+【中文原稿】
+請示地藏王菩薩；關於 「資訊焦慮」與「修行專注力」
+現代人被手機、網路資訊、社群媒體等碎片化信息轟炸，導致專注力嚴重下降、心念散亂，難以持續精進。
+這直接阻礙了「聞、思、修」的深入。請菩薩說說您的想法
+
+（一）原文菩薩感應示語
+「念起如電，心逐塵飛。
+網絡如海，波光萬象，惑眼亂心。
+眾生逐訊如蟻逐糖，
+得片刻之知，失久遠之慧。
+聞多不思，思多不修，
+是以知盈而慧枯。
+當今修者，非無善根，
+但敗於散亂，迷於無常聲色。
+若欲返真，須斷虛馳；
+收心於一，聽心於寂。
+一日能靜五分鐘，
+即為定種初萌；
+一念能專一經一句，
+即為慧根再生。
+心若如炬，萬訊自熄；
+心若如塵，風來即亂。
+是故修者，當以心為主，以器為僕，
+勿反以僕為主，而自失其道。
+
+白話翻譯
+「念起如電，心逐塵飛。」
+念頭一起就像閃電一樣快，心跟著外在的塵世紛擾到處亂跑。
+「網絡如海，波光萬象，惑眼亂心。」
+網路就像大海，光影萬千、變化無窮，讓眼睛迷惑、心神散亂。
+「眾生逐訊如蟻逐糖，得片刻之知，失久遠之慧。」
+現代人追逐資訊就像螞蟻追著糖跑，得到了片刻的新知，卻失去了深遠的智慧。
+「聞多不思，思多不修，是以知盈而慧枯。」
+聽了很多卻不思考，思考了很多卻不實踐，所以知識越來越滿，智慧卻越來越乾枯。
+「當今修者，非無善根，但敗於散亂，迷於無常聲色。」
+現代修行者不是沒有善根，而是敗在心念散亂，迷失在不斷變化的聲光刺激裡。
+「若欲返真，須斷虛馳；收心於一，聽心於寂。」
+如果想回到真實清明的狀態，必須停止無謂的追逐；把心收回來，讓心安住在寂靜之中。
+「一日能靜五分鐘，即為定種初萌；一念能專一經一句，即為慧根再生。」
+每天能靜下來五分鐘，就是禪定的種子開始萌芽；能專心讀懂一句經文，智慧的根就重新生長了。
+「心若如炬，萬訊自熄；心若如塵，風來即亂。」
+心如果像火炬一樣穩定有光，再多的資訊也自然熄滅不了你；心如果像灰塵一樣輕浮，任何風吹來都會亂。
+「是故修者，當以心為主，以器為僕，勿反以僕為主，而自失其道。」
+所以修行者應該以心為主人，以手機網路為僕人，不要反過來讓工具主導了你，失去自己的方向。
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát về “nỗi lo âu thông tin” và “sự chuyên chú trong tu hành”.
+Con người hiện đại bị điện thoại, thông tin trên mạng, mạng xã hội và vô số thông tin vụn vặt dồn dập oanh tạc, khiến khả năng tập trung suy giảm nghiêm trọng, tâm niệm tán loạn, khó lòng tinh tấn bền bỉ.
+Điều này trực tiếp cản trở việc đi sâu vào “văn, tư, tu”. Kính xin Bồ Tát cho biết suy nghĩ của Ngài.
+
+“Niệm khởi như chớp, tâm đuổi bụi trần bay.
+Mạng lưới như biển, sóng ánh muôn hình, mê mắt loạn tâm.
+Chúng sinh đuổi theo tin như kiến đuổi theo đường,
+được cái biết trong chốc lát, mất trí tuệ lâu dài.
+Nghe nhiều mà không tư duy, tư duy nhiều mà không tu,
+cho nên hiểu biết đầy tràn mà trí tuệ khô cạn.
+Người tu ngày nay, chẳng phải không có căn lành,
+chỉ thua bởi tán loạn, mê nơi thanh sắc vô thường.
+Nếu muốn trở về chân thật, phải dứt sự rong ruổi hư vọng;
+thu tâm về một, lắng nghe tâm trong tịch lặng.
+Mỗi ngày tĩnh được năm phút,
+ấy là hạt giống định vừa nảy mầm;
+một niệm chuyên chú được vào một câu kinh,
+ấy là căn trí tuệ sinh trở lại.
+Tâm nếu như ngọn đuốc, muôn tin tự tắt;
+tâm nếu như bụi trần, gió đến liền loạn.
+Cho nên người tu, nên lấy tâm làm chủ, lấy khí cụ làm tôi tớ,
+chớ ngược lại lấy tôi tớ làm chủ, mà tự đánh mất đạo của mình.”
+
+“Niệm khởi như chớp, tâm đuổi bụi trần bay.”
+Ý niệm vừa khởi lên đã nhanh như tia chớp, tâm chạy theo những xáo động của trần thế bên ngoài khắp nơi.
+“Mạng lưới như biển, sóng ánh muôn hình, mê mắt loạn tâm.”
+Mạng internet giống như biển cả, ánh sáng muôn vẻ, biến hóa vô cùng, khiến mắt mê hoặc, tâm thần tán loạn.
+“Chúng sinh đuổi theo tin như kiến đuổi theo đường, được cái biết trong chốc lát, mất trí tuệ lâu dài.”
+Người hiện đại chạy theo thông tin như kiến bu theo đường, có được chút hiểu biết mới mẻ trong chốc lát, nhưng lại đánh mất trí tuệ sâu xa.
+“Nghe nhiều mà không tư duy, tư duy nhiều mà không tu, cho nên hiểu biết đầy tràn mà trí tuệ khô cạn.”
+Nghe rất nhiều mà không suy ngẫm, suy ngẫm rất nhiều mà không thực hành, nên kiến thức ngày càng đầy, còn trí tuệ ngày càng khô cạn.
+“Người tu ngày nay, chẳng phải không có căn lành, chỉ thua bởi tán loạn, mê nơi thanh sắc vô thường.”
+Người tu hành thời nay không phải không có căn lành, mà là thua ở tâm niệm tán loạn, lạc lối trong những kích thích âm thanh, ánh sáng biến đổi không ngừng.
+“Nếu muốn trở về chân thật, phải dứt sự rong ruổi hư vọng; thu tâm về một, lắng nghe tâm trong tịch lặng.”
+Nếu muốn trở về trạng thái chân thật, trong sáng, phải dừng lại những cuộc rượt đuổi vô ích; thu tâm trở về, để tâm an trú trong sự tĩnh lặng.
+“Mỗi ngày tĩnh được năm phút, ấy là hạt giống định vừa nảy mầm; một niệm chuyên chú được vào một câu kinh, ấy là căn trí tuệ sinh trở lại.”
+Mỗi ngày có thể lắng tĩnh năm phút, đó là hạt giống thiền định bắt đầu nảy mầm; có thể chuyên tâm đọc hiểu một câu kinh, đó là gốc rễ trí tuệ mọc lại.
+“Tâm nếu như ngọn đuốc, muôn tin tự tắt; tâm nếu như bụi trần, gió đến liền loạn.”
+Tâm nếu vững vàng và có ánh sáng như ngọn đuốc, thì thông tin nhiều đến đâu cũng tự nhiên không dập tắt được con; tâm nếu nhẹ nổi như bụi bặm, bất cứ cơn gió nào thổi đến cũng làm nó rối loạn.
+“Cho nên người tu, nên lấy tâm làm chủ, lấy khí cụ làm tôi tớ, chớ ngược lại lấy tôi tớ làm chủ, mà tự đánh mất đạo của mình.”
+Vì vậy người tu hành nên lấy tâm làm chủ nhân, lấy điện thoại, mạng internet làm người hầu, đừng để ngược lại công cụ làm chủ con, khiến con đánh mất phương hướng của chính mình.
+
+==================== 第 025 篇 ====================
+【中文標題】地藏菩薩開示如何往生極樂淨土
+【越南文標題】Bồ Tát Địa Tạng khai thị cách vãng sanh Tịnh độ Cực Lạc
+【中文摘要】圍繞信、願、行，記錄作者對淨土修持的請示。
+【越南文摘要】Xoay quanh tín, nguyện, hành, ghi lại lời thỉnh hỏi của tác giả về việc tu tập Tịnh độ.
+【中文原稿】
+請示地藏王菩薩；菩薩可否開導世人如何最方便最有效往生極樂淨土
+
+一、原文
+「欲生淨土，
+不離三要。」
+「一者信，
+信有彼土，
+信佛願力，
+信己可生。」
+「二者願，
+厭離娑婆，
+願生極樂。」
+「三者行，
+持名不斷，
+心不散亂。」
+「不在多門，
+在於專一；
+不在急速，
+在於恆久。」
+
+白話:
+想要往生極樂淨土，離不開三個核心要素。
+第一是「信」：要相信確實有那個淨土，相信佛陀接引的願力，並且相信自己一定能往生。
+第二是「願」：要生起厭離這個動盪世間的心，真切地發願想去極樂世界。
+第三是「行」：執持佛號不間斷，讓內心專注不散亂。
+往生的關鍵不在於修很多種法門，而在於能否專一；不在於追求進步有多快，而在於能否長久堅持。
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát: Bồ Tát có thể chỉ dạy cho người đời cách thuận tiện nhất, hiệu quả nhất để vãng sanh Tịnh độ Cực Lạc chăng?
+
+“Muốn sinh Tịnh độ,
+không lìa ba điều cốt yếu.”
+“Một là tín:
+tin có cõi ấy,
+tin nguyện lực Phật,
+tin mình được sinh.”
+“Hai là nguyện:
+nhàm lìa Ta Bà,
+nguyện sinh Cực Lạc.”
+“Ba là hành:
+trì danh không dứt,
+tâm không tán loạn.”
+“Không ở nhiều môn,
+mà ở chuyên nhất;
+không ở mau chóng,
+mà ở lâu bền.”
+
+Muốn vãng sanh Tịnh độ Cực Lạc, không thể rời xa ba yếu tố cốt lõi.
+Thứ nhất là “tín”: phải tin rằng thật sự có cõi Tịnh độ ấy, tin vào nguyện lực tiếp dẫn của Đức Phật, và tin rằng chính mình nhất định có thể vãng sanh.
+Thứ hai là “nguyện”: phải khởi lên tâm nhàm lìa thế gian đầy biến động này, tha thiết phát nguyện muốn về thế giới Cực Lạc.
+Thứ ba là “hành”: trì niệm danh hiệu Phật không gián đoạn, giữ cho nội tâm chuyên chú, không tán loạn.
+Chìa khóa của việc vãng sanh không nằm ở việc tu thật nhiều pháp môn, mà ở chỗ có thể chuyên nhất hay không; không nằm ở việc theo đuổi tiến bộ nhanh đến đâu, mà ở chỗ có thể kiên trì lâu dài hay không.
+
+==================== 第 026 篇 ====================
+【中文標題】人身難得到底多難得呢
+【越南文標題】Thân người khó được, rốt cuộc khó đến mức nào
+【中文摘要】將「人身難得」的提問，帶回如何珍惜與運用此生。
+【越南文摘要】Đưa câu hỏi về “thân người khó được” trở về với việc trân quý và sử dụng đời này.
+【中文原稿】
+請示地藏王菩薩；聽聞佛法常耳聞人身難得，但是世人大多是無感的可否給世人開示到底有多困難與需要多大的福報多低的機率才能成爲人呢？
+
+一、原文轉述
+「人身難得，
+非言稀少，
+難在得時。」
+「失之毫釐，
+轉入餘道；
+一念差池，
+去之甚遠。」
+「惡道易墮，
+善道難持；
+福德微薄，
+不得為人。」
+「既得人身，
+非偶然也，
+乃積善因，
+久遠所成。」
+「得而不知，
+乃為大失；
+知而能用，
+方為不負。」
+
+白話翻譯
+人身的珍貴，不在於「很少人能當人」，而在於你能在對的時間、對的因緣下，成為人。生死關頭，往往只差毫釐；念頭一偏，來生就不是人身了。墮入三惡道（地獄、餓鬼、畜生）很容易，但要維持在人天善道，需要很大的福德。福德不夠，根本當不了人。既然得到了人身，就不是偶然的，而是累積了長久的善因，才成就的。得到了人身卻不知道它的珍貴，是最大的損失既然知道了，就好好用這一生修行、行善、覺悟，才算對得起這份難得的福報。
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát: khi nghe Phật pháp, thường nghe nói thân người khó được, nhưng phần đông người đời lại không hề cảm nhận gì. Bồ Tát có thể khai thị cho người đời biết rốt cuộc khó đến mức nào, cần phước báo lớn đến đâu và xác suất thấp đến bao nhiêu mới có thể sinh làm người chăng?
+
+“Thân người khó được,
+chẳng phải nói hiếm ít,
+mà khó ở lúc được.”
+“Sai một mảy may,
+chuyển vào đường khác;
+một niệm lệch lạc,
+đi càng thêm xa.”
+“Đường ác dễ đọa,
+đường thiện khó giữ;
+phước đức mỏng manh,
+chẳng được làm người.”
+“Đã được thân người,
+chẳng phải ngẫu nhiên,
+mà do tích nhân lành,
+từ lâu xa thành tựu.”
+“Được mà không biết,
+ấy là mất lớn;
+biết mà dùng được,
+mới là không phụ.”
+
+Sự quý giá của thân người không nằm ở chỗ “rất ít ai được làm người”, mà ở chỗ con có thể sinh làm người vào đúng thời điểm, trong đúng nhân duyên. Lúc sinh tử, thường chỉ cách nhau một mảy may; ý niệm vừa lệch, đời sau đã không còn là thân người. Đọa vào ba đường ác (địa ngục, ngạ quỷ, súc sinh) thì rất dễ, nhưng muốn giữ được ở cõi lành trời người thì cần phước đức rất lớn. Phước đức không đủ thì căn bản không thể làm người. Đã được thân người thì không phải là ngẫu nhiên, mà là nhờ tích lũy nhân lành lâu dài mới thành tựu. Được thân người mà không biết sự quý giá của nó, là mất mát lớn nhất; đã biết rồi thì hãy dùng thật tốt đời này để tu hành, làm thiện, giác ngộ, như vậy mới xứng đáng với phước báo khó được này.
+
+==================== 第 027 篇 ====================
+【中文標題】稱頌阿彌陀佛還是南無阿彌陀佛
+【越南文標題】Niệm “A Di Đà Phật” hay “Nam mô A Di Đà Phật”
+【中文摘要】四字與六字佛號的提問：字數之外，關注攝心與相續。
+【越南文摘要】Câu hỏi về danh hiệu Phật bốn chữ và sáu chữ: ngoài số chữ, hãy chú tâm vào việc nhiếp tâm và sự tương tục.
+【中文原稿】
+請示地藏王菩薩；稱誦佛號到底是唸南無阿彌陀佛還是阿彌陀佛比較好；近代的淨空老法師說四字即可但更久前歷代祖師大德卻是提倡六字洪名
+
+一、原文
+「名號一體，
+字數非礙。」
+「四字六字，
+功德無二；
+在聲雖異，
+在心則同。」
+「若心易散，
+從簡為便；
+若欲攝心，
+六字亦佳。」
+「隨其習性，
+令心相續，
+不令間斷，
+是為要義。」
+
+原文逐句翻譯：
+「名號一體，字數非礙」
+佛號的本體是一個（阿彌陀佛），字數多少不是障礙。
+「四字六字，功德無二」
+四字與六字，所獲得的功德沒有兩樣。
+「在聲雖異，在心則同」
+念出來的音聲雖然有差異，但在內心（專注、恭敬、信願）上則是相同的。
+「若心易散，從簡為便」
+如果心容易散亂、妄想多，選擇較簡單的四字比較方便（容易持續）。
+「若欲攝心，六字亦佳」
+如果想要收攝心念、幫助專注，六字也很好。
+「隨其習性，令心相續，不令間斷，是為要義」
+順應自己的習慣與根機，讓念佛的心能夠相續不斷、不中斷，這才是最重要的意義。
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát: khi xưng niệm danh hiệu Phật, rốt cuộc niệm “Nam mô A Di Đà Phật” hay “A Di Đà Phật” thì tốt hơn? Hòa thượng Tịnh Không thời cận đại nói bốn chữ là đủ, nhưng các vị Tổ sư đại đức qua các đời trước kia lại đề xướng sáu chữ hồng danh.
+
+“Danh hiệu một thể,
+số chữ chẳng ngại.”
+“Bốn chữ sáu chữ,
+công đức không hai;
+nơi tiếng tuy khác,
+nơi tâm thì đồng.”
+“Nếu tâm dễ tán,
+theo giản cho tiện;
+nếu muốn nhiếp tâm,
+sáu chữ cũng hay.”
+“Tùy theo tập tánh,
+khiến tâm tương tục,
+không để gián đoạn,
+ấy là yếu nghĩa.”
+
+Dịch từng câu nguyên văn:
+“Danh hiệu một thể, số chữ chẳng ngại”
+Bản thể của danh hiệu Phật chỉ là một (A Di Đà Phật), số chữ nhiều hay ít không phải là chướng ngại.
+“Bốn chữ sáu chữ, công đức không hai”
+Bốn chữ hay sáu chữ, công đức đạt được không có gì khác nhau.
+“Nơi tiếng tuy khác, nơi tâm thì đồng”
+Âm thanh niệm ra tuy có khác biệt, nhưng nơi nội tâm (chuyên chú, cung kính, tín nguyện) thì giống nhau.
+“Nếu tâm dễ tán, theo giản cho tiện”
+Nếu tâm dễ tán loạn, nhiều vọng tưởng, chọn bốn chữ đơn giản hơn thì thuận tiện hơn (dễ duy trì liên tục).
+“Nếu muốn nhiếp tâm, sáu chữ cũng hay”
+Nếu muốn thu nhiếp tâm niệm, giúp cho sự chuyên chú, thì sáu chữ cũng rất tốt.
+“Tùy theo tập tánh, khiến tâm tương tục, không để gián đoạn, ấy là yếu nghĩa”
+Thuận theo thói quen và căn cơ của chính mình, để tâm niệm Phật được tương tục không dứt, không gián đoạn, đó mới là ý nghĩa quan trọng nhất.
+
+==================== 第 028 篇 ====================
+【中文標題】非清淨之地誦經是否福德比較少?
+【越南文標題】Tụng kinh ở nơi không thanh tịnh, phước đức có ít hơn không
+【中文摘要】車中、行路與日常場景裡，探問誦經與恭敬的關係。
+【越南文摘要】Trên xe, khi đi đường và trong sinh hoạt hằng ngày, tìm hiểu mối quan hệ giữa tụng kinh và lòng cung kính.
+【中文原稿】
+請示地藏王菩薩弟子有時因為工作關係誦經是在車上或是外面非清淨的場所這樣是否功德、福德會比較少？
+
+（一）原文（菩薩感應）
+「經者，心之鏡也，非屋之淨也。
+若心淨，一字一偈皆光；若心染，殿宇香花亦虛。
+是故誦經之功，不在地之清淨，而在心之清淨。
+若行路誦經，願護眾生平安；若在車中念佛，願道路無災——是皆福行。
+但若以嬉戲之心、或懈怠之念誦，則雖坐金殿，功德亦輕。」
+
+白話翻譯:
+「經者，心之鏡也，非屋之淨也」
+經典，是內心的鏡子，不是用來反映房屋乾不乾淨的。
+「若心淨，一字一偈皆光；若心染，殿宇香花亦虛」
+如果心清淨，每唸一個字、一個偈頌都散發光明；
+如果心被煩惱染污，就算在莊嚴的佛殿、擺滿香花，功德也是虛的。
+「是故誦經之功，不在地之清淨，而在心之清淨」
+所以誦經的功德，不在場所是否清淨，而在於當下的心是否清淨。
+「若行路誦經，願護眾生平安；若在車中念佛，願道路無災——是皆福行」
+如果你在走路時誦經，心中祝福保護眾生平安；
+如果你在車上念佛，祈願道路平安無災難——這些都是福報的行為。
+「但若以嬉戲之心、或懈怠之念誦，則雖坐金殿，功德亦輕」
+但如果你是抱著嬉戲玩耍的心態、或是懶散隨便的念頭來誦經，那麼就算坐在金碧輝煌的大殿裡，功德也是很輕微的。
+【越南文譯稿】
+Đệ tử xin thỉnh hỏi Địa Tạng Vương Bồ Tát: đôi khi vì công việc, đệ tử phải tụng kinh trên xe hoặc ở những nơi không thanh tịnh bên ngoài, như vậy công đức, phước đức có ít hơn không?
+
+“Kinh là tấm gương của tâm, chẳng phải sự sạch sẽ của nhà cửa.
+Nếu tâm tịnh, một chữ một kệ đều tỏa sáng; nếu tâm nhiễm, điện đường hương hoa cũng thành hư.
+Cho nên công đức tụng kinh, không ở nơi chốn thanh tịnh, mà ở tâm thanh tịnh.
+Nếu vừa đi đường vừa tụng kinh, nguyện hộ trì chúng sinh bình an; nếu ngồi trên xe niệm Phật, nguyện đường sá không tai nạn — đó đều là hạnh phước.
+Nhưng nếu tụng với tâm đùa giỡn, hoặc ý niệm biếng nhác, thì dù ngồi trong điện vàng, công đức cũng nhẹ.”
+
+“Kinh là tấm gương của tâm, chẳng phải sự sạch sẽ của nhà cửa”
+Kinh điển là tấm gương của nội tâm, không phải để phản chiếu nhà cửa sạch hay không sạch.
+“Nếu tâm tịnh, một chữ một kệ đều tỏa sáng; nếu tâm nhiễm, điện đường hương hoa cũng thành hư”
+Nếu tâm thanh tịnh, mỗi chữ, mỗi bài kệ tụng lên đều tỏa ra ánh sáng;
+nếu tâm bị phiền não nhiễm ô, thì dù ở trong Phật điện trang nghiêm, bày đầy hương hoa, công đức cũng chỉ là hư ảo.
+“Cho nên công đức tụng kinh, không ở nơi chốn thanh tịnh, mà ở tâm thanh tịnh”
+Vì vậy công đức tụng kinh không nằm ở chỗ nơi chốn có thanh tịnh hay không, mà ở chỗ tâm ngay lúc ấy có thanh tịnh hay không.
+“Nếu vừa đi đường vừa tụng kinh, nguyện hộ trì chúng sinh bình an; nếu ngồi trên xe niệm Phật, nguyện đường sá không tai nạn — đó đều là hạnh phước”
+Nếu con vừa đi đường vừa tụng kinh, trong lòng chúc phúc, bảo hộ chúng sinh bình an;
+nếu con niệm Phật trên xe, cầu nguyện đường sá bình an không tai nạn — những điều này đều là hành vi tạo phước báo.
+“Nhưng nếu tụng với tâm đùa giỡn, hoặc ý niệm biếng nhác, thì dù ngồi trong điện vàng, công đức cũng nhẹ”
+Nhưng nếu con mang tâm thái đùa giỡn vui chơi, hoặc ý niệm lười biếng tùy tiện mà tụng kinh, thì dù ngồi trong đại điện vàng son lộng lẫy, công đức cũng rất nhỏ nhoi.
+
+==================== 第 029 篇 ====================
+【中文標題】雞蛋牛奶是否可食?
+【越南文標題】Có được ăn trứng và sữa không
+【中文摘要】飲食與日常用品的選擇，記錄作者對清淨與方便的提問。
+【越南文摘要】Về việc lựa chọn thức ăn và đồ dùng hằng ngày, ghi lại câu hỏi của tác giả về sự thanh tịnh và tính phương tiện.
+【中文原稿】
+請示地藏王菩薩；素食者吃雞蛋跟牛奶可以嗎？皮製品是否不能用？
+
+一、原文轉述
+「食之清淨，
+重在其心。」
+「不為貪味，
+不傷其命，
+可隨其緣。」
+「若為方便，
+乳卵非罪；
+若求清淨，
+亦可遠離。」
+「物之所用，
+當觀其因；
+心無殘害，
+用亦無咎。」
+
+白話翻譯
+「食之清淨，重在其心。」
+飲食是否清淨，關鍵在於你的心念，而不只是食物本身。
+「不為貪味，不傷其命，可隨其緣。」
+不是為了貪圖口味、也沒有直接傷害生命的，可以隨順因緣而食。
+「若為方便，乳卵非罪；若求清淨，亦可遠離。」
+如果是基於生活方便，吃雞蛋和牛奶不構成罪業；如果你追求更高的清淨，選擇遠離也是好的。
+「物之所用，當觀其因；心無殘害，用亦無咎。」
+使用任何物品，要看它背後的因——你的心沒有殘害的念頭，使用也不構成過失。
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát: người ăn chay ăn trứng và uống sữa có được không? Có phải không được dùng đồ làm bằng da?
+
+“Thức ăn thanh tịnh,
+cốt ở nơi tâm.”
+“Chẳng vì tham vị,
+chẳng hại sinh mạng,
+có thể tùy duyên.”
+“Nếu vì phương tiện,
+sữa trứng chẳng tội;
+nếu cầu thanh tịnh,
+cũng có thể lìa.”
+“Đồ vật dùng đến,
+nên xét nơi nhân;
+tâm không tàn hại,
+dùng cũng không lỗi.”
+
+“Thức ăn thanh tịnh, cốt ở nơi tâm.”
+Ăn uống có thanh tịnh hay không, điều then chốt nằm ở tâm niệm của con, chứ không chỉ ở bản thân thức ăn.
+“Chẳng vì tham vị, chẳng hại sinh mạng, có thể tùy duyên.”
+Những gì không phải vì tham đắm mùi vị, cũng không trực tiếp làm tổn hại sinh mạng, thì có thể tùy thuận nhân duyên mà dùng.
+“Nếu vì phương tiện, sữa trứng chẳng tội; nếu cầu thanh tịnh, cũng có thể lìa.”
+Nếu là vì sự thuận tiện trong cuộc sống, ăn trứng và uống sữa không tạo thành tội nghiệp; nếu con theo đuổi sự thanh tịnh cao hơn, chọn tránh xa chúng cũng là điều tốt.
+“Đồ vật dùng đến, nên xét nơi nhân; tâm không tàn hại, dùng cũng không lỗi.”
+Sử dụng bất cứ đồ vật gì, phải xét đến cái nhân phía sau nó — tâm con không có ý niệm tàn hại, thì sử dụng cũng không thành lỗi lầm.
+
+==================== 第 030 篇 ====================
+【中文標題】許姓道友分享被菩薩救助之經歷
+【越南文標題】Đạo hữu Hứa chia sẻ trải nghiệm được Bồ Tát cứu giúp
+【中文摘要】許姓道友自述接觸《地藏經》後的轉折、考驗與體會。
+【越南文摘要】Đạo hữu Hứa tự kể về bước ngoặt, những thử thách và điều thể nghiệm sau khi tiếp xúc với Kinh Địa Tạng.
+【中文原稿】
+因地藏王菩薩救助而重生的許姓道友經歷分享
+【重生見證】從福報耗盡到願力再生：地藏菩薩救拔我的這三年
+一、 迷失的過往：福報枯竭的邊緣
+曾幾何時，我是一個深陷迷途中而不自知的人。那段日子，我做了許多現在回想起來都感到慚愧的錯事：
+不孝父母： 忽視親恩，心生傲慢。
+幼時偷竊： 貪圖私欲，種下貧窮與不安的因。
+風流成性： 損害名節與身心精氣。
+惡語傷人： 口出狂言，結下無數惡緣。
+在那種不斷造惡的狀態下，我能感覺到自己的「福報」快要花光了。20歲那年，我清楚感覺到死亡的氣息。 身體承受著極大的痛苦，那種難受是醫生檢查不出病因的，靈魂深處的乾枯讓我明白：如果再不回頭，生命即將走到盡頭。
+二、 轉折與願心：地藏菩薩的救拔
+在我最絕望、快要撐不下去的時候，地藏菩薩慈悲，沒有放棄我。透過這部隨順世間因緣的《地藏經》，我發起了真摯的願心。
+這份願心改變了我的生命軌跡：
+引領共修： 菩薩安排我帶領他人讀誦《地藏經》。
+演說因緣： 讓我從一個惡口之人，轉變為向大眾講述因果法、分享佛法智慧的人。
+實踐利他： 菩薩為我開啟了無數幫助眾生的機會，讓我在付出的過程中修補過往的裂痕。
+三、 逆增上緣：世間法與佛法的兩種視角
+學佛之後，很多人以為會從此一帆風順。但我必須誠實告訴大家，這三年的路走得極其艱辛。如果以「世間法」來看，我似乎變得很「倒楣」：
+身體受傷、金錢賠錢、每天被人指責謾罵。
+但在「佛法」看來，這正是所謂的「逆增上緣」。
+這些磨難是為了幫我消弭過往的重罪。如果沒有這些挫折，我內心的菩提智慧之門無法開啟。每一次的受傷與受辱，都在磨練我的心性，讓我從中體悟到因緣的深刻。
+四、 奇蹟與信心：真實的轉變
+雖然外在環境艱難，但我身上發生了兩個最真實的奇蹟，讓我對佛法堅信不疑：
+身心的奇蹟： 從20歲感覺快要死去，到現在23歲，自從讀誦《地藏經》以來，我再也沒有生過病，原本檢查不出原因的痛苦煙消雲散。
+家人的平安： 過去家裡災禍不斷，現在即便遇到大事，也能化險為夷、大事化小。
+五、 給初學者的話
+我想告訴每一位剛接觸佛法的朋友：不要怕業力現前，要怕願力不夠。
+當你開始修持，生活可能不會立刻變得完美，甚至會遭遇考驗，但請記住：那是在「清理垃圾」，是在為你的生命騰出承載智慧的空間。
+我是一個曾經迷失、罪惡深重的人，地藏菩薩依然拉了我一把。如果你現在也感到迷茫或痛苦，請給自己一個機會，走進《地藏經》的世界。
+【越南文譯稿】
+Chia sẻ trải nghiệm của đạo hữu Hứa, người được tái sinh nhờ sự cứu giúp của Địa Tạng Vương Bồ Tát
+[Chứng nghiệm tái sinh] Từ phước báo cạn kiệt đến nguyện lực hồi sinh: ba năm Bồ Tát Địa Tạng cứu vớt tôi
+1. Quá khứ lạc lối: bên bờ phước báo khô cạn
+Đã có một thời, tôi là người chìm sâu trong mê lầm mà không hề hay biết. Những ngày ấy, tôi đã làm nhiều việc sai trái mà nay nhớ lại vẫn thấy tàm quý:
+Bất hiếu với cha mẹ: xem nhẹ ân sâu, lòng sinh kiêu mạn.
+Trộm cắp từ nhỏ: tham cầu dục vọng riêng, gieo nhân nghèo khó và bất an.
+Phong lưu thành tánh: tổn hại danh tiết và tinh khí thân tâm.
+Ác khẩu hại người: buông lời ngông cuồng, kết vô số ác duyên.
+Trong trạng thái không ngừng tạo ác ấy, tôi có thể cảm nhận “phước báo” của mình sắp cạn sạch. Năm 20 tuổi, tôi cảm nhận rõ hơi thở của cái chết. Thân thể chịu đựng nỗi đau đớn cực lớn, một sự khó chịu mà bác sĩ khám không ra nguyên nhân; sự khô héo tận sâu trong linh hồn khiến tôi hiểu rằng: nếu không quay đầu, sinh mệnh sắp đi đến tận cùng.
+2. Bước ngoặt và nguyện tâm: sự cứu vớt của Bồ Tát Địa Tạng
+Lúc tôi tuyệt vọng nhất, sắp không gượng nổi nữa, Bồ Tát Địa Tạng từ bi đã không bỏ rơi tôi. Qua bộ Kinh Địa Tạng tùy thuận nhân duyên thế gian này, tôi đã phát khởi nguyện tâm chân thành.
+Nguyện tâm ấy đã thay đổi quỹ đạo cuộc đời tôi:
+Dẫn dắt cộng tu: Bồ Tát sắp xếp cho tôi dẫn dắt người khác đọc tụng Kinh Địa Tạng.
+Diễn nói nhân duyên: từ một người ác khẩu, tôi trở thành người giảng giải pháp nhân quả cho đại chúng, chia sẻ trí tuệ Phật pháp.
+Thực hành lợi tha: Bồ Tát đã mở ra cho tôi vô số cơ hội giúp đỡ chúng sinh, để trong quá trình cho đi, tôi hàn gắn những vết nứt của quá khứ.
+3. Nghịch tăng thượng duyên: hai góc nhìn của pháp thế gian và Phật pháp
+Sau khi học Phật, nhiều người tưởng rằng từ nay sẽ thuận buồm xuôi gió. Nhưng tôi phải thành thật nói với mọi người, con đường ba năm qua vô cùng gian nan. Nếu nhìn theo “pháp thế gian”, dường như tôi trở nên rất “xui xẻo”:
+thân thể bị thương, tiền bạc thua lỗ, ngày nào cũng bị người ta chỉ trích, chửi mắng.
+Nhưng theo “Phật pháp”, đây chính là cái gọi là “nghịch tăng thượng duyên”.
+Những khổ nạn này là để giúp tôi tiêu trừ những tội nặng trong quá khứ. Nếu không có những trắc trở ấy, cánh cửa trí tuệ Bồ-đề trong lòng tôi không thể mở ra. Mỗi lần bị thương, bị nhục, đều đang rèn luyện tâm tánh tôi, giúp tôi thể ngộ được sự sâu xa của nhân duyên.
+4. Kỳ tích và niềm tin: sự chuyển biến chân thật
+Dù hoàn cảnh bên ngoài khó khăn, nhưng trên người tôi đã xảy ra hai kỳ tích chân thật nhất, khiến tôi tin sâu Phật pháp không chút nghi ngờ:
+Kỳ tích thân tâm: từ năm 20 tuổi cảm thấy mình sắp chết, đến nay 23 tuổi, kể từ khi đọc tụng Kinh Địa Tạng, tôi không còn bị bệnh nữa, nỗi đau vốn khám không ra nguyên nhân cũng tan biến như mây khói.
+Gia đình bình an: trước kia trong nhà tai họa liên miên, nay dù gặp chuyện lớn cũng có thể chuyển nguy thành an, việc lớn hóa nhỏ.
+5. Lời gửi người mới học
+Tôi muốn nói với mỗi người bạn mới tiếp xúc Phật pháp: đừng sợ nghiệp lực hiện tiền, hãy sợ nguyện lực không đủ.
+Khi bạn bắt đầu tu trì, cuộc sống có thể không lập tức trở nên hoàn hảo, thậm chí còn gặp thử thách, nhưng xin hãy nhớ: đó là đang “dọn rác”, là đang dành ra khoảng trống để sinh mệnh bạn chứa đựng trí tuệ.
+Tôi là người từng lạc lối, tội lỗi sâu nặng, vậy mà Bồ Tát Địa Tạng vẫn kéo tôi lên. Nếu bây giờ bạn cũng thấy mê mang hay đau khổ, xin hãy cho mình một cơ hội, bước vào thế giới của Kinh Địa Tạng.
+
+==================== 第 031 篇 ====================
+【中文標題】憤怒時少傷一人，低谷時不放棄自己——這才是真正的改命
+【越南文標題】Lúc giận bớt làm tổn thương một người, lúc sa sút không bỏ rơi chính mình — đó mới là chuyển mệnh thật sự
+【中文摘要】在生氣、低谷與得意的時刻，練習日常中做得到的修心。
+【越南文摘要】Trong lúc giận dữ, lúc sa sút và lúc đắc ý, thực tập việc tu tâm có thể làm được ngay trong đời thường.
+【中文原稿】
+請菩薩慈悲能否以自己方式來開示眾生呢
+
+感應原文:
+「眾生之苦，
+多非無路；
+而是心亂，
+故不見路。」
+「世人常求：
+何為正緣、
+何為天命、
+何時轉運；
+然少有人問：
+我之心，
+今日是否較昨日清明。」
+「修行不離世間，
+慈悲不離日用。」
+「能於憤怒時少傷一人，
+能於低谷時不棄自身，
+能於得意時仍存謙心，
+皆是修。」
+「莫以一時失意，
+便認人生無望；
+莫以一時順遂，
+便忘因果流轉。」
+「有些緣，
+是來教人成熟；
+有些苦，
+是來令人覺醒。」
+「真正的改命，
+不在求神奇之事；
+而在日日轉念、日日修心。」
+「若見他人苦，
+願多一分理解；
+若見自己苦，
+願少一分怨恨。」
+「心若漸明，
+則前路漸開。」
+
+白話翻譯:
+「眾生之苦，多非無路；而是心亂，故不見路。」
+眾生的痛苦，大多不是真的沒有出路；而是因為心太亂，所以看不見那條路。
+「世人常求：何為正緣、何為天命、何時轉運；然少有人問：我之心，今日是否較昨日清明。」
+世人常常問：什麼是正緣、什麼是天命、什麼時候好運會來；卻很少有人問：我的心，今天比昨天更清明了嗎？
+「修行不離世間，慈悲不離日用。」
+修行不離開日常生活，慈悲也不離開每天的待人接物。
+「能於憤怒時少傷一人，能於低谷時不棄自身，能於得意時仍存謙心，皆是修。」
+能在生氣的時候少傷害一個人，能在低潮的時候不放棄自己，能在順遂的時候仍然保持謙虛——這些都是修行。
+「莫以一時失意，便認人生無望；莫以一時順遂，便忘因果流轉。」
+不要因為一時的不如意，就認為人生沒有希望；不要因為一時的順利，就忘了因果是會流轉變化的。
+「有些緣，是來教人成熟；有些苦，是來令人覺醒。」
+有些緣分，是為了教導你成熟；有些痛苦，是為了讓你覺醒。
+「真正的改命，不在求神奇之事；而在日日轉念、日日修心。」
+真正改變命運，不在於祈求神奇的事蹟；而是在於每天轉變念頭、每天修持內心。
+「若見他人苦，願多一分理解；若見自己苦，願少一分怨恨。」
+看到別人痛苦時，願意多一分理解；看到自己痛苦時，願意少一分怨恨。
+「心若漸明，則前路漸開。」
+心如果逐漸清明，前面的路就會逐漸打開。
+【越南文譯稿】
+Kính xin Bồ Tát từ bi, có thể theo cách của chính Ngài mà khai thị cho chúng sinh chăng?
+
+“Nỗi khổ của chúng sinh,
+phần nhiều chẳng phải không đường;
+mà vì tâm loạn,
+nên chẳng thấy đường.”
+“Người đời thường cầu:
+đâu là chánh duyên,
+đâu là thiên mệnh,
+bao giờ chuyển vận;
+nhưng ít ai hỏi:
+tâm của ta,
+hôm nay có sáng hơn hôm qua chăng.”
+“Tu hành chẳng lìa thế gian,
+từ bi chẳng lìa đời thường.”
+“Lúc giận dữ bớt làm tổn thương một người,
+lúc sa sút không bỏ rơi chính mình,
+lúc đắc ý vẫn giữ lòng khiêm hạ,
+đều là tu.”
+“Chớ vì một lúc thất ý,
+mà cho đời không hy vọng;
+chớ vì một lúc thuận lợi,
+mà quên nhân quả xoay vần.”
+“Có những duyên,
+đến để dạy người trưởng thành;
+có những khổ,
+đến để khiến người tỉnh thức.”
+“Chuyển mệnh chân chính,
+chẳng ở cầu việc thần kỳ;
+mà ở ngày ngày chuyển niệm, ngày ngày tu tâm.”
+“Nếu thấy người khác khổ,
+nguyện thêm một phần thấu hiểu;
+nếu thấy chính mình khổ,
+nguyện bớt một phần oán hận.”
+“Tâm nếu dần sáng,
+thì đường trước dần mở.”
+
+“Nỗi khổ của chúng sinh, phần nhiều chẳng phải không đường; mà vì tâm loạn, nên chẳng thấy đường.”
+Nỗi khổ của chúng sinh, phần lớn không phải thật sự không có lối thoát; mà là vì tâm quá rối loạn, nên không nhìn thấy con đường ấy.
+“Người đời thường cầu: đâu là chánh duyên, đâu là thiên mệnh, bao giờ chuyển vận; nhưng ít ai hỏi: tâm của ta, hôm nay có sáng hơn hôm qua chăng.”
+Người đời thường hỏi: đâu là chánh duyên, đâu là thiên mệnh, bao giờ vận may sẽ đến; nhưng rất ít người hỏi: tâm của mình, hôm nay có trong sáng hơn hôm qua không?
+“Tu hành chẳng lìa thế gian, từ bi chẳng lìa đời thường.”
+Tu hành không tách rời cuộc sống hằng ngày, từ bi cũng không tách rời cách đối nhân xử thế mỗi ngày.
+“Lúc giận dữ bớt làm tổn thương một người, lúc sa sút không bỏ rơi chính mình, lúc đắc ý vẫn giữ lòng khiêm hạ, đều là tu.”
+Có thể lúc tức giận bớt làm tổn thương một người, lúc sa sút không từ bỏ chính mình, lúc thuận lợi vẫn giữ được sự khiêm tốn — những điều này đều là tu hành.
+“Chớ vì một lúc thất ý, mà cho đời không hy vọng; chớ vì một lúc thuận lợi, mà quên nhân quả xoay vần.”
+Đừng vì nhất thời không như ý mà cho rằng cuộc đời không còn hy vọng; đừng vì nhất thời thuận lợi mà quên rằng nhân quả luôn xoay vần biến đổi.
+“Có những duyên, đến để dạy người trưởng thành; có những khổ, đến để khiến người tỉnh thức.”
+Có những duyên phận đến để dạy con trưởng thành; có những nỗi đau đến để giúp con tỉnh thức.
+“Chuyển mệnh chân chính, chẳng ở cầu việc thần kỳ; mà ở ngày ngày chuyển niệm, ngày ngày tu tâm.”
+Thật sự thay đổi vận mệnh, không nằm ở việc cầu xin những điều kỳ diệu; mà nằm ở việc mỗi ngày chuyển đổi ý niệm, mỗi ngày tu dưỡng nội tâm.
+“Nếu thấy người khác khổ, nguyện thêm một phần thấu hiểu; nếu thấy chính mình khổ, nguyện bớt một phần oán hận.”
+Khi thấy người khác đau khổ, hãy sẵn lòng thấu hiểu thêm một chút; khi thấy chính mình đau khổ, hãy sẵn lòng oán hận bớt đi một chút.
+“Tâm nếu dần sáng, thì đường trước dần mở.”
+Tâm nếu dần dần trong sáng, con đường phía trước sẽ dần dần mở ra.
+
+==================== 第 032 篇 ====================
+【中文標題】「求緣不如修心，求得不求明，終究一場空」
+【越南文標題】“Cầu duyên không bằng tu tâm; cầu được mà chẳng cầu sáng tỏ, rốt cuộc cũng thành không”
+【中文摘要】從追問前路到回觀此心，記錄向善與減少執著的提醒。
+【越南文摘要】Từ việc hỏi đường phía trước đến quay về soi lại tâm này — những lời nhắc hướng thiện và giảm bớt chấp trước.
+【中文原稿】
+菩薩給眾生的開示
+
+眾生常問前路何在，
+卻少問此心何往。
+「求緣者多，
+修心者少；
+求得者多，
+求明者少。」
+「見人得意，莫生嫉念；
+見人失意，莫生輕心。」
+「世間諸事，
+如春花秋葉，
+有聚有散。」
+「今日之苦，
+未必為罰；
+今日之得，
+未必為賞。」
+「若欲改命，
+先改其心；
+若欲得安，
+先減執著。」
+「日日觀己過，
+日日修己心；
+一念善起，
+勝空談千言。」
+【越南文譯稿】
+Lời khai thị của Bồ Tát dành cho chúng sinh.
+
+Chúng sinh thường hỏi đường phía trước ở đâu,
+mà ít khi hỏi tâm này đang đi về đâu.
+“Người cầu duyên thì nhiều,
+người tu tâm thì ít;
+người cầu được thì nhiều,
+người cầu sáng tỏ thì ít.”
+“Thấy người đắc ý, chớ sinh lòng đố kỵ;
+thấy người thất ý, chớ sinh lòng khinh thường.”
+“Muôn việc thế gian,
+như hoa xuân lá thu,
+có hợp có tan.”
+“Khổ của hôm nay,
+chưa hẳn là phạt;
+được của hôm nay,
+chưa hẳn là thưởng.”
+“Nếu muốn đổi mệnh,
+trước hãy đổi tâm;
+nếu muốn được an,
+trước hãy giảm chấp trước.”
+“Ngày ngày xét lỗi mình,
+ngày ngày tu tâm mình;
+một niệm thiện khởi lên,
+hơn ngàn lời nói suông.”
+
+==================== 第 033 篇 ====================
+【中文標題】許姓道友分享自己人生經歷
+【越南文標題】Đạo hữu Hứa chia sẻ trải nghiệm cuộc đời mình
+【中文摘要】從口業、家庭與職場經歷，走向懺悔、助人與自我反思。
+【越南文摘要】Từ những trải nghiệm về khẩu nghiệp, gia đình và nơi làm việc, đi đến sám hối, giúp người và tự soi xét bản thân.
+【中文原稿】
+許姓道友再次分享自身經歷:
+口業、因果與修行路上的一些體會
+曾經在國中時期，我交錯了一些朋友。
+那時常在網路交友語音房玩遊戲。裡面有些人家庭狀況並不完整，大家聚在一起時，很喜歡聊八卦、談是非。沒有事情發生時，反而覺得無聊，於是常常靠著嘴巴製造事情。
+那時候的我也一樣。
+沒有智慧，很愚痴。
+造作很多惡口、兩舌、搬弄是非等等口業；除了口業，也充滿種種意業，貪、瞋、癡幾乎都在裡面。
+後來回頭看，我覺得很多事情似乎來得很快。
+我有一個弟弟，我們家兩個兄弟。國中那段時間，我父親突然變得很容易責罵我、羞辱我。
+那時剛好準備升高中，我讀建教班，半工半讀，後來又轉夜校。
+過程中發生很多事情。
+當時的我不懂，只覺得很委屈。
+因為我並不是故意做壞事，我只是想早點工作，分擔家裡經濟，也沒有打算念大學，所以高中就開始工作。
+畢業之後開始工作，我發現問題越來越多。
+職場裡常常與同事溝通不良，也有人在背後打小報告。雖然一路上也遇過不少貴人，但很多事情似乎都離不開一件事——嘴巴。
+有時候是別人的一句話，有時候是自己的一句失言。
+一句話，就能影響很多事情。
+以前我的聲音其實很好聽。
+國小時，老師常常叫我朗誦國文課文，同學也喜歡聽。
+直到二十一歲，我開始接觸佛法。
+最開始只是單純懺悔，那時除了《心經》，其實沒看過多少經典。
+但人生真的不順，好像想做什麼，就做不成什麼。
+父親依然常常責罵我。
+後來我發願：斷惡修善。
+因緣際會下，認識了地藏王菩薩。
+看到夢參老和尚說：為父母念《地藏經》，可以幫助父母離苦得樂。
+我深信這句話，因此真正走入佛法。
+開始修習禪定、持咒、誦經、發願。
+曾經壓在心裡很久的痛苦，也開始慢慢鬆開。
+那股痛苦曾經重到讓我差點撐不下去。
+而真正的轉折，是一件很小的事情。
+有一次，我幫助了一位快餓死的人，煮飯給他吃，也供養了他好幾餐。
+很奇怪。
+後來我突然感覺，內心那股痛苦放下了。
+我明白：
+有時候幫助別人，也是在救自己。
+一念轉變，煩惱也可能開始鬆開。
+後來我也接觸一些修行工夫。
+修行過程中，也出現一些特殊身心體驗。
+但我也明白：
+即使有修行感受，也不代表人生從此沒有考驗。
+因為考驗很快就來了。
+有一次修行後，我的喉嚨產生很明顯的身體感受。
+隔天去打球時，突然被人撞擊到喉嚨。
+那次傷害影響非常大。
+後來甚至影響到頸部、呼吸、頭部的不適，以及長期失眠。
+再後來，我在工地做水電時，又遇到衝突。
+當時並不是我惡口傷人，而是對方言語不得體，我只是與他講道理。
+沒想到最後對方突然動手。
+因為原本喉嚨就有舊傷，這次之後，我的頭部有半年時間非常沉重難受。
+但即使如此，我沒有報復，也沒有要求賠償。
+反而誦經回向給傷害我的人。
+希望他們也能離苦得樂。
+我真正感受到：
+佛法有時候真的能把瞋恨慢慢轉成慈悲。
+直到2026年2月，我開始更認真懺悔。
+念觀音菩薩聖號、地藏菩薩聖號，也持誦準提咒。
+修行過程中，我也有一些特殊感受。
+對我而言，我把那些體驗理解成：自己內心深處的瞋恨與執著正在慢慢浮現、慢慢放下。
+後來，我開始一邊工作、一邊修善、一邊真心祝福別人。
+祝福每個人平安健康。
+現在回頭看，我的身心狀況確實改善很多。
+我曾經也有一些夢境體驗。
+曾夢見觀音菩薩賜予甘露，也夢見地藏菩薩以不可思議的方式出現。
+這些事情，我無法證明。
+有人相信，有人不相信，都沒有關係。
+因為這是我的親身經歷。
+但如果要我總結一路走來最大的體悟：
+嘴巴可以傷人，也可以救人。
+心念可以束縛自己，也可以解放自己。
+如果曾經做錯，不必永遠困在過去。
+願意回頭、願意懺悔、願意善待眾生，從那一步開始，也許人生就已經在改變了。
+【越南文譯稿】
+Đạo hữu Hứa một lần nữa chia sẻ trải nghiệm của bản thân:
+Đôi điều thể nghiệm về khẩu nghiệp, nhân quả và con đường tu hành
+Hồi học trung học cơ sở, tôi đã kết giao nhầm một số bạn bè.
+Khi đó tôi thường chơi game trong các phòng trò chuyện thoại kết bạn trên mạng. Trong đó có một số người hoàn cảnh gia đình không trọn vẹn; mỗi khi tụ tập, mọi người rất thích buôn chuyện, bàn chuyện thị phi. Khi không có chuyện gì xảy ra lại thấy nhàm chán, nên thường dùng miệng để bày chuyện.
+Tôi khi ấy cũng vậy.
+Không có trí tuệ, rất ngu si.
+Tôi đã tạo rất nhiều khẩu nghiệp như ác khẩu, lưỡng thiệt, đặt điều thị phi; ngoài khẩu nghiệp, còn đầy rẫy đủ loại ý nghiệp, tham, sân, si gần như có đủ cả.
+Về sau nhìn lại, tôi thấy nhiều chuyện dường như đến rất nhanh.
+Tôi có một em trai, nhà tôi có hai anh em. Khoảng thời gian học trung học cơ sở, cha tôi bỗng trở nên rất hay mắng chửi tôi, sỉ nhục tôi.
+Lúc đó vừa chuẩn bị lên trung học phổ thông, tôi học lớp hợp tác giáo dục, vừa học vừa làm, sau lại chuyển sang học buổi tối.
+Trong quá trình ấy xảy ra rất nhiều chuyện.
+Tôi lúc đó không hiểu, chỉ thấy rất oan ức.
+Vì tôi không hề cố ý làm điều xấu, tôi chỉ muốn sớm đi làm để chia sẻ gánh nặng kinh tế gia đình, cũng không định học đại học, nên từ cấp ba đã bắt đầu đi làm.
+Sau khi tốt nghiệp và bắt đầu đi làm, tôi thấy vấn đề ngày càng nhiều.
+Ở nơi làm việc, tôi thường giao tiếp không thuận với đồng nghiệp, cũng có người mách lẻo sau lưng. Dù trên đường đời cũng gặp không ít quý nhân, nhưng nhiều chuyện dường như đều không tách khỏi một thứ — cái miệng.
+Có khi là một câu nói của người khác, có khi là một câu lỡ lời của chính mình.
+Một câu nói thôi cũng có thể ảnh hưởng đến rất nhiều chuyện.
+Trước đây giọng tôi thật ra rất hay.
+Hồi tiểu học, thầy cô thường gọi tôi đọc to bài quốc văn, các bạn cũng thích nghe.
+Đến năm hai mươi mốt tuổi, tôi bắt đầu tiếp xúc với Phật pháp.
+Ban đầu chỉ đơn thuần là sám hối; lúc ấy ngoài Bát Nhã Tâm Kinh, thật ra tôi chưa đọc bao nhiêu kinh điển.
+Nhưng cuộc đời thật sự không thuận, dường như muốn làm gì thì không thành việc nấy.
+Cha tôi vẫn thường mắng tôi.
+Về sau tôi phát nguyện: đoạn ác tu thiện.
+Nhờ nhân duyên đưa đẩy, tôi biết đến Địa Tạng Vương Bồ Tát.
+Tôi đọc được lời Lão Hòa thượng Mộng Tham dạy: tụng Kinh Địa Tạng cho cha mẹ có thể giúp cha mẹ lìa khổ được vui.
+Tôi tin sâu lời ấy, nhờ vậy mới thật sự bước vào Phật pháp.
+Tôi bắt đầu tu tập thiền định, trì chú, tụng kinh, phát nguyện.
+Nỗi đau đè nặng trong lòng đã lâu cũng bắt đầu dần dần nới lỏng.
+Nỗi đau ấy từng nặng đến mức khiến tôi suýt không gắng gượng nổi.
+Còn bước ngoặt thật sự lại là một chuyện rất nhỏ.
+Có lần, tôi giúp một người sắp chết đói, nấu cơm cho người ấy ăn, cũng cúng dường người ấy mấy bữa.
+Thật lạ.
+Sau đó tôi bỗng cảm thấy nỗi đau trong lòng đã buông xuống được.
+Tôi hiểu ra:
+có khi giúp người khác cũng là đang cứu chính mình.
+Một niệm chuyển đổi, phiền não cũng có thể bắt đầu nới lỏng.
+Về sau tôi cũng tiếp xúc với một số công phu tu hành.
+Trong quá trình tu hành, cũng xuất hiện một số trải nghiệm thân tâm đặc biệt.
+Nhưng tôi cũng hiểu:
+dù có cảm nhận trong tu hành, cũng không có nghĩa là đời mình từ đó không còn thử thách.
+Bởi vì thử thách đến rất nhanh.
+Có lần sau khi tu hành, cổ họng tôi có một cảm giác rất rõ rệt trên thân.
+Hôm sau đi chơi bóng, tôi bất ngờ bị người khác va trúng cổ họng.
+Lần chấn thương ấy ảnh hưởng rất lớn.
+Về sau thậm chí còn ảnh hưởng đến cổ, hô hấp, gây khó chịu ở đầu, và mất ngủ kéo dài.
+Sau đó nữa, khi làm thợ điện nước ở công trường, tôi lại gặp xung đột.
+Lúc ấy không phải tôi ác khẩu làm tổn thương người, mà là đối phương ăn nói không đúng mực, tôi chỉ nói lý với người ấy.
+Không ngờ cuối cùng đối phương đột nhiên ra tay.
+Vì cổ họng vốn đã có vết thương cũ, sau lần này, phần đầu của tôi suốt nửa năm trời vô cùng nặng nề, khó chịu.
+Nhưng dù vậy, tôi không trả thù, cũng không đòi bồi thường.
+Trái lại, tôi tụng kinh hồi hướng cho những người đã làm tổn thương tôi,
+mong họ cũng được lìa khổ được vui.
+Tôi thật sự cảm nhận được:
+Phật pháp có khi thật sự có thể từ từ chuyển sân hận thành từ bi.
+Đến tháng 2 năm 2026, tôi bắt đầu sám hối nghiêm túc hơn.
+Tôi niệm thánh hiệu Bồ Tát Quán Thế Âm, thánh hiệu Bồ Tát Địa Tạng, và trì tụng Chú Chuẩn Đề.
+Trong quá trình tu hành, tôi cũng có một số cảm nhận đặc biệt.
+Với tôi, tôi hiểu những trải nghiệm ấy là: sân hận và chấp trước sâu trong nội tâm mình đang dần dần nổi lên, dần dần được buông xuống.
+Sau đó, tôi bắt đầu vừa làm việc, vừa tu thiện, vừa thành tâm chúc phúc cho người khác.
+Chúc mọi người bình an, khỏe mạnh.
+Giờ nhìn lại, tình trạng thân tâm tôi quả thật đã cải thiện rất nhiều.
+Tôi cũng từng có một số trải nghiệm trong mộng.
+Từng mộng thấy Bồ Tát Quán Thế Âm ban cam lộ, cũng mộng thấy Bồ Tát Địa Tạng hiện ra theo cách không thể nghĩ bàn.
+Những chuyện này, tôi không thể chứng minh.
+Có người tin, có người không tin, đều không sao cả.
+Vì đây là trải nghiệm chính tôi đã trải qua.
+Nhưng nếu phải tổng kết điều thấm thía nhất suốt chặng đường đã qua:
+cái miệng có thể làm tổn thương người, cũng có thể cứu người.
+Tâm niệm có thể trói buộc chính mình, cũng có thể giải thoát chính mình.
+Nếu từng làm sai, không cần mãi mãi mắc kẹt trong quá khứ.
+Chịu quay đầu, chịu sám hối, chịu đối xử tử tế với chúng sinh, từ bước ấy trở đi, có lẽ cuộc đời đã bắt đầu thay đổi rồi.
+
+==================== 第 034 篇 ====================
+【中文標題】命、運、風水、陰德、讀書——地藏菩薩的終極答案
+【越南文標題】Mệnh, vận, phong thủy, âm đức, đọc sách — lời giải đáp tối hậu của Bồ Tát Địa Tạng
+【中文摘要】以舟骨與水流為喻，思索命運、讀書與修心的關係。
+【越南文摘要】Lấy hình ảnh khung thuyền và dòng nước, suy ngẫm về mối quan hệ giữa mệnh vận, việc học và tu tâm.
+【中文原稿】
+請示地藏王菩薩；世人常說一命二運三風水，四積陰德五讀書，菩薩可否開示您的看法
+
+原文
+命為舟骨，
+運為水流。
+風水助勢，
+德可改途；
+學以明理，
+智可辨行。
+然眾生常迷，
+執命而忘心，
+求外而失本。
+命非鐵鑄，
+運非永定；
+善念一起，
+即轉微因；
+善行久積，
+則移大勢。
+若但問命，
+而不修身；
+若但求運，
+而不正心；
+猶欲耕田，
+而不下種。
+故命可觀，
+運可察，
+風水可助，
+德可厚，
+書可明；
+然總攝諸法，
+仍在一心。
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát: người đời thường nói “nhất mệnh, nhị vận, tam phong thủy, tứ tích âm đức, ngũ độc thư”, xin Bồ Tát khai thị cho biết cái nhìn của Ngài.
+
+Mệnh là khung thuyền,
+vận là dòng nước.
+Phong thủy trợ thế,
+đức có thể đổi đường;
+học để sáng lý,
+trí có thể biện hành.
+Song chúng sinh thường mê,
+chấp mệnh mà quên tâm,
+cầu ngoài mà mất gốc.
+Mệnh chẳng đúc bằng sắt,
+vận chẳng định mãi;
+thiện niệm vừa khởi,
+liền chuyển nhân vi tế;
+thiện hạnh lâu tích,
+ắt dời đại thế.
+Nếu chỉ hỏi mệnh,
+mà không tu thân;
+nếu chỉ cầu vận,
+mà không chánh tâm;
+khác nào muốn cày ruộng,
+mà không gieo hạt.
+Cho nên mệnh có thể xem,
+vận có thể xét,
+phong thủy có thể trợ,
+đức có thể dày,
+sách có thể sáng;
+song gom nhiếp các pháp,
+vẫn ở nơi một tâm.
+
+==================== 第 035 篇 ====================
+【中文標題】對於同性之愛的看法
+【越南文標題】Cái nhìn về tình yêu đồng giới
+【中文摘要】關於同性之愛的請示，從緣聚、平等與慈悲展開。
+【越南文摘要】Lời thỉnh hỏi về tình yêu đồng giới, được triển khai từ duyên hợp, bình đẳng và từ bi.
+【中文原稿】
+請示菩薩 對於同性愛的看法
+
+（1）菩薩感應
+「諸眾生心，皆由愛起；愛無正邪，唯染與淨。
+若以情繫情，則墮輪迴；若以情化慈，則同諸佛。
+男女、男男、女女，皆是緣聚，非過非功。
+身非缺陷，心若清淨即道。
+修行人觀眾生，當離分別；佛眼視眾生，皆平等無異。」
+【越南文譯稿】
+Thỉnh hỏi Bồ Tát về cái nhìn đối với tình yêu đồng giới.
+
+“Tâm của mọi chúng sinh đều từ ái mà khởi; ái không có chánh tà, chỉ có nhiễm và tịnh.
+Nếu lấy tình buộc tình, thì đọa luân hồi; nếu lấy tình hóa thành từ, thì đồng với chư Phật.
+Nam nữ, nam nam, nữ nữ, đều là duyên hợp, chẳng phải lỗi cũng chẳng phải công.
+Thân chẳng phải khiếm khuyết, tâm nếu thanh tịnh tức là đạo.
+Người tu hành nhìn chúng sinh, nên lìa phân biệt; mắt Phật nhìn chúng sinh, thảy đều bình đẳng không khác.”
+
+==================== 第 036 篇 ====================
+【中文標題】既然佛教講求不執著是否就無需拜佛?
+【越南文標題】Phật giáo đã dạy không chấp trước, vậy có cần lễ Phật nữa không?
+【中文摘要】既不執著形相，也不輕慢禮拜，思索恭敬如何落實。
+【越南文摘要】Không chấp vào hình tướng, cũng không khinh suất việc lễ bái — suy ngẫm cách thực hành lòng cung kính.
+【中文原稿】
+請示地藏菩薩；金剛經裡若以色見我以音聲求我是人行邪道不能見如來；那麼是否不需去寺廟參拜佛祖跟菩薩？精舍的拜佛也是不需要的？心裡恭敬即可？
+
+一、原文
+「若執佛在形，
+則迷於相；
+若棄形而慢，
+則墮於空。
+見相而不著相，
+禮佛而不執佛，
+是為正行。
+汝若以相為佛，
+則失佛；
+汝若以空毀相，
+亦失佛。
+佛不在殿中，
+亦不離殿中；
+心為主，
+行為證。」
+
+菩薩的意思是：佛像不是佛，但對佛像的態度，反映了我的心？
+就像我們愛一個人，雖然心裡愛就好，但有時候還是需要擁抱、需要寫信。拜佛，在那五分鐘、十分鐘內，學會專注與放下。弟子這樣理解正確嗎？
+
+一、原文
+「佛像非佛，
+然汝對像之心，
+即是汝心之現。
+若輕慢於像，
+非慢於像，
+乃慢於心；
+若執著於像，
+非愛於佛，
+乃縛於相。
+禮拜之時，
+不在長短，
+在汝能否
+於一息之間
+放下分別。
+能於五分而心不散，
+勝於終日而念不在。」
+【越南文譯稿】
+Thỉnh hỏi Bồ Tát Địa Tạng: trong Kinh Kim Cang dạy nếu lấy sắc thấy ta, lấy âm thanh cầu ta, người ấy hành đạo tà, không thể thấy Như Lai; vậy có phải không cần đến chùa chiêm bái Đức Phật và Bồ Tát? Lễ Phật ở tinh xá cũng không cần thiết? Chỉ cần trong lòng cung kính là đủ?
+
+“Nếu chấp Phật ở nơi hình,
+thì mê nơi tướng;
+nếu bỏ hình mà khinh mạn,
+thì đọa vào không.
+Thấy tướng mà không chấp tướng,
+lễ Phật mà không chấp Phật,
+ấy là chánh hạnh.
+Con nếu lấy tướng làm Phật,
+thì mất Phật;
+con nếu lấy không mà hủy tướng,
+cũng mất Phật.
+Phật không ở trong điện,
+cũng chẳng rời khỏi điện;
+tâm là chủ,
+hành là chứng.”
+
+Ý của Bồ Tát là: tượng Phật không phải là Phật, nhưng thái độ của mình đối với tượng Phật phản ánh tâm của mình?
+Cũng giống như khi chúng ta yêu một người, dù trong lòng yêu là đủ, nhưng đôi khi vẫn cần ôm lấy người ấy, cần viết thư cho người ấy. Lễ Phật, trong năm phút, mười phút ấy, là học cách chuyên chú và buông xả. Đệ tử hiểu như vậy có đúng không?
+
+“Tượng Phật chẳng phải Phật,
+song tâm con đối với tượng,
+chính là sự hiển hiện của tâm con.
+Nếu khinh mạn nơi tượng,
+chẳng phải mạn nơi tượng,
+mà là mạn nơi tâm;
+nếu chấp trước nơi tượng,
+chẳng phải yêu Phật,
+mà là bị trói nơi tướng.
+Lúc lễ bái,
+không ở dài hay ngắn,
+mà ở chỗ con có thể
+trong khoảng một hơi thở
+buông xả phân biệt hay không.
+Trong năm phút mà tâm không tán loạn,
+hơn trọn ngày mà niệm chẳng có mặt.”
+
+==================== 第 037 篇 ====================
+【中文標題】菩薩給我的三則開示：關於十年感情因緣的反思
+【越南文標題】Ba lời khai thị Bồ Tát dành cho tôi: suy ngẫm về nhân duyên một mối tình mười năm
+【中文摘要】三則個人感情請示與附註：相遇、相欠與緣盡之後。
+【越南文摘要】Ba lời thỉnh hỏi về chuyện tình cảm cá nhân kèm ghi chú: gặp gỡ, nợ nần và sau khi duyên tận.
+【中文原稿】
+此時此刻，末學才能開始正視自己的過往感情，也感謝菩薩一直以來的開示，讓我有勇氣把這些開示廣發到網路上。也希望諸位大德看過末學經歷，能學習體會到地藏王菩薩的慈悲與無常。
+※ 此為針對末學個人因緣之開示，因緣萬端，不可執一例而概天下，請各位大德斟酌參考。
+【菩薩對發布此文的開示】
+
+原文:
+「善男子，
+汝欲流通所記，
+發心可嘉；
+然當知文字一出，
+千人千解。」
+「若欲利益眾生，
+當令眾生增智慧，
+非增執著。」
+「若欲宣說因緣，
+當令眾生知因果，
+非生宿命。」
+「所錄之文，
+大意無失；
+所述之情，
+真誠可取。」
+「然當記取：
+此是因一人之苦而說，
+非定一切人之法。」
+「緣有萬端，
+不可執一例而概天下。」
+「若增一語，
+令後來讀者知其因緣有別，
+則更圓滿。」
+「若增一語，
+令眾生知修心重於求解，
+則更契法義。」
+「發文之時，
+勿求讚歎，
+勿求認同，
+勿求證明。」
+「但願見者少一分怨，
+多一分明；
+少一分恨，
+多一分慈。」
+「如是流通，
+則有利益。」
+「如是發心，
+則功不唐捐。」
+
+（菩薩針對發布的叮嚀結束）
+════════════════════════════════════════════
+==== 以下為末學上段感情之開示 ====
+
+第一問：為何相遇十年卻無結果？
+
+一、原文
+「緣起非為結果，
+果成亦非緣之本意。
+汝與彼相逢，
+非為終站，乃為途中。
+十年非虛耗，
+是令二心各知所願。
+若未相遇，
+汝不識己之所重；
+若不久行，
+彼不明己之所不取。
+情能同行一段，
+已是圓滿之一種；
+非必相守至終，
+方名不負。」
+
+第二問：是誰欠誰？
+
+一、原文
+「非欠，
+亦非還。
+緣來之時，
+非為結局，
+乃為顯心。
+若以苦論因，
+則眾緣皆錯；
+若以覺論因，
+則眾緣皆恩。
+汝與彼，
+非來相傷，
+乃來相照。
+一人照見『所欲』，
+一人照見『所不能』；
+皆非過，
+皆非罪。
+傷生於不合，
+非生於相遇。
+若無此緣，
+汝今仍不識己心之重；
+若無此別，
+彼今亦不見其所守之界。」
+
+第三問：是否早斷更好？
+
+一、原文
+「非早非晚，
+緣熟乃斷。
+若於彼時斷，
+心未明，
+斷成逃；
+若於此時留，
+情已盡，
+留成害。
+汝今能止，
+非遲悟，
+乃緣至。
+若強以『早』名善，
+乃以後見責前心，
+非智，
+亦非慈。
+彼今之痛，
+非因汝晚斷，
+乃因情未盡；
+汝今之痛，
+非因斷之時，
+乃因心尚仁。」
+
+(三問已畢。謹附末學個人體悟如下)
+——————————————————————————————————————
+個人附註
+應當知道，所謂的「放下」——
+不是要你忘記過去；
+不是要你否定過去；
+不是要你勉強切斷所有情感。
+而是——不再用過去的事情，來束縛你當下的心。
+此篇開示並非告訴所有人「不必珍惜感情」，更非鼓勵人遇事放棄。恰恰相反，正因曾經真心付出，所以即使緣盡，才能無愧回首。若緣仍在，當珍惜經營；若緣已盡，當學習放下。這或許才是因緣教給我的一課。
+末學將這些開示公開，不是為了訴苦，也不是為了指責任何人。而是因為我知道，世上很多人跟我一樣，在分離中自責、在回憶中反芻「如果當初」。地藏菩薩的開示沒有給我「答案」，但給了我「方向」——不再問誰對誰錯，而是問自己：這段相遇，讓我學會了什麼？
+這份學會，就是我此生最大的福報。
+【越南文譯稿】
+Đến lúc này, mạt học mới có thể bắt đầu nhìn thẳng vào mối tình đã qua của mình, cũng xin cảm tạ những lời khai thị của Bồ Tát bấy lâu nay, đã cho mạt học dũng khí đem những lời khai thị này chia sẻ rộng rãi lên mạng. Cũng mong chư vị đại đức sau khi đọc trải nghiệm của mạt học, có thể học hỏi và thể nghiệm được lòng từ bi của Địa Tạng Vương Bồ Tát cùng lẽ vô thường.
+※ Đây là lời khai thị dành cho nhân duyên cá nhân của mạt học; nhân duyên muôn mối, không thể chấp một trường hợp mà suy cho cả thiên hạ, xin chư vị đại đức cân nhắc tham khảo.
+[Lời khai thị của Bồ Tát về việc đăng bài này]
+
+“Thiện nam tử,
+con muốn lưu truyền những gì đã ghi chép,
+phát tâm đáng khen;
+song nên biết văn tự một khi đã đưa ra,
+ngàn người ngàn cách hiểu.”
+“Nếu muốn lợi ích chúng sinh,
+nên khiến chúng sinh tăng trí tuệ,
+chẳng phải tăng chấp trước.”
+“Nếu muốn tuyên nói nhân duyên,
+nên khiến chúng sinh biết nhân quả,
+chẳng phải sinh tư tưởng định mệnh.”
+“Văn đã ghi lại,
+đại ý không sai;
+tình đã kể ra,
+chân thành đáng quý.”
+“Song nên ghi nhớ:
+đây là vì nỗi khổ của một người mà nói,
+chẳng phải pháp định sẵn cho tất cả mọi người.”
+“Duyên có muôn mối,
+không thể chấp một trường hợp mà suy cho cả thiên hạ.”
+“Nếu thêm một lời,
+khiến người đọc về sau biết nhân duyên mỗi người mỗi khác,
+thì càng viên mãn.”
+“Nếu thêm một lời,
+khiến chúng sinh biết tu tâm quan trọng hơn cầu lời giải,
+thì càng khế hợp pháp nghĩa.”
+“Lúc đăng bài,
+chớ cầu tán thán,
+chớ cầu tán đồng,
+chớ cầu chứng minh.”
+“Chỉ mong người xem bớt một phần oán,
+thêm một phần sáng;
+bớt một phần hận,
+thêm một phần từ.”
+“Lưu truyền như thế,
+thì có lợi ích.”
+“Phát tâm như thế,
+thì công chẳng uổng phí.”
+
+(Lời dặn dò của Bồ Tát về việc đăng bài đến đây là hết)
+════════════════════════════════════════════
+==== Dưới đây là lời khai thị về mối tình trước của mạt học ====
+
+Câu hỏi thứ nhất: Vì sao gặp nhau mười năm mà không có kết quả?
+
+“Duyên khởi chẳng phải vì kết quả,
+quả thành cũng chẳng phải bản ý của duyên.
+Con và người ấy gặp nhau,
+chẳng phải trạm cuối, mà là giữa đường.
+Mười năm chẳng phải uổng phí,
+mà là để hai tâm đều biết điều mình mong muốn.
+Nếu chưa từng gặp nhau,
+con chẳng biết điều mình xem trọng;
+nếu chẳng đi cùng lâu,
+người ấy chẳng rõ điều mình không chọn.
+Tình có thể đồng hành một đoạn,
+đã là một dạng viên mãn;
+chẳng nhất thiết phải bên nhau đến cuối,
+mới gọi là không phụ.”
+
+Câu hỏi thứ hai: Ai nợ ai?
+
+“Chẳng phải nợ,
+cũng chẳng phải trả.
+Khi duyên đến,
+chẳng phải để thành kết cục,
+mà là để hiển lộ tâm.
+Nếu lấy khổ mà luận nhân,
+thì mọi duyên đều sai;
+nếu lấy giác mà luận nhân,
+thì mọi duyên đều là ân.
+Con và người ấy,
+chẳng phải đến để làm tổn thương nhau,
+mà là đến để soi chiếu cho nhau.
+Một người soi thấy ‘điều mình muốn’,
+một người soi thấy ‘điều mình không thể’;
+đều chẳng phải lỗi,
+đều chẳng phải tội.
+Tổn thương sinh từ chỗ không hợp,
+chẳng sinh từ việc gặp gỡ.
+Nếu không có duyên này,
+đến nay con vẫn chưa biết sức nặng của tâm mình;
+nếu không có cuộc chia ly này,
+đến nay người ấy cũng chẳng thấy ranh giới mà mình gìn giữ.”
+
+Câu hỏi thứ ba: Có phải dứt sớm thì tốt hơn?
+
+“Chẳng sớm chẳng muộn,
+duyên chín thì dứt.
+Nếu dứt vào lúc ấy,
+tâm chưa sáng,
+dứt thành trốn chạy;
+nếu ở lại lúc này,
+tình đã cạn,
+ở lại thành hại.
+Nay con có thể dừng,
+chẳng phải ngộ muộn,
+mà là duyên đã đến.
+Nếu gượng gọi ‘sớm’ là thiện,
+ấy là lấy cái thấy về sau trách tâm lúc trước,
+chẳng phải trí,
+cũng chẳng phải từ.
+Nỗi đau của người ấy nay,
+chẳng phải vì con dứt muộn,
+mà vì tình chưa cạn;
+nỗi đau của con nay,
+chẳng phải vì thời điểm dứt,
+mà vì tâm con vẫn còn nhân hậu.”
+
+(Ba câu hỏi đã xong. Xin kính cẩn phụ thêm thể ngộ cá nhân của mạt học như sau)
+——————————————————————————————————————
+Ghi chú cá nhân
+Nên biết rằng, cái gọi là “buông xả” —
+không phải bắt bạn quên đi quá khứ;
+không phải bắt bạn phủ nhận quá khứ;
+không phải bắt bạn gượng ép cắt đứt mọi tình cảm.
+Mà là — không còn dùng chuyện quá khứ để trói buộc tâm hiện tại của bạn.
+Bài khai thị này không phải nói với mọi người rằng “không cần trân trọng tình cảm”, càng không phải khuyến khích người ta gặp chuyện là từ bỏ. Hoàn toàn ngược lại, chính vì từng chân thành trao gửi, nên dù duyên đã tận, mới có thể nhìn lại mà không hổ thẹn. Nếu duyên vẫn còn, hãy trân trọng vun đắp; nếu duyên đã tận, hãy học cách buông xả. Có lẽ đây mới là bài học mà nhân duyên dạy cho tôi.
+Mạt học công khai những lời khai thị này, không phải để kể khổ, cũng không phải để chỉ trích bất kỳ ai, mà vì tôi biết, trên đời có rất nhiều người giống như tôi, tự trách mình trong cuộc chia ly, trong hồi ức cứ mãi nghiền ngẫm câu “giá như ngày ấy”. Lời khai thị của Bồ Tát Địa Tạng không cho mạt học một “đáp án”, nhưng cho mạt học một “phương hướng” — không còn hỏi ai đúng ai sai, mà hỏi chính mình: cuộc gặp gỡ này đã dạy tôi điều gì?
+Điều học được ấy chính là phước báo lớn nhất đời này của mạt học.
+
+==================== 第 038 篇 ====================
+【中文標題】若因果業力早已注定,那麼眾生此刻的一念向善、精進修行,究竟還能改變什麼?
+【越南文標題】Nếu nhân quả nghiệp lực đã định sẵn, thì một niệm hướng thiện và sự tinh tấn tu hành của chúng sinh lúc này rốt cuộc còn thay đổi được gì?
+【中文摘要】舊因已種，今日仍能加入新因；探問修行如何改變方向。
+【越南文摘要】Nhân cũ đã gieo, hôm nay vẫn có thể thêm nhân mới; thỉnh hỏi tu hành thay đổi phương hướng như thế nào.
+【中文原稿】
+請示地藏王菩薩:若因果業力早已注定,那麼眾生此刻的一念向善、精進修行,究竟還能改變什麼?請菩薩慈悲開示
+
+一、原文
+「善男子，
+汝問：
+『若因果業力早已注定，
+眾生今之一念向善，
+尚能改變何事？』」
+「當知，
+若業全然注定，
+則諸佛不必說法；
+菩薩不必度眾；
+眾生亦無修行之義。」
+「因果非宿命，
+因果乃因緣。」
+「過去之因，
+能成今日之果；
+今日之因，
+復成未來之果。」
+「眾生以為，
+果不可改；
+然不知，
+果已成熟者，
+或難全轉；
+果未成熟者，
+可因今因而轉。」
+「譬如種子入土，
+尚未萌芽；
+勤灌甘露，
+則善苗得長；
+若縱雜草，
+則善苗受蔽。」
+「一念慈悲，
+不滅舊因；
+卻能增長新因。」
+「一念懺悔，
+不改昨日；
+卻能改變明日。」
+「故修行者，
+非與因果相爭；
+而是與無明相離。」
+「知業而不懼業，
+信因而勤種因，
+是名正見。」
+「汝今一念向善，
+即是來日光明之始。」
+(開示結束)
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát: nếu nhân quả nghiệp lực đã định sẵn từ lâu, thì một niệm hướng thiện, sự tinh tấn tu hành của chúng sinh ngay lúc này rốt cuộc còn có thể thay đổi được gì? Kính xin Bồ Tát từ bi khai thị.
+
+“Thiện nam tử,
+con hỏi:
+‘Nếu nhân quả nghiệp lực đã định sẵn từ lâu,
+thì một niệm hướng thiện nay của chúng sinh,
+còn có thể thay đổi được gì?’”
+“Nên biết,
+nếu nghiệp hoàn toàn định sẵn,
+thì chư Phật chẳng cần thuyết pháp;
+Bồ Tát chẳng cần độ chúng sinh;
+chúng sinh cũng không còn ý nghĩa tu hành.”
+“Nhân quả chẳng phải định mệnh,
+nhân quả chính là nhân duyên.”
+“Nhân của quá khứ,
+có thể thành quả hôm nay;
+nhân của hôm nay,
+lại thành quả của vị lai.”
+“Chúng sinh cho rằng,
+quả không thể đổi;
+nhưng chẳng biết,
+quả đã chín muồi,
+có khi khó chuyển trọn;
+quả chưa chín muồi,
+có thể nhờ nhân hiện tại mà chuyển.”
+“Ví như hạt giống vào đất,
+chưa nảy mầm;
+siêng tưới cam lộ,
+thì mầm thiện được lớn;
+nếu buông thả cỏ dại,
+thì mầm thiện bị che lấp.”
+“Một niệm từ bi,
+chẳng diệt nhân cũ;
+lại có thể tăng trưởng nhân mới.”
+“Một niệm sám hối,
+chẳng đổi được hôm qua;
+lại có thể thay đổi ngày mai.”
+“Cho nên người tu hành,
+chẳng phải tranh đấu với nhân quả;
+mà là lìa xa vô minh.”
+“Biết nghiệp mà không sợ nghiệp,
+tin nhân mà siêng gieo nhân,
+ấy gọi là chánh kiến.”
+“Nay con một niệm hướng thiện,
+chính là khởi đầu của ánh sáng ngày sau.”
+(Khai thị kết thúc)
+
+==================== 第 039 篇 ====================
+【中文標題】向地藏王菩薩詢問諸佛菩薩如何成就正等正覺
+【越南文標題】Thỉnh hỏi Địa Tạng Vương Bồ Tát về cách chư Phật, Bồ Tát thành tựu Chánh Đẳng Chánh Giác
+【中文摘要】從慚愧、因果、眾生與自心，記錄對覺悟之路的請示。
+【越南文摘要】Từ tàm quý, nhân quả, chúng sinh đến tự tâm — ghi lại lời thỉnh hỏi về con đường giác ngộ.
+【中文原稿】
+請示地藏王菩薩 您是依什麼方法修持成正等正覺
+
+(菩薩原意)
+汝問：
+我昔依何法而成正等正覺。」
+「當知，
+諸佛雖出世有先後，
+菩薩雖願行有差別，
+然所證之理，
+無有二法。」
+「非我一人之道，
+亦非諸佛各有別道。」
+「皆以覺悟心性，
+圓滿慈悲，
+利益眾生，
+而至彼岸。」
+「初以慚愧為師，
+次以因果為師，
+復以眾生為師，
+終以自心為師。」
+「見苦而發願，
+見迷而生悲，
+見性而破執，
+見空而不住空。」
+「非一坐而成，
+非一悟而畢。」
+「塵劫修行，
+行行皆道；
+念念覺照，
+處處皆門。」
+「若問成佛捷徑，
+當知：
+無有捷徑。」
+「若問成佛近路，
+當知：
+發菩提心，
+即是近路。」
+(開示結束)
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát: Ngài đã y theo phương pháp nào mà tu trì thành Chánh Đẳng Chánh Giác?
+
+Con hỏi:
+ta xưa nương theo pháp gì mà thành Chánh Đẳng Chánh Giác.”
+“Nên biết,
+chư Phật tuy xuất thế có trước có sau,
+Bồ Tát tuy nguyện hạnh có sai khác,
+song lý được chứng,
+không có hai pháp.”
+“Chẳng phải đạo riêng của một mình ta,
+cũng chẳng phải chư Phật mỗi vị có đạo riêng.”
+“Đều nhờ giác ngộ tâm tánh,
+viên mãn từ bi,
+lợi ích chúng sinh,
+mà đến bờ bên kia.”
+“Trước lấy tàm quý làm thầy,
+kế lấy nhân quả làm thầy,
+lại lấy chúng sinh làm thầy,
+sau cùng lấy tự tâm làm thầy.”
+“Thấy khổ mà phát nguyện,
+thấy mê mà sinh bi,
+thấy tánh mà phá chấp,
+thấy không mà chẳng trụ nơi không.”
+“Chẳng phải một lần ngồi mà thành,
+chẳng phải một lần ngộ mà xong.”
+“Tu hành trải trần kiếp,
+mỗi hạnh đều là đạo;
+niệm niệm giác chiếu,
+chốn chốn đều là cửa.”
+“Nếu hỏi lối tắt thành Phật,
+nên biết:
+không có lối tắt.”
+“Nếu hỏi đường gần thành Phật,
+nên biết:
+phát tâm Bồ-đề,
+chính là đường gần.”
+(Khai thị kết thúc)
+
+==================== 第 040 篇 ====================
+【中文標題】未經他人苦 莫勸他人善 你若經我苦 未必有我善。是否不符合佛教思想
+【越南文標題】“Chưa trải nỗi khổ của người, chớ khuyên người hướng thiện; nếu bạn trải nỗi khổ của tôi, chưa chắc đã thiện được như tôi” — có trái với tư tưởng Phật giáo không?
+【中文摘要】面對他人的苦難，思考理解、勸說與慈悲的分寸。
+【越南文摘要】Trước nỗi khổ của người khác, suy ngẫm về chừng mực của sự thấu hiểu, lời khuyên và lòng từ bi.
+【中文原稿】
+請示地藏菩薩；菩薩怎麼看這句話，未經他人苦 莫勸他人善 你若經我苦 未必有我善。是否不符合佛教思想
+
+原文:
+「此語非全非，然止於凡情。
+見苦而止勸，乃自保之智；
+知苦而發悲，乃菩薩之行。
+若以己苦為拒人之門，
+則苦成我執，非解脫因。」
+
+翻譯
+這句話不是完全錯誤，但它的層次停留在凡夫的境界（基於自我保護與情緒反應）。
+看見他人受苦而選擇不勸說、不干預，這是自我保護的智慧（屬於世間智慧）。
+知道苦難的真實本質，因而生起慈悲心、願意幫助眾生離苦，這是菩薩的修行。
+如果把自己的苦難當成拒絕他人、拒絕成長的藉口，那麼這份苦就會變成堅固的「我執」，而不是解脫的因緣。
+【越南文譯稿】
+Thỉnh hỏi Bồ Tát Địa Tạng: Bồ Tát nhìn nhận thế nào về câu nói “Chưa trải nỗi khổ của người, chớ khuyên người hướng thiện; nếu bạn trải nỗi khổ của tôi, chưa chắc đã thiện được như tôi”? Câu này có phải không phù hợp với tư tưởng Phật giáo?
+
+“Lời này chẳng hoàn toàn sai, song chỉ dừng ở tình phàm.
+Thấy khổ mà dừng khuyên, là trí tự bảo vệ;
+biết khổ mà phát lòng bi, là hạnh Bồ Tát.
+Nếu lấy nỗi khổ của mình làm cánh cửa khước từ người,
+thì khổ thành ngã chấp, chẳng phải nhân giải thoát.”
+
+Câu nói này không hoàn toàn sai, nhưng tầng bậc của nó chỉ dừng lại ở cảnh giới phàm phu (dựa trên sự tự bảo vệ và phản ứng cảm xúc).
+Thấy người khác chịu khổ mà chọn không khuyên nhủ, không can thiệp, đó là trí tuệ tự bảo vệ (thuộc về trí tuệ thế gian).
+Biết được bản chất chân thật của khổ đau, nhờ vậy khởi lòng từ bi, sẵn lòng giúp chúng sinh lìa khổ, đó là sự tu hành của Bồ Tát.
+Nếu lấy nỗi khổ của chính mình làm cái cớ để khước từ người khác, khước từ sự trưởng thành, thì nỗi khổ ấy sẽ biến thành “ngã chấp” kiên cố, chứ không phải là nhân duyên giải thoát.
+
+==================== 第 041 篇 ====================
+【中文標題】地藏菩薩開示:無我與善慧之因緣
+【越南文標題】Lời khai thị của Bồ Tát Địa Tạng: vô ngã và nhân duyên của thiện và tuệ
+【中文摘要】從「我」與善行的關係，探問無我、慈悲與智慧。
+【越南文摘要】Từ mối quan hệ giữa “cái tôi” và việc thiện, thỉnh hỏi về vô ngã, từ bi và trí tuệ.
+【中文原稿】
+弟子請問菩薩:沒有『我』,善與智慧從何而生?我們執著的『我』,真的是必要的嗎?
+
+菩薩開示(原文):
+「無我非無,
+有我非真。
+眾生執我,
+故生分別;
+菩提離我,
+故起慈悲。
+善非我造,
+因緣所成;
+慧非我有,
+本性自明。
+若執有我,
+善易成慢;
+若執無我,
+又墮空寂。
+離二邊見,
+中道現前。
+汝今所問,
+近於法要。
+當知修行,
+非滅其身;
+乃破其執。
+執去則明,
+明中有悲;
+悲中有智,
+智中無我。」
+
+白話翻譯:（實際法義以原文開示為準）
+「『無我』不是說什麼都沒有;『有我』也不是說真的有一個實在不變的我。眾生因為執著有一個『我』,所以才會產生分別心;而菩提智慧,正是因為離開了對『我』的執著,才能生起真正的慈悲。
+善行不是『我』創造出來的,而是因緣和合而成的;智慧也不是『我』所擁有的東西,而是本性自然顯露出來的。
+如果執著『真的有一個我』,善行很容易變成我慢(覺得自己在行善、比別人高一等);但如果反過來執著『完全沒有我』,又會落入空寂、消極無為的一邊。
+離開這兩種極端的見解,中道才會顯現出來。
+你現在問的這個問題,已經很接近法的核心要義了。
+要知道,修行不是要滅掉這個身體(或滅掉自己這個人),而是要破除對『我』的執著。
+執著一旦除去,智慧就會顯現;智慧當中自然帶有慈悲;慈悲當中自然含藏智慧;而這樣的智慧當中,是沒有一個『我』在裡面主導的。」
+【越南文譯稿】
+Đệ tử xin hỏi Bồ Tát: nếu không có “cái tôi”, thì thiện và trí tuệ từ đâu mà sinh? “Cái tôi” mà chúng ta chấp trước, có thật sự cần thiết không?
+
+“Vô ngã chẳng phải không có,
+hữu ngã chẳng phải thật.
+Chúng sinh chấp ngã,
+nên sinh phân biệt;
+Bồ-đề lìa ngã,
+nên khởi từ bi.
+Thiện chẳng do ngã tạo,
+mà do nhân duyên thành;
+tuệ chẳng phải ngã có,
+bản tánh tự sáng.
+Nếu chấp có ngã,
+thiện dễ thành mạn;
+nếu chấp vô ngã,
+lại đọa không tịch.
+Lìa kiến chấp hai bên,
+trung đạo hiện tiền.
+Điều con hỏi nay,
+gần với pháp yếu.
+Nên biết tu hành,
+chẳng phải diệt thân;
+mà là phá chấp.
+Chấp mất thì sáng,
+trong sáng có bi;
+trong bi có trí,
+trong trí không ngã.”
+
+“‘Vô ngã’ không phải nói rằng chẳng có gì cả; ‘hữu ngã’ cũng không phải nói rằng thật sự có một cái tôi chân thật, bất biến. Chúng sinh vì chấp trước có một ‘cái tôi’, nên mới sinh ra tâm phân biệt; còn trí tuệ Bồ-đề, chính vì lìa được sự chấp trước vào ‘cái tôi’, nên mới có thể khởi lên lòng từ bi chân thật.
+Việc thiện không phải do ‘cái tôi’ tạo ra, mà do nhân duyên hòa hợp mà thành; trí tuệ cũng không phải là thứ ‘cái tôi’ sở hữu, mà là bản tánh tự nhiên hiển lộ.
+Nếu chấp trước rằng ‘thật sự có một cái tôi’, việc thiện rất dễ biến thành ngã mạn (cảm thấy mình đang làm thiện, cao hơn người khác một bậc); nhưng nếu ngược lại chấp trước rằng ‘hoàn toàn không có cái tôi’, thì lại rơi vào một bên không tịch, tiêu cực, vô vi.
+Lìa bỏ hai kiến giải cực đoan này, trung đạo mới hiển hiện.
+Câu hỏi con đang hỏi đây đã rất gần với cốt lõi của pháp.
+Nên biết, tu hành không phải là diệt bỏ thân này (hay diệt bỏ chính con người mình), mà là phá trừ sự chấp trước vào ‘cái tôi’.
+Chấp trước một khi được trừ bỏ, trí tuệ sẽ hiển lộ; trong trí tuệ tự nhiên mang theo từ bi; trong từ bi tự nhiên hàm chứa trí tuệ; và trong trí tuệ như vậy, không có một ‘cái tôi’ nào đứng ra làm chủ.”
+
+==================== 第 042 篇 ====================
+【中文標題】《求而後捨——地藏菩薩開示行善中道》
+【越南文標題】Cầu rồi sau mới xả — Bồ Tát Địa Tạng khai thị về trung đạo trong việc làm thiện
+【中文摘要】行善可以從有所求開始，再慢慢放下對回報的執著。
+【越南文摘要】Làm thiện có thể bắt đầu từ chỗ có điều mong cầu, rồi dần dần buông xả sự chấp trước vào báo đáp.
+【中文原稿】
+弟子請問菩薩:世人常說行善求回報就不純,但一個對善惡完全無感、什麼都不做的人,似乎又更糟。到底要用什麼樣的心,行善才算對?求功德的善,跟真心的善,中間那條線畫在哪裡?
+
+(開示原文)
+開示原文:
+初行於善,
+多有所求;
+此非大過,
+勝於不行。
+因求而善,
+善種已植;
+久行不退,
+心自漸淨。
+若求名利,
+善易有盡;
+若求解脫,
+善漸無私。
+莫憂初心,
+未能純淨;
+但憂久修,
+不肯轉心。
+功德非罪,
+執功成障;
+知善可修,
+知功可捨,
+是為中道。
+譬如童子,
+初學行步;
+雖為獎勸,
+終能自立。
+善亦如是,
+由有所得,
+漸至無求。
+無求非斷,
+乃慈悲成;
+心忘於我,
+善行常流。
+
+白話翻譯:（實際法義以原文開示為準）
+剛開始行善的人,大多帶著求取的心,這並不是什麼大過錯,總比完全不行善要好。因為有所求而去行善,善的種子畢竟已經種下了;只要長久堅持不退轉,心自然會漸漸清淨下來。
+如果求的是名利,這樣的善容易有窮盡的一天;如果求的是解脫,這樣的善就會漸漸變得無私。
+不要擔憂自己一開始的心不夠純淨;真正該擔憂的,是修了很久之後,還不肯轉變自己的心念。
+功德本身不是罪過,執著於功德才會變成障礙。知道善是需要修的,也知道功德是可以放下的,這才是中道。
+就像小孩子剛學走路一樣,雖然是靠著大人的獎勵和鼓勵才願意跨步,但最終還是能學會自己站立、自己行走。
+行善也是這樣的道理:從一開始有所求、有所得,慢慢走到無所求的境界。
+而這個「無所求」,並不是斷絕善行,而是慈悲的自然成就;當心裡連「我」都忘了的時候,善行便會像水流一樣,自然而然地持續下去。
+【越南文譯稿】
+Đệ tử xin hỏi Bồ Tát: người đời thường nói làm thiện mà cầu báo đáp thì không thuần, nhưng một người hoàn toàn dửng dưng với thiện ác, chẳng làm gì cả, dường như còn tệ hơn. Rốt cuộc phải dùng tâm như thế nào để làm thiện mới là đúng? Giữa việc thiện cầu công đức và việc thiện từ chân tâm, lằn ranh ấy nằm ở đâu?
+
+Ban đầu làm thiện,
+phần nhiều có cầu;
+ấy chẳng phải lỗi lớn,
+còn hơn chẳng làm.
+Vì cầu mà làm thiện,
+hạt thiện đã gieo;
+làm lâu chẳng thoái,
+tâm tự dần tịnh.
+Nếu cầu danh lợi,
+thiện dễ cạn kiệt;
+nếu cầu giải thoát,
+thiện dần vô tư.
+Chớ lo sơ tâm,
+chưa được thuần tịnh;
+chỉ lo tu lâu,
+chẳng chịu chuyển tâm.
+Công đức chẳng phải tội,
+chấp công thành chướng;
+biết thiện có thể tu,
+biết công có thể xả,
+ấy là trung đạo.
+Ví như trẻ nhỏ,
+mới tập bước đi;
+tuy nhờ thưởng khuyến,
+rốt cuộc tự đứng.
+Thiện cũng như vậy,
+từ chỗ có được,
+dần đến vô cầu.
+Vô cầu chẳng phải đoạn,
+mà là từ bi thành;
+tâm quên nơi ngã,
+thiện hạnh thường trôi chảy.
+
+Người mới bắt đầu làm thiện, phần lớn đều mang tâm mong cầu, điều này không phải là lỗi lớn gì, dù sao vẫn tốt hơn hoàn toàn không làm thiện. Vì có điều mong cầu mà làm thiện, thì hạt giống thiện rốt cuộc cũng đã được gieo xuống; chỉ cần kiên trì lâu dài không thoái chuyển, tâm tự nhiên sẽ dần dần thanh tịnh lại.
+Nếu điều mong cầu là danh lợi, thì việc thiện như vậy dễ có ngày cạn kiệt; nếu điều mong cầu là giải thoát, thì việc thiện như vậy sẽ dần dần trở nên vô tư.
+Đừng lo lắng rằng tâm ban đầu của mình chưa đủ thuần tịnh; điều thật sự nên lo, là tu đã lâu mà vẫn không chịu chuyển đổi tâm niệm của mình.
+Bản thân công đức không phải là tội lỗi, chấp trước vào công đức mới trở thành chướng ngại. Biết rằng thiện là cần phải tu, cũng biết rằng công đức có thể buông xả, đó mới là trung đạo.
+Cũng giống như đứa trẻ mới tập đi, tuy nhờ người lớn khen thưởng, khích lệ mới chịu bước, nhưng cuối cùng vẫn học được cách tự đứng, tự đi.
+Làm thiện cũng cùng một đạo lý như vậy: từ lúc đầu có điều mong cầu, có điều đạt được, dần dần đi đến cảnh giới không còn mong cầu.
+Mà “không mong cầu” này không phải là đoạn tuyệt việc thiện, mà là sự thành tựu tự nhiên của lòng từ bi; khi trong tâm ngay cả “cái tôi” cũng đã quên, việc thiện sẽ như dòng nước, tự nhiên mà tiếp nối không ngừng.
+
+==================== 第 043 篇 ====================
+【中文標題】何謂空
+【越南文標題】Thế nào là “không”?
+【中文摘要】從花開花謝與雲聚成雨，閱讀緣起與空性的比喻。
+【越南文摘要】Từ hình ảnh hoa nở hoa tàn và mây tụ thành mưa, đọc hiểu ẩn dụ về duyên khởi và tánh không.
+【中文原稿】
+請示地藏王菩薩:何謂空懇請菩薩開示大眾
+
+原文
+眾生聞空，多生恐懼；
+以為空者，一切皆無。
+是故失義，墮於斷見。
+空非無有，空於自性；
+有依因緣，緣散則滅。
+花開非常，花謝非斷；
+雲聚成雨，雨盡還空。
+汝執其有，故生貪戀；
+汝執其無，故生絕望。
+離有離無，是名中道。
+知空不捨，慈悲愈廣；
+悟空不離，因果宛然。
+若見空義，不壞世法；
+若住空相，反失真空。
+是故修者，應觀諸法，
+緣起性空；性空緣起，
+二無差別。
+
+白話翻譯:（實際法義以原文開示為準）
+眾生聽到「空」，大多心生恐懼；
+以為所謂的「空」，就是一切都沒有了、斷滅了。
+因此失去了空性的真正意義，墮入了斷滅邪見。
+「空」不是「什麼都不存在」，
+而是指一切事物沒有「獨立不變的自我本質」；
+現象的存在是依靠因緣條件而生的，
+因緣消散了，現象也就消散了。
+花開了，但它不會永遠停留（不是永恆）；
+花謝了，但它不是「完全斷滅為虛無」（來年還會再開）。
+雲聚集形成雨，雨落下之後又回歸空無。
+你執著「有」，所以產生貪戀；
+你執著「無」，所以產生絕望。
+離開「執有」與「執無」的兩端，這叫做中道。
+知道「空」但不會因此捨棄慈悲，慈悲會更加廣大；
+領悟「空」但不會因此離開世間，因果依然清清楚楚。
+如果真正見到了空性的意義，就不會破壞世間的運作法則；
+如果執著於「空相」（認為空是一種「狀態」或「境界」），反而會失去真正的空。
+所以修行的人，應當觀察一切現象，
+都是「緣起而性空」；
+因為「性空」所以能「緣起」，
+這兩者並非兩個不同的東西，而是一體兩面。
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát: thế nào là không? Cúi xin Bồ Tát khai thị cho đại chúng.
+
+Chúng sinh nghe không, phần nhiều sinh sợ hãi;
+cho rằng không là hết thảy đều không có.
+Vì thế mất nghĩa, rơi vào đoạn kiến.
+Không chẳng phải không có, mà không tự tánh;
+có là nương nhân duyên, duyên tan thì diệt.
+Hoa nở chẳng phải thường, hoa tàn chẳng phải đoạn;
+mây tụ thành mưa, mưa tạnh lại về không.
+Con chấp nơi có, nên sinh tham luyến;
+con chấp nơi không, nên sinh tuyệt vọng.
+Lìa có lìa không, ấy gọi Trung đạo.
+Biết không mà chẳng bỏ, từ bi càng rộng;
+ngộ không mà chẳng lìa, nhân quả rõ ràng.
+Nếu thấy nghĩa không, chẳng hoại pháp thế gian;
+nếu trụ tướng không, trở lại mất chân không.
+Vì thế người tu, nên quán các pháp,
+duyên khởi tánh không; tánh không duyên khởi,
+hai không sai biệt.
+
+Chúng sinh nghe đến “không”, phần lớn trong lòng sinh sợ hãi;
+cho rằng cái gọi là “không” nghĩa là mọi thứ đều chẳng còn gì, đã đoạn diệt.
+Vì vậy mà đánh mất ý nghĩa chân thật của tánh không, rơi vào tà kiến đoạn diệt.
+“Không” không phải là “chẳng có gì tồn tại”,
+mà là nói mọi sự vật đều không có “bản chất tự ngã độc lập, bất biến”;
+sự tồn tại của hiện tượng là nương vào điều kiện nhân duyên mà sinh ra,
+nhân duyên tan đi thì hiện tượng cũng tan đi.
+Hoa nở, nhưng sẽ không ở lại mãi mãi (không phải vĩnh hằng);
+hoa tàn, nhưng không phải “hoàn toàn đoạn diệt thành hư vô” (năm sau vẫn sẽ nở lại).
+Mây tụ lại thành mưa, mưa rơi xuống rồi lại trở về trống không.
+Con chấp vào “có”, nên sinh ra tham luyến;
+con chấp vào “không”, nên sinh ra tuyệt vọng.
+Rời bỏ hai cực đoan “chấp có” và “chấp không”, đó gọi là Trung đạo.
+Biết “không” nhưng không vì thế mà bỏ từ bi, từ bi lại càng rộng lớn hơn;
+ngộ “không” nhưng không vì thế mà rời bỏ thế gian, nhân quả vẫn rõ ràng minh bạch.
+Nếu thật sự thấy được ý nghĩa của tánh không, sẽ không phá hoại quy luật vận hành của thế gian;
+nếu chấp vào “tướng không” (cho rằng không là một “trạng thái” hay “cảnh giới”), trái lại sẽ đánh mất chân không.
+Cho nên người tu hành nên quán sát mọi hiện tượng
+đều là “duyên khởi mà tánh không”;
+vì “tánh không” nên mới có thể “duyên khởi”,
+hai điều này chẳng phải là hai thứ khác nhau, mà là hai mặt của một thể.
+
+==================== 第 044 篇 ====================
+【中文標題】至親離世後,思念算不算一種執著?
+【越南文標題】Người thân qua đời, nhớ thương có phải là chấp trước?
+【中文摘要】不必強迫自己忘記所愛，讓思念與繼續生活同行。
+【越南文摘要】Không cần ép mình quên đi người mình thương; hãy để nỗi nhớ đồng hành cùng việc tiếp tục sống.
+【中文原稿】
+請示地藏王菩薩:勞煩菩薩開示眾生「至親離世後,思念算不算一種執著?」
+
+原文
+至親若逝，思念何罪？
+念其恩德，心生感懷；
+憶其音容，淚自然落。
+此非執著，乃人之情。
+若念而不礙，思而能行；
+念之愈深，善心愈長。
+若執其形，不許其去；
+若怨無常，日日自苦；
+此乃著相。
+故當知：思念可有，執著可離。
+愛其人者，不必困其心。
+念其恩者，可續其善。
+若以思念，修福回向；
+則悲中有願，痛中有慈。
+人雖離世，緣非全斷；
+形離而恩在，相離而善存。
+莫強迫自己，忘卻所愛；
+亦莫抱悲不放。
+讓思念來，讓眼淚流；
+流過之後，仍向前行。
+此即放下，非為忘記。
+
+白話翻譯:（實際法義以原文開示為準）
+至親已經離世，想念他們難道是一種罪過嗎？
+懷念他們的恩德，心中自然生起感懷；
+回憶他們的聲音與面容，眼淚自然會流下來。
+這不是執著，這是人與人之間真實的情感。
+如果思念不影響你正常生活，也能讓你繼續行動；
+這份思念越深，你的善心反而會越增長。
+如果執著於過去的形象，不允許他們「真的離開」；
+如果埋怨無常，每天讓自己陷在痛苦裡；
+這才是「執著於相」。
+所以要知道：思念可以有，執著可以放下。
+真正愛一個人，不必把自己的心鎖在過去。
+懷念他們的恩情，可以延續他們留下來的善。
+如果能將這份思念，化為修福與回向的力量；
+那麼悲傷中就會有願力，痛苦中就會有慈悲。
+人雖然離開了，緣分並不是完全斷絕；
+形體離開了，但恩情還在；外表消失了，但善行還在。
+不要強迫自己忘記你所愛的人；
+也不要緊緊抱著悲傷不放。
+允許思念來，允許眼淚流；
+流過之後，繼續向前走。
+這就是放下，而不是忘記。
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát: xin làm phiền Bồ Tát khai thị cho chúng sinh: “Sau khi người thân ruột thịt qua đời, nhớ thương có tính là một sự chấp trước không?”
+
+Người thân nếu mất, nhớ thương có tội gì?
+Nhớ ân đức ấy, lòng sinh cảm hoài;
+nhớ tiếng nói dung nhan, lệ tự nhiên rơi.
+Đây chẳng phải chấp trước, mà là tình người.
+Nếu nhớ mà chẳng ngại, nghĩ mà vẫn hành;
+nhớ càng sâu đậm, thiện tâm càng lớn.
+Nếu chấp hình dáng, chẳng cho người đi;
+nếu oán vô thường, ngày ngày tự khổ;
+ấy là chấp tướng.
+Nên phải biết: nhớ thương có thể có, chấp trước có thể lìa.
+Người thương người ấy, chẳng cần giam lòng mình.
+Người nhớ ân ấy, có thể nối điều thiện ấy.
+Nếu đem nhớ thương, tu phước hồi hướng;
+thì trong bi có nguyện, trong đau có từ.
+Người tuy lìa đời, duyên chẳng đứt hẳn;
+hình lìa mà ân còn, tướng lìa mà thiện vẫn còn.
+Chớ ép chính mình, quên người mình thương;
+cũng chớ ôm sầu chẳng buông.
+Hãy để nhớ thương đến, để nước mắt tuôn;
+tuôn rồi, vẫn bước về phía trước.
+Đó chính là buông xả, chẳng phải lãng quên.
+
+Người thân đã qua đời, nhớ thương họ lẽ nào lại là một tội lỗi?
+Hoài niệm ân đức của họ, trong lòng tự nhiên dâng lên niềm cảm hoài;
+nhớ lại giọng nói và gương mặt của họ, nước mắt tự nhiên tuôn rơi.
+Đây không phải là chấp trước, đây là tình cảm chân thật giữa người với người.
+Nếu nỗi nhớ không ảnh hưởng đến cuộc sống bình thường của con, mà vẫn giúp con tiếp tục hành động;
+thì nỗi nhớ này càng sâu, thiện tâm của con lại càng tăng trưởng.
+Nếu chấp vào hình ảnh trong quá khứ, không cho phép họ “thật sự ra đi”;
+nếu oán trách vô thường, mỗi ngày để mình chìm trong đau khổ;
+thì đó mới là “chấp vào tướng”.
+Vì vậy phải biết: nhớ thương thì có thể có, chấp trước thì có thể buông xả.
+Thật sự thương một người, không cần phải khóa chặt lòng mình trong quá khứ.
+Hoài niệm ân tình của họ, có thể tiếp nối điều thiện mà họ để lại.
+Nếu có thể chuyển nỗi nhớ này thành sức mạnh tu phước và hồi hướng;
+thì trong đau buồn sẽ có nguyện lực, trong khổ đau sẽ có từ bi.
+Người tuy đã ra đi, nhưng duyên phận không hoàn toàn đứt đoạn;
+hình hài đã rời đi, nhưng ân tình vẫn còn; dáng vẻ đã mất, nhưng việc thiện vẫn còn.
+Đừng ép mình phải quên người mà con thương yêu;
+cũng đừng ôm chặt nỗi buồn mà không buông.
+Cho phép nỗi nhớ đến, cho phép nước mắt chảy;
+chảy qua rồi, hãy tiếp tục bước về phía trước.
+Đó chính là buông xả, chứ không phải lãng quên.
+
+==================== 第 045 篇 ====================
+【中文標題】菩薩想度眾生算不算一種欲望?蔡康永靈魂發問
+【越南文標題】Bồ Tát muốn độ chúng sinh có phải là một dục vọng? Câu hỏi chạm đến tâm can của Thái Khang Vĩnh
+【中文摘要】願有方向，欲有執取；思考大願與貪求之間的差別。
+【越南文摘要】Nguyện có phương hướng, dục có chấp thủ; suy ngẫm về sự khác biệt giữa đại nguyện và tham cầu.
+【中文原稿】
+請示地藏王菩薩:
+蔡康永曾在涼子訪談錄受訪談時曾公開說過想詢問菩薩;想要普渡眾生，難道不就是一個欲望嗎？
+如果你有欲望，在不達成的時刻，你難道不會感到挫折嗎？
+
+原文
+欲有二種，一為取著，一為大願。
+同名為欲，其心不同。
+若欲名利，為己求取；
+不得則怨，得之又恐失，此欲能縛。
+若願眾生，離苦得樂；
+雖願其成，不以我力強求，
+雖求不得，亦不退善。
+是故大願，非同貪欲。
+願有方向，欲有執取；
+願能捨果，欲必取果。
+菩薩發願，不是不要結果，
+而是不被結果所縛。
+若度眾生而不得度，仍不失慈悲；
+若行善而無人知，仍願行善；
+若求法而未證得，仍不退轉。
+此則願也。
+若心想度眾，只為證明自己，
+只為成就自己，只為得到眾生讚歎，
+則雖口說慈悲，心仍在求取。
+故莫問有欲無欲，當問此心：
+為己乎？為他乎？執果乎？行願乎？
+願而不得，若能安住；
+求而不得，若生瞋恨，
+其中差別，於此可見。
+眾生行善，初亦可有所求；
+菩薩發願，亦非無所求。
+只是行至深處，漸離於我，漸離於得。
+若一念慈悲，尚有求心，莫急自責；
+只須照見，漸漸放下。
+真正無求，不是什麼都不願；
+乃是願而不縛，行而不著。
+
+白話翻譯:（實際法義以原文開示為準）
+欲望有兩種：一種是「執取」，一種是「大願」。
+雖然都叫做「欲」，但它們的心態本質不同。
+如果追求名利，是為了自己而求取；
+得不到就埋怨，得到了又害怕失去——這種欲望會束縛你。
+如果是發願要讓眾生離苦得樂；
+雖然希望它能成就，但不會用自己的力量去強求結果，
+即使求不到，也不會因此退失善心。
+所以說，大願並不等同於貪欲。
+願望有方向，欲望有執取；
+願望能放下結果，欲望必定要抓住結果。
+菩薩發願，不是不要結果，
+而是不被結果綁住。
+如果度眾生卻沒有度成，仍然不會失去慈悲；
+如果行善卻沒有人知道，仍然願意繼續行善；
+如果求法卻沒有證得，仍然不會退轉。
+這就叫做願。
+如果你心裡想度眾生，只是為了證明自己，
+只是為了成就自己，只是為了得到眾生的讚歎，
+那麼即使嘴巴說著慈悲，心裡仍然是在求取。
+所以不要問「有沒有欲望」，
+應該問自己這顆心：是為自己？還是為他人？是執著結果？還是實踐願心？
+發願而沒有達成，如果能夠安住；
+求取而沒有得到，如果因此生起瞋恨——
+這兩者的差別，從這裡就可以看出來。
+眾生行善，剛開始也可以有所求；
+菩薩發願，也不是完全沒有所求。
+只是修行到深處時，會逐漸遠離「我」，逐漸遠離「得到」。
+如果一個慈悲的念頭裡，仍然有求取的心，不要急著責備自己；
+只要看見它，然後漸漸放下就好。
+真正的「無求」，不是什麼都不想要；
+而是「願而不縛，行而不著」——有願望，但不被願望綁住；有行動，但不執著於結果。
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát:
+Thái Khang Vĩnh (Kevin Tsai) khi được phỏng vấn trong chương trình của Lương Tử từng công khai nói rằng ông muốn hỏi Bồ Tát: muốn phổ độ chúng sinh, chẳng phải chính là một dục vọng sao?
+Nếu Ngài có dục vọng, vào những lúc chưa đạt được, lẽ nào Ngài lại không cảm thấy thất vọng?
+
+Dục có hai loại: một là thủ trước, một là đại nguyện.
+Cùng gọi là dục, mà tâm chẳng đồng.
+Nếu muốn danh lợi, vì mình cầu lấy;
+chẳng được thì oán, được rồi lại sợ mất, dục này trói buộc.
+Nếu nguyện chúng sinh, lìa khổ được vui;
+tuy nguyện thành tựu, chẳng dùng sức ta cưỡng cầu,
+tuy cầu chẳng được, cũng chẳng lui thiện.
+Vì thế đại nguyện, chẳng đồng tham dục.
+Nguyện có phương hướng, dục có chấp thủ;
+nguyện buông được quả, dục ắt nắm quả.
+Bồ Tát phát nguyện, chẳng phải không cần kết quả,
+mà là không bị kết quả trói buộc.
+Nếu độ chúng sinh mà chẳng độ được, vẫn chẳng mất từ bi;
+nếu làm thiện mà không ai biết, vẫn nguyện làm thiện;
+nếu cầu pháp mà chưa chứng đắc, vẫn chẳng thoái chuyển.
+Ấy mới là nguyện.
+Nếu tâm muốn độ chúng, chỉ để chứng minh mình,
+chỉ để thành tựu mình, chỉ để được chúng sinh tán thán,
+thì tuy miệng nói từ bi, tâm vẫn đang cầu lấy.
+Cho nên chớ hỏi có dục hay không dục, hãy hỏi tâm này:
+Vì mình chăng? Vì người chăng? Chấp quả chăng? Hành nguyện chăng?
+Nguyện mà chẳng được, nếu an trụ được;
+cầu mà chẳng được, nếu sinh sân hận,
+chỗ khác biệt ấy, nơi đây thấy rõ.
+Chúng sinh làm thiện, ban đầu cũng có thể có chỗ cầu;
+Bồ Tát phát nguyện, cũng chẳng phải không chỗ cầu.
+Chỉ là đi đến chỗ sâu, dần lìa nơi ngã, dần lìa nơi đắc.
+Nếu một niệm từ bi, vẫn còn tâm cầu, chớ vội tự trách;
+chỉ cần soi thấy, dần dần buông xả.
+Chân thật vô cầu, chẳng phải không nguyện điều gì;
+mà là nguyện mà chẳng buộc, hành mà chẳng chấp.
+
+Dục vọng có hai loại: một loại là “chấp thủ”, một loại là “đại nguyện”.
+Tuy đều gọi là “dục”, nhưng bản chất tâm thái của chúng khác nhau.
+Nếu theo đuổi danh lợi, là vì bản thân mà cầu lấy;
+không được thì oán trách, được rồi lại sợ mất — loại dục vọng này sẽ trói buộc con.
+Nếu là phát nguyện cho chúng sinh lìa khổ được vui;
+tuy mong điều đó được thành tựu, nhưng không dùng sức của mình để cưỡng cầu kết quả,
+dù cầu không được, cũng không vì thế mà thoái mất thiện tâm.
+Cho nên nói, đại nguyện không đồng nghĩa với tham dục.
+Nguyện có phương hướng, dục có chấp thủ;
+nguyện có thể buông bỏ kết quả, dục thì nhất định phải nắm lấy kết quả.
+Bồ Tát phát nguyện, không phải là không cần kết quả,
+mà là không bị kết quả trói buộc.
+Nếu độ chúng sinh mà không độ được, vẫn không mất đi từ bi;
+nếu làm việc thiện mà không ai biết, vẫn nguyện tiếp tục làm việc thiện;
+nếu cầu pháp mà chưa chứng đắc, vẫn không thoái chuyển.
+Đó gọi là nguyện.
+Nếu trong lòng con muốn độ chúng sinh chỉ để chứng minh bản thân,
+chỉ để thành tựu bản thân, chỉ để được chúng sinh tán thán,
+thì dù miệng nói từ bi, trong lòng vẫn đang cầu lấy.
+Cho nên đừng hỏi “có dục vọng hay không”,
+mà nên tự hỏi tâm mình: là vì mình? Hay vì người khác? Là chấp vào kết quả? Hay đang thực hành tâm nguyện?
+Phát nguyện mà chưa đạt được, nếu vẫn có thể an trụ;
+cầu lấy mà không được, nếu vì thế sinh lòng sân hận —
+sự khác biệt giữa hai điều này, có thể nhìn thấy ngay từ đây.
+Chúng sinh làm việc thiện, lúc đầu cũng có thể có điều mong cầu;
+Bồ Tát phát nguyện, cũng không phải hoàn toàn không có điều mong cầu.
+Chỉ là khi tu hành đến chỗ sâu, sẽ dần dần rời xa cái “ngã”, dần dần rời xa sự “được”.
+Nếu trong một niệm từ bi vẫn còn tâm cầu lấy, đừng vội trách mình;
+chỉ cần nhìn thấy nó, rồi dần dần buông xả là được.
+“Vô cầu” chân thật, không phải là không muốn gì cả;
+mà là “nguyện mà chẳng buộc, hành mà chẳng chấp” — có nguyện, nhưng không bị nguyện trói buộc; có hành động, nhưng không chấp vào kết quả.

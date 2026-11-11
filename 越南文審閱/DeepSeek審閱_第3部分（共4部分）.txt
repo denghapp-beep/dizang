@@ -1,0 +1,1885 @@
+你是精通中文與越南文、熟悉越南佛教用語的審稿人。以下是「地藏菩薩感應文集」的越南文譯稿（第 3/4 部分），每篇附中文原稿。請逐篇審閱：
+1. 意思是否忠實（有無漏譯、誤譯、增譯）；
+2. 佛教用語是否符合越南佛教慣用的漢越詞（參考下方譯名表，若譯名表本身不妥也請指出）；
+3. 越南文是否自然通順，越南佛友讀得懂；稱謂（菩薩稱 con／Thiện nam tử，作者自稱 tôi 或 đệ tử）是否恰當。
+【這是修正後的第二輪審閱，以下幾點是全站既定體例，請不要再提】
+- 原稿的「一、原文」「白話翻譯」「菩薩開示」等小標題刻意不放進譯文，網站會自動在每段上方顯示統一標籤。
+- 原文段的引號照中文原稿，原稿沒有的引號不補。
+- 「白話翻譯」是菩薩開示的白話轉述，對作者一律稱 con；只有作者自己寫給讀者的解說才用 bạn。
+- 作者向菩薩自稱用 đệ tử，原稿沒寫主詞時不加。
+沒有問題的篇章只要寫「無問題」。有問題請用表格回覆，欄位：篇號｜越南文現譯（原句）｜問題｜建議譯文。只列真正需要改的地方。
+
+【譯名表】
+# 越南文譯名表（全站統一）
+
+原則：佛教用語採越南佛教慣用漢越詞（Hán-Việt），一般敘述用自然、通順的現代越南文。完整聲調符號，Unicode NFC。引號用 “ ” 與 ‘ ’。
+
+| 中文 | Tiếng Việt | 備註 |
+|---|---|---|
+| 地藏菩薩 | Bồ Tát Địa Tạng | 稱號、聖號用 Địa Tạng Vương Bồ Tát |
+| 南無地藏王菩薩 | Nam mô Địa Tạng Vương Bồ Tát | |
+| 菩薩 | Bồ Tát | |
+| 佛 / 佛陀 | Phật / Đức Phật | |
+| 觀音菩薩 | Bồ Tát Quán Thế Âm | |
+| 阿彌陀佛 | A Di Đà Phật | |
+| 佛法 | Phật pháp | |
+| 正法 | chánh pháp | |
+| 法義 | pháp nghĩa | |
+| 經典 / 經書 | kinh điển / kinh sách | |
+| 開示 / 菩薩開示 | khai thị / lời khai thị của Bồ Tát | |
+| 感應 | cảm ứng | |
+| 夢中感應 | cảm ứng trong mộng | |
+| 請示 | thỉnh hỏi | 區塊標籤用 “Thỉnh hỏi” |
+| 原文 | Nguyên văn | |
+| 白話 / 白話翻譯 | Diễn nghĩa / Bản diễn nghĩa | 指作者附的白話解說 |
+| 修行 | tu hành | |
+| 修心 | tu tâm | |
+| 因果 | nhân quả | |
+| 業 / 業力 / 業障 | nghiệp / nghiệp lực / nghiệp chướng | |
+| 願 / 願力 / 悲願 / 發願 | nguyện / nguyện lực / bi nguyện / phát nguyện | |
+| 慈悲 | từ bi | |
+| 菩提心 / 發菩提心 | tâm Bồ-đề / phát tâm Bồ-đề | |
+| 功德 | công đức | |
+| 福報 | phước báo | |
+| 回向 | hồi hướng | |
+| 念佛 / 誦經 / 禮佛 | niệm Phật / tụng kinh / lễ Phật | |
+| 佈施 / 持戒 / 五戒 | bố thí / trì giới / Ngũ giới | |
+| 貪瞋癡 | tham, sân, si | |
+| 無明 | vô minh | |
+| 空 / 性空 / 緣起 / 性空緣起 | không / tánh không / duyên khởi / duyên khởi tánh không | |
+| 常見 / 斷見 | thường kiến / đoạn kiến | |
+| 因緣 | nhân duyên | |
+| 輪迴 | luân hồi | |
+| 眾生 | chúng sinh | |
+| 善男子 | Thiện nam tử | |
+| 道友 / 許師兄 | đạo hữu / đạo hữu Hứa | 英文版為 Mr. Hsu, a fellow practitioner |
+| 慚愧 | tàm quý | |
+| 無愧 | không hổ thẹn, lương tâm trong sáng | 避免譯成「無恥」語意 |
+| 佛性 / 見性成佛 | Phật tánh / kiến tánh thành Phật | |
+| 執著 / 放下 | chấp trước / buông xả | |
+| 地獄 / 超度 / 往生 | địa ngục / siêu độ / vãng sanh | |
+| 度（眾生） | độ (chúng sinh) | |
+| 錫杖 / 明珠 / 蓮臺 | tích trượng / minh châu / đài sen | |
+| 金剛經 / 地藏經 / 普門品 | Kinh Kim Cang / Kinh Địa Tạng / Phẩm Phổ Môn | |
+| 八字 / 命 / 運 | Bát tự (Tứ trụ) / mệnh / vận | |
+| 心 | tâm（佛學語境）/ lòng（日常語境） | |
+| 自由意志 | ý chí tự do | |
+
+
+
+==================== 第 046 篇 ====================
+【中文標題】說真話,不一定是善;說謊,不一定是惡
+【越南文標題】Nói thật chưa hẳn là thiện; nói dối chưa hẳn là ác
+【中文摘要】當真話與善意似乎衝突，思考語言、時機與不欺之心。
+【越南文摘要】Khi lời thật và thiện ý dường như xung đột, suy ngẫm về lời nói, thời điểm và tâm không lừa dối.
+【中文原稿】
+請示地藏王菩薩:「弟子請問菩薩:為了不傷害別人而說的善意謊言,算不算破妄語戒?真話與慈悲若衝突,該以何為先?」
+
+原文
+妄語之戒，不唯察其真假；亦當觀其心。
+若明知為妄，以欺誑心說，令他受害，此為妄語。
+若為護人，不令其受苦；心無欺害，言語有方便；此中當細辨。
+真語可傷人，妄語亦可害人；慈悲與真實，不可輕言取捨。
+若真話出口，唯為發洩；雖言真實，亦非慈悲。
+若善意之言，不為欺騙，不為己利，只願止苦，則當觀方便。
+能說真而不傷，當說真；能緩說則緩說；能少說則少說；不必將所有真相，盡數直言。
+若當下不能說，可以沉默；若沉默不能護，則以善巧語。
+然不可藉慈悲之名，掩護自己的貪欲、恐懼與私心。
+故持妄語戒，不是叫人只守字句；而是守護：真實心、善意心、不欺心。
+真語而無慈，易成利刃；慈悲而無智慧，亦可能成愚行。
+故當以智慧，令真實與慈悲，相互成就。
+能真則真，能善則善；不得已而方便，心不欺人，事後亦不自欺。
+如此行持，方近善巧。
+
+白話翻譯:（實際法義以原文開示為準）
+妄語戒的持守，不只是檢查說出來的話是真是假；還要觀察說這句話的「心」是什麼狀態。
+如果明知道是假的，卻用欺騙的心態來說，讓他人受到傷害，這就是妄語。
+如果是為了保護他人、不想讓他受苦，心裡沒有欺騙或傷害的意圖，言語上用了方便的說法——這裡需要仔細分別。
+真實的話可能傷人，虛假的話也可能害人；慈悲與真實之間，不能輕易地說「選這個就好」。
+如果你說真話只是為了發洩情緒，雖然內容是真的，那也不是慈悲。
+如果你說善意的話，不是為了欺騙、不是為了自己的利益，只是希望減少對方的痛苦，那麼就要觀察什麼是「方便」的方法。
+如果可以用真話而不傷害對方，就說真話；
+如果可以晚一點再說，就晚一點再說；
+如果可以少說，就少說；
+不需要把所有真相一次全部說出來。
+如果當下真的不能說，可以保持沉默；
+如果沉默無法保護對方，再使用善巧的語言。
+但不可以打著「慈悲」的名義，來掩蓋自己的貪欲、恐懼或私心。
+所以持守妄語戒，不是要求人死守字面上的真假；
+而是守護三種心：真實的心、善意的心、不欺騙的心。
+真實的話如果沒有慈悲，容易變成傷人的刀；
+慈悲的行動如果沒有智慧，也可能變成愚蠢的舉動。
+所以應當以智慧，讓真實與慈悲相互成就。
+能夠真實就真實，能夠良善就良善；
+在不得已需要方便時，心裡不要欺騙人，事後也不要欺騙自己。
+這樣去行持，才接近「善巧」的智慧。
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát: “Đệ tử xin hỏi Bồ Tát: lời nói dối thiện ý để không làm tổn thương người khác, có tính là phạm giới vọng ngữ không? Nếu lời thật và từ bi xung đột, nên lấy điều nào làm trước?”
+
+Giới vọng ngữ, chẳng chỉ xét thật hay giả; cũng nên quán nơi tâm.
+Nếu biết rõ là dối, dùng tâm gian trá mà nói, khiến người bị hại, ấy là vọng ngữ.
+Nếu vì hộ người, chẳng để họ chịu khổ; tâm không lừa hại, lời nói có phương tiện thiện xảo; chỗ này nên phân biệt kỹ.
+Lời thật có thể tổn thương người, lời dối cũng có thể hại người; từ bi và chân thật, không thể dễ dàng nói chọn bên nào, bỏ bên nào.
+Nếu lời thật thốt ra, chỉ để trút giận; tuy lời chân thật, cũng chẳng phải từ bi.
+Nếu lời thiện ý, chẳng để lừa dối, chẳng vì lợi mình, chỉ mong dứt khổ, thì nên quán phương tiện.
+Nói thật được mà chẳng hại, nên nói thật; nói chậm được thì nói chậm; nói ít được thì nói ít; chẳng cần đem hết sự thật, nói thẳng tất cả.
+Nếu ngay lúc ấy chẳng thể nói, có thể im lặng; nếu im lặng chẳng thể che chở, thì dùng lời thiện xảo.
+Song chẳng được mượn danh từ bi, che đậy tham dục, sợ hãi và tư tâm của mình.
+Cho nên giữ giới vọng ngữ, chẳng phải bảo người chỉ giữ câu chữ; mà là giữ gìn: tâm chân thật, tâm thiện ý, tâm không lừa dối.
+Lời thật mà không có từ bi, dễ thành dao bén; từ bi mà không trí tuệ, cũng có thể thành việc làm ngu dại.
+Cho nên phải dùng trí tuệ, khiến chân thật và từ bi, cùng nhau thành tựu.
+Thật được thì thật, thiện được thì thiện; bất đắc dĩ mới phương tiện, tâm chẳng dối người, về sau cũng chẳng tự dối mình.
+Hành trì như thế, mới gần thiện xảo.
+
+Việc giữ giới vọng ngữ, không chỉ là kiểm tra lời nói ra là thật hay giả; mà còn phải quán sát “tâm” khi nói câu ấy đang ở trạng thái nào.
+Nếu biết rõ là giả, lại dùng tâm lừa dối để nói, khiến người khác bị tổn hại, thì đó chính là vọng ngữ.
+Nếu là để bảo vệ người khác, không muốn họ chịu khổ, trong lòng không có ý lừa dối hay làm hại, lời nói dùng cách nói phương tiện — chỗ này cần phải phân biệt kỹ lưỡng.
+Lời thật có thể làm tổn thương người, lời giả cũng có thể hại người; giữa từ bi và chân thật, không thể dễ dàng nói rằng “chọn cái này là được”.
+Nếu con nói thật chỉ để trút cảm xúc, dù nội dung là thật, thì đó cũng không phải là từ bi.
+Nếu con nói lời thiện ý, không phải để lừa dối, không phải vì lợi ích của bản thân, chỉ mong giảm bớt nỗi khổ của đối phương, thì cần quán sát đâu là cách “phương tiện”.
+Nếu có thể nói thật mà không làm tổn thương đối phương, thì hãy nói thật;
+nếu có thể để muộn hơn mới nói, thì hãy để muộn hơn;
+nếu có thể nói ít, thì hãy nói ít;
+không cần phải nói hết toàn bộ sự thật trong một lần.
+Nếu ngay lúc ấy thật sự không thể nói, có thể giữ im lặng;
+nếu im lặng không thể bảo vệ đối phương, thì hãy dùng lời lẽ thiện xảo.
+Nhưng không được nhân danh “từ bi” để che đậy tham dục, sợ hãi hay tư tâm của chính mình.
+Cho nên giữ giới vọng ngữ, không phải đòi hỏi người ta khư khư giữ lấy cái thật cái giả trên mặt chữ;
+mà là giữ gìn ba tâm: tâm chân thật, tâm thiện ý, tâm không lừa dối.
+Lời thật nếu không có từ bi, dễ biến thành con dao làm tổn thương người;
+hành động từ bi nếu không có trí tuệ, cũng có thể biến thành việc làm ngu dại.
+Cho nên phải dùng trí tuệ, để chân thật và từ bi cùng nhau thành tựu.
+Có thể chân thật thì chân thật, có thể lương thiện thì lương thiện;
+khi bất đắc dĩ cần dùng phương tiện, trong lòng đừng lừa dối người, về sau cũng đừng lừa dối chính mình.
+Hành trì như vậy, mới gần với trí tuệ “thiện xảo”.
+
+==================== 第 047 篇 ====================
+【中文標題】一直行善,為什麼苦難還是找上我?
+【越南文標題】Luôn làm việc thiện, sao khổ nạn vẫn tìm đến tôi?
+【中文摘要】苦難來時，不急著懷疑善行或責怪自己，先處理眼前之苦。
+【越南文摘要】Khi khổ nạn đến, đừng vội nghi ngờ việc thiện hay tự trách mình; trước hết hãy xử lý nỗi khổ trước mắt.
+【中文原稿】
+請示地藏王菩薩:弟子請問菩薩:相信因果、行善積德,但苦難還是接連而來。這時候該懷疑自己修得不夠,還是懷疑因果本身?
+
+原文
+汝行善而遇苦，莫急疑善，亦莫急責己。
+因果之理，非今日種善，明日便無苦。
+一果之成，眾緣和合；一苦之至，亦非一因而生。
+昔日之因，今日之緣，他人之行，世間之變，皆可能於此時相會。
+故行善，不是與天地交易。
+莫言：『我已行善，為何還使我受苦？』
+若以善換順，順境不至，善心便退，此善尚有所求。
+然亦不可每逢苦難，便責己曰：『必是我修得不夠，必是我業障深重。』
+如此亦是執著。
+有些苦，非因汝不善；
+有些難，亦非用來懲罰汝。
+生老病死，聚散得失，世間無常，眾生皆有所遇。
+修行之益，不在保證一生無難；
+而在苦來之時，汝比從前少一分怨，多一分明；
+少造一分惡，多生一分慈悲。
+若行善只為免苦，苦來則信心動搖。
+若知善本當行，即使逆境現前，仍不以惡還惡，
+此時方知善根正在增長。
+至於因果，莫將其理解為賞善罰惡之帳簿。
+善因有善果，惡因有惡果；
+然果之成熟，有遲有速，有顯有隱，因緣錯綜，非凡夫一時所能盡見。
+汝若受苦，先處理眼前之苦；
+能醫則醫，能改則改，能避則避，能求助則求助。
+不可因言因果，便任苦而不治；
+亦不可因遇苦，便認為行善無用。
+苦來，不必先疑因果；亦不必先疑自己。
+先問：『此事之中，我現在能做何事？』
+能改之處，勇於改；
+不能改者，學習承受；
+應當求助者，莫以修行代替求助。
+汝真正應當觀察的，不是：
+『我行多少善，換來多少福？』
+而是：
+『經過這些苦難，我的心，是否比從前更加清明慈悲？』
+若是如此，苦雖未盡，道已在行。
+
+白話翻譯:（實際法義以原文開示為準）
+你行善卻遇到苦難，不要急著懷疑善行，也不要急著責備自己。
+因果的道理，不是今天種下善因，明天就不會有痛苦。
+一個結果的形成，需要眾多因緣聚合；一個痛苦的到來，也不是由單一原因造成的。
+過去的因、當下的緣、他人的行為、環境的變遷，都可能在同一時刻匯聚。
+所以行善，不是與天地做交易。
+不要說：「我已經行善了，為什麼還讓我受苦？」
+如果行善只是為了換取順境，當順境沒有來時，善心就退了，這樣的善還是有所求的。
+但是，也不可以在遇到苦難時，就責備自己說：「一定是我修得不夠好，一定是我業障太重。」
+這樣做也是一種執著。
+有些苦難，不是因為你不好；
+有些困境，也不是用來懲罰你的。
+生老病死、聚散得失，世間本來就是無常的，眾生都會遇到。
+修行帶來的好處，並不在於保證一生沒有苦難；
+而在於苦難來臨時，你比從前少了一分怨恨，多了一分明理；
+少造一分惡業，多生一分慈悲。
+如果行善只是為了避免苦難，當苦難來臨時，信心就會動搖。
+如果知道行善本來就是應該做的，即使逆境現前，仍然不以惡報惡，
+這時候才真正知道，善根正在增長。
+至於因果，不要把它理解為一本賞善罰惡的帳簿。
+善因有善果，惡因有惡果；
+但果報的成熟，有快有慢、有明顯有隱微，因緣錯綜複雜，不是凡夫一時之間能夠完全看見的。
+如果你遇到苦難，先處理眼前的問題；
+能看醫生就看醫生，能改變就改變，能避開就避開，能求助就求助。
+不可以因為有因果的觀念，就放任痛苦不處理；
+也不可以因為遇到苦難，就認為行善沒有用。
+苦難來時，不必先懷疑因果；也不必先懷疑自己。
+先問：「在這個時候，我現在能做什麼？」
+能改變的地方，勇敢去改變；
+無法改變的，學習接受；
+需要求助的，不要用「修行」來代替求助。
+你真正應該觀察的，不是：
+「我做了多少善事，換來多少福報？」
+而是：
+「經歷這些苦難之後，我的心，是否比以前更加清明、更加慈悲？」
+如果是這樣，那麼苦難雖然還沒有結束，但你已經走在修行的路上了。
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát: đệ tử xin hỏi Bồ Tát: đệ tử tin nhân quả, làm thiện tích đức, nhưng khổ nạn vẫn liên tiếp kéo đến. Lúc này nên nghi ngờ mình tu chưa đủ, hay nghi ngờ chính nhân quả?
+
+Con làm thiện mà gặp khổ, chớ vội nghi thiện, cũng chớ vội trách mình.
+Lẽ nhân quả, chẳng phải hôm nay gieo thiện, ngày mai liền hết khổ.
+Một quả thành tựu, do muôn duyên hòa hợp; một khổ kéo đến, cũng chẳng do một nhân mà sinh.
+Nhân của ngày xưa, duyên của hôm nay, việc làm của người khác, biến đổi của thế gian, đều có thể hội tụ vào lúc này.
+Cho nên làm thiện, chẳng phải là giao dịch với trời đất.
+Chớ nói: ‘Ta đã làm thiện, cớ sao còn khiến ta chịu khổ?’
+Nếu đem thiện đổi lấy thuận, thuận cảnh chẳng đến, thiện tâm liền lui, thiện ấy còn có chỗ cầu.
+Nhưng cũng chẳng thể mỗi khi gặp khổ nạn, liền tự trách rằng: ‘Ắt là ta tu chưa đủ, ắt là nghiệp chướng của ta sâu nặng.’
+Như thế cũng là chấp trước.
+Có những khổ, chẳng phải vì con bất thiện;
+có những nạn, cũng chẳng phải để trừng phạt con.
+Sinh lão bệnh tử, hợp tan được mất, thế gian vô thường, chúng sinh đều có lúc gặp.
+Lợi ích của tu hành, chẳng ở chỗ bảo đảm một đời không nạn;
+mà ở chỗ khi khổ đến, con so với trước bớt một phần oán, thêm một phần sáng;
+bớt tạo một phần ác, thêm sinh một phần từ bi.
+Nếu làm thiện chỉ để tránh khổ, khổ đến thì lòng tin lay động.
+Nếu biết thiện vốn nên làm, dù nghịch cảnh hiện tiền, vẫn chẳng lấy ác trả ác,
+lúc ấy mới biết căn lành đang tăng trưởng.
+Còn về nhân quả, chớ hiểu là sổ sách thưởng thiện phạt ác.
+Nhân thiện có quả thiện, nhân ác có quả ác;
+song quả chín muồi, có chậm có nhanh, có hiện có ẩn, nhân duyên chằng chịt, chẳng phải phàm phu nhất thời thấy hết được.
+Con nếu chịu khổ, trước hãy xử lý cái khổ trước mắt;
+chữa được thì chữa, sửa được thì sửa, tránh được thì tránh, cầu giúp được thì cầu giúp.
+Chẳng thể vì nói nhân quả, mà mặc khổ chẳng chữa;
+cũng chẳng thể vì gặp khổ, mà cho rằng làm thiện vô ích.
+Khổ đến, chẳng cần trước nghi nhân quả; cũng chẳng cần trước nghi chính mình.
+Trước hãy hỏi: ‘Trong việc này, hiện giờ ta có thể làm gì?’
+Chỗ sửa được, dũng cảm sửa;
+chỗ chẳng sửa được, học cách chịu đựng;
+chỗ nên cầu giúp, chớ lấy tu hành thay cho cầu giúp.
+Điều con thật sự nên quán sát, chẳng phải là:
+‘Ta làm bao nhiêu thiện, đổi được bao nhiêu phước?’
+mà là:
+‘Trải qua những khổ nạn này, tâm ta có sáng suốt từ bi hơn trước chăng?’
+Nếu được như thế, khổ tuy chưa hết, đạo đã đang hành.
+
+Con làm việc thiện mà lại gặp khổ nạn, đừng vội nghi ngờ việc thiện, cũng đừng vội trách bản thân.
+Đạo lý nhân quả, không phải hôm nay gieo nhân thiện thì ngày mai sẽ không còn đau khổ.
+Một kết quả hình thành cần rất nhiều nhân duyên hội tụ; một nỗi khổ kéo đến, cũng không phải do một nguyên nhân duy nhất gây ra.
+Nhân của quá khứ, duyên của hiện tại, hành vi của người khác, sự đổi thay của hoàn cảnh, đều có thể hội tụ vào cùng một thời điểm.
+Cho nên làm việc thiện, không phải là làm giao dịch với trời đất.
+Đừng nói: “Tôi đã làm việc thiện rồi, tại sao vẫn để tôi chịu khổ?”
+Nếu làm thiện chỉ để đổi lấy thuận cảnh, khi thuận cảnh không đến, thiện tâm liền thoái lui; việc thiện như vậy vẫn còn có điều mong cầu.
+Nhưng cũng không được hễ gặp khổ nạn là trách bản thân rằng: “Chắc chắn là tôi tu chưa đủ tốt, chắc chắn là nghiệp chướng của tôi quá nặng.”
+Làm như vậy cũng là một loại chấp trước.
+Có những khổ nạn, không phải vì con không tốt;
+có những nghịch cảnh, cũng không phải để trừng phạt con.
+Sinh lão bệnh tử, hợp tan được mất, thế gian vốn dĩ vô thường, chúng sinh ai cũng sẽ gặp phải.
+Lợi ích mà tu hành mang lại, không nằm ở chỗ bảo đảm một đời không có khổ nạn;
+mà nằm ở chỗ khi khổ nạn đến, con so với trước kia bớt đi một phần oán hận, thêm một phần hiểu lẽ;
+bớt tạo một phần nghiệp ác, thêm sinh một phần từ bi.
+Nếu làm việc thiện chỉ để tránh khổ nạn, thì khi khổ nạn đến, lòng tin sẽ lung lay.
+Nếu biết làm thiện vốn là điều nên làm, dù nghịch cảnh hiện ra trước mắt, vẫn không lấy ác báo ác,
+thì lúc ấy mới thật sự biết rằng căn lành đang tăng trưởng.
+Còn về nhân quả, đừng hiểu nó như một cuốn sổ sách thưởng thiện phạt ác.
+Nhân thiện có quả thiện, nhân ác có quả ác;
+nhưng sự chín muồi của quả báo có nhanh có chậm, có rõ ràng có ẩn kín, nhân duyên đan xen phức tạp, không phải người phàm trong chốc lát có thể nhìn thấy hết.
+Nếu con gặp khổ nạn, trước hết hãy xử lý vấn đề trước mắt;
+đi khám bệnh được thì đi khám bệnh, thay đổi được thì thay đổi, tránh được thì tránh, tìm người giúp được thì tìm người giúp.
+Không được vì có quan niệm nhân quả mà mặc kệ nỗi khổ không xử lý;
+cũng không được vì gặp khổ nạn mà cho rằng làm việc thiện là vô ích.
+Khi khổ nạn đến, không cần trước tiên nghi ngờ nhân quả; cũng không cần trước tiên nghi ngờ bản thân.
+Trước hết hãy hỏi: “Vào lúc này, ngay bây giờ tôi có thể làm gì?”
+Chỗ nào có thể thay đổi, hãy dũng cảm thay đổi;
+chỗ nào không thể thay đổi, hãy học cách chấp nhận;
+chỗ nào cần tìm sự giúp đỡ, đừng lấy “tu hành” thay cho việc tìm sự giúp đỡ.
+Điều con thật sự nên quán sát, không phải là:
+“Tôi đã làm bao nhiêu việc thiện, đổi được bao nhiêu phước báo?”
+mà là:
+“Sau khi trải qua những khổ nạn này, tâm tôi có sáng suốt hơn, từ bi hơn trước kia hay không?”
+Nếu được như vậy, thì khổ nạn tuy chưa kết thúc, nhưng con đã đang bước đi trên con đường tu hành rồi.
+
+==================== 第 048 篇 ====================
+【中文標題】看過人性最黑暗的一面後，還應不應該相信人？
+【越南文標題】Sau khi thấy mặt tối nhất của nhân tính, có nên tiếp tục tin người?
+【中文摘要】慈悲可以無量，信任必須有度；為善意保留智慧與界線。
+【越南文摘要】Từ bi có thể vô lượng, lòng tin phải có chừng mực; giữ lại trí tuệ và ranh giới cho thiện ý.
+【中文原稿】
+請示地藏王菩薩：若人看過許多自私、背叛、暴力與欺騙之後，還應該相信人性嗎？應如何既不天真，又不因此對眾生失去慈悲與信心？
+
+原文
+汝見人間之惡，而問是否仍可信人，
+此問非因汝不慈悲，乃因見苦漸深。
+眾生有善，亦有惡；
+有慈悲，亦有貪瞋癡。
+故修行者，不必以為人人皆善，方能慈悲。
+知其可能為惡，仍不願以惡待之；此乃慈悲。
+若明知其欺，仍任其欺，此非慈悲，是無智。
+若明知其害，仍不避其害，此非善良，是失於防護。
+佛法不教汝將惡人認作善人；
+亦不教汝因見惡人，便認定眾生皆惡。
+當信者，不是『人人皆可信』；
+當信者，是眾生之心並非永遠不變。
+今日貪者，可能知足；
+今日瞋者，可能悔悟；
+今日迷者，亦可能覺醒。
+然彼尚未改時，汝仍須防其惡。
+慈悲可以無量，信任必須有度。
+慈悲是願彼離苦，信任則須由其行為證明。
+故可以慈悲一人，而不借錢給他；
+可以願一人向善，而不再與他共事；
+可以原諒一人，而不讓他重新傷害汝；
+可以不懷恨，而仍與其保持距離。
+此等皆不違慈悲。
+汝若因受過欺騙，從此不信一切人，
+則一人之惡，反使無數未害汝者先受汝之疑。
+汝若因欲相信人性，便忽略一切惡行，
+則慈悲又成愚癡。
+故當學：
+見善而不盲信，見惡而不絕望。
+看人，觀其長久之行；聽言，亦察其是否行之。
+信任漸給，界線先立。
+一次欺騙，可以寬恕；是否再次信任，則看其是否真正改過。
+眾生值得慈悲，不等於眾生皆值得信任。
+汝真正要守住的，不是對『人性必善』的幻想；
+而是莫因見盡人間黑暗，便讓黑暗進入自己心中。
+見人自私，汝仍學布施；
+見人背叛，汝仍守信用；
+見人暴力，汝不以暴制暴；
+見人欺騙，汝仍守真實。
+如此，世間之惡沒有把汝變成汝所厭惡之人。
+此即難得。
+不天真，是有智慧；不絕望，是有慈悲。
+知惡而防惡，見苦而憐苦；不縱容，亦不仇恨。
+如此而行，便是中道。
+
+白話翻譯:（實際法義以原文開示為準）
+你看見人世間的種種惡行，然後問：「還應該相信人性嗎？」
+這個問題的產生，不是因為你缺乏慈悲，而是因為你見過的痛苦越來越多了。
+眾生裡面有善良，也有邪惡；
+有慈悲，也有貪瞋癡。
+所以修行的人，不需要把每一個人都當成善良的，才能對人慈悲。
+知道一個人可能作惡，但仍然不願意以惡報惡——這才叫做慈悲。
+如果明知道對方在欺騙，卻任由他繼續欺騙，這不是慈悲，這是沒有智慧。
+如果明知道對方會帶來傷害，卻不去保護自己，這不是善良，這是缺乏防護。
+佛法不會教你「要把惡人當作善人」；
+佛法也不會教你「因為看見惡人，就認為所有眾生都是邪惡的」。
+真正值得相信的，不是「每一個人都值得信任」；
+真正值得相信的，是「眾生的心並非永遠不變」。
+今天貪婪的人，未來可能會知足；
+今天憤怒的人，未來可能會悔悟；
+今天迷惑的人，未來也可能會覺醒。
+但是，在他還沒有改變之前，你仍然需要防備他的惡行。
+慈悲可以是無限的，但信任必須是有度的。
+慈悲是「希望他離苦」，信任則必須由他的行為來證明。
+所以，你可以對一個人慈悲，但不一定借錢給他；
+你可以希望一個人回頭向善，但不再與他共事；
+你可以原諒一個人，但不讓他再次傷害你；
+你可以心無怨恨，但仍然保持距離。
+這些都不違背慈悲。
+如果你因為曾經受騙，就從此不再相信任何人，
+那麼一個人的惡，反而讓無數沒有傷害過你的人，先承受了你的懷疑。
+如果你為了「相信人性」，而忽略一切惡行的信號，
+那麼你的慈悲就會變成愚癡。
+所以應該學著：
+看見善，但不盲目相信；
+看見惡，但不因此絕望。
+看一個人，要看長期的行為；
+聽一句話，也要觀察他是否真的做到。
+信任要慢慢給，界線要先設好。
+一次欺騙，可以寬恕；
+但是否再次信任，要看對方是否真正改過。
+眾生值得你慈悲，不等於每一個眾生都值得你信任。
+你真正該守住的，不是「人性一定是善良的」這種幻想；
+而是不要因為看盡了世間的黑暗，就讓黑暗也住進你的心裡。
+看見別人自私，你仍然學習布施；
+看見別人背叛，你仍然守住信用；
+看見別人暴力，你不以暴制暴；
+看見別人欺騙，你仍然持守真實。
+這樣一來，世間的惡並沒有把你變成你自己所厭惡的那種人。
+這才是難得的。
+不天真，是因為有智慧；
+不絕望，是因為有慈悲。
+知道惡而防範惡，看見苦而憐憫苦；不縱容，也不仇恨。
+這樣去做，就是中道。
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát: nếu một người đã thấy quá nhiều ích kỷ, phản bội, bạo lực và lừa dối, thì còn nên tin vào nhân tính không? Làm sao để vừa không ngây thơ, lại vừa không vì thế mà mất đi lòng từ bi và niềm tin đối với chúng sinh?
+
+Con thấy điều ác nơi nhân gian, mà hỏi có còn tin người được chăng,
+câu hỏi này chẳng phải vì con không từ bi, mà vì thấy khổ dần sâu.
+Chúng sinh có thiện, cũng có ác;
+có từ bi, cũng có tham, sân, si.
+Cho nên người tu, chẳng cần cho rằng ai ai cũng thiện, mới có thể từ bi.
+Biết họ có thể làm ác, vẫn chẳng muốn lấy ác đối đãi; ấy là từ bi.
+Nếu biết rõ họ lừa, vẫn mặc họ lừa, ấy chẳng phải từ bi, là thiếu trí tuệ.
+Nếu biết rõ họ hại, vẫn chẳng tránh hại, ấy chẳng phải lương thiện, là thiếu phòng hộ.
+Phật pháp chẳng dạy con nhận kẻ ác làm người thiện;
+cũng chẳng dạy con vì thấy kẻ ác, liền cho rằng chúng sinh đều ác.
+Điều nên tin, chẳng phải ‘ai ai cũng đáng tin’;
+điều nên tin, là tâm chúng sinh chẳng phải mãi mãi không đổi.
+Kẻ tham hôm nay, có thể biết đủ;
+kẻ sân hôm nay, có thể tỉnh ngộ;
+kẻ mê hôm nay, cũng có thể tỉnh thức.
+Song khi họ chưa đổi, con vẫn phải phòng điều ác của họ.
+Từ bi có thể vô lượng, lòng tin phải có chừng mực.
+Từ bi là nguyện họ lìa khổ, lòng tin thì phải do hành vi của họ chứng minh.
+Cho nên có thể từ bi với một người, mà chẳng cho họ vay tiền;
+có thể nguyện một người hướng thiện, mà chẳng còn cùng họ làm việc;
+có thể tha thứ một người, mà chẳng để họ lại làm hại con;
+có thể chẳng ôm hận, mà vẫn giữ khoảng cách với họ.
+Những điều ấy đều chẳng trái từ bi.
+Con nếu vì từng bị lừa, từ đó chẳng tin ai cả,
+thì cái ác của một người, lại khiến vô số người chưa từng hại con phải chịu sự nghi ngờ của con trước.
+Con nếu vì muốn tin nhân tính, liền bỏ qua mọi việc ác,
+thì từ bi lại thành ngu si.
+Cho nên nên học:
+thấy thiện mà chẳng mù quáng tin, thấy ác mà chẳng tuyệt vọng.
+Xem người, quán hành vi lâu dài; nghe lời, cũng xét có làm được chăng.
+Lòng tin trao dần, ranh giới lập trước.
+Một lần lừa dối, có thể khoan thứ; có tin lại hay không, thì xem họ có thật sự sửa lỗi chăng.
+Chúng sinh đáng được từ bi, chẳng có nghĩa chúng sinh đều đáng tin.
+Điều con thật sự phải giữ, chẳng phải ảo tưởng ‘nhân tính ắt thiện’;
+mà là chớ vì thấy hết bóng tối nhân gian, liền để bóng tối vào trong tâm mình.
+Thấy người ích kỷ, con vẫn học bố thí;
+thấy người phản bội, con vẫn giữ chữ tín;
+thấy người bạo lực, con chẳng lấy bạo chế bạo;
+thấy người lừa dối, con vẫn giữ chân thật.
+Như thế, cái ác thế gian chẳng biến con thành người mà con chán ghét.
+Ấy thật khó được.
+Chẳng ngây thơ, là có trí tuệ; chẳng tuyệt vọng, là có từ bi.
+Biết ác mà phòng ác, thấy khổ mà thương khổ; chẳng dung túng, cũng chẳng thù hận.
+Hành như thế, chính là Trung đạo.
+
+Con nhìn thấy đủ mọi việc ác nơi nhân gian, rồi hỏi: “Còn nên tin vào nhân tính nữa không?”
+Câu hỏi này nảy sinh, không phải vì con thiếu từ bi, mà vì những nỗi khổ con từng thấy ngày càng nhiều.
+Trong chúng sinh có lương thiện, cũng có tà ác;
+có từ bi, cũng có tham, sân, si.
+Cho nên người tu hành không cần phải xem mỗi người đều là người lương thiện thì mới có thể từ bi với người.
+Biết một người có thể làm ác, nhưng vẫn không muốn lấy ác báo ác — đó mới gọi là từ bi.
+Nếu biết rõ đối phương đang lừa dối, mà lại mặc cho họ tiếp tục lừa dối, đó không phải là từ bi, đó là thiếu trí tuệ.
+Nếu biết rõ đối phương sẽ gây tổn hại, mà lại không bảo vệ chính mình, đó không phải là lương thiện, đó là thiếu sự phòng hộ.
+Phật pháp không dạy con “phải xem kẻ ác như người thiện”;
+Phật pháp cũng không dạy con “vì nhìn thấy kẻ ác mà cho rằng tất cả chúng sinh đều xấu ác”.
+Điều thật sự đáng tin, không phải là “mỗi người đều đáng tin cậy”;
+điều thật sự đáng tin, là “tâm chúng sinh không phải mãi mãi không thay đổi”.
+Người hôm nay tham lam, tương lai có thể sẽ biết đủ;
+người hôm nay sân giận, tương lai có thể sẽ tỉnh ngộ;
+người hôm nay mê muội, tương lai cũng có thể sẽ thức tỉnh.
+Nhưng trước khi họ thay đổi, con vẫn cần đề phòng những hành vi xấu ác của họ.
+Từ bi có thể là vô hạn, nhưng lòng tin phải có chừng mực.
+Từ bi là “mong họ lìa khổ”, còn lòng tin thì phải được chứng minh bằng hành vi của họ.
+Cho nên, con có thể từ bi với một người, nhưng không nhất thiết phải cho họ vay tiền;
+con có thể mong một người quay đầu hướng thiện, nhưng không còn cùng họ làm việc nữa;
+con có thể tha thứ cho một người, nhưng không để họ lại làm tổn thương con lần nữa;
+con có thể không ôm oán hận trong lòng, nhưng vẫn giữ khoảng cách.
+Những điều này đều không trái với từ bi.
+Nếu con vì từng bị lừa mà từ đó không còn tin bất kỳ ai nữa,
+thì cái ác của một người lại khiến vô số người chưa từng làm hại con phải gánh chịu sự nghi ngờ của con trước.
+Nếu con vì muốn “tin vào nhân tính” mà bỏ qua mọi dấu hiệu của hành vi xấu ác,
+thì lòng từ bi của con sẽ biến thành ngu si.
+Cho nên nên học cách:
+nhìn thấy cái thiện, nhưng không mù quáng tin theo;
+nhìn thấy cái ác, nhưng không vì thế mà tuyệt vọng.
+Nhìn một người, phải nhìn hành vi lâu dài của họ;
+nghe một lời nói, cũng phải xem họ có thật sự làm được hay không.
+Lòng tin phải trao từ từ, ranh giới phải đặt ra trước.
+Một lần lừa dối, có thể khoan thứ;
+nhưng có tin lại hay không, phải xem đối phương có thật sự sửa đổi hay chưa.
+Chúng sinh đáng để con từ bi, không có nghĩa là mỗi chúng sinh đều đáng để con tin cậy.
+Điều con thật sự nên giữ, không phải là ảo tưởng “nhân tính nhất định là lương thiện”;
+mà là đừng vì đã nhìn thấu bóng tối của thế gian, mà để bóng tối cũng trú ngụ trong lòng con.
+Thấy người khác ích kỷ, con vẫn học hạnh bố thí;
+thấy người khác phản bội, con vẫn giữ chữ tín;
+thấy người khác bạo lực, con không lấy bạo lực chế ngự bạo lực;
+thấy người khác lừa dối, con vẫn giữ gìn sự chân thật.
+Như vậy, cái ác của thế gian đã không biến con thành loại người mà chính con chán ghét.
+Đó mới là điều khó có được.
+Không ngây thơ, là vì có trí tuệ;
+không tuyệt vọng, là vì có từ bi.
+Biết ác mà phòng ngừa ác, thấy khổ mà thương xót khổ; không dung túng, cũng không thù hận.
+Làm được như vậy, chính là Trung đạo.
+
+==================== 第 049 篇 ====================
+【中文標題】人性是本善還是本惡意或是隨因緣而轉?
+【越南文標題】Nhân tánh vốn thiện, vốn ác hay tùy nhân duyên mà chuyển?
+【中文摘要】不將人固定為善或惡，觀察習氣、環境與當下的選擇。
+【越南文摘要】Không đóng khung con người là thiện hay ác, mà quán sát tập khí, hoàn cảnh và lựa chọn ngay trong hiện tại.
+【中文原稿】
+請示地藏王菩薩
+問題：人性到底是本善、本惡，還是隨因緣而轉？
+
+菩薩開示（原文）
+若言人性本善，
+何以眾生
+能起貪瞋癡？
+若言人性本惡，
+何以惡人
+亦能一念悔悟？
+故善惡二字，
+不可盡定眾生之心。
+眾生之心，
+隨因緣而起，
+隨習氣而動，
+隨所熏而轉。
+一念貪起，
+可以為惡；
+一念慈生，
+亦可以為善。
+善念常熏，
+善根漸長；
+惡念常習，
+惡業漸深。
+故今日之善人，
+若不護心，
+亦可能行惡；
+今日之惡人，
+若能知過，
+亦可能轉善。
+人非生而永善，
+亦非生而永惡；
+心隨緣起，
+行由念成。
+然汝不可因此說：
+『既然隨緣，
+善惡便無意義。』
+正因心能轉，
+修行方有意義。
+若一切生來已定，
+惡者永惡，
+善者永善，
+則何須教化？
+何須懺悔？
+何須修行？
+眾生有無明，
+故會造惡；
+眾生亦有覺性，
+故能知惡而改。
+如水本無定形，
+入方器則方，
+入圓器則圓；
+然水若染污，
+可以澄清。
+心亦如此。
+家庭之教，
+朋友之交，
+所處環境，
+自身習氣，
+過去經驗，
+皆能成緣。
+但因緣影響汝，
+不等於因緣
+替汝決定一切。
+境來之時，
+汝仍有一念
+可以選擇。
+有人傷汝，
+汝可以報復，
+亦可以止惡而不報復；
+有人欺汝，
+汝可以學其欺，
+亦可以因此
+更加守信。
+故修行不是等待
+好因緣使自己變善，
+而是在因緣現前之時，
+學會選擇善。
+汝若問：
+『那我應相信人性嗎？』
+莫信眾生
+永遠不會作惡；
+亦莫信眾生
+永遠不能改變。
+知人能惡，
+故有智慧防護；
+知人能善，
+故不捨慈悲。
+見惡人，
+防其惡，
+而不斷其
+改過之可能；
+見善人，
+敬其善，
+亦不將其
+奉為永不犯錯。
+如此看人，
+便少失望，
+亦少偏執。
+佛法所重，
+不是爭論
+人性究竟貼上
+『善』或『惡』之名，
+而是問汝：
+此刻這一念，
+將往何處？
+一念一念，
+成為習氣；
+習氣久久，
+形成其人；
+人若能覺，
+習氣亦可轉。
+故吾言：
+善惡非鐵板，
+因緣非宿命；
+眾生心可轉，
+所以眾生可度。
+
+白話翻譯(實際法義以原文開示為準）
+如果說人性本來就是善的，為什麼眾生還會生起貪、瞋、癡？
+如果說人性本來就是惡的，為什麼惡人也能在一念之間悔悟？
+所以「善」與「惡」這兩個字，並不能完全定義眾生的心。
+眾生的心，是隨著因緣而生起，隨著習氣而牽動，隨著所接觸的環境而轉變。
+一個貪念生起，就可能做出惡行；
+一個慈悲念頭生起，也可能做出善行。
+善念不斷薰習，善根就會慢慢增長；
+惡念不斷串習，惡業就會漸漸加深。
+所以今天的善人，如果不守護自己的心，也可能會行惡；
+今天的惡人，如果能夠知道過錯，也可能轉向善道。
+人不是一生下來就永遠是善，也不是一生下來就永遠是惡；
+心是隨著因緣而動，行為是由念頭所形成。
+但是你不能因此就說：「既然一切都隨因緣，那善惡就沒有意義了。」
+正是因為心可以轉變，修行才有意義。
+如果一切天生就已注定，惡人永遠是惡，善人永遠是善，
+那何必教化？何必懺悔？何必修行？
+眾生因為有無明，所以會造惡；
+眾生也有覺性，所以能知道惡而改過。
+就像水本來沒有固定的形狀，裝進方形的容器就變成方形，裝進圓形的容器就變成圓形；
+但是水如果被染污了，也可以再澄清。
+心也是這樣。
+家庭的教育、朋友的交往、所處的環境、自身的習氣、過去的經驗，
+這些都能成為因緣。
+但是因緣影響你，並不等於因緣替你決定了一切。
+當境界來臨時，你仍然有一念可以選擇。
+有人傷害你，你可以選擇報復，也可以選擇停止惡行而不報復；
+有人欺騙你，你可以學著去欺騙別人，也可以因此更加守信用。
+所以修行不是等待好的因緣讓自己變善，
+而是在因緣現前的時候，學會選擇善。
+如果你問：「那我應該相信人性嗎？」
+不要相信眾生永遠不會作惡；
+也不要相信眾生永遠不能改變。
+知道人可能作惡，所以有智慧去防護；
+知道人可能行善，所以不放棄慈悲。
+看見惡人，防備他的惡，但不斷絕他改過的可能性；
+看見善人，尊敬他的善，但也不把他當成永遠不會犯錯的人。
+這樣看人，就會少一些失望，也少一些偏執。
+佛法所重視的，不是爭論人性到底該貼上「善」或「惡」的標籤，
+而是問你：
+此刻這一念，要往何處去？
+一念接著一念，就成為習氣；
+習氣累積久了，就形成一個人的性格；
+人如果能夠覺察，習氣也可以轉變。
+所以我說：
+善惡不是鐵板一塊，因緣也不是宿命；
+眾生的心可以轉變，所以眾生可以度化。
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát:
+Câu hỏi: Nhân tánh rốt cuộc vốn thiện, vốn ác, hay tùy nhân duyên mà chuyển?
+
+Nếu nói nhân tánh vốn thiện,
+cớ sao chúng sinh
+lại khởi tham, sân, si?
+Nếu nói nhân tánh vốn ác,
+cớ sao kẻ ác
+cũng có thể một niệm tỉnh ngộ?
+Cho nên hai chữ thiện ác,
+không thể định hết tâm chúng sinh.
+Tâm của chúng sinh
+theo nhân duyên mà khởi,
+theo tập khí mà động,
+theo điều được huân tập mà chuyển.
+Một niệm tham khởi lên,
+có thể làm điều ác;
+một niệm từ sinh ra,
+cũng có thể làm điều thiện.
+Thiện niệm thường huân,
+thiện căn dần lớn;
+ác niệm thường tập,
+ác nghiệp dần sâu.
+Cho nên người thiện hôm nay,
+nếu không giữ gìn tâm,
+cũng có thể làm ác;
+người ác hôm nay,
+nếu biết lỗi mình,
+cũng có thể chuyển thành thiện.
+Con người không sinh ra đã mãi thiện,
+cũng không sinh ra đã mãi ác;
+tâm theo duyên mà khởi,
+hành do niệm mà thành.
+Nhưng con chớ vì thế mà nói:
+‘Đã là tùy duyên,
+thì thiện ác chẳng còn ý nghĩa.’
+Chính vì tâm có thể chuyển,
+tu hành mới có ý nghĩa.
+Nếu tất cả sinh ra đã định,
+kẻ ác mãi ác,
+người thiện mãi thiện,
+thì cần gì giáo hóa?
+Cần gì sám hối?
+Cần gì tu hành?
+Chúng sinh có vô minh,
+nên mới tạo ác;
+chúng sinh cũng có giác tánh,
+nên biết ác mà sửa.
+Như nước vốn không hình cố định,
+vào bình vuông thì vuông,
+vào bình tròn thì tròn;
+nhưng nước nếu bị vẩn đục,
+vẫn có thể lắng trong.
+Tâm cũng như vậy.
+Sự dạy dỗ của gia đình,
+sự giao du với bạn bè,
+hoàn cảnh nơi mình sống,
+tập khí của bản thân,
+kinh nghiệm trong quá khứ,
+đều có thể thành duyên.
+Nhưng nhân duyên ảnh hưởng con,
+không có nghĩa là nhân duyên
+quyết định thay con tất cả.
+Khi cảnh đến,
+con vẫn còn một niệm
+để lựa chọn.
+Có người làm hại con,
+con có thể báo thù,
+cũng có thể dừng ác mà không báo thù;
+có người lừa dối con,
+con có thể học theo sự dối trá ấy,
+cũng có thể nhân đó
+càng giữ chữ tín hơn.
+Cho nên tu hành không phải chờ đợi
+nhân duyên tốt khiến mình thành thiện,
+mà là khi nhân duyên hiện tiền,
+học cách chọn điều thiện.
+Nếu con hỏi:
+‘Vậy con có nên tin vào nhân tánh không?’
+Chớ tin chúng sinh
+vĩnh viễn không làm ác;
+cũng chớ tin chúng sinh
+vĩnh viễn không thể thay đổi.
+Biết người có thể ác,
+nên có trí tuệ phòng hộ;
+biết người có thể thiện,
+nên không bỏ từ bi.
+Thấy người ác,
+phòng điều ác của họ,
+mà không dứt đi
+khả năng sửa lỗi của họ;
+thấy người thiện,
+kính điều thiện của họ,
+cũng không đem họ
+tôn làm người không bao giờ lầm lỗi.
+Nhìn người như thế,
+sẽ ít thất vọng,
+cũng ít thiên chấp.
+Điều Phật pháp coi trọng,
+không phải tranh luận
+nhân tánh rốt cuộc nên dán
+cái tên ‘thiện’ hay ‘ác’,
+mà là hỏi con:
+một niệm ngay lúc này,
+sẽ đi về đâu?
+Một niệm rồi một niệm,
+thành tập khí;
+tập khí lâu ngày,
+hình thành nên con người ấy;
+người nếu biết tỉnh giác,
+tập khí cũng có thể chuyển.
+Cho nên Ta nói:
+thiện ác không phải bất di bất dịch,
+nhân duyên không phải định mệnh;
+tâm chúng sinh có thể chuyển,
+cho nên chúng sinh có thể được độ.
+
+Nếu nói nhân tánh vốn dĩ là thiện, thì tại sao chúng sinh vẫn khởi lên tham, sân, si?
+Nếu nói nhân tánh vốn dĩ là ác, thì tại sao kẻ ác cũng có thể tỉnh ngộ chỉ trong một niệm?
+Cho nên hai chữ “thiện” và “ác” không thể định nghĩa trọn vẹn tâm của chúng sinh.
+Tâm của chúng sinh sinh khởi theo nhân duyên, bị tập khí lôi kéo, và chuyển biến theo môi trường mà mình tiếp xúc.
+Một niệm tham khởi lên thì có thể làm ra việc ác;
+một niệm từ bi khởi lên thì cũng có thể làm ra việc thiện.
+Thiện niệm không ngừng được huân tập, thiện căn sẽ từ từ lớn lên;
+ác niệm không ngừng lặp lại, ác nghiệp sẽ dần dần sâu thêm.
+Cho nên người thiện hôm nay, nếu không giữ gìn tâm mình, cũng có thể làm điều ác;
+người ác hôm nay, nếu biết được lỗi lầm, cũng có thể quay về đường thiện.
+Con người không phải sinh ra là mãi mãi thiện, cũng không phải sinh ra là mãi mãi ác;
+tâm chuyển động theo nhân duyên, hành vi do niệm mà thành.
+Nhưng con không thể vì thế mà nói: “Đã là mọi thứ đều tùy nhân duyên, thì thiện ác chẳng còn ý nghĩa gì.”
+Chính vì tâm có thể chuyển đổi, nên tu hành mới có ý nghĩa.
+Nếu tất cả đều đã được định sẵn từ lúc sinh ra, kẻ ác mãi mãi là ác, người thiện mãi mãi là thiện,
+thì cần gì giáo hóa? Cần gì sám hối? Cần gì tu hành?
+Chúng sinh vì có vô minh nên mới tạo ác;
+chúng sinh cũng có giác tánh nên có thể biết ác mà sửa đổi.
+Giống như nước vốn không có hình dạng cố định, đổ vào bình vuông thì thành vuông, đổ vào bình tròn thì thành tròn;
+nhưng nước nếu bị vẩn đục cũng có thể lắng trong trở lại.
+Tâm cũng như vậy.
+Sự giáo dục của gia đình, sự giao du với bạn bè, môi trường mình sống, tập khí của bản thân, những kinh nghiệm trong quá khứ,
+tất cả đều có thể trở thành nhân duyên.
+Nhưng nhân duyên ảnh hưởng con không có nghĩa là nhân duyên đã quyết định thay con mọi thứ.
+Khi cảnh giới đến, con vẫn còn một niệm để lựa chọn.
+Có người làm hại con, con có thể chọn báo thù, cũng có thể chọn dừng điều ác lại mà không báo thù;
+có người lừa dối con, con có thể học theo mà đi lừa dối người khác, cũng có thể nhân đó mà càng giữ chữ tín hơn.
+Cho nên tu hành không phải là chờ đợi nhân duyên tốt đến khiến mình trở nên thiện,
+mà là khi nhân duyên hiện tiền, học cách lựa chọn điều thiện.
+Nếu con hỏi: “Vậy con có nên tin vào nhân tánh không?”
+Đừng tin rằng chúng sinh vĩnh viễn không làm ác;
+cũng đừng tin rằng chúng sinh vĩnh viễn không thể thay đổi.
+Biết rằng con người có thể làm ác, nên có trí tuệ để phòng hộ;
+biết rằng con người có thể làm thiện, nên không từ bỏ lòng từ bi.
+Thấy người ác, hãy đề phòng điều ác của họ, nhưng đừng cắt đứt khả năng sửa lỗi của họ;
+thấy người thiện, hãy tôn kính điều thiện của họ, nhưng cũng đừng xem họ là người không bao giờ phạm sai lầm.
+Nhìn người như vậy, sẽ bớt đi phần nào thất vọng, cũng bớt đi phần nào thiên chấp.
+Điều Phật pháp coi trọng không phải là tranh luận xem nhân tánh rốt cuộc nên dán nhãn “thiện” hay “ác”,
+mà là hỏi con:
+niệm này ngay lúc này, sẽ đi về đâu?
+Niệm này nối tiếp niệm kia thì thành tập khí;
+tập khí tích lũy lâu ngày thì hình thành tính cách của một con người;
+con người nếu biết giác sát, tập khí cũng có thể chuyển đổi.
+Cho nên Ta nói:
+thiện ác không phải là điều bất di bất dịch, nhân duyên cũng không phải là định mệnh;
+tâm chúng sinh có thể chuyển đổi, cho nên chúng sinh có thể được độ hóa.
+
+==================== 第 050 篇 ====================
+【中文標題】何謂因果何謂業力?
+【越南文標題】Thế nào là nhân quả, thế nào là nghiệp lực?
+【中文摘要】以種子、土壤與日常習慣，說明作者對因果與業力的記錄。
+【越南文摘要】Lấy hạt giống, đất và thói quen thường ngày để trình bày những ghi chép của tác giả về nhân quả và nghiệp lực.
+【中文原稿】
+請示地藏王菩薩
+弟子請示：何謂因果？何謂業力？
+
+菩薩開示（原文）
+「汝問因果，又問業力。
+當先知：因果者，非賞罰也；業力者，非天命也。
+一念起，一語出，一事行，皆可成因。因遇其緣，而後成果。如種子入土，種子為因；水土日光，皆為其緣；因緣具足，方生其果。故有因，未必立即見果；有果，亦非只由一因而成。此謂因果。
+何謂業？眾生有意而造作，身有所行，口有所言，意有所念，反覆而行，便熏習其心。今日一念，似甚微小；日日重之，便成習氣。習氣又使人更容易生起相似之念、相似之行。此相續之勢，可名為業力。
+業力不是一雙手，在暗中懲罰汝；而是眾生所作，留下力量，又影響後來之緣。
+一人常瞋，瞋心愈熟；遇小事，亦容易發怒。一人常欺，欺習愈深；遇利害，便容易再欺。一人常慈，慈心愈熟；見眾生苦，便容易伸手。故業由行成，行亦受業熏。
+然而汝須明白：受業所影響，不等於被業所鎖死。若業不可轉，則修行無義；若果不可改，則懺悔無用。正因因緣未定，所以今日一念仍能加入新的因。過去已種之因，不可令其從未發生；但今日可以改變其緣，亦可另種新因。
+譬如一田已有雜草種子，汝不能說種子從未落下；但可以除草、改土、灌溉，再種善苗。久而久之，田中景象便異。此即修行。
+故莫遇苦便問：『我究竟造了什麼惡業？』
+世間一事，往往眾緣和合。疾病有身體之因，事故有現實之因，他人傷害亦有他人自己的選擇。不可凡遇苦難，皆責之於前世業報。如此非明因果，反成迷因果。
+因果教人負責，不是教人自責；業力教人慎於造作，不是教人認命。汝今日所能把握者，便是此刻。惡念起，知而不隨；惡語欲出，知而能止；善念生，使之成行。一次雖小，久之則深。所以莫輕一念之善，亦莫輕一念之惡。
+因果使人知：所作不空。
+業力使人知：所習成勢。
+修行使人知：勢雖已成，仍可轉向。
+汝若明此，便不必以因果恐嚇自己，亦不可用業力替自己的選擇尋找藉口。昨日之業，成今日之一緣；今日之心，又成明日之一因。
+故吾言：
+因果不是判決，業力不是枷鎖。
+知因果，故慎所種；
+知業力，故慎所習；
+知緣起，故知可轉；
+知可轉，故不絕望。」
+
+白話翻譯(實際法義以原文開示為準）
+你問因果，又問業力。
+首先要知道：因果不是賞罰，業力也不是天命。
+一個念頭生起、一句話說出、一件事做出，都可以成為「因」。因遇到它的「緣」，然後才會結成「果」。
+就像種子埋進土裡，種子是因；土壤、水分、陽光都是緣；因緣具足了，才會生出果實。
+所以有因，不一定立刻看到果；有果，也不是只由單一個因所造成。這就是因果。
+什麼是業？
+眾生有意識地造作，身體有所行動，嘴巴有所言語，意念有所想法，反覆地去做，就會薰染自己的心。
+今天的一個念頭，看起來很微小；但每天重複，就變成習氣。習氣又會讓人更容易生起類似的念頭、類似的行為。這種相續不斷的勢力，就叫做業力。
+業力不是一雙手在暗中懲罰你；而是眾生自己的所作所為，留下力量，又影響後來的因緣。
+一個人常常生氣，瞋心就越來越熟練；遇到小事，也很容易發怒。一個人常常欺騙，欺騙的習氣就越來越深；遇到利害關頭，就容易再欺騙。一個人常常慈悲，慈悲心就越來越熟練；看到眾生受苦，就容易伸手幫助。
+所以業是由行為形成的，行為又反過來受業的薰染。
+然而你必須明白：受到業的影響，不等於被業鎖死。
+如果業完全不能轉，那修行就沒有意義；如果果完全不能改，那懺悔就沒有用處。
+正因為因緣還沒有固定，所以今天的一個念頭，仍然可以加入新的因。
+過去已經種下的因，不能讓它從未發生；但今天可以改變它的緣，也可以另外種下新的因。
+譬如一塊田裡已經有雜草的種子，你不能說種子從未落下；但你可以除草、改土、灌溉，再種下善苗。久而久之，田裡的景象就會不同。這就是修行。
+所以不要遇到苦難就問：「我究竟造了什麼惡業？」世間一件事，往往是眾多因緣和合而成。疾病有身體的原因，事故有現實的原因，他人傷害你也有他人自己的選擇。不可以凡是遇到苦難，都責怪是前世業報。這樣不是明白因果，反而是迷於因果。
+因果教人負責，不是教人自責；業力教人謹慎造作，不是教人認命。
+你今天所能把握的，就是此刻。惡念生起，知道它但不跟隨；惡語要出口，知道它而能止住；善念生起，讓它成為行動。一次雖然很小，久了就會很深。
+所以不要輕視一個善念，也不要輕視一個惡念。
+因果讓人知道：所作所為不會落空。業力讓人知道：所薰習的會形成勢力。修行讓人知道：勢力雖然已經形成，仍然可以轉向。
+你如果明白這個道理，就不必用因果來恐嚇自己，也不可以用業力來替自己的選擇找藉口。
+昨天的業，成為今天的一個緣；今天的心，又成為明天的一個因。
+所以我說：
+因果不是判決，業力不是枷鎖。知道因果，所以謹慎所種；知道業力，所以謹慎所習；知道緣起，所以知道可以轉；知道可以轉，所以不會絕望。
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát:
+Đệ tử xin thỉnh hỏi: Thế nào là nhân quả? Thế nào là nghiệp lực?
+
+“Con hỏi về nhân quả, lại hỏi về nghiệp lực.
+Trước hết nên biết: nhân quả không phải là thưởng phạt; nghiệp lực không phải là thiên mệnh.
+Một niệm khởi, một lời nói ra, một việc làm, đều có thể thành nhân. Nhân gặp duyên của nó, rồi sau mới thành quả. Như hạt giống vào đất, hạt giống là nhân; nước, đất, ánh mặt trời đều là duyên; nhân duyên đầy đủ, mới sinh ra quả. Cho nên có nhân, chưa chắc liền thấy quả; có quả, cũng không phải chỉ do một nhân mà thành. Đó gọi là nhân quả.
+Thế nào là nghiệp? Chúng sinh có ý mà tạo tác: thân có điều làm, miệng có điều nói, ý có điều nghĩ; lặp đi lặp lại, liền huân tập vào tâm. Một niệm hôm nay, dường như rất nhỏ; ngày ngày lặp lại, liền thành tập khí. Tập khí lại khiến người càng dễ khởi lên những niệm tương tự, những hành vi tương tự. Thế lực tương tục ấy, có thể gọi là nghiệp lực.
+Nghiệp lực không phải là một đôi tay trong bóng tối trừng phạt con; mà là những gì chúng sinh đã làm, để lại sức mạnh, rồi lại ảnh hưởng đến các duyên về sau.
+Một người thường sân, tâm sân càng thuần thục; gặp chuyện nhỏ, cũng dễ nổi giận. Một người thường dối, tập khí dối trá càng sâu; gặp lợi hại, liền dễ dối lần nữa. Một người thường từ, tâm từ càng thuần thục; thấy chúng sinh khổ, liền dễ đưa tay giúp. Cho nên nghiệp do hành mà thành, hành cũng bị nghiệp huân tập.
+Tuy nhiên con phải hiểu rõ: chịu ảnh hưởng của nghiệp, không có nghĩa là bị nghiệp khóa chặt. Nếu nghiệp không thể chuyển, thì tu hành vô nghĩa; nếu quả không thể đổi, thì sám hối vô ích. Chính vì nhân duyên chưa định, nên một niệm hôm nay vẫn có thể gieo thêm nhân mới. Nhân đã gieo trong quá khứ, không thể khiến nó như chưa từng xảy ra; nhưng hôm nay có thể thay đổi duyên của nó, cũng có thể gieo nhân mới khác.
+Ví như một thửa ruộng đã có hạt cỏ dại, con không thể nói hạt giống chưa từng rơi xuống; nhưng có thể nhổ cỏ, cải đất, tưới nước, rồi trồng mầm lành. Lâu dần, cảnh tượng trong ruộng sẽ khác. Đó chính là tu hành.
+Cho nên chớ hễ gặp khổ liền hỏi: ‘Rốt cuộc mình đã tạo ác nghiệp gì?’
+Một việc ở thế gian, thường do nhiều duyên hòa hợp. Bệnh tật có nguyên nhân từ thân thể, tai nạn có nguyên nhân thực tế, người khác gây hại cũng có lựa chọn riêng của người ấy. Không thể hễ gặp khổ nạn, đều quy cho nghiệp báo đời trước. Như thế không phải là hiểu rõ nhân quả, mà ngược lại thành mê lầm về nhân quả.
+Nhân quả dạy người biết chịu trách nhiệm, không phải dạy người tự trách; nghiệp lực dạy người thận trọng trong tạo tác, không phải dạy người cam chịu số phận. Điều con có thể nắm giữ hôm nay, chính là khoảnh khắc này. Ác niệm khởi, biết mà không theo; lời ác sắp thốt ra, biết mà dừng được; thiện niệm sinh, khiến nó thành hành động. Một lần tuy nhỏ, lâu ngày thì sâu. Cho nên chớ xem nhẹ một niệm thiện, cũng chớ xem nhẹ một niệm ác.
+Nhân quả khiến người biết: việc đã làm không uổng.
+Nghiệp lực khiến người biết: điều đã huân tập thành thế lực.
+Tu hành khiến người biết: thế lực dù đã thành, vẫn có thể chuyển hướng.
+Con nếu hiểu rõ điều này, thì không cần lấy nhân quả để tự dọa mình, cũng không được dùng nghiệp lực để tìm cớ cho lựa chọn của mình. Nghiệp hôm qua, thành một duyên của hôm nay; tâm hôm nay, lại thành một nhân của ngày mai.
+Cho nên Ta nói:
+nhân quả không phải là bản án, nghiệp lực không phải là gông xiềng.
+Biết nhân quả, nên thận trọng điều mình gieo;
+biết nghiệp lực, nên thận trọng điều mình tập;
+biết duyên khởi, nên biết có thể chuyển;
+biết có thể chuyển, nên không tuyệt vọng.”
+
+Con hỏi về nhân quả, lại hỏi về nghiệp lực.
+Trước hết phải biết: nhân quả không phải là thưởng phạt, nghiệp lực cũng không phải là thiên mệnh.
+Một niệm khởi lên, một câu nói ra, một việc làm ra, đều có thể trở thành “nhân”. Nhân gặp được “duyên” của nó, rồi mới kết thành “quả”.
+Giống như hạt giống được vùi vào đất, hạt giống là nhân; đất, nước, ánh nắng đều là duyên; nhân duyên đầy đủ rồi mới sinh ra quả.
+Cho nên có nhân, không nhất định sẽ thấy quả ngay; có quả, cũng không phải chỉ do một nhân duy nhất tạo thành. Đó chính là nhân quả.
+Thế nào là nghiệp?
+Chúng sinh có ý thức mà tạo tác, thân thể có hành động, miệng có lời nói, ý có suy nghĩ, lặp đi lặp lại làm như vậy, sẽ huân nhiễm tâm của chính mình.
+Một niệm hôm nay, nhìn qua thì rất nhỏ bé; nhưng mỗi ngày lặp lại, sẽ trở thành tập khí. Tập khí lại khiến con người dễ khởi lên những ý niệm tương tự, những hành vi tương tự. Sức mạnh nối tiếp không dứt này, gọi là nghiệp lực.
+Nghiệp lực không phải là một đôi tay ngấm ngầm trừng phạt con; mà là chính những việc chúng sinh đã làm, để lại sức mạnh, rồi lại ảnh hưởng đến các nhân duyên về sau.
+Một người thường hay nổi giận, tâm sân sẽ ngày càng thuần thục; gặp chuyện nhỏ cũng rất dễ phát cáu. Một người thường hay lừa dối, tập khí lừa dối sẽ ngày càng sâu; gặp lúc lợi hại, sẽ dễ lừa dối lần nữa. Một người thường hay từ bi, lòng từ bi sẽ ngày càng thuần thục; thấy chúng sinh chịu khổ, sẽ dễ đưa tay giúp đỡ.
+Cho nên nghiệp do hành vi tạo thành, hành vi lại bị nghiệp huân nhiễm trở lại.
+Tuy nhiên con phải hiểu rõ: chịu ảnh hưởng của nghiệp, không có nghĩa là bị nghiệp khóa chặt.
+Nếu nghiệp hoàn toàn không thể chuyển, thì tu hành chẳng có ý nghĩa; nếu quả hoàn toàn không thể đổi, thì sám hối chẳng có tác dụng.
+Chính vì nhân duyên chưa cố định, nên một niệm hôm nay vẫn có thể thêm vào một nhân mới.
+Nhân đã gieo trong quá khứ, không thể khiến nó như chưa từng xảy ra; nhưng hôm nay có thể thay đổi duyên của nó, cũng có thể gieo thêm nhân mới.
+Ví như một thửa ruộng đã có sẵn hạt cỏ dại, con không thể nói hạt giống chưa từng rơi xuống; nhưng con có thể nhổ cỏ, cải tạo đất, tưới nước, rồi trồng xuống mầm lành. Lâu dần, cảnh tượng trong ruộng sẽ khác đi. Đó chính là tu hành.
+Cho nên đừng hễ gặp khổ nạn là hỏi: “Rốt cuộc mình đã tạo ác nghiệp gì?” Một việc ở thế gian thường do nhiều nhân duyên hòa hợp mà thành. Bệnh tật có nguyên nhân từ thân thể, tai nạn có nguyên nhân thực tế, người khác làm hại con cũng là do lựa chọn của chính họ. Không thể hễ gặp khổ nạn là đổ hết cho nghiệp báo đời trước. Như vậy không phải là hiểu rõ nhân quả, mà ngược lại là mê lầm về nhân quả.
+Nhân quả dạy con người biết chịu trách nhiệm, không phải dạy con người tự trách; nghiệp lực dạy con người cẩn trọng trong tạo tác, không phải dạy con người cam chịu số phận.
+Điều con có thể nắm giữ hôm nay, chính là khoảnh khắc này. Ác niệm khởi lên, biết nó nhưng không chạy theo; lời ác sắp thốt ra, biết nó mà dừng lại được; thiện niệm khởi lên, hãy để nó trở thành hành động. Một lần tuy rất nhỏ, nhưng lâu ngày sẽ rất sâu.
+Cho nên đừng xem nhẹ một thiện niệm, cũng đừng xem nhẹ một ác niệm.
+Nhân quả khiến con người biết: những việc mình làm sẽ không uổng phí. Nghiệp lực khiến con người biết: những gì mình huân tập sẽ hình thành thế lực. Tu hành khiến con người biết: thế lực dù đã hình thành, vẫn có thể chuyển hướng.
+Nếu con hiểu được đạo lý này, thì không cần dùng nhân quả để tự dọa mình, cũng không được dùng nghiệp lực để tìm cớ cho lựa chọn của mình.
+Nghiệp của hôm qua trở thành một duyên của hôm nay; tâm của hôm nay lại trở thành một nhân của ngày mai.
+Cho nên Ta nói:
+nhân quả không phải là bản án, nghiệp lực không phải là gông xiềng. Biết nhân quả, nên cẩn trọng điều mình gieo; biết nghiệp lực, nên cẩn trọng điều mình huân tập; biết duyên khởi, nên biết có thể chuyển; biết có thể chuyển, nên sẽ không tuyệt vọng.
+
+==================== 第 051 篇 ====================
+【中文標題】慈悲可以不靠近，孝順可以有界線」
+【越南文標題】Từ bi có thể không gần gũi, hiếu thuận có thể có ranh giới
+【中文摘要】當家庭關係帶來傷害，探問孝順、距離與自我保護。
+【越南文摘要】Khi quan hệ gia đình mang đến tổn thương, tìm hiểu về hiếu thuận, khoảng cách và sự tự bảo vệ.
+【中文原稿】
+請示地藏王菩薩
+「常聽說子女跟父母不合，子女長年被父母嘻笑怒罵、言語控制，或是導致子女後來不孝。
+想請問從佛法角度，這算是父母跟子女各自的前世因果業力（討債還債）嗎？
+當面對血脈相連的父母，如果他們的言行已經嚴重傷害到子女，子女若為了自保而選擇「保持距離、該遠離者遠離」，在傳統孝道的道德重擔與罪惡感之下，該如何安頓內心，才能既有智慧防護，又不失人子的慈悲？」
+
+🔶 開示原文
+父母子女，因緣甚深。
+然緣深，不等於皆是善緣；
+血脈相連，亦不等於彼此永不相傷。
+世人常言：
+「子來討債，父來還債；前世相欠，今生相償。」
+此語可作譬喻，不可執為定論。
+汝不知前世，便莫以今生之苦，妄判前世之罪。
+父母傷子，不可便言：
+「此乃子女前世欠債，故當承受。」
+子女怨父母，亦不可便言：
+「此乃父母前世造業，今生應得。」
+如此說因果，容易以因果之名，合理今日之傷。
+未知之因，莫作定論；
+眼前之惡，當於眼前止之。
+父母若以怒罵、羞辱、控制，長久傷害子女，
+其行若不善，便是不善。
+不可因其為父母，便將傷害改名為慈愛。
+亦不可因子女受苦，便要求其：
+「此是你的業，你應當忍受。」
+忍辱，不是任人傷害；
+孝順，不是失去界線；
+慈悲，不是縱容惡行。
+若近之，則彼此瞋恨更深；
+若每次相見，皆使惡語再起；
+若長久相處，已使身心難安，
+則暫離其境，未必是不孝。
+遠其惡緣，不是斷其慈心。
+可以少見，而不詛咒；
+可以拒絕，而不羞辱；
+可以設界線，而不報復；
+可以不再承受控制，仍願其平安。
+此即：身可有距，心不必有恨。
+若父母有所需，汝能力所及，
+又不使自己再陷傷害，可以適度照應。
+若親自接觸必生大苦，亦可另尋方法，
+不必凡事親身承受。
+孝有智慧，方能長久。
+真正之孝，不是父母說什麼，子女皆從。
+父母若行不善，子女柔言相勸，亦是孝；
+勸而不聽，便守己之正，
+不可為了順從父母，反使自己同造不善。
+汝若心生罪惡：
+「他畢竟是我父母，我怎能遠離？」
+當問自己：
+「我是在捨棄父母，還是在停止彼此繼續傷害？」
+二者不同。
+有些距離，不是絕情；
+反而是使雙方不再日日造口業、起瞋心、結新怨。
+若離得一分，彼此少造一分惡，
+此距離亦可能是一種善巧。
+然汝亦當自省：
+莫因曾受傷，便以報復為界線；
+莫因父母有過，便將其一生全判為惡。
+錯處當見其錯，恩處亦可知其恩。
+有恩，不表示傷害不存在；
+有傷，亦不必抹去所有曾有之恩。
+能同時看見二者，心便漸離愛憎兩端。
+至於所謂前世因果，汝若信之，可如此理解：
+今日既已相遇，便有今日之因緣。
+至於前世誰欠誰多少，莫費心計算。
+真正重要的是：這一世，莫再互相欠下去。
+父母以惡語傷子，當止；
+子女以惡語報復，亦當止。
+一方不能改，另一方仍可決定，
+不讓惡業從自己身上繼續。
+此才是轉業之處。
+故吾勸受傷之子女：
+不必以仇恨證明自己的痛；
+亦不必以犧牲自己證明自己的孝。
+該醫治者，當醫治；
+該求助者，當求助；
+該設界線者，當設界線；
+該遠離者，可以遠離。
+但若有一日心力已足，願將怨恨慢慢放下，
+不是因為父母所作皆對，
+而是因為不願讓過去的傷，繼續支配餘生。
+原諒若有，亦須由心而生，不可強求。
+尚不能原諒，先不報復；
+尚不能親近，先守距離；
+尚不能放下，先護好自己。
+一步一步，亦是修行。
+故汝問：如何既有智慧防護，又不失人子的慈悲？
+吾言：
+慈悲可以不靠近，孝順可以有界線。
+不縱容其惡，是智慧；
+不願其受苦，是慈悲；
+不以惡報惡，是修行；
+不使自己再受傷，亦是護生。
+莫以「孝」逼人承受傷害；
+莫以「因果」替傷害尋理由。
+若問前世，前世難知；
+若問今日，今日可以停止相傷。
+因果不是叫汝忍受惡，
+而是提醒汝：莫讓惡再由自己延續下去。
+
+白話翻譯(實際法義以原文開示為準）
+父母與子女之間的因緣非常深。但緣分深，不代表一定是善緣；血脈相連，也不代表彼此永遠不會互相傷害。
+世人常說：「子女是來討債的，父母是來還債的；前世相欠，今生相償。」這句話可以當作一種比喻，但不可以執著為定論。你不知道前世發生了什麼，就不要用今生的痛苦，去妄斷前世的罪過。
+父母傷害子女，不可以就說：「這是子女前世欠債，所以應該承受。」子女怨恨父母，也不可以就說：「這是父母前世造業，今生應得。」這樣說因果，容易用因果之名，合理化今天的傷害。
+未知的因，不要下結論；眼前的惡，應該在眼前就停止。
+父母如果用怒罵、羞辱、控制，長久傷害子女，這種行為如果是不善的，就是不善。不可以因為他是父母，就把傷害改名為慈愛。也不可以因為子女受苦，就要求他：「這是你的業，你應該忍受。」
+忍辱，不是任人傷害；孝順，不是失去界線；慈悲，不是縱容惡行。
+如果靠近只會讓彼此瞋恨更深；如果每次見面都讓惡語再起；如果長久相處已經讓身心難以安穩，那麼暫時離開那個環境，未必是不孝。遠離惡緣，不是斷掉慈心。
+可以少見，但不詛咒；可以拒絕，但不羞辱；可以設界線，但不報復；可以不再承受控制，但仍然祝願他平安。這就是：身體可以有距離，心不必有恨。
+如果父母有所需要，在你能力所及、又不會讓自己再次陷入傷害的前提下，可以適度照應。如果親自接觸必然產生極大痛苦，也可以另尋方法，不必凡事都親身承受。孝順要有智慧，才能長久。
+真正的孝，不是父母說什麼，子女全部順從。父母如果行為不善，子女用柔和的方式勸導，也是一種孝；勸了不聽，就守住自己的正直，不可以為了順從父母，反而讓自己也去造不善。
+如果你心中生起罪惡感：「他畢竟是我父母，我怎麼能遠離？」你應該問自己：「我是在捨棄父母，還是在停止彼此繼續傷害？」這兩者是不一樣的。
+有些距離，不是絕情；反而是讓雙方不再日日造口業、起瞋心、結新怨。如果遠離一分，能讓彼此少造一分惡，這個距離也可能是一種善巧。
+然而你也應該自我反省：不要因為曾經受傷，就把報復當成界線；不要因為父母有過錯，就把他的一生全部判定為惡。錯的地方要看見它的錯，恩的地方也要知道它的恩。有恩，不表示傷害不存在；有傷，也不必抹去所有曾有之恩。能同時看見這兩者，心就會漸漸離開愛與憎的兩端。
+至於所謂的前世因果，如果你相信，可以這樣理解：今天既然已經相遇，就有今天的因緣。至於前世誰欠誰多少，不要費心去計算。真正重要的是：這一世，不要再互相欠下去。
+父母用惡語傷子女，應該停止；子女用惡語報復，也應該停止。一方不能改，另一方仍然可以決定不讓惡業從自己身上繼續。這才是轉業的地方。
+所以我勸受傷的子女：不必用仇恨來證明自己的痛；也不必用犧牲自己來證明自己的孝。該醫治的，就去醫治；該求助的，就去求助；該設界線的，就設界線；該遠離的，可以遠離。
+但如果有一天，心力已經足夠，願意將怨恨慢慢放下，不是因為父母所作所為都對，而是因為不願意讓過去的傷繼續支配餘生。
+原諒如果有，也必須由心而生，不可強求。還不能原諒，先不報復；還不能親近，先守距離；還不能放下，先護好自己。一步一步，也是修行。
+所以你問：如何既有智慧防護，又不失人子的慈悲？我說：
+慈悲可以不靠近，孝順可以有界線。不縱容其惡，是智慧；不願其受苦，是慈悲；不以惡報惡，是修行；不使自己再受傷，亦是護生。
+不要用「孝」逼人承受傷害；不要用「因果」替傷害尋找理由。如果問前世，前世難知；如果問今日，今日就可以停止互相傷害。
+因果不是叫你忍受惡，而是提醒你：不要讓惡再由自己延續下去。
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát:
+“Thường nghe nói có những người con bất hòa với cha mẹ, nhiều năm bị cha mẹ chế giễu, mắng chửi, khống chế bằng lời nói, hoặc vì thế mà về sau trở nên bất hiếu.
+Xin hỏi theo góc nhìn Phật pháp, đây có phải là nhân quả nghiệp lực đời trước của riêng cha mẹ và con cái (đòi nợ, trả nợ) không?
+Khi đối diện với cha mẹ ruột thịt cùng huyết mạch, nếu lời nói và hành động của họ đã gây tổn thương nghiêm trọng cho con cái, mà con cái vì tự bảo vệ nên chọn ‘giữ khoảng cách, người nên tránh xa thì tránh xa’, thì dưới gánh nặng đạo đức và cảm giác tội lỗi của đạo hiếu truyền thống, nên an định nội tâm thế nào để vừa có trí tuệ phòng hộ, vừa không mất lòng từ bi của người làm con?”
+
+Cha mẹ con cái, nhân duyên rất sâu.
+Nhưng duyên sâu, không có nghĩa đều là thiện duyên;
+huyết mạch tương liên, cũng không có nghĩa là mãi mãi không làm tổn thương nhau.
+Người đời thường nói:
+“Con đến đòi nợ, cha mẹ đến trả nợ; đời trước nợ nhau, đời này đền nhau.”
+Lời này có thể dùng làm ví dụ, không thể chấp làm định luận.
+Con không biết đời trước, thì chớ lấy khổ đau đời này mà vọng đoán tội lỗi đời trước.
+Cha mẹ làm hại con, không thể liền nói:
+“Đây là con cái đời trước mắc nợ, nên phải gánh chịu.”
+Con cái oán cha mẹ, cũng không thể liền nói:
+“Đây là cha mẹ đời trước tạo nghiệp, đời này đáng phải chịu.”
+Nói nhân quả như thế, dễ mượn danh nhân quả để hợp lý hóa tổn thương hôm nay.
+Nhân chưa biết, chớ vội kết luận;
+điều ác trước mắt, phải dừng ngay trước mắt.
+Cha mẹ nếu dùng giận mắng, sỉ nhục, khống chế, làm tổn thương con cái lâu dài,
+việc làm ấy nếu bất thiện, thì chính là bất thiện.
+Không thể vì họ là cha mẹ, mà đổi tên tổn thương thành từ ái.
+Cũng không thể vì con cái chịu khổ, mà đòi hỏi họ:
+“Đây là nghiệp của con, con phải nhẫn chịu.”
+Nhẫn nhục, không phải để mặc người khác làm hại mình;
+hiếu thuận, không phải đánh mất ranh giới;
+từ bi, không phải dung túng việc ác.
+Nếu gần nhau, thì sân hận đôi bên càng sâu;
+nếu mỗi lần gặp mặt, đều khiến lời ác lại khởi;
+nếu ở chung lâu ngày, đã khiến thân tâm khó yên,
+thì tạm rời cảnh ấy, chưa chắc là bất hiếu.
+Tránh xa ác duyên, không phải là dứt bỏ lòng từ.
+Có thể ít gặp, mà không nguyền rủa;
+có thể từ chối, mà không sỉ nhục;
+có thể đặt ranh giới, mà không báo thù;
+có thể không còn chịu sự khống chế, mà vẫn mong họ bình an.
+Đó là: thân có thể có khoảng cách, tâm không cần có hận.
+Nếu cha mẹ có điều cần, trong sức con có thể lo,
+lại không khiến mình rơi vào tổn thương lần nữa, thì có thể chăm lo vừa phải.
+Nếu tự mình tiếp xúc ắt sinh khổ lớn, cũng có thể tìm cách khác,
+không cần việc gì cũng tự thân gánh chịu.
+Hiếu có trí tuệ, mới có thể lâu dài.
+Hiếu chân chính, không phải cha mẹ nói gì, con cái đều theo.
+Cha mẹ nếu làm điều bất thiện, con cái dịu lời khuyên can, cũng là hiếu;
+khuyên mà không nghe, thì giữ lấy chánh trực của mình,
+không thể vì thuận theo cha mẹ, mà ngược lại khiến mình cùng tạo bất thiện.
+Nếu trong lòng con sinh cảm giác tội lỗi:
+“Dù sao họ cũng là cha mẹ mình, sao mình có thể tránh xa?”
+Hãy tự hỏi:
+“Mình đang ruồng bỏ cha mẹ, hay đang dừng lại việc hai bên tiếp tục làm tổn thương nhau?”
+Hai điều ấy khác nhau.
+Có những khoảng cách, không phải là tuyệt tình;
+trái lại là để đôi bên không còn ngày ngày tạo khẩu nghiệp, khởi tâm sân, kết oán mới.
+Nếu rời xa một phần, mà đôi bên bớt tạo một phần ác,
+thì khoảng cách ấy cũng có thể là một phương tiện thiện xảo.
+Nhưng con cũng nên tự xét:
+chớ vì từng bị tổn thương, mà lấy báo thù làm ranh giới;
+chớ vì cha mẹ có lỗi, mà phán cả đời họ đều là ác.
+Chỗ sai thì thấy là sai, chỗ ân cũng biết là ân.
+Có ân, không có nghĩa là tổn thương không tồn tại;
+có tổn thương, cũng không cần xóa đi mọi ân tình từng có.
+Có thể cùng lúc thấy cả hai, tâm sẽ dần rời xa hai cực yêu và ghét.
+Còn về cái gọi là nhân quả đời trước, nếu con tin, có thể hiểu như vầy:
+hôm nay đã gặp nhau, thì có nhân duyên của hôm nay.
+Còn đời trước ai nợ ai bao nhiêu, chớ nhọc lòng tính toán.
+Điều thật sự quan trọng là: đời này, đừng tiếp tục nợ nhau nữa.
+Cha mẹ dùng lời ác làm tổn thương con, nên dừng;
+con cái dùng lời ác để trả đũa, cũng nên dừng.
+Một bên không thể đổi, bên kia vẫn có thể quyết định,
+không để ác nghiệp tiếp tục từ chính mình.
+Đó mới là chỗ chuyển nghiệp.
+Cho nên Ta khuyên những người con bị tổn thương:
+không cần lấy thù hận để chứng minh nỗi đau của mình;
+cũng không cần lấy sự hy sinh bản thân để chứng minh lòng hiếu của mình.
+Điều cần chữa lành, thì nên chữa lành;
+điều cần cầu giúp, thì nên cầu giúp;
+nơi cần đặt ranh giới, thì nên đặt ranh giới;
+nơi cần tránh xa, có thể tránh xa.
+Nhưng nếu một ngày tâm lực đã đủ, nguyện từ từ buông xuống oán hận,
+không phải vì những gì cha mẹ làm đều đúng,
+mà vì không muốn để vết thương quá khứ tiếp tục chi phối phần đời còn lại.
+Sự tha thứ nếu có, cũng phải từ tâm mà sinh, không thể cưỡng cầu.
+Chưa thể tha thứ, trước hết đừng báo thù;
+chưa thể gần gũi, trước hết giữ khoảng cách;
+chưa thể buông xả, trước hết bảo vệ tốt bản thân.
+Từng bước từng bước, cũng là tu hành.
+Cho nên con hỏi: làm sao vừa có trí tuệ phòng hộ, vừa không mất lòng từ bi của người làm con?
+Ta nói:
+từ bi có thể không gần gũi, hiếu thuận có thể có ranh giới.
+Không dung túng điều ác của họ, là trí tuệ;
+không mong họ chịu khổ, là từ bi;
+không lấy ác báo ác, là tu hành;
+không để mình bị tổn thương thêm, cũng là bảo hộ sự sống.
+Chớ lấy chữ “hiếu” ép người gánh chịu tổn thương;
+chớ lấy chữ “nhân quả” tìm lý do cho tổn thương.
+Nếu hỏi đời trước, đời trước khó biết;
+nếu hỏi hôm nay, hôm nay có thể dừng việc làm tổn thương nhau.
+Nhân quả không phải bảo con nhẫn chịu điều ác,
+mà là nhắc con: chớ để điều ác lại từ chính mình tiếp nối.
+
+Nhân duyên giữa cha mẹ và con cái rất sâu. Nhưng duyên phận sâu, không có nghĩa nhất định là thiện duyên; huyết mạch tương liên, cũng không có nghĩa là hai bên vĩnh viễn không làm tổn thương nhau.
+Người đời thường nói: “Con cái đến để đòi nợ, cha mẹ đến để trả nợ; đời trước nợ nhau, đời này đền nhau.” Câu nói này có thể xem như một phép ví von, nhưng không được chấp chặt làm định luận. Con không biết đời trước đã xảy ra chuyện gì, thì đừng dùng nỗi khổ của đời này để vọng đoán tội lỗi của đời trước.
+Cha mẹ làm tổn thương con cái, không thể cứ thế mà nói: “Đây là do con cái đời trước mắc nợ, nên phải gánh chịu.” Con cái oán hận cha mẹ, cũng không thể cứ thế mà nói: “Đây là do cha mẹ đời trước tạo nghiệp, đời này đáng phải chịu.” Nói nhân quả như vậy rất dễ mượn danh nghĩa nhân quả để hợp lý hóa tổn thương của hôm nay.
+Nhân chưa biết thì đừng vội kết luận; điều ác trước mắt thì nên dừng lại ngay trước mắt.
+Nếu cha mẹ dùng lời giận mắng, sỉ nhục, khống chế để làm tổn thương con cái lâu dài, thì hành vi ấy nếu là bất thiện, chính là bất thiện. Không thể vì họ là cha mẹ mà đổi tên tổn thương thành từ ái. Cũng không thể vì con cái đang chịu khổ mà đòi hỏi họ: “Đây là nghiệp của con, con phải nhẫn chịu.”
+Nhẫn nhục không phải là mặc cho người khác làm hại; hiếu thuận không phải là đánh mất ranh giới; từ bi không phải là dung túng việc ác.
+Nếu đến gần chỉ khiến sân hận đôi bên càng sâu; nếu mỗi lần gặp mặt đều khiến lời ác lại nổi lên; nếu ở chung lâu ngày đã khiến thân tâm khó được yên ổn, thì tạm thời rời khỏi môi trường ấy chưa chắc đã là bất hiếu. Tránh xa ác duyên không phải là cắt đứt lòng từ.
+Có thể ít gặp, nhưng không nguyền rủa; có thể từ chối, nhưng không sỉ nhục; có thể đặt ranh giới, nhưng không báo thù; có thể không còn chịu sự khống chế, nhưng vẫn chúc họ bình an. Đó chính là: thân có thể có khoảng cách, tâm không cần có hận.
+Nếu cha mẹ có điều cần đến, trong phạm vi khả năng của con và với điều kiện không khiến bản thân lại rơi vào tổn thương, con có thể chăm lo ở mức vừa phải. Nếu tự mình tiếp xúc chắc chắn sẽ sinh ra khổ đau rất lớn, cũng có thể tìm cách khác, không cần việc gì cũng tự thân gánh chịu. Hiếu thuận phải có trí tuệ thì mới lâu dài được.
+Hiếu chân chính không phải là cha mẹ nói gì con cái cũng đều nghe theo. Nếu cha mẹ hành xử bất thiện, con cái dùng cách ôn hòa để khuyên can, cũng là một cách hiếu; khuyên rồi mà không nghe, thì hãy giữ vững sự chánh trực của mình, không được vì thuận theo cha mẹ mà ngược lại khiến bản thân cũng đi tạo điều bất thiện.
+Nếu trong lòng con khởi lên cảm giác tội lỗi: “Dù sao họ cũng là cha mẹ mình, sao mình có thể tránh xa được?” thì con nên tự hỏi: “Mình đang ruồng bỏ cha mẹ, hay đang chấm dứt việc hai bên tiếp tục làm tổn thương nhau?” Hai điều này không giống nhau.
+Có những khoảng cách không phải là tuyệt tình; trái lại là giúp đôi bên không còn ngày ngày tạo khẩu nghiệp, khởi tâm sân, kết thêm oán mới. Nếu rời xa một phần mà có thể giúp đôi bên bớt tạo một phần ác, thì khoảng cách ấy cũng có thể là một phương tiện thiện xảo.
+Tuy nhiên con cũng nên tự phản tỉnh: đừng vì từng bị tổn thương mà xem báo thù là ranh giới; đừng vì cha mẹ có lỗi lầm mà phán định cả cuộc đời họ đều là ác. Chỗ sai thì phải thấy là sai, chỗ có ân cũng phải biết là ân. Có ân, không có nghĩa là tổn thương không tồn tại; có tổn thương, cũng không cần xóa đi mọi ân tình từng có. Có thể cùng lúc nhìn thấy cả hai điều này, tâm sẽ dần dần rời khỏi hai cực yêu và ghét.
+Còn về cái gọi là nhân quả đời trước, nếu con tin, có thể hiểu như thế này: hôm nay đã gặp nhau, thì có nhân duyên của hôm nay. Còn đời trước ai nợ ai bao nhiêu, đừng nhọc lòng tính toán. Điều thật sự quan trọng là: đời này, đừng tiếp tục nợ nhau nữa.
+Cha mẹ dùng lời ác làm tổn thương con cái, nên dừng lại; con cái dùng lời ác để trả đũa, cũng nên dừng lại. Một bên không thể thay đổi, bên kia vẫn có thể quyết định không để ác nghiệp tiếp tục từ chính mình. Đó mới là chỗ chuyển nghiệp.
+Cho nên Ta khuyên những người con bị tổn thương: không cần dùng thù hận để chứng minh nỗi đau của mình; cũng không cần hy sinh bản thân để chứng minh lòng hiếu của mình. Điều cần chữa lành thì hãy đi chữa lành; điều cần cầu giúp thì hãy đi cầu giúp; nơi cần đặt ranh giới thì hãy đặt ranh giới; nơi cần tránh xa thì có thể tránh xa.
+Nhưng nếu một ngày nào đó, tâm lực đã đủ, nguyện từ từ buông xuống oán hận, thì không phải vì những gì cha mẹ đã làm đều đúng, mà vì không muốn để vết thương quá khứ tiếp tục chi phối phần đời còn lại.
+Sự tha thứ nếu có, cũng phải từ tâm mà sinh ra, không thể cưỡng cầu. Chưa thể tha thứ, thì trước hết đừng báo thù; chưa thể gần gũi, thì trước hết giữ khoảng cách; chưa thể buông xả, thì trước hết hãy bảo vệ tốt bản thân. Từng bước từng bước, cũng là tu hành.
+Cho nên con hỏi: làm sao vừa có trí tuệ phòng hộ, vừa không mất lòng từ bi của người làm con? Ta nói:
+từ bi có thể không gần gũi, hiếu thuận có thể có ranh giới. Không dung túng điều ác của họ, là trí tuệ; không mong họ chịu khổ, là từ bi; không lấy ác báo ác, là tu hành; không để mình bị tổn thương thêm, cũng là bảo hộ sự sống.
+Đừng dùng chữ “hiếu” để ép người gánh chịu tổn thương; đừng dùng chữ “nhân quả” để tìm lý do cho tổn thương. Nếu hỏi đời trước, đời trước khó biết; nếu hỏi hôm nay, thì ngay hôm nay có thể dừng việc làm tổn thương nhau.
+Nhân quả không phải bảo con nhẫn chịu điều ác, mà là nhắc nhở con: đừng để điều ác lại từ chính mình tiếp nối.
+
+==================== 第 052 篇 ====================
+【中文標題】活在當下，是不是只是一句安慰人的話？
+【越南文標題】Sống trong hiện tại, phải chăng chỉ là một lời an ủi?
+【中文摘要】過去可學，未來可備；把能行動的一步放回此刻。
+【越南文摘要】Quá khứ có thể học hỏi, tương lai có thể chuẩn bị; hãy đưa bước mình có thể làm trở về khoảnh khắc này.
+【中文原稿】
+請示地藏王菩薩
+活在當下是不是只是一句安慰人的話？
+
+菩薩開示原文
+「汝問：
+『活在當下，
+是否只是
+安慰人之語？』
+吾言：
+若只掛於口，
+確是一句話；
+若能行於心，
+便是一門功夫。
+眾生之苦，
+有苦於今日者；
+亦有許多苦，
+來自昨日已去，
+明日未來。
+昨日受辱，
+今日仍反覆受辱；
+明日未至，
+今日已先恐懼明日。
+事情只發生一次，
+心卻使它
+發生百次。
+故所謂當下，
+不是叫汝
+忘記過去，
+亦不是叫汝
+不想未來。
+而是：
+過去用來明白，
+不是用來居住；
+未來用來準備，
+不是用來提前受苦。
+有人言：
+『既然活在當下，
+何必計畫明日？』
+此非當下。
+今日存錢，
+是今日之行；
+今日讀書，
+是今日之行；
+今日治病，
+是今日之行；
+今日為明日準備，
+仍是在當下行事。
+真正使人離開當下者，
+不是計畫未來，
+而是心已跑到
+尚未發生之事中，
+反覆恐懼。
+有人又言：
+『既然活在當下，
+過去便不要想。』
+亦非如此。
+過去若有過失，
+當反省；
+過去若有傷痛，
+當療癒；
+過去若有恩情，
+當感念。
+但莫使昨日
+日日重演，
+直到今日
+亦成昨日之囚。
+記得，
+與困住，
+並非一事。
+汝若曾被人傷害，
+活在當下
+不是告訴自己：
+『沒事，
+都過去了。』
+而是知道：
+『它確實發生過，
+我亦確實受過傷。
+但今日的我，
+可以決定
+下一步如何走。』
+如此，
+不是逃避，
+而是取回此刻。
+汝若憂慮未來，
+亦不是告訴自己：
+『什麼都別想，
+船到橋頭自然直。』
+而是問：
+『此刻有何事
+是我能做的？』
+能做者，
+便做；
+不能做者，
+暫放。
+智慧不是
+沒有憂慮；
+而是知道
+何者現在能處理，
+何者現在只能等待。
+眾生常以為：
+待我有錢，
+便能安心；
+待我成家，
+便能安心；
+待此事確定，
+便能安心；
+待所有問題解決，
+我再好好生活。
+然而一事方了，
+另一事又生。
+若一定要等
+人生沒有問題，
+才允許自己安住，
+則終其一生，
+何日方能生活？
+故修當下，
+不是因為
+未來不重要；
+正因人生無常，
+所以今日重要。
+汝吃飯時，
+知自己吃飯；
+與人相聚時，
+知此刻相聚；
+心有悲傷，
+知自己悲傷；
+心有歡喜，
+知自己歡喜。
+不必每一刻
+都快樂，
+只須每一刻
+不欺騙自己的心。
+當下不是快樂，
+當下是真實。
+今日有苦，
+便處理今日之苦；
+今日有樂，
+亦知此樂無常。
+不追，
+不拒，
+知其來，
+亦知其去。
+此即修心。
+故吾言：
+活在當下，
+不是安慰汝
+『一切都會變好』；
+而是提醒汝：
+無論未來好壞，
+汝真正能下手之處，
+永遠只有現在。
+昨日不可改，
+明日尚未到；
+但此刻一念，
+此刻一語，
+此刻一行，
+正在成為
+下一刻之因。
+所以因果之理，
+亦不離當下。
+汝若問：
+『人生如此多苦，
+如何活在當下？』
+不必要求自己
+永遠安住。
+心跑了，
+知道它跑了；
+再回來。
+又跑了，
+再知道；
+再回來。
+不是永不散亂，
+而是每次散亂，
+仍知歸來。
+如此而已。
+莫輕此事。
+一生，
+看似數十年；
+真正活過的，
+從來只有
+一個又一個現在。
+故：
+過去可學，
+不可住；
+未來可備，
+不可執；
+當下可行，
+不可失。
+此非安慰之語。
+此是眾生
+唯一真正能夠
+起心、選擇、
+改變之處。」
+
+白話翻譯(實際法義以原文開示為準）
+你問：
+「活在當下，
+是不是只是一句安慰人的話？」
+我說：
+如果只是掛在嘴上，
+它確實只是一句話；
+但如果能落實在心裡，
+它就是一門功夫。
+眾生的痛苦，
+有些是當下正在發生的；
+但也有很多痛苦，
+來自於已經過去的昨天，
+以及尚未到來的明天。
+昨天受了侮辱，
+今天還在反覆回味那個侮辱；
+明天還沒到，
+今天已經在害怕明天。
+事情只發生了一次，
+心卻讓它
+發生了一百次。
+所以所謂的當下，
+不是叫你忘記過去，
+也不是叫你不要想未來。
+而是：
+過去用來明白，
+不是用來居住；
+未來用來準備，
+不是用來提前受苦。
+有人說：
+「既然活在當下，
+何必計畫明天？」
+這不是當下。
+今天存錢，
+是今天的行動；
+今天讀書，
+是今天的行動；
+今天治病，
+是今天的行動；
+今天為明天做準備，
+仍然是在當下行動。
+真正讓人離開當下的，
+不是計畫未來，
+而是心已經跑到
+還沒發生的事情裡，
+反覆恐懼。
+有人又說：
+「既然活在當下，
+過去就不要想了。」
+也不是這樣。
+過去如果有過失，
+應當反省；
+過去如果有傷痛，
+應當療癒；
+過去如果有恩情，
+應當感念。
+但不要讓昨天
+每天重新上演，
+直到今天
+也變成昨天的囚犯。
+記得，
+和被困住，
+是兩回事。
+如果你曾經被人傷害，
+活在當下
+不是告訴自己：
+「沒事，
+都過去了。」
+而是知道：
+「它確實發生過，
+我也確實受過傷。
+但今天的我，
+可以決定
+下一步怎麼走。」
+這樣，
+不是逃避，
+而是取回此刻。
+如果你憂慮未來，
+也不是告訴自己：
+「什麼都別想，
+船到橋頭自然直。」
+而是問：
+「此刻有什麼事
+是我能做的？」
+能做的，
+就去做；
+不能做的，
+暫時放下。
+智慧不是
+沒有憂慮；
+而是知道
+什麼現在能處理，
+什麼現在只能等待。
+眾生常常以為：
+等我有錢，
+就能安心；
+等我成家，
+就能安心；
+等這件事確定，
+就能安心；
+等所有問題解決，
+我再好好生活。
+然而一件事剛結束，
+另一件事又來了。
+如果一定要等到
+人生沒有問題，
+才允許自己安住，
+那麼一輩子下來，
+哪一天才能真正生活？
+所以修當下，
+不是因為
+未來不重要；
+正是因為人生無常，
+所以今天才重要。
+你吃飯的時候，
+知道自己正在吃飯；
+與人相聚的時候，
+知道此刻正在相聚；
+心裡悲傷，
+知道自己在悲傷；
+心裡歡喜，
+知道自己在歡喜。
+不必每一刻
+都快樂，
+只需要每一刻
+不欺騙自己的心。
+當下不是快樂，
+當下是真實。
+今天有苦，
+就處理今天的苦；
+今天有樂，
+也知道這個樂是無常的。
+不追逐，
+不抗拒，
+知道它來，
+也知道它去。
+這就是修心。
+所以我說：
+活在當下，
+不是安慰你
+「一切都會變好」；
+而是提醒你：
+無論未來好壞，
+你真正能下手的地方，
+永遠只有現在。
+昨天不能改，
+明天還沒到；
+但此刻的一個念頭，
+此刻的一句話，
+此刻的一個行動，
+正在成為
+下一刻的因。
+所以因果的道理，
+也離不開當下。
+如果你問：
+「人生這麼多苦，
+要怎麼活在當下？」
+不必要求自己
+永遠安住。
+心跑掉了，
+知道它跑掉了；
+再拉回來。
+又跑掉了，
+再知道；
+再拉回來。
+不是永遠不散亂，
+而是每次散亂，
+都還知道回來。
+就是這樣而已。
+不要輕視這件事。
+一生，
+看起來有數十年；
+但真正活過的，
+從來只有
+一個又一個現在。
+故：
+過去可以學習，
+但不可以停留；
+未來可以準備，
+但不可以執著；
+當下可以行動，
+但不可以錯過。
+這不是安慰的話。
+這是眾生
+唯一真正能夠
+起心、選擇、
+改變的地方。
+【越南文譯稿】
+Thỉnh hỏi Địa Tạng Vương Bồ Tát:
+Sống trong hiện tại có phải chỉ là một câu nói để an ủi người khác?
+
+“Con hỏi:
+‘Sống trong hiện tại,
+phải chăng chỉ là lời an ủi người?’
+Ta nói:
+nếu chỉ treo nơi miệng,
+quả thật chỉ là một câu nói;
+nếu thực hành được trong tâm,
+ấy là một môn công phu.
+Khổ của chúng sinh,
+có cái khổ ở ngày hôm nay;
+lại có nhiều nỗi khổ
+đến từ hôm qua đã qua,
+và ngày mai chưa tới.
+Hôm qua chịu nhục,
+hôm nay vẫn tiếp tục chịu nhục;
+ngày mai chưa đến,
+hôm nay đã sợ ngày mai trước.
+Sự việc chỉ xảy ra một lần,
+mà tâm lại khiến nó
+xảy ra trăm lần.
+Cho nên cái gọi là hiện tại,
+không phải bảo con
+quên đi quá khứ,
+cũng không phải bảo con
+đừng nghĩ đến tương lai.
+Mà là:
+quá khứ dùng để hiểu rõ,
+không phải để cư ngụ;
+tương lai dùng để chuẩn bị,
+không phải để chịu khổ trước.
+Có người nói:
+‘Đã sống trong hiện tại,
+cần gì lo kế hoạch cho ngày mai?’
+Đó không phải hiện tại.
+Hôm nay để dành tiền,
+là việc làm của hôm nay;
+hôm nay đọc sách,
+là việc làm của hôm nay;
+hôm nay chữa bệnh,
+là việc làm của hôm nay;
+hôm nay chuẩn bị cho ngày mai,
+vẫn là hành sự trong hiện tại.
+Điều thật sự khiến người rời khỏi hiện tại,
+không phải là hoạch định tương lai,
+mà là tâm đã chạy vào
+những việc chưa xảy ra,
+sợ hãi mãi không thôi.
+Lại có người nói:
+‘Đã sống trong hiện tại,
+thì đừng nghĩ đến quá khứ.’
+Cũng chẳng phải vậy.
+Quá khứ nếu có lỗi lầm,
+nên tự xét lại;
+quá khứ nếu có thương tổn,
+nên chữa lành;
+quá khứ nếu có ân tình,
+nên ghi nhớ biết ơn.
+Nhưng chớ để hôm qua
+ngày ngày tái diễn,
+cho đến khi hôm nay
+cũng thành tù nhân của hôm qua.
+Ghi nhớ,
+và bị giam hãm,
+không phải là một.
+Nếu con từng bị người làm tổn thương,
+sống trong hiện tại
+không phải là tự nhủ:
+‘Không sao,
+mọi chuyện qua rồi.’
+Mà là biết rằng:
+‘Việc ấy quả thật đã xảy ra,
+mình cũng quả thật đã bị tổn thương.
+Nhưng mình của hôm nay,
+có thể quyết định
+bước tiếp theo đi thế nào.’
+Như vậy,
+không phải trốn tránh,
+mà là lấy lại khoảnh khắc này.
+Nếu con lo âu về tương lai,
+cũng không phải tự nhủ:
+‘Đừng nghĩ gì cả,
+thuyền đến đầu cầu ắt tự thẳng.’
+Mà là hỏi:
+‘Ngay lúc này có việc gì
+mà mình làm được?’
+Việc làm được,
+thì làm;
+việc không làm được,
+tạm gác lại.
+Trí tuệ không phải
+là không có lo âu;
+mà là biết
+điều gì bây giờ xử lý được,
+điều gì bây giờ chỉ có thể chờ.
+Chúng sinh thường nghĩ:
+đợi khi có tiền,
+sẽ được an tâm;
+đợi khi lập gia đình,
+sẽ được an tâm;
+đợi việc này ổn định,
+sẽ được an tâm;
+đợi mọi vấn đề giải quyết xong,
+tôi mới sống cho tử tế.
+Thế nhưng một việc vừa xong,
+việc khác lại sinh.
+Nếu nhất định phải đợi
+đời không còn vấn đề,
+mới cho phép mình an trú,
+thì trọn cả một đời,
+ngày nào mới được sống?
+Cho nên tu hiện tại,
+không phải vì
+tương lai không quan trọng;
+chính vì đời người vô thường,
+nên hôm nay mới quan trọng.
+Khi con ăn cơm,
+biết mình đang ăn cơm;
+khi sum họp cùng người,
+biết lúc này đang sum họp;
+khi tâm buồn đau,
+biết mình đang buồn đau;
+khi tâm hoan hỷ,
+biết mình đang hoan hỷ.
+Không cần mỗi khoảnh khắc
+đều vui vẻ,
+chỉ cần mỗi khoảnh khắc
+không dối gạt tâm mình.
+Hiện tại không phải là vui sướng,
+hiện tại là chân thật.
+Hôm nay có khổ,
+thì xử lý cái khổ của hôm nay;
+hôm nay có vui,
+cũng biết niềm vui này vô thường.
+Không đuổi theo,
+không chối bỏ,
+biết nó đến,
+cũng biết nó đi —
+ấy chính là tu tâm.
+Cho nên ta nói:
+sống trong hiện tại,
+không phải an ủi con rằng
+‘mọi thứ rồi sẽ tốt đẹp’;
+mà là nhắc nhở con:
+dù tương lai tốt hay xấu,
+chỗ con thật sự có thể bắt tay vào,
+mãi mãi chỉ là hiện tại.
+Hôm qua không thể sửa,
+ngày mai chưa đến;
+nhưng một niệm lúc này,
+một lời lúc này,
+một việc làm lúc này,
+đang trở thành
+nhân của khoảnh khắc kế tiếp.
+Cho nên lý nhân quả,
+cũng không rời hiện tại.
+Nếu con hỏi:
+‘Đời người nhiều khổ như thế,
+làm sao sống trong hiện tại?’
+Không cần đòi hỏi mình
+lúc nào cũng an trú.
+Tâm chạy đi,
+biết nó đã chạy đi,
+rồi quay về.
+Lại chạy đi,
+lại biết,
+lại quay về.
+Không phải là chẳng bao giờ tán loạn,
+mà là mỗi lần tán loạn,
+vẫn biết quay về.
+Chỉ vậy mà thôi.
+Chớ xem nhẹ việc này.
+Một đời người,
+trông như mấy chục năm;
+cái thật sự đã sống,
+xưa nay chỉ là
+hết hiện tại này đến hiện tại khác.
+Cho nên:
+quá khứ có thể học,
+không thể ở lại;
+tương lai có thể chuẩn bị,
+không thể chấp chặt;
+hiện tại có thể hành động,
+không thể đánh mất.
+Đây không phải lời an ủi.
+Đây là nơi duy nhất
+chúng sinh thật sự có thể
+khởi tâm, lựa chọn,
+và thay đổi.”
+
+Con hỏi:
+“Sống trong hiện tại, có phải chỉ là một câu nói để an ủi người khác?”
+Ta nói:
+nếu chỉ treo trên miệng, thì nó quả thật chỉ là một câu nói;
+nhưng nếu có thể thực hành trong tâm, nó chính là một môn công phu.
+Nỗi khổ của chúng sinh, có những cái đang xảy ra ngay lúc này;
+nhưng cũng có rất nhiều nỗi khổ đến từ hôm qua đã qua đi,
+và từ ngày mai chưa tới.
+Hôm qua bị sỉ nhục, hôm nay vẫn còn nghiền ngẫm mãi sự sỉ nhục ấy;
+ngày mai chưa đến, hôm nay đã sợ ngày mai rồi.
+Sự việc chỉ xảy ra một lần, nhưng tâm lại khiến nó xảy ra một trăm lần.
+Cho nên cái gọi là hiện tại, không phải bảo con quên quá khứ, cũng không phải bảo con đừng nghĩ đến tương lai.
+Mà là:
+quá khứ dùng để hiểu rõ, không phải để cư ngụ;
+tương lai dùng để chuẩn bị, không phải để chịu khổ trước.
+Có người nói:
+“Đã sống trong hiện tại, cần gì lập kế hoạch cho ngày mai?”
+Đó không phải là hiện tại.
+Hôm nay để dành tiền là hành động của hôm nay;
+hôm nay đọc sách là hành động của hôm nay;
+hôm nay chữa bệnh là hành động của hôm nay;
+hôm nay chuẩn bị cho ngày mai vẫn là hành động trong hiện tại.
+Điều thật sự khiến người ta rời khỏi hiện tại không phải là lập kế hoạch cho tương lai,
+mà là tâm đã chạy vào những chuyện chưa xảy ra, rồi sợ hãi hết lần này đến lần khác.
+Lại có người nói:
+“Đã sống trong hiện tại, thì đừng nghĩ đến quá khứ nữa.”
+Cũng không phải như vậy.
+Quá khứ nếu có lỗi lầm, nên tự xét lại;
+quá khứ nếu có thương tổn, nên chữa lành;
+quá khứ nếu có ân tình, nên ghi nhớ biết ơn.
+Nhưng đừng để hôm qua mỗi ngày lại tái diễn,
+cho đến khi hôm nay cũng biến thành tù nhân của hôm qua.
+Ghi nhớ và bị giam hãm là hai chuyện khác nhau.
+Nếu con từng bị người khác làm tổn thương,
+sống trong hiện tại không phải là tự nhủ:
+“Không sao, mọi chuyện qua rồi.”
+Mà là biết rằng:
+“Chuyện đó thật sự đã xảy ra, mình cũng thật sự đã bị tổn thương.
+Nhưng mình của hôm nay có thể quyết định bước tiếp theo sẽ đi thế nào.”
+Như vậy không phải là trốn tránh, mà là lấy lại khoảnh khắc này.
+Nếu con lo âu về tương lai,
+cũng không phải là tự nhủ:
+“Đừng nghĩ gì cả, rồi mọi chuyện sẽ đâu vào đấy.”
+Mà là hỏi:
+“Ngay lúc này có việc gì mà mình làm được?”
+Việc làm được thì đi làm;
+việc không làm được thì tạm gác lại.
+Trí tuệ không phải là không có lo âu;
+mà là biết điều gì bây giờ xử lý được, điều gì bây giờ chỉ có thể chờ đợi.
+Chúng sinh thường nghĩ rằng:
+đợi khi tôi có tiền, tôi sẽ an tâm;
+đợi khi tôi lập gia đình, tôi sẽ an tâm;
+đợi khi chuyện này ổn định, tôi sẽ an tâm;
+đợi khi mọi vấn đề được giải quyết, tôi mới sống cho thật tốt.
+Thế nhưng một chuyện vừa kết thúc, chuyện khác lại đến.
+Nếu nhất định phải đợi đến khi đời không còn vấn đề mới cho phép mình an trú,
+thì suốt cả một đời, đến ngày nào mới thật sự được sống?
+Cho nên tu hiện tại không phải vì tương lai không quan trọng;
+mà chính vì đời người vô thường, nên hôm nay mới quan trọng.
+Khi con ăn cơm, biết mình đang ăn cơm;
+khi sum họp cùng người khác, biết lúc này đang sum họp;
+khi trong lòng buồn đau, biết mình đang buồn đau;
+khi trong lòng hoan hỷ, biết mình đang hoan hỷ.
+Không cần mỗi khoảnh khắc đều phải vui vẻ;
+chỉ cần mỗi khoảnh khắc không dối gạt tâm mình.
+Hiện tại không phải là vui sướng, hiện tại là chân thật.
+Hôm nay có khổ, thì xử lý cái khổ của hôm nay;
+hôm nay có vui, cũng biết niềm vui này là vô thường.
+Không đuổi theo, không chống cự; biết nó đến, cũng biết nó đi.
+Đó chính là tu tâm.
+Cho nên ta nói:
+sống trong hiện tại không phải là an ủi con rằng “mọi thứ rồi sẽ tốt đẹp”;
+mà là nhắc nhở con:
+dù tương lai tốt hay xấu, chỗ con thật sự có thể bắt tay vào, mãi mãi chỉ là hiện tại.
+Hôm qua không thể sửa, ngày mai chưa đến;
+nhưng một ý niệm lúc này, một lời nói lúc này, một hành động lúc này
+đang trở thành nhân của khoảnh khắc kế tiếp.
+Cho nên đạo lý nhân quả cũng không tách rời hiện tại.
+Nếu con hỏi:
+“Đời người nhiều khổ như thế, làm sao sống trong hiện tại?”
+Con không cần đòi hỏi mình lúc nào cũng an trú.
+Tâm chạy mất rồi, biết là nó đã chạy mất; rồi kéo nó về.
+Lại chạy mất, lại biết; lại kéo về.
+Không phải là mãi mãi không tán loạn, mà là mỗi lần tán loạn, vẫn còn biết quay về.
+Chỉ vậy mà thôi.
+Đừng xem nhẹ việc này.
+Một đời người trông như có mấy chục năm;
+nhưng cái thật sự đã sống, xưa nay chỉ là hết hiện tại này đến hiện tại khác.
+Cho nên:
+quá khứ có thể học hỏi, nhưng không được dừng lại ở đó;
+tương lai có thể chuẩn bị, nhưng không được chấp trước;
+hiện tại có thể hành động, nhưng không được bỏ lỡ.
+Đây không phải là lời an ủi.
+Đây là nơi duy nhất chúng sinh thật sự có thể khởi tâm, lựa chọn và thay đổi.
