@@ -506,3 +506,16 @@ html.zr-floating .site-header{position:relative}
 /* 直排標點：用橫排字形放在 1em 方格正中（自架字型，各平台一致）；括號、引號、破折號轉 90 度 */
 .zj-reader.is-v .zr-page .pc .zw-h,.zj-reader.is-v .zr-page .k.pc,.zj-reader.is-v .zr-page .br .zw-h,.zj-reader.is-v .zr-page .k.br{display:inline-block;writing-mode:horizontal-tb;width:1em;height:1em;line-height:1;text-align:center;transform:none}
 .zj-reader.is-v .zr-page .br .zw-h,.zj-reader.is-v .zr-page .k.br{transform:rotate(90deg)}
+/* 直排注音（仿法鼓山經本）：字與字緊排、注音小而清楚貼在字右、聲調在注音右上、句讀改小圈放在注音欄不佔字格 */
+.zj-reader.is-v.is-zy .zr-page{--zw:calc(var(--zr-size) * .46)}
+.zj-reader.is-v.is-zy .zr-page .zw-c{padding:0}
+.zj-reader.is-v.is-zy .zr-page .zw-h{width:1em;height:1em}
+.zj-reader.is-v.is-zy .zr-page .zw-z{position:relative;height:var(--zr-size);width:var(--zw);margin:0;padding:0 0 0 calc(var(--zr-size) * .03);font-size:calc(var(--zr-size) * .29);opacity:.95;font-weight:500;justify-content:flex-start;align-items:flex-start;padding-top:calc(var(--zr-size) * .02)}
+.zj-reader.is-v.is-zy .zr-page .zw-z b,.zj-reader.is-v.is-zy .zr-page .zw-z em{width:1em;height:1.02em;line-height:1}
+.zj-reader.is-v.is-zy .zr-page .zw-z i{position:absolute;left:calc(var(--zr-size) * .03 + .98em);right:auto;top:calc(var(--zr-size) * .02 + (var(--n,1) - 1) * 1.02em - .3em);transform:none;line-height:1;font-size:1em}
+.zj-reader.is-v.is-zy .zr-page .zw-z.n1{--n:1}.zj-reader.is-v.is-zy .zr-page .zw-z.n2{--n:2}.zj-reader.is-v.is-zy .zr-page .zw-z.n3{--n:3}
+.zj-reader.is-v.is-zy .zr-page .zw-c.pc{position:relative;height:0;overflow:visible}
+.zj-reader.is-v.is-zy .zr-page .zw-c.pc .zw-h{font-size:0;width:1em;height:0;transform:none}
+.zj-reader.is-v.is-zy .zr-page .zw-c.pc .zw-h::after{content:'○';position:absolute;left:auto;right:calc(var(--zw) * .25);top:calc(var(--zr-size) * -.24);font-size:calc(var(--zr-size) * .22);line-height:1;color:var(--pi);opacity:.85}
+.zj-reader.is-v.is-zy .zr-page .zw-sp{height:var(--zr-size)}
+.zj-reader.is-v.is-zy .zr-page h4 .zw-z{margin-left:calc(var(--zr-size) * .12)}

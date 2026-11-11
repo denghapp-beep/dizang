@@ -134,7 +134,7 @@
     const fs = on => { try { const el = document.documentElement; if (on) { (el.requestFullscreen || el.webkitRequestFullscreen || (() => {})).call(el); }
       else if (document.fullscreenElement || document.webkitFullscreenElement) (document.exitFullscreen || document.webkitExitFullscreen).call(document); } catch {} };
     // 直排全螢幕：寬度取整數行距，每次翻一屏剛好不切字
-    function fitV() { const pitch = Math.round(st.size * (st.zy ? 2.5 : 2.05)); page.style.setProperty('--pitch', pitch + 'px');
+    function fitV() { const pitch = Math.round(st.size * (st.zy ? 1.9 : 2.05)); page.style.setProperty('--pitch', pitch + 'px');
       page.style.width = ''; const avail = box.clientWidth - 92; page.style.width = Math.max(pitch, Math.floor(avail / pitch) * pitch) + 'px'; }
     let offs = [0], ends = [], scr = 0;
     // 量出每一行的實際位置，算出每一屏從哪一行開始；畫面左邊放不完整的行用裁切藏起來，不會出現被切掉的字
