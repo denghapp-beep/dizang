@@ -1,6 +1,6 @@
 /* 經文用字合併成單一字型檔（iOS 對上百個 unicode-range 切片會部分退回系統字型，造成粗細不一）；缺字再用下方切片 */
-@font-face{font-family:'SutraSerif';font-style:normal;font-weight:400;font-display:block;src:url(sutra-400.woff2) format('woff2')}
-@font-face{font-family:'SutraSerif';font-style:normal;font-weight:700;font-display:block;src:url(sutra-700.woff2) format('woff2')}
+@font-face{font-family:'SutraSerif';font-style:normal;font-weight:400;font-display:block;src:url(sutra-400.woff2?v=2) format('woff2')}
+@font-face{font-family:'SutraSerif';font-style:normal;font-weight:700;font-display:block;src:url(sutra-700.woff2?v=2) format('woff2')}
 /* Noto Serif TC（SIL OFL 1.1，fontsource 切片），自架以確保各平台字形一致 */
 /* noto-serif-tc-[0]-400-normal */
 @font-face {
