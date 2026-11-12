@@ -56,14 +56,15 @@ git clone -b main   https://github.com/denghapp-beep/dizang site
 **字型**
 - 經文用字合併為 `assets/fonts/sutra-400.woff2`、`sutra-700.woff2`（Noto Serif TC 子集＋Noto Serif JP 補 嘇嚩妷尫悋焭糺裓辠韈），解決 iPhone 粗細不一。
 - 罕用字 㝹、𨪏、鏫 用花園明朝補在 `rare.woff2`。原切片 `nst/` 仍保留作後備。
-- 重建字型的腳本當時放在 /tmp，未入庫；之後若新增經文用字，需重寫：掃 `assets/sutras/*.js` 用字 → 從 Noto TC 切片 subset＋merge → 缺字從 Noto JP 補。
+- 重建字型：`python tools/build_sutra_font.py`（`--check` 只查缺字）。已驗證重建結果與線上字形逐一相同。缺字會列出；Noto TC 切片沒有的字會從現有 sutra-*.woff2 沿用，仍缺可加 `--jp-400/--jp-700` 指定 Noto Serif JP（TTF），罕用字則補進 rare.woff2。
 
 **經文與注音更正**（依據已記在 commit 訊息）
 - 普門品、阿彌陀經、無量壽經「車𤦲」→「硨磲」ㄔㄜ ㄑㄩˊ。
 - 阿彌陀經：依使用者錄影的課誦本（第 3～41 頁）修正 48 處注音；改字：俱絺羅、周利槃陀伽、目犍連、名為極樂、玻瓈、經前真言「薩婆訶」、「韈日囉斛」、「薄拘羅」。紀錄 `tools/zhuyin_amituo_ref_overrides.json`。
 - 無量壽經：依使用者提供《淨土五經》（佛陀教育基金會 2010 重排，難字注音）程式逐字比對，更正 287 處注音；罕用字 䗍→螺、㒋→斯、妷→佚、焭→煢。紀錄 `tools/zhuyin_wuliangshou_ref_overrides.json`。
 - 大悲咒：嘇 ㄙㄥ、罰闍 ㄕㄜˊ。
-- 注意：上述 overrides 檔目前 `build_zhuyin.py` 不會自動套用；若重新產生注音，需先補上套用邏輯，否則會被蓋回。
+- `build_zhuyin.py` 現在會自動套用 `tools/zhuyin_{經}_ref_overrides.json`（注音本校對）與 `_manual_overrides.json`（個別人工更正），每筆含「該字」，經文改字造成位置錯開會停止並列出。`--check` 可比對不寫入。五部經重新產生後與線上注音完全一致。
+- `tools/zhuyin_dizang_ref_conflicts.json`：地藏經舊參考紀錄中有 120 筆與現行注音不同（為ㄨㄟˊ/ˋ 40、量ㄌㄧㄤˊ/ˋ 34、處ㄔㄨˇ/ˋ 21、子ㄗ˙/ˇ 20 等），來源不明，未套用，待有注音本再判斷。
 
 **換頁音樂不中斷（架構改版）**
 - `music.js`：最外層頁面當「外框」保留 YouTube 播放器，站內連結改在全螢幕 iframe（`.shell-frame`）載入；網址、標題、上一頁／下一頁同步；內層頁面不建播放器、首次點擊轉給外框解除靜音；經書模式時收起音樂鈕（`shell-lock`）。
@@ -91,8 +92,8 @@ git clone -b main   https://github.com/denghapp-beep/dizang site
 7. 大悲咒整體讀法：目前用國語讀法（南無ㄋㄚˊㄇㄛˊ、囉ㄌㄚ）；若使用者要傳統口誦（囉ㄌㄚˋ、耶ㄧㄝˇ），需整首換。
 
 **技術：**
-8. 讓 `build_zhuyin.py` 自動套用 `tools/zhuyin_*_ref_overrides.json`。
-9. 字型重建腳本入庫（見第 4 節）。
+8. ~~注音 overrides 自動套用~~、~~字型重建腳本入庫~~（11/12 完成）。
+9. 地藏經 120 筆參考讀音衝突待確認（`tools/zhuyin_dizang_ref_conflicts.json`）。
 
 ## 6. 開始時請先問使用者
 

@@ -1,5 +1,11 @@
 """經文注音：pypinyin 產生注音，再以佛教專有讀音與台灣教育部讀音覆寫。輸出 assets/sutras/<id>_zhuyin.js。
-用法：python3 tools/build_zhuyin.py dizang"""
+用法：python3 tools/build_zhuyin.py dizang          產生並寫入
+      python3 tools/build_zhuyin.py dizang --check  只比對，不寫入（與現有檔不同時回傳 1）
+產生後依序套用校對紀錄（每筆 [品, 段, 字位置, 注音, 該字]；段 -1 表示品名）：
+  tools/zhuyin_<id>_ref_overrides.json     依注音本／課誦本逐字校對的結果
+  tools/zhuyin_<id>_manual_overrides.json  個別人工更正
+若經文改字使「該字」對不上，會停止並列出，需先更新紀錄檔。
+tools/zhuyin_<id>_ref_conflicts.json 為與現行注音不同、尚未確認的參考讀音，不會套用。"""
 import json, re, sys
 from pathlib import Path
 from pypinyin import pinyin, Style, load_phrases_dict, load_single_dict
@@ -40,10 +46,30 @@ def zy(text):
     return out
 res = []
 for c in S['chapters']:
-    paras = []
-    for p in c['paras']:
-        z = zy(p.replace('\n', '　'))  # 保持字數對齊
-        paras.append(' '.join(x or '_' for x in z))
-    res.append({'t': ' '.join(x or '_' for x in zy(c['title'])), 'p': paras})
-(R / 'assets' / 'sutras' / f'{sid}_zhuyin.js').write_text(f'window.SUTRA_ZHUYIN=window.SUTRA_ZHUYIN||{{}};window.SUTRA_ZHUYIN.{sid}=' + json.dumps(res, ensure_ascii=False, separators=(',', ':')) + ';\n', encoding='utf8')
+    paras = [zy(p.replace('\n', '　')) for p in c['paras']]  # 保持字數對齊
+    res.append({'t': zy(c['title']), 'p': paras})
+# 套用校對紀錄
+bad = []
+for kind in ('ref', 'manual'):
+    f = R / 'tools' / f'zhuyin_{sid}_{kind}_overrides.json'
+    if not f.exists():
+        continue
+    for c, p, i, z, ch in json.loads(f.read_text(encoding='utf8')):
+        chap = S['chapters'][c]
+        src = chap['title'] if p == -1 else chap['paras'][p].replace('\n', '　')
+        if i >= len(src) or src[i] != ch:
+            bad.append(f'{f.name}: [{c},{p},{i}] 應為「{ch}」，現為「{src[i] if i < len(src) else "（超出）"}」')
+            continue
+        (res[c]['t'] if p == -1 else res[c]['p'][p])[i] = z
+if bad:
+    sys.exit('校對紀錄與經文對不上（經文可能改過字），請先更新紀錄檔：\n' + '\n'.join(bad))
+j = lambda a: ' '.join(x or '_' for x in a)
+res = [{'t': j(c['t']), 'p': [j(p) for p in c['p']]} for c in res]
+out = R / 'assets' / 'sutras' / f'{sid}_zhuyin.js'
+txt = f'window.SUTRA_ZHUYIN=window.SUTRA_ZHUYIN||{{}};window.SUTRA_ZHUYIN.{sid}=' + json.dumps(res, ensure_ascii=False, separators=(',', ':')) + ';\n'
+if '--check' in sys.argv:
+    same = out.exists() and out.read_text(encoding='utf8') == txt
+    print('一致' if same else '不一致：重新產生的注音與現有檔不同')
+    sys.exit(0 if same else 1)
+out.write_text(txt, encoding='utf8')
 print('ok', sum(len(p.split()) for c in res for p in c['p']))
