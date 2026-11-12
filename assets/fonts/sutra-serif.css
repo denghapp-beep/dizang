@@ -1,9 +1,9 @@
 /* 經文用字合併成單一字型檔（iOS 對上百個 unicode-range 切片會部分退回系統字型，造成粗細不一）；缺字再用下方切片 */
 /* 罕用字（㝹、𨪏、鏫）：Noto 無此字，用花園明朝（HanaMin，自由授權）補字 */
-@font-face{font-family:'SutraSerif';font-style:normal;font-weight:400;font-display:block;src:url(rare.woff2?v=1) format('woff2');unicode-range:U+3779,U+93EB,U+28A8F}
-@font-face{font-family:'SutraSerif';font-style:normal;font-weight:700;font-display:block;src:url(rare.woff2?v=1) format('woff2');unicode-range:U+3779,U+93EB,U+28A8F}
-@font-face{font-family:'SutraSerif';font-style:normal;font-weight:400;font-display:block;src:url(sutra-400.woff2?v=5) format('woff2')}
-@font-face{font-family:'SutraSerif';font-style:normal;font-weight:700;font-display:block;src:url(sutra-700.woff2?v=5) format('woff2')}
+@font-face{font-family:'SutraSerif';font-style:normal;font-weight:400;font-display:block;src:url(rare.woff2?v=2) format('woff2');unicode-range:U+3779,U+93EB,U+28A8F}
+@font-face{font-family:'SutraSerif';font-style:normal;font-weight:700;font-display:block;src:url(rare.woff2?v=2) format('woff2');unicode-range:U+3779,U+93EB,U+28A8F}
+@font-face{font-family:'SutraSerif';font-style:normal;font-weight:400;font-display:block;src:url(sutra-400.woff2?v=6) format('woff2')}
+@font-face{font-family:'SutraSerif';font-style:normal;font-weight:700;font-display:block;src:url(sutra-700.woff2?v=6) format('woff2')}
 /* Noto Serif TC（SIL OFL 1.1，fontsource 切片），自架以確保各平台字形一致 */
 /* noto-serif-tc-[0]-400-normal */
 @font-face {
