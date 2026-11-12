@@ -2,6 +2,25 @@
    新增曲目：在 TRACKS 加一筆 {id:'YouTube 影片 ID', title:'顯示名稱', start:起始秒數}。 */
 (() => {
   'use strict';
+  // 換頁不中斷音樂：播放器只放在最外層頁面（外框），站內換頁改在內層 iframe 進行，
+  // 外框不重新載入，YouTube 播放器就一直在。內層頁面不另建播放器，只把第一次點擊轉給外框解除靜音。
+  let shellTop = null;
+  try { if (window.top !== window && window.top.__KSHELL) shellTop = window.top.__KSHELL; } catch {}
+  if (shellTop) {
+    const first = () => { ['pointerup', 'keydown'].forEach(t => document.removeEventListener(t, first, true)); try { shellTop.unmute(); } catch {} };
+    ['pointerup', 'keydown'].forEach(t => document.addEventListener(t, first, true));
+    // 經書模式（全螢幕直排）時，外框的音樂按鈕先收起，避免蓋住經文
+    const sync = () => { try { shellTop.lock(document.documentElement.classList.contains('zr-lock')); } catch {} };
+    new MutationObserver(sync).observe(document.documentElement, {attributes: true, attributeFilter: ['class']});
+    addEventListener('pagehide', () => { try { shellTop.lock(false); } catch {} });
+    // 站外連結開在最外層（或新分頁），不要卡在內框裡
+    document.addEventListener('click', e => {
+      const a = e.target.closest && e.target.closest('a[href]'); if (!a || a.target === '_blank' || a.hasAttribute('download')) return;
+      let u; try { u = new URL(a.href, location.href); } catch { return; }
+      if (u.origin !== location.origin) a.target = '_top';
+    }, true);
+    return;
+  }
   const T = (z, e, v) => window.I18N ? window.I18N.t(z, e, v) : z;
   const TRACKS = [
     {id:'180E05O2xWk', title:T('南無地藏王菩薩聖號','Namo Ksitigarbha Bodhisattva (chant)'), credit:'TheCYH99', start:73},
@@ -172,4 +191,44 @@
     };
     ['pointerup', 'keydown'].forEach(t => document.addEventListener(t, first, true));
   }
+
+  // ── 外框：攔截站內換頁，改在全螢幕 iframe 內載入 ──
+  window.__KSHELL = { lock: on => root.classList.toggle('shell-lock', !!on), unmute: () => { if (wantPlay) { unmuteNow(); if (ready && player.getPlayerState() !== YT.PlayerState.PLAYING) player.playVideo(); } } };
+  let frame = null; const homeTitle = document.title;
+  const isPage = u => u.origin === location.origin && /(\.html?|\/)$/i.test(u.pathname);
+  function showFrame(on) { document.documentElement.classList.toggle('shell-on', on); if (frame) frame.hidden = !on; }
+  function openInFrame(url, push) {
+    if (!frame) {
+      frame = document.createElement('iframe');
+      frame.className = 'shell-frame'; frame.title = document.title;
+      frame.setAttribute('allow', 'fullscreen; autoplay'); frame.setAttribute('allowfullscreen', '');
+      frame.addEventListener('load', () => {
+        try {
+          const w = frame.contentWindow, d = w.document;
+          if (!/^https?:/.test(w.location.href)) return;
+          document.title = d.title; frame.title = d.title;
+          if (location.href !== w.location.href) history.replaceState({shell: true}, d.title, w.location.href);
+        } catch {}
+      });
+      document.body.insertBefore(frame, root);
+    }
+    if (push) history.pushState({shell: true}, '', url);
+    showFrame(true);
+    frame.src = url;
+  }
+  document.addEventListener('click', e => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = e.target.closest && e.target.closest('a[href]');
+    if (!a || (a.target && a.target !== '_self') || a.hasAttribute('download') || root.contains(a)) return;
+    let u; try { u = new URL(a.href, location.href); } catch { return; }
+    if (!isPage(u)) return;
+    if (u.pathname === location.pathname && u.search === location.search && u.hash) return; // 同頁錨點照常捲動
+    e.preventDefault();
+    openInFrame(u.href, true);
+  });
+  // 返回鍵回到最初那一頁時，收起內框；再按前進則重新顯示
+  addEventListener('popstate', e => {
+    if (e.state && e.state.shell) { if (frame) { showFrame(true); document.title = frame.title; } else openInFrame(location.href, false); }
+    else { showFrame(false); document.title = homeTitle; }
+  });
 })();

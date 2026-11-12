@@ -527,3 +527,10 @@ html.zr-floating .site-header{position:relative}
 .zj-reader:not(.is-v) .zr-page h4{display:block;text-align:center;letter-spacing:.12em}
 .zj-reader:not(.is-v) .zr-page h4::before,.zj-reader:not(.is-v) .zr-page h4::after{display:inline-block;width:2.5em;vertical-align:middle;margin:0 .6em}
 .zj-reader:not(.is-v) .zr-page h4 .zw-g{white-space:normal}
+
+/* 換頁不中斷音樂：外框內的全螢幕內頁 */
+.shell-frame{position:fixed;inset:0;width:100%;height:100%;height:100dvh;border:0;z-index:900;background:#171917;display:block}
+.shell-frame[hidden]{display:none}
+html.shell-on,html.shell-on body{overflow:hidden;height:100%}
+html.shell-on .music{z-index:3000}
+.music.shell-lock{display:none}
