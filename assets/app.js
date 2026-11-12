@@ -48,7 +48,7 @@
   }
   if(document.body.dataset.page==='reader'){
     const params=new URLSearchParams(location.search);
-    const article=articles.find(a=>a.id===params.get('id'));if(article){try{const r=readSet();r.add(article.id);localStorage.setItem(READ_KEY,JSON.stringify([...r]));}catch{}}
+    const article=articles.find(a=>a.id===params.get('id'));if(article){try{const L=I.lang&&I.lang!=='zh'?I.lang+'/':'';let c=document.querySelector('link[rel=canonical]');if(!c){c=document.createElement('link');c.rel='canonical';document.head.appendChild(c);}c.href=new URL('../a/'+L+article.id+'.html',location.href).href;}catch{}try{const r=readSet();r.add(article.id);localStorage.setItem(READ_KEY,JSON.stringify([...r]));}catch{}}
     if(!article){$('.reader-article').innerHTML=T('<h1>找不到這篇文章</h1><p>請回到文集選擇篇章。</p><a class="primary" href="index.html#collection">返回文集 →</a>','<h1>Article not found</h1><p>Please return to the collection and choose an article.</p><a class="primary" href="index.html#collection">Back to the collection →</a>');return;}
     document.title=article.title+T(' · 地藏菩薩感應文集',' · Ksitigarbha: Collected Teachings');
     $('#article-title').textContent=article.title;if(article.sourceUrl&&/^https:\/\//.test(article.sourceUrl)){const cap=$('.source-caption');if(cap){const a=document.createElement('a');a.href=article.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';a.className='source-link';a.textContent=T('原文出處 ↗','Original source ↗');cap.append(' · ',a);}}$('#article-summary').textContent=article.summary;

@@ -166,7 +166,8 @@
   addEventListener('pagehide', touch); document.addEventListener('visibilitychange', () => { if (document.hidden) touch(); });
   {
     if (pref.on) play();
-    if (!entered) {
+    // 獨立文章頁（搜尋引擎進來的讀者）不擋入口畫面，直接讀文章；音樂按鈕仍在
+    if (!entered && !document.body.classList.contains('static-article')) {
       const gate = document.createElement('div');
       gate.className = 'enter-gate';
       gate.setAttribute('role', 'dialog');

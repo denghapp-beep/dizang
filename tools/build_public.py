@@ -52,9 +52,13 @@ for a in data['articles']:
         f'<meta property="og:title" content="{t}"><meta property="og:description" content="{d}"><meta property="og:site_name" content="地藏菩薩感應文集">'
         f'<meta property="og:image" content="{BASE}assets/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">'
         f'<meta property="og:url" content="{BASE}s/{i}.html"><meta property="og:type" content="article">'
-        f'<meta http-equiv="refresh" content="0; url=../fusion/reader.html?id={i}"><link rel="canonical" href="{BASE}fusion/reader.html?id={i}">'
+        f'<meta http-equiv="refresh" content="0; url=../fusion/reader.html?id={i}"><link rel="canonical" href="{BASE}a/{i}.html">'
         f'<script>location.replace("../fusion/reader.html?id={i}")</script></head>'
         f'<body style="background:#141813;color:#e6dbc4;font-family:serif;text-align:center;padding-top:20vh"><a href="../fusion/reader.html?id={i}" style="color:#d9b56a">{t} →</a></body></html>')
+
+import sys; sys.path.insert(0, os.path.join(root, 'tools'))
+import build_static
+print('static pages / sitemap urls / per-lang:', *build_static.build(root, dist))
 
 total = sum(os.path.getsize(os.path.join(d, f)) for d, _, fs in os.walk(dist) if '.git' not in d for f in fs)
 print('dist ready:', round(total / 1e6, 2), 'MB')
