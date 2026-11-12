@@ -6,7 +6,7 @@ from pypinyin import pinyin, Style, load_phrases_dict, load_single_dict
 R = Path(__file__).resolve().parent.parent
 sid = sys.argv[1] if len(sys.argv) > 1 else 'dizang'
 # 佛教專有名詞讀音（依佛門通行讀法）
-P = {'南無': 'ná mó', '硨磲': 'chē qú', '阿耨多羅三藐三菩提': 'ē nòu duō luó sān miǎo sān pú tí', '那由他': 'nuó yóu tuō', '阿僧祇': 'ā sēng qí',
+P = {'南無': 'ná mó', '硨磲': 'chē qú', '薄拘羅': 'bó jū luó', '阿㝹樓馱': 'ā nòu lóu tuó', '阿耨多羅三藐三菩提': 'ē nòu duō luó sān miǎo sān pú tí', '那由他': 'nuó yóu tuō', '阿僧祇': 'ā sēng qí',
      '波羅蜜': 'bō luó mì', '般若': 'bō rě', '伽藍': 'qié lán', '釋迦牟尼': 'shì jiā móu ní', '釋迦': 'shì jiā', '婆羅門': 'pó luó mén',
      '羅漢': 'luó hàn', '阿羅漢': 'ā luó hàn', '夜叉': 'yè chā', '乾闥婆': 'qián tà pó', '阿修羅': 'ā xiū luó', '迦樓羅': 'jiā lóu luó',
      '緊那羅': 'jǐn nà luó', '摩睺羅伽': 'mó hóu luó qié', '鳩槃荼': 'jiū pán tú', '閻羅': 'yán luó', '閻浮提': 'yán fú tí', '無間': 'wú jiàn',
