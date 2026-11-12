@@ -138,7 +138,7 @@
       page.style.width = ''; const avail = box.clientWidth - 92; page.style.width = Math.max(pitch, Math.floor(avail / pitch) * pitch) + 'px'; }
     let offs = [0], ends = [], scr = 0;
     // 量出每一行的實際位置，算出每一屏從哪一行開始；畫面左邊放不完整的行用裁切藏起來，不會出現被切掉的字
-    function measure() { page.style.clipPath = ''; page.scrollLeft = 0; const R = page.getBoundingClientRect(), W = page.clientWidth, raw = [];
+    function measure() { page.style.clipPath = ''; page.scrollLeft = 0; let sp = page.querySelector('.zr-tail'); if (!sp) { sp = document.createElement('div'); sp.className = 'zr-tail'; sp.setAttribute('aria-hidden', 'true'); page.appendChild(sp); } sp.style.width = page.clientWidth + 'px'; const R = page.getBoundingClientRect(), W = page.clientWidth, raw = [];
       // 以每個字的格子位置分行（同一行的字右緣對齊），不受注音、聲調小框影響
       const tol = 3, cols = [];
       page.querySelectorAll('.zw-c,.k').forEach(el => { const q = el.getBoundingClientRect(); if (q.width < 1) return;

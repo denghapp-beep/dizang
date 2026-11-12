@@ -519,3 +519,11 @@ html.zr-floating .site-header{position:relative}
 .zj-reader.is-v.is-zy .zr-page .zw-c.pc .zw-h::after{content:'○';position:absolute;left:auto;right:calc(var(--zw) * .25);top:calc(var(--zr-size) * .01);font-size:calc(var(--zr-size) * .2);line-height:1;color:var(--pi);opacity:.85}
 .zj-reader.is-v.is-zy .zr-page .zw-sp{height:var(--zr-size)}
 .zj-reader.is-v.is-zy .zr-page h4 .zw-z{margin-left:calc(var(--zr-size) * .12)}
+
+/* 經書模式最後一屏：尾端留白讓捲動能到位，避免重覆顯示前一屏內容 */
+.zr-tail{display:block;height:1px;flex:none;pointer-events:none}
+.zj-reader:not(.is-v) .zr-tail{display:none}
+/* 橫排品名：長標題（如往生咒全名）可換行置中，不再超出經文框 */
+.zj-reader:not(.is-v) .zr-page h4{display:block;text-align:center;letter-spacing:.12em}
+.zj-reader:not(.is-v) .zr-page h4::before,.zj-reader:not(.is-v) .zr-page h4::after{display:inline-block;width:2.5em;vertical-align:middle;margin:0 .6em}
+.zj-reader:not(.is-v) .zr-page h4 .zw-g{white-space:normal}
