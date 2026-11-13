@@ -110,12 +110,22 @@
     function zc(c, z) { const t = (z.match(/[ˊˇˋ˙]/) || [''])[0], b = z.replace(/[ˊˇˋ˙]/g, '');
       return `<span class="zw-c"><span class="zw-h">${esc(c)}</span><span class="zw-z n${b.length}">${t === '˙' ? '<em>˙</em>' : ''}${[...b].map(x => `<b>${x}</b>`).join('')}${t && t !== '˙' ? `<i>${t}</i>` : ''}</span></span>`; }
     const PUNC = /[，。、；：？！「」『』（）《》〈〉—…·．　]/;
-    function ruby(text, z) { const cs = Array.from(text); if (!z) return st.dir === 'v' ? cs.map(c => c === '\n' ? '<br>' : `<span class="k${/[，。、；：？！]/.test(c) ? ' pc' : /[（）「」『』《》〈〉—…〔〕【】]/.test(c) ? ' br' : ''}">${esc(c)}</span>`).join('') : esc(text).replace(/\n/g, '<br>');
-      const cell = (c, i) => (z[i] && z[i] !== '_') ? zc(c, z[i]) : `<span class="zw-c zw-p${/[，。、；：？！]/.test(c) ? ' pc' : /[（）「」『』《》〈〉—…〔〕【】]/.test(c) ? ' br' : ''}"><span class="zw-h">${esc(c)}</span></span>`;
+    // 避頭尾：句讀與後括號（」』）》〉）不放在一行開頭、前括號（「『（《〈）不放在一行結尾，與相鄰的字綁在一起不拆行
+    const NOHEAD = /[，。、；：？！」』）》〉〕】]/, NOTAIL = /[「『（《〈〔【]/;
+    function glue(items) { const g = []; let open = false;
+      items.forEach(([c, h]) => { if (g.length && (open || NOHEAD.test(c))) g[g.length - 1].push(h); else g.push([h]); open = NOTAIL.test(c); });
+      return g.map(x => x.length > 1 ? `<span class="zw-n">${x.join('')}</span>` : x[0]).join(''); }
+    function ruby(text, z) { const cs = Array.from(text);
+      if (!z) { if (st.dir !== 'v') return esc(text).replace(/\n/g, '<br>');
+        return text.split('\n').map(line => glue(Array.from(line).map(c => [c, `<span class="k${/[，。、；：？！]/.test(c) ? ' pc' : /[（）「」『』《》〈〉—…〔〕【】]/.test(c) ? ' br' : ''}">${esc(c)}</span>`]))).join('<br>'); }
+      const cell = (c, i) => (z[i] && z[i] !== '_') ? zc(c, z[i]) : (/[（）「」『』《》〈〉—…〔〕【】]/.test(c)
+        // 括號、引號：直排時補一個空的注音欄，與前後漢字同寬，括號才會對齊字的中線（不補會往右偏到注音欄）
+        ? `<span class="zw-c zw-p br"><span class="zw-h">${esc(c)}</span>${st.dir === 'v' ? '<span class="zw-z n0" aria-hidden="true"></span>' : ''}</span>`
+        : `<span class="zw-c zw-p${/[，。、；：？！]/.test(c) ? ' pc' : ''}"><span class="zw-h">${esc(c)}</span></span>`);
       // 偈頌、真言以全形空格分句：每句不拆行
-      let out = '', seg = '', n = 0;
-      const flush = () => { out += n && n <= 14 ? `<span class="zw-g">${seg}</span>` : seg; seg = ''; n = 0; };
-      cs.forEach((c, i) => { if (c === '\n') { flush(); out += '<br>'; } else if (c === '　') { flush(); out += '<span class="zw-sp"></span>'; } else { seg += cell(c, i); n++; } });
+      let out = '', seg = [], n = 0;
+      const flush = () => { const h = glue(seg); out += n && n <= 14 ? `<span class="zw-g">${h}</span>` : h; seg = []; n = 0; };
+      cs.forEach((c, i) => { if (c === '\n') { flush(); out += '<br>'; } else if (c === '　') { flush(); out += '<span class="zw-sp"></span>'; } else { seg.push([c, cell(c, i)]); n++; } });
       flush(); return out; }
     // 量測實際字形位置：不同電腦／字型的漢字與注音在字框內高低不同，用 canvas 算出偏移後補正，讓字與注音中心對齊
     function calib() { try {
