@@ -103,3 +103,12 @@ git clone -b main   https://github.com/denghapp-beep/dizang site
 
 - 第 1 項實機確認結果（有問題附裝置、瀏覽器、截圖）。
 - 這次要處理哪一項。
+
+## 7. 下一步：依法鼓山版本逐字校對（11/14 交接）
+
+- 法鼓山經書頁面圖已下載到使用者電腦：`C:\Users\Administrator\Downloads\ddm_sutra_pages.zip`（69.7MB，內含 `ddm_09/001～259.jpg` 地藏經、`ddm_10/001～101.jpg` 金剛經；來源 https://sutra.ddm.org.tw/ebook/09、/10 的 `files/mobile/N.jpg`，網站只有 453×1024 這一種解析度）。不要推上 GitHub（版權）。
+- 新對話取得方式：`device_request_folder_access(~/Downloads)` → `device_stage_files` 該 zip → 解壓到工作區。
+- 圖放大 3 倍（高品質插值）後注音可辨識，例：頁 14「南ㄋㄚˊ 無ㄇㄛˊ 大ㄉㄚˋ 願ㄩㄢˋ 地ㄉㄧˋ 藏ㄗㄤˋ 菩ㄆㄨˊ 薩ㄙㄚˋ 摩ㄇㄛˊ」。直排，注音在字右側。
+- 建議做法：先只核對有爭議的類別（一／不變調 237 處、11/14 依使用者 PDF 改的 325 處、剩 7 筆衝突），每類抽法鼓山原文頁面裁切放大判讀；確定法鼓山慣例後整批套用，與法鼓山不同的一律改成法鼓山，記入 `tools/zhuyin_*_ddm_overrides.json`（需在 build_zhuyin.py 加入此層並排在 ref 之後）。
+- 大悲咒：法鼓山版本另找（大悲懺儀軌 ebook 或課誦本）；找不到才用使用者的 `〈大悲咒〉注音版-定稿0914ok.pdf`（同在 Downloads）。
+- 使用者 Downloads 另有《藥師經》《無量壽經》注音版 PDF，可供之後使用。
