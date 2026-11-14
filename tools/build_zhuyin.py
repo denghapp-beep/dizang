@@ -4,6 +4,7 @@
 產生後依序套用校對紀錄（每筆 [品, 段, 字位置, 注音, 該字]；段 -1 表示品名）：
   tools/zhuyin_<id>_ref_overrides.json     依注音本／課誦本逐字校對的結果
   tools/zhuyin_<id>_manual_overrides.json  個別人工更正
+  tools/zhuyin_<id>_ddm_overrides.json     依法鼓山經本（sutra.ddm.org.tw/ebook）逐格比對，最後套用、優先
 若經文改字使「該字」對不上，會停止並列出，需先更新紀錄檔。
 tools/zhuyin_<id>_ref_conflicts.json 為與現行注音不同、尚未確認的參考讀音，不會套用。"""
 import json, re, sys
@@ -50,7 +51,7 @@ for c in S['chapters']:
     res.append({'t': zy(c['title']), 'p': paras})
 # 套用校對紀錄
 bad = []
-for kind in ('ref', 'manual'):
+for kind in ('ref', 'manual', 'ddm'):
     f = R / 'tools' / f'zhuyin_{sid}_{kind}_overrides.json'
     if not f.exists():
         continue
