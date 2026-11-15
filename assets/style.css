@@ -542,3 +542,7 @@ html.shell-on .music{z-index:3000}
 .static-pn a{display:block;color:inherit;text-decoration:none}.static-pn a:last-child{text-align:right}
 .static-pn small{display:block;opacity:.65;font-size:.8em;margin-bottom:.2em}
 .zr-page .zw-n{white-space:nowrap}
+/* 四十八願小標：依紙本，每願開頭小字「第X／大願」 */
+.zj-vow{display:inline-block;font-size:.4em;line-height:1.25;letter-spacing:0;color:var(--accent);vertical-align:top;margin-inline-end:.35em;font-weight:500;white-space:nowrap}
+.zj-vow>span{display:block}
+.zj-reader.is-v .zj-vow{color:var(--pm);margin-block-end:0;vertical-align:baseline;font-size:calc(var(--zr-size) * .42)}

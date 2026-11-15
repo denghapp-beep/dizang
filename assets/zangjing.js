@@ -101,7 +101,13 @@
     const pageHTML = pg => (pg.items[0].head ? '' : `<p class="zr-runhead">${esc(C[pg.ci].title)}</p>`) + pg.items.map(x => {
       const c = C[x.ci], cls = c.lit ? ' class="lit"' : '';
       if (x.head) return `${x.juan ? `<p class="zj-juan" data-t="${esc(s.title)}">${x.juan}</p>` : ''}<h4${cls}>${ruby(c.title, zyOf(x.ci, -1))}</h4>`;
-      return `<p${cls}>${ruby(x.p, zyOf(x.ci, x.pi))}</p>`; }).join('');
+      const vn = vowNo(x.ci, x.pi);
+      return `<p${vn ? ' class="zj-vowp"' : cls}>${vn ? `<span class="zj-vow" aria-label="第${vn}大願"><span>第${vn}</span><span>大願</span></span>` : ''}${ruby(x.p, zyOf(x.ci, x.pi))}</p>`; }).join('');
+    // 四十八願：依紙本經書，每一願開頭標小字「第X／大願」（資料在 sutras/*.js 的 vows 欄位）
+    const CN = '〇一二三四五六七八九';
+    const vcn = n => n <= 10 ? (n === 10 ? '十' : CN[n]) : n < 20 ? '十' + (n % 10 ? CN[n % 10] : '') : CN[Math.floor(n / 10)] + '十' + (n % 10 ? CN[n % 10] : '');
+    function vowNo(ci, pi) { const v = s.vows, c = C[ci]; if (!v || !c || c.lit || c.oi !== v.c) return '';
+      const k = pi - v.from; return k >= 0 && k < v.n ? vcn(k + 1) : ''; }
     function zyOf(ci, pi) { if (!st.zy) return null; const c = C[ci];
       if (c.lit) return (pi < 0 ? c.zt : c.zp[pi]).split(' ');
       const Z = window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]; if (!Z) return null; return (pi < 0 ? Z[c.oi].t : Z[c.oi].p[pi]).split(' '); }
