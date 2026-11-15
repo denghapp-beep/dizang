@@ -102,7 +102,10 @@
       const c = C[x.ci], cls = c.lit ? ' class="lit"' : '';
       if (x.head) return `${x.juan ? `<p class="zj-juan" data-t="${esc(s.title)}">${x.juan}</p>` : ''}<h4${cls}>${ruby(c.title, zyOf(x.ci, -1))}</h4>`;
       const vn = vowNo(x.ci, x.pi);
-      return `<p${vn ? ' class="zj-vowp"' : cls}>${vn ? `<span class="zj-vow" aria-label="第${vn}大願"><span>第${vn}</span><span>大願</span></span>` : ''}${ruby(x.p, zyOf(x.ci, x.pi))}</p>`; }).join('');
+      return `<p${vn ? ' class="zj-vowp"' : cls}>${vn ? `<span class="zj-vow" aria-label="第${vn}大願"><span>第${vn}</span><span>大願</span></span>` : ''}${ruby(x.p, zyOf(x.ci, x.pi))}${noteOf(x.ci, x.pi)}</p>`; }).join('');
+    // 校勘註（❶❷）：依紙本，註文接在該段末尾以小字顯示（資料在 sutras/*.js 的 notes 欄位）
+    function noteOf(ci, pi) { const c = C[ci]; if (!s.notes || !c || c.lit) return '';
+      const ns = s.notes.filter(n => n.c === c.oi && n.p === pi); return ns.length ? `<span class="zj-notes">${ns.map(n => esc(n.t)).join('　')}</span>` : ''; }
     // 四十八願：依紙本經書，每一願開頭標小字「第X／大願」（資料在 sutras/*.js 的 vows 欄位）
     const CN = '〇一二三四五六七八九';
     const vcn = n => n <= 10 ? (n === 10 ? '十' : CN[n]) : n < 20 ? '十' + (n % 10 ? CN[n % 10] : '') : CN[Math.floor(n / 10)] + '十' + (n % 10 ? CN[n % 10] : '');
@@ -115,6 +118,7 @@
     // 注音模式：每個字（含標點）都放進同尺寸的格子，字與注音位置一致，不會歪斜
     function zc(c, z) { const t = (z.match(/[ˊˇˋ˙]/) || [''])[0], b = z.replace(/[ˊˇˋ˙]/g, '');
       return `<span class="zw-c"><span class="zw-h">${esc(c)}</span><span class="zw-z n${b.length}">${t === '˙' ? '<em>˙</em>' : ''}${[...b].map(x => `<b>${x}</b>`).join('')}${t && t !== '˙' ? `<i>${t}</i>` : ''}</span></span>`; }
+    const NM = /[❶-❿]/; // 校勘註記號
     const PUNC = /[，。、；：？！「」『』（）《》〈〉—…·．　]/;
     // 避頭尾：句讀與後括號（」』）》〉）不放在一行開頭、前括號（「『（《〈）不放在一行結尾，與相鄰的字綁在一起不拆行
     const NOHEAD = /[，。、；：？！」』）》〉〕】]/, NOTAIL = /[「『（《〈〔【]/;
@@ -122,9 +126,9 @@
       items.forEach(([c, h]) => { if (g.length && (open || NOHEAD.test(c))) g[g.length - 1].push(h); else g.push([h]); open = NOTAIL.test(c); });
       return g.map(x => x.length > 1 ? `<span class="zw-n">${x.join('')}</span>` : x[0]).join(''); }
     function ruby(text, z) { const cs = Array.from(text);
-      if (!z) { if (st.dir !== 'v') return esc(text).replace(/\n/g, '<br>');
-        return text.split('\n').map(line => glue(Array.from(line).map(c => [c, `<span class="k${/[，。、；：？！]/.test(c) ? ' pc' : /[（）「」『』《》〈〉—…〔〕【】]/.test(c) ? ' br' : ''}">${esc(c)}</span>`]))).join('<br>'); }
-      const cell = (c, i) => (z[i] && z[i] !== '_') ? zc(c, z[i]) : (/[（）「」『』《》〈〉—…〔〕【】]/.test(c)
+      if (!z) { if (st.dir !== 'v') return esc(text).replace(/\n/g, '<br>').replace(/[❶-❿]/g, m => `<span class="zj-nm">${m}</span>`);
+        return text.split('\n').map(line => glue(Array.from(line).map(c => [c, NM.test(c) ? `<span class="zj-nm">${c}</span>` : `<span class="k${/[，。、；：？！]/.test(c) ? ' pc' : /[（）「」『』《》〈〉—…〔〕【】]/.test(c) ? ' br' : ''}">${esc(c)}</span>`]))).join('<br>'); }
+      const cell = (c, i) => NM.test(c) ? `<span class="zj-nm">${c}</span>` : (z[i] && z[i] !== '_') ? zc(c, z[i]) : (/[（）「」『』《》〈〉—…〔〕【】]/.test(c)
         // 括號、引號：直排時補一個空的注音欄，與前後漢字同寬，括號才會對齊字的中線（不補會往右偏到注音欄）
         ? `<span class="zw-c zw-p br"><span class="zw-h">${esc(c)}</span>${st.dir === 'v' ? '<span class="zw-z n0" aria-hidden="true"></span>' : ''}</span>`
         : `<span class="zw-c zw-p${/[，。、；：？！]/.test(c) ? ' pc' : ''}"><span class="zw-h">${esc(c)}</span></span>`);

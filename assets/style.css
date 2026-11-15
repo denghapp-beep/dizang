@@ -546,3 +546,8 @@ html.shell-on .music{z-index:3000}
 .zj-vow{display:inline-block;font-size:.4em;line-height:1.25;letter-spacing:0;color:var(--accent);vertical-align:top;margin-inline-end:.35em;font-weight:500;white-space:nowrap}
 .zj-vow>span{display:block}
 .zj-reader.is-v .zj-vow{color:var(--pm);margin-block-end:0;vertical-align:baseline;font-size:calc(var(--zr-size) * .42)}
+
+/* 校勘註（❶❷）*/
+.zj-nm{font-size:.45em;color:var(--accent);vertical-align:super;line-height:0;margin:0 .05em}
+.zj-reader.is-v .zj-nm{vertical-align:baseline}
+.zj-notes{display:block;font-size:.55em;line-height:1.5;color:var(--muted,#888);margin-block-start:.4em}
