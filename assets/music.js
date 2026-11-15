@@ -186,6 +186,9 @@
       gate.querySelector('.enter-go').addEventListener('click', () => { play(); unmuteNow(); if (ready) player.playVideo(); close(); });
       gate.querySelector('.enter-quiet').addEventListener('click', () => { pause(); close(); });
       gate.querySelector('.enter-go').focus();
+      // 入口畫面顯示時就先把播放器載好（不出聲、不播放）。手機瀏覽器只允許「點擊當下」出聲，
+      // 若等點了才開始載入 YouTube，載完時已不算點擊，會被擋成靜音（上次選過靜音進入的訪客就會這樣）。
+      if (!player) loadApi();
     }
     const first = e => {
       if (root.contains(e.target) || e.target.closest('.enter-gate')) return;
