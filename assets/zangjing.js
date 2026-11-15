@@ -24,62 +24,12 @@
       <a class="zj-go" href="https://sites.google.com/view/budduhacomics/%E9%A6%96%E9%A0%81" target="_blank" rel="noopener">${L('前往漫畫專頁', 'Open the comics site', 'Đến trang truyện tranh', 'マンガのページへ', '만화 페이지로')} ↗</a>
       <p class="small">${L('外部網站，內容與著作權屬原作者所有。', 'External site; content and copyright belong to the original author.', 'Trang bên ngoài; nội dung và bản quyền thuộc tác giả.', '外部サイトです。内容と著作権は原作者に帰属します。', '외부 사이트이며 내용과 저작권은 원작자에게 있습니다.')}</p></article>`;
   }
-  /* 經文下載：從站內經文資料直接產生（含前後儀軌、校勘註），不另放檔案，校對更新後下載內容自動同步。 */
-  const SITE = 'https://denghapp-beep.github.io/dizang/fusion/zangjing.html';
-  const who = s => (String(s.translator).replace(/\s*譯\s*$/, '').split(/\s+/).pop() || '');
-  function dlBox(s) {
-    return `<details class="zj-dl"><summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m-4.5-4.5L12 15l4.5-4.5M5 19h14"/></svg><span>${L('下載經文', 'Download', 'Tải kinh', 'ダウンロード', '경문 받기')}</span></summary>
-      <div class="zj-dl-menu">${s.proofed ? `<p class="zj-dl-note">${esc(s.proofed)}</p>` : ''}
-        <button type="button" data-dl="txt"><b>${L('純文字 TXT', 'Plain text (TXT)', 'Văn bản TXT', 'テキスト TXT', '텍스트 TXT')}</b><small>${L('含前後儀軌與校勘註，可複製、編輯', 'With liturgy and collation notes', 'Kèm nghi thức và chú thích', '儀軌・校勘注つき', '의식문·교감주 포함')}</small></button>
-        <button type="button" data-dl="pdf"><b>${L('列印／另存 PDF', 'Print / Save as PDF', 'In / Lưu PDF', '印刷／PDF保存', '인쇄 / PDF 저장')}</b><small>${L('開啟排版頁，選「另存為 PDF」', 'Opens a print layout; choose “Save as PDF”', 'Mở trang in, chọn “Lưu PDF”', '印刷画面で「PDFに保存」', '인쇄 화면에서 “PDF로 저장”')}</small></button>
-        <p class="zj-dl-src">${L('經文依 CBETA 授權，非商業使用，歡迎流通。', 'CBETA license, non‑commercial; please share freely.', 'Theo giấy phép CBETA, phi thương mại.', 'CBETA の許諾により非営利で配布。', 'CBETA 허가, 비상업적 이용.')}</p></div></details>`;
-  }
-  function dlParts(id, s) {
-    const LT = (window.SUTRA_LITURGY || {})[id] || {pre: [], post: []};
-    const nt = (ci, pi) => (s.notes || []).filter(n => n.c === ci && n.p === pi).map(n => n.t);
-    return [...LT.pre.map(c => ({title: c.title, paras: c.paras.map(p => ({p, n: []}))})),
-      ...s.chapters.map((c, ci) => ({title: c.title, main: true, paras: c.paras.map((p, pi) => ({p, n: nt(ci, pi)}))})),
-      ...LT.post.map(c => ({title: c.title, paras: c.paras.map(p => ({p, n: []}))}))];
-  }
-  function dlTxt(id, s) {
-    const out = [s.title, s.translator, ''];
-    if (s.proofed) out.push(s.proofed);
-    out.push(L('經文來源：', 'Source: ') + s.source, L('下載自：地藏菩薩感應文集・藏經閣 ', 'From: ') + SITE + '#' + id, '');
-    for (const c of dlParts(id, s)) {
-      out.push(c.main ? '━━━━━━━━━━　' + c.title + '　━━━━━━━━━━' : '【' + c.title + '】', '');
-      for (const x of c.paras) { out.push(...x.p.split('\n').map(l => '　　' + l)); if (x.n.length) out.push('　　　〔' + x.n.join('　') + '〕'); out.push(''); }
-    }
-    const blob = new Blob(['﻿' + out.join('\r\n')], {type: 'text/plain;charset=utf-8'});
-    const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-    a.download = s.title + (who(s) ? '（' + who(s) + '譯）' : '') + '.txt';
-    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
-  }
-  function dlPdf(id, s) {
-    const w = window.open('', '_blank'); if (!w) return;
-    const body = dlParts(id, s).map(c => `<section${c.main ? ' class="m"' : ''}><h2>${esc(c.title)}</h2>${c.paras.map(x => `<p>${esc(x.p).replace(/\n/g, '<br>')}</p>${x.n.length ? `<p class="n">${x.n.map(esc).join('　')}</p>` : ''}`).join('')}</section>`).join('');
-    w.document.write(`<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>${esc(s.title)}${who(s) ? '（' + esc(who(s)) + '譯）' : ''}</title><style>
-      @page{size:A4;margin:22mm 20mm}body{font:15pt/2 "Noto Serif TC","Songti TC","PMingLiU",serif;color:#222;max-width:46em;margin:auto;padding:24px}
-      header{text-align:center;margin:30px 0 40px}h1{font-size:26pt;letter-spacing:.2em;margin:0}.by{color:#555;letter-spacing:.15em}
-      h2{font-size:15pt;color:#7a5a2e;margin:1.6em 0 .6em}section.m{break-before:page}section.m h2{text-align:center;font-size:18pt;letter-spacing:.2em}
-      p{margin:0 0 .7em;text-align:justify}p.n{font-size:10.5pt;color:#666;line-height:1.7;margin-top:-.3em}
-      .meta{font-size:9.5pt;color:#777;line-height:1.7;border-top:1px solid #ccc;padding-top:10px;margin-top:40px}</style></head><body>
-      <header><h1>${esc(s.title)}</h1><p class="by">${esc(s.translator)}</p></header>${body}
-      <p class="meta">${s.proofed ? esc(s.proofed) + '<br>' : ''}經文來源：${esc(s.source)}<br>下載自：地藏菩薩感應文集・藏經閣 ${SITE}#${id}</p>
-      <script>onload=()=>setTimeout(()=>print(),300)<\/script></body></html>`);
-    w.document.close();
-  }
-  function dlBind(id, s) {
-    const d = panel.querySelector('.zj-dl'); if (!d) return;
-    d.querySelector('[data-dl=txt]').onclick = () => { dlTxt(id, s); d.open = false; };
-    d.querySelector('[data-dl=pdf]').onclick = () => { dlPdf(id, s); d.open = false; };
-    document.addEventListener('click', e => { if (d.open && !d.contains(e.target)) d.open = false; });
-  }
   function sutra(s) {
     const tr = s.translations.filter(t => I.lang === 'zh' || I.lang === 'sc' || t.lang === I.lang || true);
     const own = s.translations.filter(t => t.lang === I.lang);
     const order = own.length ? [...own, ...s.translations.filter(t => t.lang !== I.lang)] : tr;
     return `<article class="zj-sutra">
-      <header class="zj-head"><div><h3>${esc(s.title)}</h3><p class="zj-by">${esc(s.translator)}</p></div>${dlBox(s)}</header>
+      <header class="zj-head"><h3>${esc(s.title)}</h3><p class="zj-by">${esc(s.translator)}</p></header>
       <section class="zj-trans"><h4>${L('海外譯本', 'Translations', 'Bản dịch', '各国語の訳', '번역본')}</h4>
         <p class="small">${L('經文不自行翻譯，以下為海外道場與譯經團體已出版的譯本，點選前往原網站閱讀。', 'We do not translate the sutra ourselves. These are translations published by monasteries and translation groups; each link opens the original site.', 'Chúng tôi không tự dịch kinh. Dưới đây là các bản dịch đã được các đạo tràng và nhóm dịch kinh công bố; bấm để đọc tại trang gốc.', '経典は当サイトで翻訳していません。各地の寺院や翻訳団体が公開している訳を、元のサイトでお読みください。', '경전은 자체 번역하지 않습니다. 사찰과 역경 단체가 펴낸 번역본이며, 원래 사이트에서 읽으실 수 있습니다.')}</p>
         <ul>${order.map(t => `<li><span class="zj-lang">${LN[t.lang] || t.lang}</span><a href="${t.url}" target="_blank" rel="noopener">${esc(t.name)} ↗</a><span class="zj-tby">${esc(t.by)}</span></li>`).join('')}</ul></section>
@@ -151,16 +101,7 @@
     const pageHTML = pg => (pg.items[0].head ? '' : `<p class="zr-runhead">${esc(C[pg.ci].title)}</p>`) + pg.items.map(x => {
       const c = C[x.ci], cls = c.lit ? ' class="lit"' : '';
       if (x.head) return `${x.juan ? `<p class="zj-juan" data-t="${esc(s.title)}">${x.juan}</p>` : ''}<h4${cls}>${ruby(c.title, zyOf(x.ci, -1))}</h4>`;
-      const vn = vowNo(x.ci, x.pi);
-      return `<p${vn ? ' class="zj-vowp"' : cls}>${vn ? `<span class="zj-vow" aria-label="第${vn}大願"><span>第${vn}</span><span>大願</span></span>` : ''}${ruby(x.p, zyOf(x.ci, x.pi))}${noteOf(x.ci, x.pi)}</p>`; }).join('');
-    // 校勘註（❶❷）：依紙本，註文接在該段末尾以小字顯示（資料在 sutras/*.js 的 notes 欄位）
-    function noteOf(ci, pi) { const c = C[ci]; if (!s.notes || !c || c.lit) return '';
-      const ns = s.notes.filter(n => n.c === c.oi && n.p === pi); return ns.length ? `<span class="zj-notes">${ns.map(n => esc(n.t)).join('　')}</span>` : ''; }
-    // 四十八願：依紙本經書，每一願開頭標小字「第X／大願」（資料在 sutras/*.js 的 vows 欄位）
-    const CN = '〇一二三四五六七八九';
-    const vcn = n => n <= 10 ? (n === 10 ? '十' : CN[n]) : n < 20 ? '十' + (n % 10 ? CN[n % 10] : '') : CN[Math.floor(n / 10)] + '十' + (n % 10 ? CN[n % 10] : '');
-    function vowNo(ci, pi) { const v = s.vows, c = C[ci]; if (!v || !c || c.lit || c.oi !== v.c) return '';
-      const k = pi - v.from; return k >= 0 && k < v.n ? vcn(k + 1) : ''; }
+      return `<p${cls}>${ruby(x.p, zyOf(x.ci, x.pi))}</p>`; }).join('');
     function zyOf(ci, pi) { if (!st.zy) return null; const c = C[ci];
       if (c.lit) return (pi < 0 ? c.zt : c.zp[pi]).split(' ');
       const Z = window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]; if (!Z) return null; return (pi < 0 ? Z[c.oi].t : Z[c.oi].p[pi]).split(' '); }
@@ -168,7 +109,6 @@
     // 注音模式：每個字（含標點）都放進同尺寸的格子，字與注音位置一致，不會歪斜
     function zc(c, z) { const t = (z.match(/[ˊˇˋ˙]/) || [''])[0], b = z.replace(/[ˊˇˋ˙]/g, '');
       return `<span class="zw-c"><span class="zw-h">${esc(c)}</span><span class="zw-z n${b.length}">${t === '˙' ? '<em>˙</em>' : ''}${[...b].map(x => `<b>${x}</b>`).join('')}${t && t !== '˙' ? `<i>${t}</i>` : ''}</span></span>`; }
-    const NM = /[❶-❿]/; // 校勘註記號
     const PUNC = /[，。、；：？！「」『』（）《》〈〉—…·．　]/;
     // 避頭尾：句讀與後括號（」』）》〉）不放在一行開頭、前括號（「『（《〈）不放在一行結尾，與相鄰的字綁在一起不拆行
     const NOHEAD = /[，。、；：？！」』）》〉〕】]/, NOTAIL = /[「『（《〈〔【]/;
@@ -176,9 +116,9 @@
       items.forEach(([c, h]) => { if (g.length && (open || NOHEAD.test(c))) g[g.length - 1].push(h); else g.push([h]); open = NOTAIL.test(c); });
       return g.map(x => x.length > 1 ? `<span class="zw-n">${x.join('')}</span>` : x[0]).join(''); }
     function ruby(text, z) { const cs = Array.from(text);
-      if (!z) { if (st.dir !== 'v') return esc(text).replace(/\n/g, '<br>').replace(/[❶-❿]/g, m => `<span class="zj-nm">${m}</span>`);
-        return text.split('\n').map(line => glue(Array.from(line).map(c => [c, NM.test(c) ? `<span class="zj-nm">${c}</span>` : `<span class="k${/[，。、；：？！]/.test(c) ? ' pc' : /[（）「」『』《》〈〉—…〔〕【】]/.test(c) ? ' br' : ''}">${esc(c)}</span>`]))).join('<br>'); }
-      const cell = (c, i) => NM.test(c) ? `<span class="zj-nm">${c}</span>` : (z[i] && z[i] !== '_') ? zc(c, z[i]) : (/[（）「」『』《》〈〉—…〔〕【】]/.test(c)
+      if (!z) { if (st.dir !== 'v') return esc(text).replace(/\n/g, '<br>');
+        return text.split('\n').map(line => glue(Array.from(line).map(c => [c, `<span class="k${/[，。、；：？！]/.test(c) ? ' pc' : /[（）「」『』《》〈〉—…〔〕【】]/.test(c) ? ' br' : ''}">${esc(c)}</span>`]))).join('<br>'); }
+      const cell = (c, i) => (z[i] && z[i] !== '_') ? zc(c, z[i]) : (/[（）「」『』《》〈〉—…〔〕【】]/.test(c)
         // 括號、引號：直排時補一個空的注音欄，與前後漢字同寬，括號才會對齊字的中線（不補會往右偏到注音欄）
         ? `<span class="zw-c zw-p br"><span class="zw-h">${esc(c)}</span>${st.dir === 'v' ? '<span class="zw-z n0" aria-hidden="true"></span>' : ''}</span>`
         : `<span class="zw-c zw-p${/[，。、；：？！]/.test(c) ? ' pc' : ''}"><span class="zw-h">${esc(c)}</span></span>`);
@@ -327,7 +267,6 @@
     root.querySelectorAll('[data-tab]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === t.id)));
     panel.innerHTML = t.sutra ? sutra(t.sutra) : comics();
     if (t.sutra) reader(t.id, t.sutra, panel.querySelector('.zj-reader'));
-    if (t.sutra) dlBind(t.id, t.sutra);
   }
   root.querySelectorAll('[data-tab]').forEach(b => b.addEventListener('click', () => { history.replaceState(null, '', '#' + b.dataset.tab); show(b.dataset.tab); }));
   const h = location.hash.slice(1); show(TABS.some(t => t.id === h) ? h : TABS[0].id);
