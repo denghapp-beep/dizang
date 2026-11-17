@@ -211,9 +211,11 @@
     function measure() { page.style.clipPath = ''; page.scrollLeft = 0; let sp = page.querySelector('.zr-tail'); if (!sp) { sp = document.createElement('div'); sp.className = 'zr-tail'; sp.setAttribute('aria-hidden', 'true'); page.appendChild(sp); } sp.style.width = page.clientWidth + 'px'; const R = page.getBoundingClientRect(), W = page.clientWidth, raw = [];
       // 以每個字的格子位置分行（同一行的字右緣對齊），不受注音、聲調小框影響
       const tol = 3, cols = [];
-      page.querySelectorAll('.zw-c,.k').forEach(el => { const q = el.getBoundingClientRect(); if (q.width < 1) return;
-        const a = R.right - q.right, b = R.right - q.left, h = !!el.closest('h4,.zj-juan'); let c = cols.find(x => Math.abs(x[0] - a) < tol);
-        if (c) { c[1] = Math.max(c[1], b); c[2] = c[2] && h; } else cols.push([a, b, h]); });
+      const add = (q, h) => { if (q.width < 1) return; const a = R.right - q.right, b = R.right - q.left; let c = cols.find(x => Math.abs(x[0] - a) < tol);
+        if (c) { c[1] = Math.max(c[1], b); c[2] = c[2] && h; } else cols.push([a, b, h]); };
+      page.querySelectorAll('.zw-c,.k').forEach(el => add(el.getBoundingClientRect(), !!el.closest('h4,.zj-juan')));
+      // 校勘註是一般文字（不在 .zw-c 內），逐行量，避免換屏時被裁掉半行
+      page.querySelectorAll('.zj-notes').forEach(el => { for (const q of el.getClientRects()) add(q, false); });
       cols.sort((x, y) => x[0] - y[0]); const ln = [];
       for (const c of cols) { const l = ln[ln.length - 1]; if (l && c[0] < l[1] - 1) { l[1] = Math.max(l[1], c[1]); l[2] = l[2] && c[2]; } else ln.push(c); }
       // 分屏；品名（標題行）不留在一屏最後，跟著下一屏的內文
