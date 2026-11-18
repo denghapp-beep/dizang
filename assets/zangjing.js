@@ -31,37 +31,54 @@
     return `<details class="zj-dl"><summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m-4.5-4.5L12 15l4.5-4.5M5 19h14"/></svg><span>${L('下載經文', 'Download', 'Tải kinh', 'ダウンロード', '경문 받기')}</span></summary>
       <div class="zj-dl-menu">${s.proofed ? `<p class="zj-dl-note">${esc(s.proofed)}</p>` : ''}
         <button type="button" data-dl="txt"><b>${L('純文字 TXT', 'Plain text (TXT)', 'Văn bản TXT', 'テキスト TXT', '텍스트 TXT')}</b><small>${L('含前後儀軌與校勘註，可複製、編輯', 'With liturgy and collation notes', 'Kèm nghi thức và chú thích', '儀軌・校勘注つき', '의식문·교감주 포함')}</small></button>
+        <button type="button" data-dl="ztxt"><b>${L('注音版 TXT', 'With Zhuyin (TXT)', 'Kèm chú âm (TXT)', '注音つき TXT', '주음 포함 TXT')}</b><small>${L('每字後附注音，依紙本校對', 'Bopomofo after each character', 'Chú âm sau mỗi chữ', '各字の後に注音', '글자마다 주음')}</small></button>
+        <button type="button" data-dl="zpdf"><b>${L('注音版 PDF', 'With Zhuyin (PDF)', 'Kèm chú âm (PDF)', '注音つき PDF', '주음 포함 PDF')}</b><small>${L('注音標在字上方，可列印', 'Zhuyin above characters, printable', 'Chú âm trên chữ, in được', '文字の上に注音', '글자 위에 주음')}</small></button>
         <button type="button" data-dl="pdf"><b>${L('列印／另存 PDF', 'Print / Save as PDF', 'In / Lưu PDF', '印刷／PDF保存', '인쇄 / PDF 저장')}</b><small>${L('開啟排版頁，選「另存為 PDF」', 'Opens a print layout; choose “Save as PDF”', 'Mở trang in, chọn “Lưu PDF”', '印刷画面で「PDFに保存」', '인쇄 화면에서 “PDF로 저장”')}</small></button>
         <p class="zj-dl-src">${L('經文依 CBETA 授權，非商業使用，歡迎流通。', 'CBETA license, non‑commercial; please share freely.', 'Theo giấy phép CBETA, phi thương mại.', 'CBETA の許諾により非営利で配布。', 'CBETA 허가, 비상업적 이용.')}</p></div></details>`;
   }
   function dlParts(id, s) {
     const LT = (window.SUTRA_LITURGY || {})[id] || {pre: [], post: []};
+    const ZY = (window.SUTRA_ZHUYIN || {})[id] || [];
+    const sp = x => (x ? x.split(' ') : null);
     const nt = (ci, pi) => (s.notes || []).filter(n => n.c === ci && n.p === pi).map(n => n.t);
-    return [...LT.pre.map(c => ({title: c.title, paras: c.paras.map(p => ({p, n: []}))})),
-      ...s.chapters.map((c, ci) => ({title: c.title, main: true, paras: c.paras.map((p, pi) => ({p, n: nt(ci, pi)}))})),
-      ...LT.post.map(c => ({title: c.title, paras: c.paras.map(p => ({p, n: []}))}))];
+    const lit = c => ({title: c.title, tz: sp(c.zt), paras: c.paras.map((p, pi) => ({p, z: sp(c.zp && c.zp[pi]), n: []}))});
+    return [...LT.pre.map(lit),
+      ...s.chapters.map((c, ci) => ({title: c.title, tz: sp(ZY[ci] && ZY[ci].t), main: true, paras: c.paras.map((p, pi) => ({p, z: sp(ZY[ci] && ZY[ci].p[pi]), n: nt(ci, pi)}))})),
+      ...LT.post.map(lit)];
   }
-  function dlTxt(id, s) {
+  // 注音：一字一 token（標點、換行為 "_"），字數與 token 數不符時不加注音，避免錯位
+  const zyOk = (t, z) => z && z.length === [...t].length;
+  const zyTxt = (t, z) => zyOk(t, z) ? [...t].map((ch, i) => z[i] && z[i] !== '_' ? ch + '(' + z[i] + ')' : ch).join('') : t;
+  const zyHtml = (t, z) => zyOk(t, z) ? [...t].map((ch, i) => ch === '\n' ? '<br>' : z[i] && z[i] !== '_' ? `<ruby>${esc(ch)}<rt>${esc(z[i])}</rt></ruby>` : esc(ch)).join('') : esc(t).replace(/\n/g, '<br>');
+  function dlZy(id, cb) {
+    if ((window.SUTRA_ZHUYIN || {})[id]) return cb();
+    const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=15';
+    sc.onload = cb; sc.onerror = () => alert('注音資料載入失敗，請稍後再試'); document.body.appendChild(sc);
+  }
+  function dlTxt(id, s, zy) {
+    const T = (t, z) => zy ? zyTxt(t, z) : t;
     const out = [s.title, s.translator, ''];
     if (s.proofed) out.push(s.proofed);
     out.push(L('經文來源：', 'Source: ') + s.source, L('下載自：地藏菩薩感應文集・藏經閣 ', 'From: ') + SITE + '#' + id, '');
     for (const c of dlParts(id, s)) {
-      out.push(c.main ? '━━━━━━━━━━　' + c.title + '　━━━━━━━━━━' : '【' + c.title + '】', '');
-      for (const x of c.paras) { out.push(...x.p.split('\n').map(l => '　　' + l)); if (x.n.length) out.push('　　　〔' + x.n.join('　') + '〕'); out.push(''); }
+      const ti = T(c.title, c.tz);
+      out.push(c.main ? '━━━━━━━━━━　' + ti + '　━━━━━━━━━━' : '【' + ti + '】', '');
+      for (const x of c.paras) { out.push(...T(x.p, x.z).split('\n').map(l => '　　' + l)); if (x.n.length) out.push('　　　〔' + x.n.join('　') + '〕'); out.push(''); }
     }
     const blob = new Blob(['﻿' + out.join('\r\n')], {type: 'text/plain;charset=utf-8'});
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-    a.download = s.title + (who(s) ? '（' + who(s) + '譯）' : '') + '.txt';
+    a.download = s.title + (who(s) ? '（' + who(s) + '譯）' : '') + (zy ? '（注音版）' : '') + '.txt';
     document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
   }
-  function dlPdf(id, s) {
-    const w = window.open('', '_blank'); if (!w) return;
-    const body = dlParts(id, s).map(c => `<section${c.main ? ' class="m"' : ''}><h2>${esc(c.title)}</h2>${c.paras.map(x => `<p>${esc(x.p).replace(/\n/g, '<br>')}</p>${x.n.length ? `<p class="n">${x.n.map(esc).join('　')}</p>` : ''}`).join('')}</section>`).join('');
-    w.document.write(`<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>${esc(s.title)}${who(s) ? '（' + esc(who(s)) + '譯）' : ''}</title><style>
+  function dlPdf(id, s, zy, w) {
+    w = w || window.open('', '_blank'); if (!w) return;
+    const H = (t, z) => zy ? zyHtml(t, z) : esc(t).replace(/\n/g, '<br>');
+    const body = dlParts(id, s).map(c => `<section${c.main ? ' class="m"' : ''}><h2>${H(c.title, c.tz)}</h2>${c.paras.map(x => `<p${zy ? ' class="z"' : ''}>${H(x.p, x.z)}</p>${x.n.length ? `<p class="n">${x.n.map(esc).join('　')}</p>` : ''}`).join('')}</section>`).join('');
+    w.document.write(`<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>${esc(s.title)}${who(s) ? '（' + esc(who(s)) + '譯）' : ''}${zy ? '（注音版）' : ''}</title><style>
       @page{size:A4;margin:22mm 20mm}body{font:15pt/2 "Noto Serif TC","Songti TC","PMingLiU",serif;color:#222;max-width:46em;margin:auto;padding:24px}
       header{text-align:center;margin:30px 0 40px}h1{font-size:26pt;letter-spacing:.2em;margin:0}.by{color:#555;letter-spacing:.15em}
       h2{font-size:15pt;color:#7a5a2e;margin:1.6em 0 .6em}section.m{break-before:page}section.m h2{text-align:center;font-size:18pt;letter-spacing:.2em}
-      p{margin:0 0 .7em;text-align:justify}p.n{font-size:10.5pt;color:#666;line-height:1.7;margin-top:-.3em}
+      p{margin:0 0 .7em;text-align:justify}p.z{line-height:2.6}rt{font-size:.42em;letter-spacing:0;font-family:"BpmfZihiKaiStd","Noto Sans TC","PingFang TC",sans-serif}p.n{font-size:10.5pt;color:#666;line-height:1.7;margin-top:-.3em}
       .meta{font-size:9.5pt;color:#777;line-height:1.7;border-top:1px solid #ccc;padding-top:10px;margin-top:40px}</style></head><body>
       <header><h1>${esc(s.title)}</h1><p class="by">${esc(s.translator)}</p></header>${body}
       <p class="meta">${s.proofed ? esc(s.proofed) + '<br>' : ''}經文來源：${esc(s.source)}<br>下載自：地藏菩薩感應文集・藏經閣 ${SITE}#${id}</p>
@@ -72,6 +89,8 @@
     const d = panel.querySelector('.zj-dl'); if (!d) return;
     d.querySelector('[data-dl=txt]').onclick = () => { dlTxt(id, s); d.open = false; };
     d.querySelector('[data-dl=pdf]').onclick = () => { dlPdf(id, s); d.open = false; };
+    d.querySelector('[data-dl=ztxt]').onclick = () => { d.open = false; dlZy(id, () => dlTxt(id, s, true)); };
+    d.querySelector('[data-dl=zpdf]').onclick = () => { d.open = false; const w = window.open('', '_blank'); if (!w) return; dlZy(id, () => dlPdf(id, s, true, w)); };
     document.addEventListener('click', e => { if (d.open && !d.contains(e.target)) d.open = false; });
   }
   function sutra(s) {
