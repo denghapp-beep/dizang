@@ -49,7 +49,29 @@
   // 注音：一字一 token（標點、換行為 "_"），字數與 token 數不符時不加注音，避免錯位
   const zyOk = (t, z) => z && z.length === [...t].length;
   const zyTxt = (t, z) => zyOk(t, z) ? [...t].map((ch, i) => z[i] && z[i] !== '_' ? ch + '(' + z[i] + ')' : ch).join('') : t;
-  const zyHtml = (t, z) => zyOk(t, z) ? [...t].map((ch, i) => ch === '\n' ? '<br>' : z[i] && z[i] !== '_' ? `<ruby>${esc(ch)}<rt>${esc(z[i])}</rt></ruby>` : esc(ch)).join('') : esc(t).replace(/\n/g, '<br>');
+  // 直排：每字一格，注音在字右側一欄，聲調標在注音右邊（同閱讀器、紙本）
+  const zyCell = (ch, z) => { if (ch === '\n') return '<br>';
+    if (!z || z === '_') return `<span class="c p"><span class="h">${esc(ch)}</span><span class="z"></span></span>`;
+    const t = (z.match(/[ˊˇˋ˙]/) || [''])[0], b = z.replace(/[ˊˇˋ˙]/g, '');
+    return `<span class="c"><span class="h">${esc(ch)}</span><span class="z">${t === '˙' ? '<em>˙</em>' : ''}${[...b].map(x => `<b>${x}</b>`).join('')}${t && t !== '˙' ? `<i>${t}</i>` : ''}</span></span>`; };
+  const zyHtml = (t, z) => zyOk(t, z) ? [...t].map((ch, i) => zyCell(ch, z[i])).join('') : esc(t).replace(/\n/g, '<br>');
+  // 列印頁自行分頁：直排長文交給瀏覽器分頁常只印出第一頁或錯頁，所以逐頁排滿再換頁
+  function dlPager() {
+    const src = document.getElementById('src'), out = document.getElementById('out');
+    let pg; const newPage = () => { pg = document.createElement('div'); pg.className = 'pg'; out.appendChild(pg); };
+    const over = () => pg.scrollWidth > pg.clientWidth + 1;
+    newPage();
+    for (const blk of [...src.children]) {
+      if (blk.classList.contains('brk') && pg.childNodes.length) newPage();
+      pg.appendChild(blk); if (!over()) continue;
+      pg.removeChild(blk);
+      const kids = [...blk.childNodes]; let cur = blk.cloneNode(false); pg.appendChild(cur);
+      if (blk.tagName === 'H2' || blk.tagName === 'HEADER') { pg.removeChild(cur); newPage(); pg.appendChild(blk); continue; }
+      for (const k of kids) { cur.appendChild(k);
+        if (over()) { cur.removeChild(k); if (!cur.childNodes.length) pg.removeChild(cur); newPage(); cur = blk.cloneNode(false); cur.classList.add('cont'); pg.appendChild(cur); cur.appendChild(k); } }
+    }
+    src.remove(); setTimeout(() => print(), 300);
+  }
   function dlZy(id, cb) {
     if ((window.SUTRA_ZHUYIN || {})[id]) return cb();
     const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=15';
@@ -73,16 +95,24 @@
   function dlPdf(id, s, zy, w) {
     w = w || window.open('', '_blank'); if (!w) return;
     const H = (t, z) => zy ? zyHtml(t, z) : esc(t).replace(/\n/g, '<br>');
-    const body = dlParts(id, s).map(c => `<section${c.main ? ' class="m"' : ''}><h2>${H(c.title, c.tz)}</h2>${c.paras.map(x => `<p${zy ? ' class="z"' : ''}>${H(x.p, x.z)}</p>${x.n.length ? `<p class="n">${x.n.map(esc).join('　')}</p>` : ''}`).join('')}</section>`).join('');
+    const body = dlParts(id, s).map(c => `<h2${c.main ? ' class="m brk"' : ''}>${H(c.title, c.tz)}</h2>${c.paras.map(x => `<p>${H(x.p, x.z)}</p>${x.n.length ? `<p class="n">${x.n.map(esc).join('　')}</p>` : ''}`).join('')}`).join('');
     w.document.write(`<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>${esc(s.title)}${who(s) ? '（' + esc(who(s)) + '譯）' : ''}${zy ? '（注音版）' : ''}</title><style>
-      @page{size:A4;margin:22mm 20mm}body{font:15pt/2 "Noto Serif TC","Songti TC","PMingLiU",serif;color:#222;max-width:46em;margin:auto;padding:24px}
-      header{text-align:center;margin:30px 0 40px}h1{font-size:26pt;letter-spacing:.2em;margin:0}.by{color:#555;letter-spacing:.15em}
-      h2{font-size:15pt;color:#7a5a2e;margin:1.6em 0 .6em}section.m{break-before:page}section.m h2{text-align:center;font-size:18pt;letter-spacing:.2em}
-      p{margin:0 0 .7em;text-align:justify}p.z{line-height:2.6}rt{font-size:.42em;letter-spacing:0;font-family:"BpmfZihiKaiStd","Noto Sans TC","PingFang TC",sans-serif}p.n{font-size:10.5pt;color:#666;line-height:1.7;margin-top:-.3em}
-      .meta{font-size:9.5pt;color:#777;line-height:1.7;border-top:1px solid #ccc;padding-top:10px;margin-top:40px}</style></head><body>
-      <header><h1>${esc(s.title)}</h1><p class="by">${esc(s.translator)}</p></header>${body}
-      <p class="meta">${s.proofed ? esc(s.proofed) + '<br>' : ''}經文來源：${esc(s.source)}<br>下載自：地藏菩薩感應文集・藏經閣 ${SITE}#${id}</p>
-      <script>onload=()=>setTimeout(()=>print(),300)<\/script></body></html>`);
+      @page{size:A4;margin:14mm}html,body{margin:0;padding:0}body{font:${zy ? 16 : 17}pt/1.6 "Noto Serif TC","Songti TC","PMingLiU",serif;color:#222}
+      #src{position:absolute;visibility:hidden}
+      .pg{box-sizing:border-box;width:182mm;height:269mm;overflow:hidden;writing-mode:vertical-rl;break-after:page;page-break-after:always;margin:0 auto}
+      @media screen{body{background:#ddd}.pg{background:#fff;margin:12px auto;padding:0;box-shadow:0 1px 4px #0003}}
+      header{margin-left:2em;text-align:center}h1{font-size:24pt;letter-spacing:.2em;margin:0 0 0 .4em}.by{color:#555;letter-spacing:.15em;margin:0}
+      h2{font-size:1em;color:#7a5a2e;margin:0 0 0 .8em;font-weight:700}h2.m{font-size:1.15em;letter-spacing:.15em}
+      p{margin:0 0 0 .5em;text-indent:${zy ? 0 : '2em'}}p.cont{text-indent:0}p.n{font-size:10pt;color:#666;line-height:1.5}
+      .c{display:inline-flex;writing-mode:horizontal-tb;align-items:center;height:1.18em;vertical-align:top}
+      .h{display:block;width:1em;line-height:1;text-align:center}
+      .z{position:relative;display:flex;flex-direction:column;justify-content:center;align-self:stretch;width:1.5em;font:400 .34em/1 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;color:#555}
+      .z b{display:block;width:1em;text-align:center;font-weight:400;line-height:1.05}.z em{display:block;width:1em;text-align:center;font-style:normal;line-height:.8}
+      .z i{position:absolute;left:1.08em;top:50%;transform:translateY(-15%);font-style:normal;line-height:1}
+      .meta{font-size:9pt;color:#777;line-height:1.6;margin-right:2em}</style></head><body>
+      <div id="src"><header class="brk"><h1>${esc(s.title)}</h1><p class="by">${esc(s.translator)}</p></header>${body}
+      <p class="meta brk">${s.proofed ? esc(s.proofed) + '<br>' : ''}經文來源：${esc(s.source)}<br>下載自：地藏菩薩感應文集・藏經閣 ${SITE}#${id}</p></div><div id="out"></div>
+      <script>(document.fonts ? document.fonts.ready : Promise.resolve()).then(${dlPager.toString()})<\/script></body></html>`);
     w.document.close();
   }
   function dlBind(id, s) {
