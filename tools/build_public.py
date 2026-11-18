@@ -28,10 +28,10 @@ for page in ['index.html', 'reader.html', 'zhai.html', 'contact.html', 'zangjing
     h = re.sub(r'<a href="\.\./index\.html">比較三款範本 ↗</a>', '', h)                 # 頁尾比較連結
     if page == 'index.html':
         h = h.replace('<title>地藏菩薩感應文集 · 玄金合璧</title>', '<title>地藏菩薩感應文集</title>')
-    h = h.replace('<head>', '<head><meta property="og:title" content="地藏菩薩感應文集"><meta property="og:description" content="五十六篇地藏菩薩感應紀錄、提問、白話翻譯與修行體會。"><meta property="og:image" content="https://denghapp-beep.github.io/dizang/assets/og.jpg"><meta property="og:url" content="https://denghapp-beep.github.io/dizang/"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:type" content="website">', 1)
+    h = h.replace('<head>', '<head><meta property="og:title" content="地藏菩薩感應文集"><meta property="og:description" content="五十七篇地藏菩薩感應紀錄、提問、白話翻譯與修行體會。"><meta property="og:image" content="https://denghapp-beep.github.io/dizang/assets/og.jpg"><meta property="og:url" content="https://denghapp-beep.github.io/dizang/"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:type" content="website">', 1)
     open(os.path.join(dist, 'fusion', page), 'w', encoding='utf-8').write(h)
 redirect = '''<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>地藏菩薩感應文集</title><meta name="description" content="地藏菩薩感應文集：五十六篇感應紀錄、提問、白話翻譯與修行體會。">
+<title>地藏菩薩感應文集</title><meta name="description" content="地藏菩薩感應文集：五十七篇感應紀錄、提問、白話翻譯與修行體會。">
 <meta property="og:title" content="地藏菩薩感應文集"><meta property="og:image" content="https://denghapp-beep.github.io/dizang/assets/og.jpg"><meta property="og:url" content="https://denghapp-beep.github.io/dizang/">
 <link rel="icon" href="assets/lotus.svg" type="image/svg+xml"><meta http-equiv="refresh" content="0; url=fusion/index.html">
 <script>location.replace('fusion/index.html' + location.search + location.hash);</script></head>

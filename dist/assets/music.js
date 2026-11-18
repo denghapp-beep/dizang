@@ -25,7 +25,9 @@
   const TRACKS = [
     {id:'180E05O2xWk', title:T('南無地藏王菩薩聖號','Namo Ksitigarbha Bodhisattva (chant)'), credit:'TheCYH99', start:73},
     {id:'8E6H7neQt8I', title:T('佛光山梵唄《普門品》','Fo Guang Shan chant: Universal Gate Chapter'), credit:T('佛光山梵唄讚頌團－如是我聞','Fo Guang Shan Buddhist Hymn Choir'), start:0},
-    {id:'OHE3cQ1rW7Y', title:T('《地藏王菩薩》路勇演唱','“Ksitigarbha Bodhisattva” sung by Lu Yong','“Địa Tạng Vương Bồ Tát” – Lộ Dũng trình bày'), credit:'佛弟子', start:0}
+    {id:'OHE3cQ1rW7Y', title:T('《地藏王菩薩》路勇演唱','“Ksitigarbha Bodhisattva” sung by Lu Yong','“Địa Tạng Vương Bồ Tát” – Lộ Dũng trình bày'), credit:'佛弟子', start:0},
+    {id:'5XZJZ2EEfYg', title:T('地藏菩薩滅定業真言','Ksitigarbha Mantra for Eliminating Fixed Karma'), credit:'諦聽禪雨', start:29},
+    {id:'a_8fUGc3tfc', title:T('南無阿彌陀佛聖號（六字四音）','Namo Amitabha Buddha (chant)'), credit:'靜雅佛音', start:0}
   ];
   const DEFAULT_VOLUME = 5;            // 0–100；預設最低、有聲音即可
   const KEY = 'ksitigarbha-music-v1';  // 偏好（開關、曲目、音量）存於本機
@@ -184,6 +186,9 @@
       gate.querySelector('.enter-go').addEventListener('click', () => { play(); unmuteNow(); if (ready) player.playVideo(); close(); });
       gate.querySelector('.enter-quiet').addEventListener('click', () => { pause(); close(); });
       gate.querySelector('.enter-go').focus();
+      // 入口畫面顯示時就先把播放器載好（不出聲、不播放）。手機瀏覽器只允許「點擊當下」出聲，
+      // 若等點了才開始載入 YouTube，載完時已不算點擊，會被擋成靜音（上次選過靜音進入的訪客就會這樣）。
+      if (!player) loadApi();
     }
     const first = e => {
       if (root.contains(e.target) || e.target.closest('.enter-gate')) return;
