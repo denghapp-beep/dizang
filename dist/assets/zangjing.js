@@ -167,11 +167,28 @@
       page.scrollLeft = -o; const real = Math.abs(page.scrollLeft); const nx = offs[scr + 1]; page.style.clipPath = `inset(0 0 0 ${Math.max(0, W - ((nx !== undefined ? (e + nx) / 2 : e + 2) - real))}px)`;
       const k = offs.length; $('.zr-num').textContent = `${st.page + 1} / ${N}` + (k > 1 ? `（本頁 ${scr + 1}/${k}）` : '');
       $('.zr-prev').disabled = st.page === 0 && scr === 0; $('.zr-next').disabled = st.page === N - 1 && scr >= k - 1; }
+    // 字型（罕用字、校勘小字的字型切片）可能在分屏量好之後才載入，行寬會變，原本算好的分屏位置就偏了，
+    // 造成畫面邊緣的行被切半。翻屏前與字型載入後都重新量一次，並保持停在原本那一行。
+    function remeasure() { if (st.dir !== 'v') return; const o = offs[scr] || 0; measure();
+      let i = 0; while (i + 1 < offs.length && offs[i + 1] <= o + 2) i++; scr = i; showScr(); }
+    if (document.fonts) document.fonts.addEventListener('loadingdone', () => remeasure());
+    // 平板瀏覽器收放網址列、工具列時，閱讀區高度會變（不一定觸發 resize），每行字數跟著變，也要重新量
+    if ('ResizeObserver' in window) { let rh = 0, rt = 0; new ResizeObserver(() => { const h = page.clientHeight; if (st.dir !== 'v' || h === rh) return; rh = h; clearTimeout(rt); rt = setTimeout(() => { fitV(); remeasure(); }, 120); }).observe(page); }
     function screenV(dir) { // dir 1＝往後讀（往左），-1＝往前
-      if (dir > 0) { if (scr < offs.length - 1) { scr++; showScr(); } else if (st.page < N - 1) { toEnd = false; go(st.page + 1, false); } }
-      else { if (scr > 0) { scr--; showScr(); } else if (st.page > 0) { toEnd = true; go(st.page - 1, false); toEnd = false; } } }
+      if (st.dir === 'v') { const o = offs[scr] || 0; measure(); let i = 0; while (i + 1 < offs.length && offs[i + 1] <= o + 2) i++; scr = i; }
+      if (dir > 0) { if (scr < offs.length - 1) { scr++; showScr(); } else if (st.page < N - 1) { toEnd = false; go(st.page + 1, false); } else showScr(); }
+      else { if (scr > 0) { scr--; showScr(); } else if (st.page > 0) { toEnd = true; go(st.page - 1, false); toEnd = false; } else showScr(); } }
+    // 經書模式時多放一筆瀏覽紀錄：平板／手機從螢幕邊緣往右滑翻頁時，容易被瀏覽器當成「上一頁」手勢，
+    // 整個跳回網站首頁。有這筆紀錄後，返回只會退到這一筆（留在經書模式），不會離開讀經畫面。
+    let histGuard = false, histSkip = false;
+    function guardHist(V) {
+      if (V && !histGuard) { histGuard = true; try { history.pushState({zrv: 1}, ''); } catch {} }
+      else if (!V && histGuard) { histGuard = false; if (history.state && history.state.zrv) { histSkip = true; history.back(); } } }
+    addEventListener('popstate', () => {
+      if (histSkip) { histSkip = false; return; }
+      if (st.dir === 'v' && histGuard) { try { history.pushState({zrv: 1}, ''); } catch {} } });
     function render(scrollTop) {
-      const V = st.dir === 'v'; box.classList.toggle('is-v', V); document.documentElement.classList.toggle('zr-lock', V); box.dataset.bg = st.bg; $('.zr-bg').value = st.bg; box.dataset.fg = st.fg || 0; $('.zr-fg').value = st.fg || 0; $('.zr-dir').setAttribute('aria-pressed', String(V)); $('.zr-mode').hidden = V;
+      const V = st.dir === 'v'; guardHist(V); box.classList.toggle('is-v', V); document.documentElement.classList.toggle('zr-lock', V); box.dataset.bg = st.bg; $('.zr-bg').value = st.bg; box.dataset.fg = st.fg || 0; $('.zr-fg').value = st.fg || 0; $('.zr-dir').setAttribute('aria-pressed', String(V)); $('.zr-mode').hidden = V;
       box.classList.toggle('is-scroll', st.mode === 'scroll' && !V);
       box.classList.toggle('is-zy', !!st.zy); $('.zr-zy').setAttribute('aria-pressed', String(!!st.zy));
       page.style.setProperty('--zr-size', st.size + 'px');
@@ -185,7 +202,8 @@
         if (V) { fitV(); const c = C[pages[st.page].ci], up = s.juan.length < 2 ? null : c.lit ? !LT.post.includes(c) : c.oi < s.juan[1][0];
           $('.zb-title').textContent = `《${s.title}${up === null ? '' : up ? '卷上' : '卷下'}》`; $('.zb-no').textContent = cnum(st.page + 1); } else page.style.width = '';
         if (scrollTop !== false && !V) box.scrollIntoView({block: 'start'});
-        if (V) { measure(); scr = toEnd ? offs.length - 1 : 0; showScr(); } else page.style.clipPath = '';
+        if (V) { measure(); scr = toEnd ? offs.length - 1 : 0; showScr(); clearTimeout(render.t1); clearTimeout(render.t2);
+          render.t1 = setTimeout(remeasure, 300); render.t2 = setTimeout(remeasure, 1200); } else page.style.clipPath = '';
       }
       sync();
     }
