@@ -62,6 +62,26 @@ for kind in ('ref', 'manual', 'ddm'):
             bad.append(f'{f.name}: [{c},{p},{i}] 應為「{ch}」，現為「{src[i] if i < len(src) else "（超出）"}」')
             continue
         (res[c]['t'] if p == -1 else res[c]['p'][p])[i] = z
+# 紙本規則（依紙本逐詞校對；以詞語脈絡定位，不靠字的位置；只套用到 until 指定的紙本涵蓋範圍）
+# tools/zhuyin_<id>_paper_rules.json: {"until":[章,段],"rules":[[詞,詞內第幾字,"注音"],…]}，最後套用、優先於 ddm
+_pf = R / 'tools' / f'zhuyin_{sid}_paper_rules.json'
+if _pf.exists():
+    _pr = json.loads(_pf.read_text(encoding='utf8'))
+    _uc, _up = _pr['until']
+    for _pat, _off, _z in _pr['rules']:
+        _hit = 0
+        for _c, _chap in enumerate(S['chapters']):
+            for _p, _para in enumerate(_chap['paras']):
+                if _c > _uc or (_c == _uc and _p > _up):
+                    continue
+                _t = _para.replace('\n', '　')
+                _i = _t.find(_pat)
+                while _i >= 0:
+                    res[_c]['p'][_p][_i + _off] = _z
+                    _hit += 1
+                    _i = _t.find(_pat, _i + 1)
+        if not _hit:
+            bad.append(f'{_pf.name}: 找不到「{_pat}」')
 if bad:
     sys.exit('校對紀錄與經文對不上（經文可能改過字），請先更新紀錄檔：\n' + '\n'.join(bad))
 j = lambda a: ' '.join(x or '_' for x in a)
