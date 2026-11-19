@@ -67,21 +67,25 @@ for kind in ('ref', 'manual', 'ddm'):
 _pf = R / 'tools' / f'zhuyin_{sid}_paper_rules.json'
 if _pf.exists():
     _pr = json.loads(_pf.read_text(encoding='utf8'))
-    _uc, _up = _pr['until']
-    for _pat, _off, _z in _pr['rules']:
-        _hit = 0
-        for _c, _chap in enumerate(S['chapters']):
-            for _p, _para in enumerate(_chap['paras']):
-                if _c > _uc or (_c == _uc and _p > _up):
-                    continue
-                _t = _para.replace('\n', '　')
-                _i = _t.find(_pat)
-                while _i >= 0:
-                    res[_c]['p'][_p][_i + _off] = _z
-                    _hit += 1
-                    _i = _t.find(_pat, _i + 1)
-        if not _hit:
-            bad.append(f'{_pf.name}: 找不到「{_pat}」')
+    # 紙本涵蓋範圍可能不連續：頂層 until/rules 為第一段（從頭起），sections 為其後各段 {"from","until","rules"}
+    _secs = [{'from': [0, 0], 'until': _pr['until'], 'rules': _pr['rules']}] + _pr.get('sections', [])
+    for _sec in _secs:
+        _fc, _fp = _sec['from']
+        _uc, _up = _sec['until']
+        for _pat, _off, _z in _sec['rules']:
+            _hit = 0
+            for _c, _chap in enumerate(S['chapters']):
+                for _p, _para in enumerate(_chap['paras']):
+                    if (_c, _p) < (_fc, _fp) or (_c, _p) > (_uc, _up):
+                        continue
+                    _t = _para.replace('\n', '　')
+                    _i = _t.find(_pat)
+                    while _i >= 0:
+                        res[_c]['p'][_p][_i + _off] = _z
+                        _hit += 1
+                        _i = _t.find(_pat, _i + 1)
+            if not _hit:
+                bad.append(f'{_pf.name}: 找不到「{_pat}」（範圍 {_sec["from"]}–{_sec["until"]}）')
 if bad:
     sys.exit('校對紀錄與經文對不上（經文可能改過字），請先更新紀錄檔：\n' + '\n'.join(bad))
 j = lambda a: ' '.join(x or '_' for x in a)
