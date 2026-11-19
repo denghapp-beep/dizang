@@ -74,7 +74,7 @@
   }
   function dlZy(id, cb) {
     if ((window.SUTRA_ZHUYIN || {})[id]) return cb();
-    const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=18';
+    const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=19';
     sc.onload = cb; sc.onerror = () => alert('注音資料載入失敗，請稍後再試'); document.body.appendChild(sc);
   }
   function dlTxt(id, s, zy) {
@@ -255,9 +255,11 @@
     // 直排全螢幕：寬度取整數行距，每次翻一屏剛好不切字
     function fitV() { const pitch = Math.round(st.size * (st.zy ? 1.9 : 2.05)); page.style.setProperty('--pitch', pitch + 'px');
       page.style.width = ''; const avail = box.clientWidth - 92; page.style.width = Math.max(pitch, Math.floor(avail / pitch) * pitch) + 'px'; }
-    let offs = [0], ends = [], scr = 0;
+    let offs = [0], ends = [], scr = 0, G = 0;
+    // 每屏右側留一段空白：第一欄的聲調標在注音右邊，貼齊頁緣會被裁掉
+    const gutter = () => Math.ceil((parseFloat(getComputedStyle(page).getPropertyValue('--zr-size')) || parseFloat(getComputedStyle(page).fontSize) || 20) * .45);
     // 量出每一行的實際位置，算出每一屏從哪一行開始；畫面左邊放不完整的行用裁切藏起來，不會出現被切掉的字
-    function measure() { page.style.clipPath = ''; page.scrollLeft = 0; let sp = page.querySelector('.zr-tail'); if (!sp) { sp = document.createElement('div'); sp.className = 'zr-tail'; sp.setAttribute('aria-hidden', 'true'); page.appendChild(sp); } sp.style.width = page.clientWidth + 'px'; const R = page.getBoundingClientRect(), W = page.clientWidth, raw = [];
+    function measure() { page.style.clipPath = ''; G = gutter(); page.style.paddingRight = G + 'px'; page.scrollLeft = 0; let sp = page.querySelector('.zr-tail'); if (!sp) { sp = document.createElement('div'); sp.className = 'zr-tail'; sp.setAttribute('aria-hidden', 'true'); page.appendChild(sp); } sp.style.width = page.clientWidth + 'px'; const R = page.getBoundingClientRect(), W = page.clientWidth, raw = [];
       // 以每個字的格子位置分行（同一行的字右緣對齊），不受注音、聲調小框影響
       const tol = 3, cols = [];
       const add = (q, h) => { if (q.width < 1) return; const a = R.right - q.right, b = R.right - q.left; let c = cols.find(x => Math.abs(x[0] - a) < tol);
@@ -269,13 +271,13 @@
       for (const c of cols) { const l = ln[ln.length - 1]; if (l && c[0] < l[1] - 1) { l[1] = Math.max(l[1], c[1]); l[2] = l[2] && c[2]; } else ln.push(c); }
       // 分屏；品名（標題行）不留在一屏最後，跟著下一屏的內文
       offs = [0]; ends = []; let st0 = 0, e = 0, k0 = 0;
-      for (let k = 0; k < ln.length; k++) { const l = ln[k]; if (l[1] - st0 > W - 1) {
+      for (let k = 0; k < ln.length; k++) { const l = ln[k]; if (l[1] - st0 > W - G - 1) {
           let j = k; while (j - 1 > k0 && ln[j - 1][2]) j--;
           ends.push(j > k0 ? ln[j - 1][1] : e); st0 = ln[j][0]; offs.push(st0); k0 = j; k = j; e = ln[j][1]; continue; }
         e = l[1]; }
       ends.push(e); }
     function showScr() { const W = page.clientWidth, o = offs[scr] || 0, e = ends[scr] || W;
-      page.scrollLeft = -o; const real = Math.abs(page.scrollLeft); const nx = offs[scr + 1]; page.style.clipPath = `inset(0 0 0 ${Math.max(0, W - ((nx !== undefined ? (e + nx) / 2 : e + 2) - real))}px)`;
+      page.scrollLeft = -Math.max(0, o - G); const real = Math.abs(page.scrollLeft); const nx = offs[scr + 1]; page.style.clipPath = `inset(0 0 0 ${Math.max(0, W - ((nx !== undefined ? (e + nx) / 2 : e + 2) - real))}px)`;
       const k = offs.length; $('.zr-num').textContent = `${st.page + 1} / ${N}` + (k > 1 ? `（本頁 ${scr + 1}/${k}）` : '');
       $('.zr-prev').disabled = st.page === 0 && scr === 0; $('.zr-next').disabled = st.page === N - 1 && scr >= k - 1; }
     // 字型（罕用字、校勘小字的字型切片）可能在分屏量好之後才載入，行寬會變，原本算好的分屏位置就偏了，
@@ -314,7 +316,7 @@
           $('.zb-title').textContent = `《${s.title}${up === null ? '' : up ? '卷上' : '卷下'}》`; $('.zb-no').textContent = cnum(st.page + 1); } else page.style.width = '';
         if (scrollTop !== false && !V) box.scrollIntoView({block: 'start'});
         if (V) { measure(); scr = toEnd ? offs.length - 1 : 0; showScr(); clearTimeout(render.t1); clearTimeout(render.t2);
-          render.t1 = setTimeout(remeasure, 300); render.t2 = setTimeout(remeasure, 1200); } else page.style.clipPath = '';
+          render.t1 = setTimeout(remeasure, 300); render.t2 = setTimeout(remeasure, 1200); } else { page.style.clipPath = ''; page.style.paddingRight = ''; }
       }
       sync();
     }
@@ -351,7 +353,7 @@
     $('.zr-exit').onclick = () => { box.classList.remove('show-ui'); if (st.dir === 'v') remap(false); st.dir = 'h'; fs(false); render(); };
     $('.zr-bg').onchange = e => { st.bg = e.target.value; box.dataset.bg = st.bg; save(); };
     $('.zr-fg').onchange = e => { st.fg = +e.target.value; box.dataset.fg = st.fg; save(); };
-    const zyLoad = cb => { if (window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]) return cb(); const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=18'; sc.onload = cb; sc.onerror = () => { st.zy = false; render(false); }; document.body.appendChild(sc); };
+    const zyLoad = cb => { if (window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]) return cb(); const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=19'; sc.onload = cb; sc.onerror = () => { st.zy = false; render(false); }; document.body.appendChild(sc); };
     $('.zr-zy').onclick = () => { st.zy = !st.zy; st.zy ? zyLoad(() => render(false)) : render(false); };
     $('.zr-marks').onclick = e => { const g = e.target.closest('[data-go]'), d = e.target.closest('[data-del]');
       if (d) { st.marks = st.marks.filter(x => x !== +d.dataset.del); save(); $('.zr-marks').hidden = true; marks(); sync(); }
