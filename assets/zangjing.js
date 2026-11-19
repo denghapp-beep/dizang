@@ -24,12 +24,111 @@
       <a class="zj-go" href="https://sites.google.com/view/budduhacomics/%E9%A6%96%E9%A0%81" target="_blank" rel="noopener">${L('前往漫畫專頁', 'Open the comics site', 'Đến trang truyện tranh', 'マンガのページへ', '만화 페이지로')} ↗</a>
       <p class="small">${L('外部網站，內容與著作權屬原作者所有。', 'External site; content and copyright belong to the original author.', 'Trang bên ngoài; nội dung và bản quyền thuộc tác giả.', '外部サイトです。内容と著作権は原作者に帰属します。', '외부 사이트이며 내용과 저작권은 원작자에게 있습니다.')}</p></article>`;
   }
+  /* 經文下載：從站內經文資料直接產生（含前後儀軌、校勘註），不另放檔案，校對更新後下載內容自動同步。 */
+  const SITE = 'https://denghapp-beep.github.io/dizang/fusion/zangjing.html';
+  const who = s => (String(s.translator).replace(/\s*譯\s*$/, '').split(/\s+/).pop() || '');
+  function dlBox(s) {
+    return `<details class="zj-dl"><summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m-4.5-4.5L12 15l4.5-4.5M5 19h14"/></svg><span>${L('下載經文', 'Download', 'Tải kinh', 'ダウンロード', '경문 받기')}</span></summary>
+      <div class="zj-dl-menu">${s.proofed ? `<p class="zj-dl-note">${esc(s.proofed)}</p>` : ''}
+        <button type="button" data-dl="txt"><b>${L('純文字 TXT', 'Plain text (TXT)', 'Văn bản TXT', 'テキスト TXT', '텍스트 TXT')}</b><small>${L('含前後儀軌與校勘註，可複製、編輯', 'With liturgy and collation notes', 'Kèm nghi thức và chú thích', '儀軌・校勘注つき', '의식문·교감주 포함')}</small></button>
+        <button type="button" data-dl="ztxt"><b>${L('注音版 TXT', 'With Zhuyin (TXT)', 'Kèm chú âm (TXT)', '注音つき TXT', '주음 포함 TXT')}</b><small>${L('每字後附注音，依紙本校對', 'Bopomofo after each character', 'Chú âm sau mỗi chữ', '各字の後に注音', '글자마다 주음')}</small></button>
+        <button type="button" data-dl="zpdf"><b>${L('注音版 PDF', 'With Zhuyin (PDF)', 'Kèm chú âm (PDF)', '注音つき PDF', '주음 포함 PDF')}</b><small>${L('注音標在字上方，可列印', 'Zhuyin above characters, printable', 'Chú âm trên chữ, in được', '文字の上に注音', '글자 위에 주음')}</small></button>
+        <button type="button" data-dl="pdf"><b>${L('列印／另存 PDF', 'Print / Save as PDF', 'In / Lưu PDF', '印刷／PDF保存', '인쇄 / PDF 저장')}</b><small>${L('開啟排版頁，選「另存為 PDF」', 'Opens a print layout; choose “Save as PDF”', 'Mở trang in, chọn “Lưu PDF”', '印刷画面で「PDFに保存」', '인쇄 화면에서 “PDF로 저장”')}</small></button>
+        <p class="zj-dl-src">${L('經文依 CBETA 授權，非商業使用，歡迎流通。', 'CBETA license, non‑commercial; please share freely.', 'Theo giấy phép CBETA, phi thương mại.', 'CBETA の許諾により非営利で配布。', 'CBETA 허가, 비상업적 이용.')}</p></div></details>`;
+  }
+  function dlParts(id, s) {
+    const LT = (window.SUTRA_LITURGY || {})[id] || {pre: [], post: []};
+    const ZY = (window.SUTRA_ZHUYIN || {})[id] || [];
+    const sp = x => (x ? x.split(' ') : null);
+    const nt = (ci, pi) => (s.notes || []).filter(n => n.c === ci && n.p === pi).map(n => n.t);
+    const lit = c => ({title: c.title, tz: sp(c.zt), paras: c.paras.map((p, pi) => ({p, z: sp(c.zp && c.zp[pi]), n: []}))});
+    return [...LT.pre.map(lit),
+      ...s.chapters.map((c, ci) => ({title: c.title, tz: sp(ZY[ci] && ZY[ci].t), main: true, paras: c.paras.map((p, pi) => ({p, z: sp(ZY[ci] && ZY[ci].p[pi]), n: nt(ci, pi)}))})),
+      ...LT.post.map(lit)];
+  }
+  // 注音：一字一 token（標點、換行為 "_"），字數與 token 數不符時不加注音，避免錯位
+  const zyOk = (t, z) => z && z.length === [...t].length;
+  const zyTxt = (t, z) => zyOk(t, z) ? [...t].map((ch, i) => z[i] && z[i] !== '_' ? ch + '(' + z[i] + ')' : ch).join('') : t;
+  // 直排：每字一格，注音在字右側一欄，聲調標在注音右邊（同閱讀器、紙本）
+  const zyCell = (ch, z) => { if (ch === '\n') return '<br>';
+    if (!z || z === '_') return `<span class="c p"><span class="h">${esc(ch)}</span><span class="z"></span></span>`;
+    const t = (z.match(/[ˊˇˋ˙]/) || [''])[0], b = z.replace(/[ˊˇˋ˙]/g, '');
+    return `<span class="c"><span class="h">${esc(ch)}</span><span class="z">${t === '˙' ? '<em>˙</em>' : ''}${[...b].map(x => `<b>${x}</b>`).join('')}${t && t !== '˙' ? `<i>${t}</i>` : ''}</span></span>`; };
+  const zyHtml = (t, z) => zyOk(t, z) ? [...t].map((ch, i) => zyCell(ch, z[i])).join('') : esc(t).replace(/\n/g, '<br>');
+  // 列印頁自行分頁：直排長文交給瀏覽器分頁常只印出第一頁或錯頁，所以逐頁排滿再換頁
+  function dlPager() {
+    const src = document.getElementById('src'), out = document.getElementById('out');
+    let pg; const newPage = () => { pg = document.createElement('div'); pg.className = 'pg'; out.appendChild(pg); };
+    const over = () => pg.scrollWidth > pg.clientWidth + 1;
+    newPage();
+    for (const blk of [...src.children]) {
+      if (blk.classList.contains('brk') && pg.childNodes.length) newPage();
+      pg.appendChild(blk); if (!over()) continue;
+      pg.removeChild(blk);
+      const kids = [...blk.childNodes]; let cur = blk.cloneNode(false); pg.appendChild(cur);
+      if (blk.tagName === 'H2' || blk.tagName === 'HEADER') { pg.removeChild(cur); newPage(); pg.appendChild(blk); continue; }
+      for (const k of kids) { cur.appendChild(k);
+        if (over()) { cur.removeChild(k); if (!cur.childNodes.length) pg.removeChild(cur); newPage(); cur = blk.cloneNode(false); cur.classList.add('cont'); pg.appendChild(cur); cur.appendChild(k); } }
+    }
+    src.remove(); setTimeout(() => print(), 300);
+  }
+  function dlZy(id, cb) {
+    if ((window.SUTRA_ZHUYIN || {})[id]) return cb();
+    const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=18';
+    sc.onload = cb; sc.onerror = () => alert('注音資料載入失敗，請稍後再試'); document.body.appendChild(sc);
+  }
+  function dlTxt(id, s, zy) {
+    const T = (t, z) => zy ? zyTxt(t, z) : t;
+    const out = [s.title, s.translator, ''];
+    if (s.proofed) out.push(s.proofed);
+    out.push(L('經文來源：', 'Source: ') + s.source, L('下載自：地藏菩薩感應文集・藏經閣 ', 'From: ') + SITE + '#' + id, '');
+    for (const c of dlParts(id, s)) {
+      const ti = T(c.title, c.tz);
+      out.push(c.main ? '━━━━━━━━━━　' + ti + '　━━━━━━━━━━' : '【' + ti + '】', '');
+      for (const x of c.paras) { out.push(...T(x.p, x.z).split('\n').map(l => '　　' + l)); if (x.n.length) out.push('　　　〔' + x.n.join('　') + '〕'); out.push(''); }
+    }
+    const blob = new Blob(['﻿' + out.join('\r\n')], {type: 'text/plain;charset=utf-8'});
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+    a.download = s.title + (who(s) ? '（' + who(s) + '譯）' : '') + (zy ? '（注音版）' : '') + '.txt';
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  }
+  function dlPdf(id, s, zy, w) {
+    w = w || window.open('', '_blank'); if (!w) return;
+    const H = (t, z) => zy ? zyHtml(t, z) : esc(t).replace(/\n/g, '<br>');
+    const body = dlParts(id, s).map(c => `<h2${c.main ? ' class="m brk"' : ''}>${H(c.title, c.tz)}</h2>${c.paras.map(x => `<p>${H(x.p, x.z)}</p>${x.n.length ? `<p class="n">${x.n.map(esc).join('　')}</p>` : ''}`).join('')}`).join('');
+    w.document.write(`<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>${esc(s.title)}${who(s) ? '（' + esc(who(s)) + '譯）' : ''}${zy ? '（注音版）' : ''}</title><style>
+      @page{size:A4;margin:14mm}html,body{margin:0;padding:0}body{font:${zy ? 16 : 17}pt/1.6 "Noto Serif TC","Songti TC","PMingLiU",serif;color:#222}
+      #src{position:absolute;visibility:hidden}
+      .pg{box-sizing:border-box;width:182mm;height:269mm;overflow:hidden;writing-mode:vertical-rl;break-after:page;page-break-after:always;margin:0 auto}
+      @media screen{body{background:#ddd}.pg{background:#fff;margin:12px auto;padding:0;box-shadow:0 1px 4px #0003}}
+      header{margin-left:2em;text-align:center}h1{font-size:24pt;letter-spacing:.2em;margin:0 0 0 .4em}.by{color:#555;letter-spacing:.15em;margin:0}
+      h2{font-size:1em;color:#7a5a2e;margin:0 0 0 .8em;font-weight:700}h2.m{font-size:1.15em;letter-spacing:.15em}
+      p{margin:0 0 0 .5em;text-indent:${zy ? 0 : '2em'}}p.cont{text-indent:0}p.n{font-size:10pt;color:#666;line-height:1.5}
+      .c{display:inline-flex;writing-mode:horizontal-tb;align-items:center;height:1.18em;vertical-align:top}
+      .h{display:block;width:1em;line-height:1;text-align:center}
+      .z{position:relative;display:flex;flex-direction:column;justify-content:center;align-self:stretch;width:1.5em;font:400 .34em/1 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;color:#555}
+      .z b{display:block;width:1em;text-align:center;font-weight:400;line-height:1.05}.z em{display:block;width:1em;text-align:center;font-style:normal;line-height:.8}
+      .z i{position:absolute;left:1.08em;top:50%;transform:translateY(-15%);font-style:normal;line-height:1}
+      .meta{font-size:9pt;color:#777;line-height:1.6;margin-right:2em}</style></head><body>
+      <div id="src"><header class="brk"><h1>${esc(s.title)}</h1><p class="by">${esc(s.translator)}</p></header>${body}
+      <p class="meta brk">${s.proofed ? esc(s.proofed) + '<br>' : ''}經文來源：${esc(s.source)}<br>下載自：地藏菩薩感應文集・藏經閣 ${SITE}#${id}</p></div><div id="out"></div>
+      <script>(document.fonts ? document.fonts.ready : Promise.resolve()).then(${dlPager.toString()})<\/script></body></html>`);
+    w.document.close();
+  }
+  function dlBind(id, s) {
+    const d = panel.querySelector('.zj-dl'); if (!d) return;
+    d.querySelector('[data-dl=txt]').onclick = () => { dlTxt(id, s); d.open = false; };
+    d.querySelector('[data-dl=pdf]').onclick = () => { dlPdf(id, s); d.open = false; };
+    d.querySelector('[data-dl=ztxt]').onclick = () => { d.open = false; dlZy(id, () => dlTxt(id, s, true)); };
+    d.querySelector('[data-dl=zpdf]').onclick = () => { d.open = false; const w = window.open('', '_blank'); if (!w) return; dlZy(id, () => dlPdf(id, s, true, w)); };
+    document.addEventListener('click', e => { if (d.open && !d.contains(e.target)) d.open = false; });
+  }
   function sutra(s) {
     const tr = s.translations.filter(t => I.lang === 'zh' || I.lang === 'sc' || t.lang === I.lang || true);
     const own = s.translations.filter(t => t.lang === I.lang);
     const order = own.length ? [...own, ...s.translations.filter(t => t.lang !== I.lang)] : tr;
     return `<article class="zj-sutra">
-      <header class="zj-head"><h3>${esc(s.title)}</h3><p class="zj-by">${esc(s.translator)}</p></header>
+      <header class="zj-head"><div><h3>${esc(s.title)}</h3><p class="zj-by">${esc(s.translator)}</p></div>${dlBox(s)}</header>
       <section class="zj-trans"><h4>${L('海外譯本', 'Translations', 'Bản dịch', '各国語の訳', '번역본')}</h4>
         <p class="small">${L('經文不自行翻譯，以下為海外道場與譯經團體已出版的譯本，點選前往原網站閱讀。', 'We do not translate the sutra ourselves. These are translations published by monasteries and translation groups; each link opens the original site.', 'Chúng tôi không tự dịch kinh. Dưới đây là các bản dịch đã được các đạo tràng và nhóm dịch kinh công bố; bấm để đọc tại trang gốc.', '経典は当サイトで翻訳していません。各地の寺院や翻訳団体が公開している訳を、元のサイトでお読みください。', '경전은 자체 번역하지 않습니다. 사찰과 역경 단체가 펴낸 번역본이며, 원래 사이트에서 읽으실 수 있습니다.')}</p>
         <ul>${order.map(t => `<li><span class="zj-lang">${LN[t.lang] || t.lang}</span><a href="${t.url}" target="_blank" rel="noopener">${esc(t.name)} ↗</a><span class="zj-tby">${esc(t.by)}</span></li>`).join('')}</ul></section>
@@ -101,7 +200,16 @@
     const pageHTML = pg => (pg.items[0].head ? '' : `<p class="zr-runhead">${esc(C[pg.ci].title)}</p>`) + pg.items.map(x => {
       const c = C[x.ci], cls = c.lit ? ' class="lit"' : '';
       if (x.head) return `${x.juan ? `<p class="zj-juan" data-t="${esc(s.title)}">${x.juan}</p>` : ''}<h4${cls}>${ruby(c.title, zyOf(x.ci, -1))}</h4>`;
-      return `<p${cls}>${ruby(x.p, zyOf(x.ci, x.pi))}</p>`; }).join('');
+      const vn = vowNo(x.ci, x.pi);
+      return `<p${vn ? ' class="zj-vowp"' : cls}>${vn ? `<span class="zj-vow" aria-label="第${vn}大願"><span>第${vn}</span><span>大願</span></span>` : ''}${ruby(x.p, zyOf(x.ci, x.pi))}${noteOf(x.ci, x.pi)}</p>`; }).join('');
+    // 校勘註（❶❷）：依紙本，註文接在該段末尾以小字顯示（資料在 sutras/*.js 的 notes 欄位）
+    function noteOf(ci, pi) { const c = C[ci]; if (!s.notes || !c || c.lit) return '';
+      const ns = s.notes.filter(n => n.c === c.oi && n.p === pi); return ns.length ? `<span class="zj-notes">${ns.map(n => esc(n.t)).join('　')}</span>` : ''; }
+    // 四十八願：依紙本經書，每一願開頭標小字「第X／大願」（資料在 sutras/*.js 的 vows 欄位）
+    const CN = '〇一二三四五六七八九';
+    const vcn = n => n <= 10 ? (n === 10 ? '十' : CN[n]) : n < 20 ? '十' + (n % 10 ? CN[n % 10] : '') : CN[Math.floor(n / 10)] + '十' + (n % 10 ? CN[n % 10] : '');
+    function vowNo(ci, pi) { const v = s.vows, c = C[ci]; if (!v || !c || c.lit || c.oi !== v.c) return '';
+      const k = pi - v.from; return k >= 0 && k < v.n ? vcn(k + 1) : ''; }
     function zyOf(ci, pi) { if (!st.zy) return null; const c = C[ci];
       if (c.lit) return (pi < 0 ? c.zt : c.zp[pi]).split(' ');
       const Z = window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]; if (!Z) return null; return (pi < 0 ? Z[c.oi].t : Z[c.oi].p[pi]).split(' '); }
@@ -109,6 +217,7 @@
     // 注音模式：每個字（含標點）都放進同尺寸的格子，字與注音位置一致，不會歪斜
     function zc(c, z) { const t = (z.match(/[ˊˇˋ˙]/) || [''])[0], b = z.replace(/[ˊˇˋ˙]/g, '');
       return `<span class="zw-c"><span class="zw-h">${esc(c)}</span><span class="zw-z n${b.length}">${t === '˙' ? '<em>˙</em>' : ''}${[...b].map(x => `<b>${x}</b>`).join('')}${t && t !== '˙' ? `<i>${t}</i>` : ''}</span></span>`; }
+    const NM = /[❶-❿]/; // 校勘註記號
     const PUNC = /[，。、；：？！「」『』（）《》〈〉—…·．　]/;
     // 避頭尾：句讀與後括號（」』）》〉）不放在一行開頭、前括號（「『（《〈）不放在一行結尾，與相鄰的字綁在一起不拆行
     const NOHEAD = /[，。、；：？！」』）》〉〕】]/, NOTAIL = /[「『（《〈〔【]/;
@@ -116,9 +225,9 @@
       items.forEach(([c, h]) => { if (g.length && (open || NOHEAD.test(c))) g[g.length - 1].push(h); else g.push([h]); open = NOTAIL.test(c); });
       return g.map(x => x.length > 1 ? `<span class="zw-n">${x.join('')}</span>` : x[0]).join(''); }
     function ruby(text, z) { const cs = Array.from(text);
-      if (!z) { if (st.dir !== 'v') return esc(text).replace(/\n/g, '<br>');
-        return text.split('\n').map(line => glue(Array.from(line).map(c => [c, `<span class="k${/[，。、；：？！]/.test(c) ? ' pc' : /[（）「」『』《》〈〉—…〔〕【】]/.test(c) ? ' br' : ''}">${esc(c)}</span>`]))).join('<br>'); }
-      const cell = (c, i) => (z[i] && z[i] !== '_') ? zc(c, z[i]) : (/[（）「」『』《》〈〉—…〔〕【】]/.test(c)
+      if (!z) { if (st.dir !== 'v') return esc(text).replace(/\n/g, '<br>').replace(/[❶-❿]/g, m => `<span class="zj-nm">${m}</span>`);
+        return text.split('\n').map(line => glue(Array.from(line).map(c => [c, NM.test(c) ? `<span class="zj-nm">${c}</span>` : `<span class="k${/[，。、；：？！]/.test(c) ? ' pc' : /[（）「」『』《》〈〉—…〔〕【】]/.test(c) ? ' br' : ''}">${esc(c)}</span>`]))).join('<br>'); }
+      const cell = (c, i) => NM.test(c) ? `<span class="zj-nm">${c}</span>` : (z[i] && z[i] !== '_') ? zc(c, z[i]) : (/[（）「」『』《》〈〉—…〔〕【】]/.test(c)
         // 括號、引號：直排時補一個空的注音欄，與前後漢字同寬，括號才會對齊字的中線（不補會往右偏到注音欄）
         ? `<span class="zw-c zw-p br"><span class="zw-h">${esc(c)}</span>${st.dir === 'v' ? '<span class="zw-z n0" aria-hidden="true"></span>' : ''}</span>`
         : `<span class="zw-c zw-p${/[，。、；：？！]/.test(c) ? ' pc' : ''}"><span class="zw-h">${esc(c)}</span></span>`);
@@ -151,9 +260,11 @@
     function measure() { page.style.clipPath = ''; page.scrollLeft = 0; let sp = page.querySelector('.zr-tail'); if (!sp) { sp = document.createElement('div'); sp.className = 'zr-tail'; sp.setAttribute('aria-hidden', 'true'); page.appendChild(sp); } sp.style.width = page.clientWidth + 'px'; const R = page.getBoundingClientRect(), W = page.clientWidth, raw = [];
       // 以每個字的格子位置分行（同一行的字右緣對齊），不受注音、聲調小框影響
       const tol = 3, cols = [];
-      page.querySelectorAll('.zw-c,.k').forEach(el => { const q = el.getBoundingClientRect(); if (q.width < 1) return;
-        const a = R.right - q.right, b = R.right - q.left, h = !!el.closest('h4,.zj-juan'); let c = cols.find(x => Math.abs(x[0] - a) < tol);
-        if (c) { c[1] = Math.max(c[1], b); c[2] = c[2] && h; } else cols.push([a, b, h]); });
+      const add = (q, h) => { if (q.width < 1) return; const a = R.right - q.right, b = R.right - q.left; let c = cols.find(x => Math.abs(x[0] - a) < tol);
+        if (c) { c[1] = Math.max(c[1], b); c[2] = c[2] && h; } else cols.push([a, b, h]); };
+      page.querySelectorAll('.zw-c,.k').forEach(el => add(el.getBoundingClientRect(), !!el.closest('h4,.zj-juan')));
+      // 校勘註是一般文字（不在 .zw-c 內），逐行量，避免換屏時被裁掉半行
+      page.querySelectorAll('.zj-notes').forEach(el => { for (const q of el.getClientRects()) add(q, false); });
       cols.sort((x, y) => x[0] - y[0]); const ln = [];
       for (const c of cols) { const l = ln[ln.length - 1]; if (l && c[0] < l[1] - 1) { l[1] = Math.max(l[1], c[1]); l[2] = l[2] && c[2]; } else ln.push(c); }
       // 分屏；品名（標題行）不留在一屏最後，跟著下一屏的內文
@@ -240,7 +351,7 @@
     $('.zr-exit').onclick = () => { box.classList.remove('show-ui'); if (st.dir === 'v') remap(false); st.dir = 'h'; fs(false); render(); };
     $('.zr-bg').onchange = e => { st.bg = e.target.value; box.dataset.bg = st.bg; save(); };
     $('.zr-fg').onchange = e => { st.fg = +e.target.value; box.dataset.fg = st.fg; save(); };
-    const zyLoad = cb => { if (window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]) return cb(); const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=13'; sc.onload = cb; sc.onerror = () => { st.zy = false; render(false); }; document.body.appendChild(sc); };
+    const zyLoad = cb => { if (window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]) return cb(); const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=18'; sc.onload = cb; sc.onerror = () => { st.zy = false; render(false); }; document.body.appendChild(sc); };
     $('.zr-zy').onclick = () => { st.zy = !st.zy; st.zy ? zyLoad(() => render(false)) : render(false); };
     $('.zr-marks').onclick = e => { const g = e.target.closest('[data-go]'), d = e.target.closest('[data-del]');
       if (d) { st.marks = st.marks.filter(x => x !== +d.dataset.del); save(); $('.zr-marks').hidden = true; marks(); sync(); }
@@ -285,6 +396,7 @@
     root.querySelectorAll('[data-tab]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === t.id)));
     panel.innerHTML = t.sutra ? sutra(t.sutra) : comics();
     if (t.sutra) reader(t.id, t.sutra, panel.querySelector('.zj-reader'));
+    if (t.sutra) dlBind(t.id, t.sutra);
   }
   root.querySelectorAll('[data-tab]').forEach(b => b.addEventListener('click', () => { history.replaceState(null, '', '#' + b.dataset.tab); show(b.dataset.tab); }));
   const h = location.hash.slice(1); show(TABS.some(t => t.id === h) ? h : TABS[0].id);
