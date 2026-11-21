@@ -222,7 +222,7 @@
     // 避頭尾：句讀與後括號（」』）》〉）不放在一行開頭、前括號（「『（《〈）不放在一行結尾，與相鄰的字綁在一起不拆行
     const NOHEAD = /[，。、；：？！」』）》〉〕】]/, NOTAIL = /[「『（《〈〔【]/;
     function glue(items) { const g = []; let open = false;
-      items.forEach(([c, h]) => { if (g.length && (open || NOHEAD.test(c))) g[g.length - 1].push(h); else g.push([h]); open = NOTAIL.test(c); });
+      items.forEach(([c, h]) => { if (g.length && (open || NOHEAD.test(c))) g[g.length - 1].push(h); else g.push([h]); open = NOTAIL.test(c) || NM.test(c); }); // 校勘註記號與其後的字綁在一起，不留在行尾
       return g.map(x => x.length > 1 ? `<span class="zw-n">${x.join('')}</span>` : x[0]).join(''); }
     function ruby(text, z) { const cs = Array.from(text);
       if (!z) { if (st.dir !== 'v') return esc(text).replace(/\n/g, '<br>').replace(/[❶-❿]/g, m => `<span class="zj-nm">${m}</span>`);
@@ -277,7 +277,8 @@
         e = l[1]; }
       ends.push(e); }
     function showScr() { const W = page.clientWidth, o = offs[scr] || 0, e = ends[scr] || W;
-      page.scrollLeft = -Math.max(0, o - G); const real = Math.abs(page.scrollLeft); const nx = offs[scr + 1]; page.style.clipPath = `inset(0 0 0 ${Math.max(0, W - ((nx !== undefined ? (e + nx) / 2 : e + 2) - real))}px)`;
+      page.scrollLeft = -Math.max(0, o - G); const real = Math.abs(page.scrollLeft); const nx = offs[scr + 1]; const pv = ends[scr - 1], rt = scr > 0 && pv !== undefined ? Math.max(0, (pv + o) / 2 - real) : 0; // 右側也裁：上一屏末尾的行（如校勘註）不露進本屏右側留白
+      page.style.clipPath = `inset(0 ${rt}px 0 ${Math.max(0, W - ((nx !== undefined ? (e + nx) / 2 : e + 2) - real))}px)`;
       const k = offs.length; $('.zr-num').textContent = `${st.page + 1} / ${N}` + (k > 1 ? `（本頁 ${scr + 1}/${k}）` : '');
       $('.zr-prev').disabled = st.page === 0 && scr === 0; $('.zr-next').disabled = st.page === N - 1 && scr >= k - 1; }
     // 字型（罕用字、校勘小字的字型切片）可能在分屏量好之後才載入，行寬會變，原本算好的分屏位置就偏了，
