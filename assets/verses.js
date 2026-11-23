@@ -372,7 +372,8 @@
 ];
   if (window.I18N && (window.I18N.lang === 'vi' || window.I18N.lang === 'ja' || window.I18N.lang === 'ko')) {
     const VV = (window.I18N.lang === 'ja' ? window.JA_VERSES : window.I18N.lang === 'ko' ? window.KO_VERSES : window.VI_VERSES) || {}, AR = (window.ARCHIVE_EN && window.ARCHIVE_EN.articles) || {};
-    VERSES.forEach((v, i) => { if (VV[i]) v.en = VV[i]; if (AR[v.id]) v.title_en = AR[v.id].title; });
+    VERSES.forEach(v => { if (VV[v.id]) v.en = VV[v.id];  // 依篇號對應譯文（不依排列順序，新增句子不會錯位）
+      if (AR[v.id]) v.title_en = AR[v.id].title; });
   }
   const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const shareVerse = async (text, title, id) => {
