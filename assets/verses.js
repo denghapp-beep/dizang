@@ -30,7 +30,7 @@
 "id":"004",
 "title":"「自由意志」是真自由嗎？",
 "text":"凡夫之選，似自主而被業牽；聖者之行，順業而不為業縛，是名真自由。",
-"en":"An ordinary person's choice seems free yet is pulled by karma; a sage's conduct follows karma yet is not bound by it — this is called true freedom.",
+"en":"The ordinary person's choices seem self-directed yet are led by karma; the sage's actions accord with karma yet are not bound by it. This is called true freedom.",
 "title_en":"Is \"Free Will\" Truly Free?"
 },
 {
@@ -58,7 +58,7 @@
 "id":"008",
 "title":"念佛是命定？八字，佛法 — 兩者如何轉命？",
 "text":"命定如種子，勢必萌芽，但能否枝葉繁茂，端賴日後澆灌。",
-"en":"Destiny is like a seed: it will surely sprout, but whether it grows lush depends on how it is watered afterward.",
+"en":"Destiny is like a seed: it will surely sprout, but whether its branches flourish depends on the watering that follows.",
 "title_en":"Is Reciting the Buddha's Name Predestined? Bazi and the Dharma — How Do They Change One's Fate?"
 },
 {
@@ -72,7 +72,7 @@
 "id":"010",
 "title":"【共業之問】房價高漲、內卷躺平",
 "text":"一人不欺心，百人得其風；百人不欺世，千人改其俗。",
-"en":"When one person does not deceive their own heart, a hundred feel the breeze; when a hundred do not deceive the world, a thousand change their ways.",
+"en":"When one person does not deceive their own heart, a hundred feel its breeze; when a hundred do not deceive the world, a thousand change its customs.",
 "title_en":"[A Question of Shared Karma] Soaring Housing Prices, Rat Races and Lying Flat"
 },
 {
@@ -114,7 +114,7 @@
 "id":"019",
 "title":"2026赤馬紅羊年開示",
 "text":"眾若守常、守善、守理，則波不成浪；眾若逐驚、逐怒、逐疑，則小事成災。",
-"en":"If people keep to steadiness, goodness and reason, ripples do not become waves; if they chase alarm, anger and suspicion, small matters become disasters.",
+"en":"If the many keep to the ordinary, to goodness, to reason, ripples do not become waves; if the many chase alarm, anger and suspicion, small matters become disasters.",
 "title_en":"A Teaching for 2026, the Year of the Red Horse and Red Goat"
 },
 {
@@ -135,7 +135,7 @@
 "id":"022",
 "title":"述說無量壽經的功德利益與金剛經地藏經",
 "text":"三經皆佛語方便，偏重不同，功德無有高下，隨眾生根器所契。",
-"en":"All three sutras are the Buddha's skillful means; their emphases differ, but their merit has no high or low — each suits the capacities of different beings.",
+"en":"All three are the Buddha's skillful means; their emphases differ, but their merits are not higher or lower — each fits the capacities of different beings.",
 "title_en":"On the Merits of the Infinite Life Sutra Compared With the Diamond Sutra and the Ksitigarbha Sutra"
 },
 {
@@ -170,7 +170,7 @@
 "id":"027",
 "title":"稱頌阿彌陀佛還是南無阿彌陀佛",
 "text":"隨其習性，令心相續，不令間斷，是為要義。",
-"en":"Follow your own habits, keep the mind continuous and unbroken — this is what matters most.",
+"en":"Follow your own habits, let the mind continue, let it not be interrupted — this is the essential point.",
 "title_en":"Reciting \"Amituofo\" or \"Namo Amituofo\"?"
 },
 {
@@ -184,7 +184,7 @@
 "id":"029",
 "title":"雞蛋牛奶是否可食?",
 "text":"食之清淨，重在其心。",
-"en":"Whether food is pure depends above all on the heart.",
+"en":"The purity of food lies chiefly in the heart.",
 "title_en":"May Eggs and Milk Be Eaten?"
 },
 {
@@ -212,7 +212,7 @@
 "id":"035",
 "title":"對於同性之愛的看法",
 "text":"修行人觀眾生，當離分別；佛眼視眾生，皆平等無異。",
-"en":"A practitioner should look at beings without discrimination; in the Buddha's eyes all beings are equal and alike.",
+"en":"The practitioner, looking upon beings, should leave discrimination behind; the Buddha's eye sees all beings as equal and without difference.",
 "title_en":"On Same-Sex Love"
 },
 {
@@ -226,7 +226,7 @@
 "id":"037",
 "title":"菩薩給我的三則開示：關於十年感情因緣的反思",
 "text":"情能同行一段，已是圓滿之一種；非必相守至終，方名不負。",
-"en":"To walk together for a stretch of the road is already a kind of fulfillment; one need not stay together to the end to have been true.",
+"en":"To walk together for a stretch in love is already one kind of completeness; it need not last to the end to be called faithful.",
 "title_en":"Three Teachings the Bodhisattva Gave Me: Reflections on a Ten-Year Relationship"
 },
 {
@@ -254,14 +254,14 @@
 "id":"041",
 "title":"地藏菩薩開示:無我與善慧之因緣",
 "text":"執去則明，明中有悲；悲中有智，智中無我。",
-"en":"When clinging departs there is clarity; in clarity there is compassion; in compassion there is wisdom; in wisdom there is no self.",
+"en":"When attachment is gone, there is clarity; within clarity there is compassion; within compassion there is wisdom; within wisdom there is no self.",
 "title_en":"Ksitigarbha Bodhisattva's Teaching: Non-Self and the Causes of Goodness and Wisdom"
 },
 {
 "id":"042",
 "title":"《求而後捨——地藏菩薩開示行善中道》",
 "text":"莫憂初心，未能純淨；但憂久修，不肯轉心。",
-"en":"Do not worry that your first intention is not yet pure; worry only if, after long practice, you are still unwilling to change your heart.",
+"en":"Do not worry that your first intention is not yet pure; worry only that after long practice you are unwilling to turn your heart.",
 "title_en":"Seeking First, Then Letting Go — Ksitigarbha Bodhisattva on the Middle Way of Doing Good"
 },
 {
@@ -366,7 +366,7 @@
 "id":"057",
 "title":"知道不該執著，卻總是做不到",
 "text":"知執著，是覺悟的開始；見執著，是修行的功夫；能於執著生起時，不再完全隨它而去，便是進步。",
-"en":"To know attachment is the beginning of awakening; to see attachment is the work of practice; when attachment arises and you are no longer wholly carried away by it, that is progress.",
+"en":"To know attachment is the beginning of awakening; to see attachment is the work of practice; and when attachment arises, to no longer be carried wholly away by it is progress.",
 "title_en":"Knowing We Should Not Cling, Yet Always Unable to Do It"
 }
 ];
