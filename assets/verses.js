@@ -284,6 +284,13 @@
 "text": "用心不是心很用力，而是心真正到場。",
 "en": "Using the heart is not the heart straining hard, but the heart truly being present.",
 "title_en": "What Does It Mean to Learn \"With Heart\"?"
+},
+{
+"id": "057",
+"title": "知道不該執著，卻總是做不到",
+"text": "知執著，是覺悟的開始；見執著，是修行的功夫；能於執著生起時，不再完全隨它而去，便是進步。",
+"en": "To know attachment is the beginning of awakening; to see attachment is the work of practice; when attachment arises and you are no longer wholly carried away by it, that is progress.",
+"title_en": "Knowing We Should Not Cling, Yet Always Unable to Do It"
 }
 ];
   if (window.I18N && (window.I18N.lang === 'vi' || window.I18N.lang === 'ja' || window.I18N.lang === 'ko')) {
