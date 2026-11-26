@@ -100,11 +100,11 @@
     const $ = q => box.querySelector(q), page = $('.zr-page');
     const pageHTML = pg => (pg.items[0].head ? '' : `<p class="zr-runhead">${esc(C[pg.ci].title)}</p>`) + pg.items.map(x => {
       const c = C[x.ci], cls = c.lit ? ' class="lit"' : '';
-      if (x.head) return `${x.juan ? `<p class="zj-juan" data-t="${esc(s.title)}">${x.juan}</p>` : ''}<h4${cls}>${ruby(c.title, zyOf(x.ci, -1))}</h4>`;
+      if (x.head) return `${x.juan ? `<p class="zj-juan" data-t="${esc(s.title)}">${x.juan}</p>` : ''}${c.zan ? `<p class="lit">${ruby(c.zan, zyOf(x.ci, 'z'))}</p>` : ''}<h4${cls}>${ruby(c.title, zyOf(x.ci, -1))}</h4>`;
       return `<p${cls}>${ruby(x.p, zyOf(x.ci, x.pi))}</p>`; }).join('');
     function zyOf(ci, pi) { if (!st.zy) return null; const c = C[ci];
       if (c.lit) return (pi < 0 ? c.zt : c.zp[pi]).split(' ');
-      const Z = window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]; if (!Z) return null; return (pi < 0 ? Z[c.oi].t : Z[c.oi].p[pi]).split(' '); }
+      const Z = window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]; if (!Z) return null; return (pi < 0 ? Z[c.oi].t : pi === 'z' ? (Z[c.oi].z || '') : Z[c.oi].p[pi]).split(' '); }
     // 注音直排在字的右側（同法鼓山課誦本）；聲調標在注音右側，輕聲點在最上方
     // 注音模式：每個字（含標點）都放進同尺寸的格子，字與注音位置一致，不會歪斜
     function zc(c, z) { const t = (z.match(/[ˊˇˋ˙]/) || [''])[0], b = z.replace(/[ˊˇˋ˙]/g, '');
@@ -240,7 +240,7 @@
     $('.zr-exit').onclick = () => { box.classList.remove('show-ui'); if (st.dir === 'v') remap(false); st.dir = 'h'; fs(false); render(); };
     $('.zr-bg').onchange = e => { st.bg = e.target.value; box.dataset.bg = st.bg; save(); };
     $('.zr-fg').onchange = e => { st.fg = +e.target.value; box.dataset.fg = st.fg; save(); };
-    const zyLoad = cb => { if (window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]) return cb(); const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=16'; sc.onload = cb; sc.onerror = () => { st.zy = false; render(false); }; document.body.appendChild(sc); };
+    const zyLoad = cb => { if (window.SUTRA_ZHUYIN && window.SUTRA_ZHUYIN[id]) return cb(); const sc = document.createElement('script'); sc.src = '../assets/sutras/' + id + '_zhuyin.js?v=17'; sc.onload = cb; sc.onerror = () => { st.zy = false; render(false); }; document.body.appendChild(sc); };
     $('.zr-zy').onclick = () => { st.zy = !st.zy; st.zy ? zyLoad(() => render(false)) : render(false); };
     $('.zr-marks').onclick = e => { const g = e.target.closest('[data-go]'), d = e.target.closest('[data-del]');
       if (d) { st.marks = st.marks.filter(x => x !== +d.dataset.del); save(); $('.zr-marks').hidden = true; marks(); sync(); }
