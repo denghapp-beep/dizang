@@ -7,8 +7,9 @@
   let shellTop = null;
   try { if (window.top !== window && window.top.__KSHELL) shellTop = window.top.__KSHELL; } catch {}
   if (shellTop) {
-    const first = () => { ['pointerup', 'keydown'].forEach(t => document.removeEventListener(t, first, true)); try { shellTop.unmute(); } catch {} };
-    ['pointerup', 'keydown'].forEach(t => document.addEventListener(t, first, true));
+    // 每次點擊都輕推外框：音樂若被系統（鎖屏、切 App）暫停，下一次點擊就能接續；已在播放時不做任何事。
+    const nudge = () => { try { (shellTop.nudge || shellTop.unmute)(); } catch {} };
+    ['pointerup', 'keydown'].forEach(t => document.addEventListener(t, nudge, true));
     // 經書模式（全螢幕直排）時，外框的音樂按鈕先收起，避免蓋住經文
     const sync = () => { try { shellTop.lock(document.documentElement.classList.contains('zr-lock')); } catch {} };
     new MutationObserver(sync).observe(document.documentElement, {attributes: true, attributeFilter: ['class']});
@@ -44,7 +45,7 @@
   root.className = 'music';
   root.innerHTML = `
     <button type="button" class="music-toggle" aria-expanded="false" aria-controls="music-panel"><span class="music-icon" aria-hidden="true">♪</span><span class="music-state">${T('背景音樂','Background music')}</span></button>
-    <div class="music-panel" id="music-panel" hidden>
+    <div class="music-panel collapsed" id="music-panel" inert>
       <div class="music-head"><strong>${T('背景音樂','Background music')}</strong><button type="button" class="music-close" aria-label="${T('收合','Close')}">×</button></div>
       <label class="music-row"><span>${T('播放','Play')}</span><button type="button" class="music-play" aria-pressed="false">${T('開啟','Play')}</button></label>
       <label class="music-row"><span>${T('曲目','Track')}</span><select class="music-track" aria-label="${T('選擇背景音樂','Choose background music')}">${TRACKS.map(t => `<option value="${t.id}">${t.title}</option>`).join('')}</select></label>
@@ -84,7 +85,7 @@
   }
   function createPlayer() {
     player = new YT.Player('music-player', {
-      width: 240, height: 135, videoId: pref.track,
+      width: 240, height: 232, videoId: pref.track,
       playerVars: {start: startAt(), playsinline: 1, rel: 0, modestbranding: 1, controls: 1},
       events: {
         onReady: () => {
@@ -102,7 +103,7 @@
         onStateChange: e => {
           playing = e.data === YT.PlayerState.PLAYING;
           if (playing && !mutedAuto) { setState(T('聖號播放中','Chant playing'), true); fadeTo(pref.volume, 2000); }
-          else if (e.data === YT.PlayerState.PAUSED) setState(T('背景音樂','Background music'), false);
+          else if (e.data === YT.PlayerState.PAUSED) setState(wantPlay ? T('點一下頁面即可繼續聆聽','Tap the page to resume the chant') : T('背景音樂','Background music'), false);
           else if (e.data === YT.PlayerState.ENDED) { player.seekTo(0); player.playVideo(); }
         },
         onError: () => setState(T('此曲目無法嵌入播放','This track cannot be embedded'), false)
@@ -127,6 +128,12 @@
     player.unMute(); if (player.getPlayerState() === YT.PlayerState.PLAYING) { player.setVolume(0); fadeTo(pref.volume, 2000); }
     if (mutedAuto) { mutedAuto = false; if (player.getPlayerState() === YT.PlayerState.PLAYING) setState(T('聖號播放中','Chant playing'), true); }
   }
+  // 輕推：想播放卻沒在播（被系統暫停、或靜音自動播放）時，補上一下；已在正常播放就什麼都不做。
+  function nudge() {
+    if (!wantPlay || !ready) return;
+    if (mutedAuto) { unmuteNow(); return; }
+    if (player.getPlayerState() !== YT.PlayerState.PLAYING) { player.unMute(); player.playVideo(); }
+  }
   function pause() {
     wantPlay = false; pref.on = false; savePref();
     if (ready) fadeTo(0, 1200, () => { if (!wantPlay) player.pauseVideo(); });
@@ -138,12 +145,15 @@
   setInterval(savePos, 5000);
   window.addEventListener('pagehide', savePos);
 
-  $('.music-toggle').addEventListener('click', () => {
-    const open = $('.music-panel').hidden;
-    $('.music-panel').hidden = !open;
+  // 收起時面板不用 display:none（平板瀏覽器可能不讓看不見的 YouTube 播放器出聲），
+  // 而是留在畫面內、幾乎透明；用 inert 讓收起的按鈕不會被鍵盤或讀屏讀到。
+  function setPanel(open) {
+    const panel = $('.music-panel');
+    panel.classList.toggle('collapsed', !open); panel.inert = !open;
     $('.music-toggle').setAttribute('aria-expanded', String(open));
-  });
-  $('.music-close').addEventListener('click', () => { $('.music-panel').hidden = true; $('.music-toggle').setAttribute('aria-expanded', 'false'); });
+  }
+  $('.music-toggle').addEventListener('click', () => setPanel($('.music-panel').classList.contains('collapsed')));
+  $('.music-close').addEventListener('click', () => setPanel(false));
   $('.music-play').addEventListener('click', e => { e.preventDefault(); playing || wantPlay && !ready ? pause() : play(); });
   $('.music-volume').addEventListener('input', e => {
     pref.volume = Number(e.target.value); $('.music-vol-out').textContent = pref.volume; savePref();
@@ -190,16 +200,27 @@
       // 若等點了才開始載入 YouTube，載完時已不算點擊，會被擋成靜音（上次選過靜音進入的訪客就會這樣）。
       if (!player) loadApi();
     }
+    // 常駐：任何一次點擊都確認音樂在播（靜音自動播放→解除靜音；被系統暫停→接續）。已在播放時不做任何事。
     const first = e => {
       if (root.contains(e.target) || e.target.closest('.enter-gate')) return;
-      ['pointerup', 'keydown'].forEach(t => document.removeEventListener(t, first, true));
-      if (wantPlay) { unmuteNow(); if (ready && player.getPlayerState() !== YT.PlayerState.PLAYING) player.playVideo(); }
+      nudge();
     };
     ['pointerup', 'keydown'].forEach(t => document.addEventListener(t, first, true));
+    // 平板鎖屏、切 App 或分頁回到前景時，自動接續；若瀏覽器不讓無點擊的播放，改提示點一下頁面。
+    const resume = () => {
+      if (document.hidden || !wantPlay || !ready) return;
+      if (player.getPlayerState() === YT.PlayerState.PLAYING) return;
+      try { player.playVideo(); } catch {}
+      setTimeout(() => {
+        if (wantPlay && ready && player.getPlayerState() !== YT.PlayerState.PLAYING) setState(T('點一下頁面即可繼續聆聽','Tap the page to resume the chant'), false);
+      }, 1200);
+    };
+    document.addEventListener('visibilitychange', resume);
+    addEventListener('pageshow', resume);
   }
 
   // ── 外框：攔截站內換頁，改在全螢幕 iframe 內載入 ──
-  window.__KSHELL = { lock: on => root.classList.toggle('shell-lock', !!on), unmute: () => { if (wantPlay) { unmuteNow(); if (ready && player.getPlayerState() !== YT.PlayerState.PLAYING) player.playVideo(); } } };
+  window.__KSHELL = { nudge, lock: on => root.classList.toggle('shell-lock', !!on), unmute: () => { if (wantPlay) { unmuteNow(); if (ready && player.getPlayerState() !== YT.PlayerState.PLAYING) player.playVideo(); } } };
   let frame = null; const homeTitle = document.title;
   const isPage = u => u.origin === location.origin && /(\.html?|\/)$/i.test(u.pathname);
   function showFrame(on) { document.documentElement.classList.toggle('shell-on', on); if (frame) frame.hidden = !on; }
