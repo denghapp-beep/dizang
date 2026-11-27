@@ -2,6 +2,11 @@ name: 經文防覆蓋檢查
 on:
   push:
     branches: [main]
+permissions:
+  contents: write
+concurrency:
+  group: sutra-guard
+  cancel-in-progress: false
 jobs:
   guard:
     runs-on: ubuntu-latest
@@ -9,8 +14,28 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: 檢查這次推送是否把經文換回舊版
+      - name: 檢查這次推送
+        id: check
         run: |
           BEFORE="${{ github.event.before }}"
           if [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then BEFORE=HEAD~1; fi
-          python3 tools/guard.py "$BEFORE" "${{ github.sha }}"
+          echo "before=$BEFORE" >> "$GITHUB_OUTPUT"
+          if python3 tools/guard.py "$BEFORE" "${{ github.sha }}"; then echo "ok=1" >> "$GITHUB_OUTPUT"; else echo "ok=0" >> "$GITHUB_OUTPUT"; fi
+      - name: 未經程序的經文修改：自動還原成推送前版本
+        if: steps.check.outputs.ok == '0'
+        run: |
+          BEFORE="${{ steps.check.outputs.before }}"
+          PATHS=$(python3 tools/guard.py "$BEFORE" "${{ github.sha }}" --paths)
+          git config user.name "sutra-guard"
+          git config user.email "sutra-guard@users.noreply.github.com"
+          git pull -q --rebase origin main
+          for p in $PATHS; do
+            if git cat-file -e "$BEFORE:$p" 2>/dev/null; then git checkout "$BEFORE" -- "$p"; else git rm -q --ignore-unmatch -- "$p"; fi
+          done
+          if ! git diff --cached --quiet || ! git diff --quiet; then
+            git add -- $PATHS 2>/dev/null || true
+            git commit -q -m "還原：自動擋下未經程序的經文修改（${{ github.sha }}）" -m "受影響檔案：$PATHS" -m "修改經文須在提交訊息加一行「經文修改：依據」；見 CLAUDE.md。"
+            git push origin HEAD:main
+          fi
+          echo "::error::這次推送未經程序修改經文，已自動還原：$PATHS"
+          exit 1
