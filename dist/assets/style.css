@@ -144,7 +144,7 @@ mark{background:color-mix(in srgb,var(--accent) 30%,transparent);color:inherit;p
 .music.is-playing .music-icon{animation:music-pulse 2.4s ease-in-out infinite}
 @keyframes music-pulse{50%{opacity:.35}}
 .music-panel{position:absolute;left:0;bottom:54px;width:min(280px,calc(100vw - 36px));background:var(--bg);color:var(--ink);border:1px solid var(--line);padding:14px 16px 12px;box-shadow:0 18px 40px #0006;display:grid;gap:10px}
-.music-panel[hidden]{display:none}
+.music-panel.collapsed{display:grid;padding:0;position:fixed;left:auto;right:0;bottom:0;width:240px;opacity:.01;pointer-events:none;z-index:-1;border:0;box-shadow:none;overflow:hidden}
 .music-head{display:flex;justify-content:space-between;align-items:center;font:15px var(--serif);letter-spacing:.12em;color:var(--accent)}
 .music-close{font-size:20px;min-width:36px;min-height:36px;color:var(--muted)}
 .music-row{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:10px;font-size:12px;color:var(--muted)}
@@ -152,7 +152,7 @@ mark{background:color-mix(in srgb,var(--accent) 30%,transparent);color:inherit;p
 .music-play[aria-pressed=true]{border-color:var(--accent);color:var(--accent)}
 .music-row input[type=range]{width:100%;accent-color:var(--accent)}
 .music-vol-out{font-size:11px;min-width:18px;text-align:right;font-variant-numeric:tabular-nums}
-.music-player-wrap{width:240px;max-width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--line)}
+.music-player-wrap{width:240px;max-width:100%;height:232px;background:#000;border:1px solid var(--line)}
 .music-player-wrap iframe,.music-player-wrap #music-player{width:100%;height:100%;display:block}
 .music-note{font-size:10.5px;line-height:1.7;color:var(--muted);margin:0}
 .showcase .music{--bg:#f8f6f0;--surface:#fff}
