@@ -1,0 +1,16 @@
+name: 經文防覆蓋檢查
+on:
+  push:
+    branches: [main]
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: 檢查這次推送是否把經文換回舊版
+        run: |
+          BEFORE="${{ github.event.before }}"
+          if [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then BEFORE=HEAD~1; fi
+          python3 tools/guard.py "$BEFORE" "${{ github.sha }}"
