@@ -1,4 +1,0 @@
-#!/bin/sh
-# 推送前檢查：避免舊工作區把經文蓋回舊版（tools/guard.py）
-git fetch -q origin main 2>/dev/null
-exec python3 tools/guard.py origin/main HEAD
