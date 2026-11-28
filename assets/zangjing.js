@@ -169,13 +169,15 @@
       $('.zr-prev').disabled = st.page === 0 && scr === 0; $('.zr-next').disabled = st.page === N - 1 && scr >= k - 1; }
     // 字型（罕用字、校勘小字的字型切片）可能在分屏量好之後才載入，行寬會變，原本算好的分屏位置就偏了，
     // 造成畫面邊緣的行被切半。翻屏前與字型載入後都重新量一次，並保持停在原本那一行。
-    function remeasure() { if (st.dir !== 'v') return; const o = offs[scr] || 0; measure();
-      let i = 0; while (i + 1 < offs.length && offs[i + 1] <= o + 2) i++; scr = i; showScr(); }
+    // 重新量行後，找「離原本位置最近」的那一屏（不能只找不超過原位置的那屏：
+    // 若重排後每屏起點都往後挪了幾像素，會一直退回前一屏，看起來就是翻不動、卡住）
+    const nearest = o => { let b = 0; for (let i = 1; i < offs.length; i++) if (Math.abs(offs[i] - o) < Math.abs(offs[b] - o)) b = i; return b; };
+    function remeasure() { if (st.dir !== 'v') return; const o = offs[scr] || 0; measure(); scr = nearest(o); showScr(); }
     if (document.fonts) document.fonts.addEventListener('loadingdone', () => remeasure());
     // 平板瀏覽器收放網址列、工具列時，閱讀區高度會變（不一定觸發 resize），每行字數跟著變，也要重新量
     if ('ResizeObserver' in window) { let rh = 0, rt = 0; new ResizeObserver(() => { const h = page.clientHeight; if (st.dir !== 'v' || h === rh) return; rh = h; clearTimeout(rt); rt = setTimeout(() => { fitV(); remeasure(); }, 120); }).observe(page); }
     function screenV(dir) { // dir 1＝往後讀（往左），-1＝往前
-      if (st.dir === 'v') { const o = offs[scr] || 0; measure(); let i = 0; while (i + 1 < offs.length && offs[i + 1] <= o + 2) i++; scr = i; }
+      if (st.dir === 'v') { const o = offs[scr] || 0; measure(); scr = nearest(o); }
       if (dir > 0) { if (scr < offs.length - 1) { scr++; showScr(); } else if (st.page < N - 1) { toEnd = false; go(st.page + 1, false); } else showScr(); }
       else { if (scr > 0) { scr--; showScr(); } else if (st.page > 0) { toEnd = true; go(st.page - 1, false); toEnd = false; } else showScr(); } }
     // 經書模式時多放一筆瀏覽紀錄：平板／手機從螢幕邊緣往右滑翻頁時，容易被瀏覽器當成「上一頁」手勢，
